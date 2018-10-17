@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="5.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="300.0" prefWidth="300.0" vgap="5.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Button mnemonicParsing="false" onAction="#Login" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="14" GridPane.vgrow="NEVER">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <TextField fx:id="txtUsername" promptText="Username" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <PasswordField fx:id="txtPassword" promptText="Password" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="9" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+         <font>
+            <Font size="18.0" />
+         </font></PasswordField>
+      <Label fx:id="lblStatus" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="238.0" text="Status" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.vgrow="NEVER">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Button mnemonicParsing="false" onAction="#Register" text="Don't have an acount?" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+      <Label text="SOS HOTEL SEARCH" textFill="#3842a4" underline="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</GridPane>
