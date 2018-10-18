@@ -3,6 +3,7 @@ package application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -27,11 +28,12 @@ public class Controller {
       lblStatus.setText("Login Success");
 
       //To change scenes copy and paste this into if statement and enter the new fxml scene name into parent root
-      Stage primaryStage = new Stage();
-      Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml")); //If login is success, Dashboard.fxml will be shown
-      primaryStage.setTitle("SOS Hotel Search");
-      primaryStage.setScene(new Scene(root, 300, 275));
-      primaryStage.show();
+      Parent register = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+      Scene registerScene = new Scene(register);
+      //Goes to register screen
+      Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+      window.setScene(registerScene);
+      window.show();
     }
     else {
 
@@ -42,11 +44,15 @@ public class Controller {
   //Register button action
   public void Register(ActionEvent event) throws Exception{
 
-    Stage primaryStage = new Stage();
-    Parent root = FXMLLoader.load(getClass().getResource("Register.fxml")); //Goes to register screen
-    primaryStage.setTitle("SOS Hotel Search");
-    primaryStage.setScene(new Scene(root, 300, 275));
-    primaryStage.show();
+    Parent register = FXMLLoader.load(getClass().getResource("Register.fxml"));
+    Scene registerScene = new Scene(register);
+     //Goes to register screen
+    Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+   window.setScene(registerScene);
+    window.show();
+
+
+
 
   }
 
