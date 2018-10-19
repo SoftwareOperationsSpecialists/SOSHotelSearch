@@ -7,15 +7,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class RegController {
+public class FinalController {
 
-  public void finalreg(ActionEvent event) throws Exception {
+  public void Ok(ActionEvent event) throws Exception {
 
-    Parent newScene = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
-    Scene newScene1 = new Scene(newScene);
+    Parent dash = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+    Scene dash1 = new Scene(dash);
 
     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(newScene1);
+    window.setScene(dash1);
     window.show();
 
 
