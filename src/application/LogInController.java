@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class Controller {
+public class LogInController {
 
   @FXML
   private Label lblStatus;
@@ -24,7 +24,7 @@ public class Controller {
 
   //Action for login button
   public void Login(ActionEvent event) throws Exception{
-    if(txtUsername.getText().equals("User") && txtPassword.getText().equals("pass")){
+    if(txtUsername.getText().equals("user") && txtPassword.getText().equals("pass")){
       lblStatus.setText("Login Success");
 
       //To change scenes copy and paste this into if statement and enter the new fxml scene name into parent root
