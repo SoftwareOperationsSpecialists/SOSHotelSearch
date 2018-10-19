@@ -28,11 +28,11 @@ public class LogInController {
       lblStatus.setText("Login Success");
 
       //To change scenes copy and paste this into if statement and enter the new fxml scene name into parent root
-      Parent register = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
-      Scene registerScene = new Scene(register);
+      Parent Dashboard = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+      Scene dasboard = new Scene(Dashboard);
       //Goes to register screen
       Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-      window.setScene(registerScene);
+      window.setScene(dasboard);
       window.show();
     }
     else {
