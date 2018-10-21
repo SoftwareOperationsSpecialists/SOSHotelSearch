@@ -11,11 +11,11 @@ public class PayController {
 
   public void Pay(ActionEvent event) throws Exception {
 
-    Parent newScene = FXMLLoader.load(getClass().getResource("FinalScene.fxml"));
-    Scene newScene1 = new Scene(newScene);
+    Parent FinalScene = FXMLLoader.load(getClass().getResource("FinalScene.fxml"));
+    Scene finalScene = new Scene(FinalScene);
 
     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(newScene1);
+    window.setScene(finalScene);
     window.show();
 
 

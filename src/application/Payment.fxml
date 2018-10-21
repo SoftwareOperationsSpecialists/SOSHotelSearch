@@ -27,7 +27,7 @@
                   <TextField layoutX="66.0" layoutY="138.0" prefHeight="27.0" prefWidth="107.0" promptText="Expiry date" />
                   <TextField layoutX="177.0" layoutY="138.0" prefHeight="27.0" prefWidth="56.0" promptText="Code" />
                   <TextField layoutX="66.0" layoutY="180.0" promptText="Zip/Postal code" />
-                  <Button fx:id="Pay" layoutX="129.0" layoutY="217.0" mnemonicParsing="false" text="Pay" />
+                  <Button layoutX="129.0" layoutY="217.0" mnemonicParsing="false" onAction="#Pay" text="Pay" />
                </children></AnchorPane>
         </items>
       </SplitPane>
