@@ -33,7 +33,7 @@ public class HotelController {
   // Cancel Button will go back to the "Hotel Search" Scene
   public void CancelButton(ActionEvent event) throws Exception {
 
-    Parent HotelSearch = FXMLLoader.load(getClass().getResource("HotelSearch.fxml"));
+    Parent HotelSearch = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
     Scene hotelSearch = new Scene(HotelSearch);
     //Goes to hotel search scene
     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
