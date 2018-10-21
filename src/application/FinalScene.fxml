@@ -17,7 +17,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="Ok" layoutX="121.0" layoutY="194.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="58.0" text="Ok">
+      <Button layoutX="121.0" layoutY="194.0" mnemonicParsing="false" onAction="#Ok" prefHeight="30.0" prefWidth="58.0" text="Ok">
          <font>
             <Font size="19.0" />
          </font>

@@ -51,9 +51,6 @@ public class LogInController {
    window.setScene(registerScene);
     window.show();
 
-
-
-
   }
 
 

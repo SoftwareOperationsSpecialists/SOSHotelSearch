@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="0.0" prefWidth="95.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DashboardController">
+<AnchorPane prefHeight="0.0" prefWidth="95.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DashController">
    <children>
       <SplitPane dividerPositions="0.4059701492537313" prefHeight="400.0" prefWidth="672.0">
         <items>
@@ -29,12 +29,12 @@
                            <children>
                               <Pane prefHeight="96.0" prefWidth="248.0">
                                  <children>
-                                    <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="HolidayInn" fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                                        <effect>
                                           <DropShadow />
                                        </effect>
                                        <image>
-                                          <Image url="@holiday-inn-the-colony-4629618286-4x3.jpeg" />
+                                          <Image url="@hotelthumbs/holiday-inn-the-colony-4629618286-4x3.jpeg" />
                                        </image>
                                     </ImageView>
                                     <Label layoutX="107.0" layoutY="14.0" prefHeight="17.0" prefWidth="127.0" text="Holdiay Inn" textAlignment="CENTER" />
@@ -55,14 +55,14 @@
                                        </font>
                                     </Label>
                                     <Separator layoutX="58.0" layoutY="95.0" prefWidth="200.0" />
-                                    <Button layoutX="-4.0" layoutY="-1.0" mnemonicParsing="false"  opacity="0.0" prefHeight="96.0" prefWidth="252.0" text="Button" />
+                                    <Button layoutX="-4.0" layoutY="-1.0" mnemonicParsing="false" onAction="#HotelInfo" opacity="0.0" prefHeight="96.0" prefWidth="252.0" text="Button" />
                                  </children>
                               </Pane>
                               <Pane layoutY="96.0">
                                  <children>
-                                    <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="Hyatt" fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@Hyatt-Place-St-George-Convention-Center-P004-Exterior.adapt.16x9.1920.1080.jpg" />
+                                          <Image url="@hotelthumbs/Hyatt-Place-St-George-Convention-Center-P004-Exterior.adapt.16x9.1920.1080.jpg" />
                                        </image>
                                        <effect>
                                           <DropShadow />
@@ -90,9 +90,9 @@
                               </Pane>
                               <Pane layoutY="192.0" prefHeight="96.0" prefWidth="248.0">
                                  <children>
-                                    <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="Marriott" fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@T1114MARRIOTTTUCSON.jpg" />
+                                          <Image url="@hotelthumbs/T1114MARRIOTTTUCSON.jpg" />
                                        </image>
                                        <effect>
                                           <DropShadow />
@@ -120,9 +120,9 @@
                               </Pane>
                               <Pane layoutY="288.0" prefHeight="96.0" prefWidth="248.0">
                                  <children>
-                                    <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="LaQuinta" fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@La-Quinta.jpg" />
+                                          <Image url="@hotelthumbs/La-Quinta.jpg" />
                                        </image>
                                        <effect>
                                           <DropShadow />
@@ -152,7 +152,7 @@
                                  <children>
                                     <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@holiday-inn-the-colony-4629618286-4x3.jpeg" />
+                                          <Image url="@hotelthumbs/holiday-inn-the-colony-4629618286-4x3.jpeg" />
                                        </image>
                                        <effect>
                                           <DropShadow />
@@ -192,7 +192,7 @@
                   <Button layoutX="135.0" layoutY="14.0" mnemonicParsing="false" text="Filter" />
                   <MenuButton layoutX="186.0" layoutY="14.0" mnemonicParsing="false" text="Sort">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Price (high to low)" />
+                      <MenuItem mnemonicParsing="false" onAction="#HighToLow" text="Price (high to low)" />
                       <MenuItem mnemonicParsing="false" text="Price (low to high)" />
                         <MenuItem mnemonicParsing="false" text="User Rating" />
                         <MenuItem mnemonicParsing="false" text="Distance" />
@@ -232,7 +232,7 @@
                         <Image url="@Google-Maps-Marker-For-Residencelamontagne-Svg-Hi-Epic-Google-Maps-Marker.jpg" />
                      </image>
                   </ImageView>
-                  <Button layoutX="253.0" layoutY="199.0" mnemonicParsing="false" opacity="0.0" prefHeight="43.0" prefWidth="27.0" text="Button" />
+                  <Button layoutX="253.0" layoutY="199.0" mnemonicParsing="false" onAction="#HotelInfo" opacity="0.0" prefHeight="43.0" prefWidth="27.0" text="Button" />
                   <Slider layoutX="367.0" layoutY="247.0" orientation="VERTICAL" />
                </children></AnchorPane>
         </items>

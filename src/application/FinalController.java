@@ -11,11 +11,11 @@ public class FinalController {
 
   public void Ok(ActionEvent event) throws Exception {
 
-    Parent dash = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
-    Scene dash1 = new Scene(dash);
+    Parent Dashboard = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+    Scene dashboard = new Scene(Dashboard);
 
     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(dash1);
+    window.setScene(dashboard);
     window.show();
 
 
