@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="0.0" prefWidth="95.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+<AnchorPane prefHeight="0.0" prefWidth="95.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DashController">
    <children>
       <SplitPane dividerPositions="0.4059701492537313" prefHeight="400.0" prefWidth="672.0">
         <items>
@@ -34,7 +34,7 @@
                                           <DropShadow />
                                        </effect>
                                        <image>
-                                          <Image url="@../hotel%20thumbs/holiday-inn-the-colony-4629618286-4x3.jpeg" />
+                                          <Image url="@hotelthumbs/holiday-inn-the-colony-4629618286-4x3.jpeg" />
                                        </image>
                                     </ImageView>
                                     <Label layoutX="107.0" layoutY="14.0" prefHeight="17.0" prefWidth="127.0" text="Holdiay Inn" textAlignment="CENTER" />
@@ -62,7 +62,7 @@
                                  <children>
                                     <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../hotel%20thumbs/Hyatt-Place-St-George-Convention-Center-P004-Exterior.adapt.16x9.1920.1080.jpg" />
+                                          <Image url="@hotelthumbs/Hyatt-Place-St-George-Convention-Center-P004-Exterior.adapt.16x9.1920.1080.jpg" />
                                        </image>
                                        <effect>
                                           <DropShadow />
@@ -92,7 +92,7 @@
                                  <children>
                                     <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../hotel%20thumbs/T1114MARRIOTTTUCSON.jpg" />
+                                          <Image url="@hotelthumbs/T1114MARRIOTTTUCSON.jpg" />
                                        </image>
                                        <effect>
                                           <DropShadow />
@@ -122,7 +122,7 @@
                                  <children>
                                     <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../hotel%20thumbs/La-Quinta.jpg" />
+                                          <Image url="@hotelthumbs/La-Quinta.jpg" />
                                        </image>
                                        <effect>
                                           <DropShadow />
@@ -152,7 +152,7 @@
                                  <children>
                                     <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../hotel%20thumbs/holiday-inn-the-colony-4629618286-4x3.jpeg" />
+                                          <Image url="@hotelthumbs/holiday-inn-the-colony-4629618286-4x3.jpeg" />
                                        </image>
                                        <effect>
                                           <DropShadow />

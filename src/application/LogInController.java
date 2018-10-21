@@ -29,10 +29,10 @@ public class LogInController {
 
       //To change scenes copy and paste this into if statement and enter the new fxml scene name into parent root
       Parent Dashboard = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
-      Scene dasboard = new Scene(Dashboard);
+      Scene dashboard = new Scene(Dashboard);
       //Goes to register screen
       Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-      window.setScene(dasboard);
+      window.setScene(dashboard);
       window.show();
     }
     else {
@@ -50,9 +50,6 @@ public class LogInController {
     Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
    window.setScene(registerScene);
     window.show();
-
-
-
 
   }
 
