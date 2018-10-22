@@ -17,87 +17,59 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1"
-  xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ReviewsController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ReviewsController">
   <children>
-    <SplitPane dividerPositions="0.6507537688442211" orientation="VERTICAL" prefHeight="400.0"
-      prefWidth="600.0">
+    <SplitPane dividerPositions="0.6507537688442211" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
       <items>
         <AnchorPane prefWidth="598.0">
           <children>
-            <ScrollPane layoutY="41.0" prefHeight="154.0" prefWidth="598.0"
-              AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-              AnchorPane.topAnchor="41.0">
+            <ScrollPane layoutY="41.0" prefHeight="154.0" prefWidth="598.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="214.0" prefWidth="594.0">
                   <children>
                     <Pane prefHeight="75.0" prefWidth="583.0">
                       <children>
-                        <Label layoutX="21.0" layoutY="14.0" prefHeight="17.0" prefWidth="47.0"
-                          text="User 1"/>
-                        <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="41.0"
-                          layoutY="45.0" prefHeight="32.0" prefWidth="502.0"
-                          text="Really enjoyed the front desk staff, pool was great too.&#10;"/>
-                        <Separator layoutY="71.0" prefHeight="0.0" prefWidth="583.0"/>
-                        <Circle fill="DODGERBLUE" layoutX="71.0" layoutY="23.0" radius="5.0"
-                          stroke="BLACK" strokeType="INSIDE"/>
-                        <Circle fill="DODGERBLUE" layoutX="88.0" layoutY="23.0" radius="5.0"
-                          stroke="BLACK" strokeType="INSIDE"/>
-                        <Circle fill="DODGERBLUE" layoutX="105.0" layoutY="23.0" radius="5.0"
-                          stroke="BLACK" strokeType="INSIDE"/>
-                        <Circle fill="DODGERBLUE" layoutX="122.0" layoutY="23.0" radius="5.0"
-                          stroke="BLACK" strokeType="INSIDE"/>
-                        <Circle fill="DODGERBLUE" layoutX="139.0" layoutY="23.0" radius="5.0"
-                          stroke="BLACK" strokeType="INSIDE"/>
+                        <Label layoutX="21.0" layoutY="14.0" prefHeight="17.0" prefWidth="47.0" text="User 1" />
+                        <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="41.0" layoutY="45.0" prefHeight="32.0" prefWidth="502.0" text="Really enjoyed the front desk staff, pool was great too.&#10;" />
+                        <Separator layoutY="71.0" prefHeight="0.0" prefWidth="583.0" />
+                        <Circle fill="DODGERBLUE" layoutX="71.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="DODGERBLUE" layoutX="88.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="DODGERBLUE" layoutX="105.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="DODGERBLUE" layoutX="122.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="DODGERBLUE" layoutX="139.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
                       </children>
                       <padding>
-                        <Insets bottom="2.0"/>
+                        <Insets bottom="2.0" />
                       </padding>
                     </Pane>
                     <Pane layoutY="75.0" prefHeight="75.0" prefWidth="583.0">
                       <children>
-                        <Label layoutX="21.0" layoutY="14.0" prefHeight="15.0" prefWidth="54.0"
-                          text="User 2"/>
-                        <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="41.0"
-                          layoutY="42.0" prefHeight="38.0" prefWidth="502.0"
-                          text="Great breakfast, rooms could use some TLC."/>
-                        <Separator layoutY="71.0" prefHeight="0.0" prefWidth="583.0"/>
-                        <Circle fill="DODGERBLUE" layoutX="71.0" layoutY="20.0" radius="5.0"
-                          stroke="BLACK" strokeType="INSIDE"/>
-                        <Circle fill="DODGERBLUE" layoutX="88.0" layoutY="20.0" radius="5.0"
-                          stroke="BLACK" strokeType="INSIDE"/>
-                        <Circle fill="DODGERBLUE" layoutX="105.0" layoutY="20.0" radius="5.0"
-                          stroke="BLACK" strokeType="INSIDE"/>
-                        <Circle fill="DODGERBLUE" layoutX="122.0" layoutY="20.0" radius="5.0"
-                          stroke="BLACK" strokeType="INSIDE"/>
-                        <Circle fill="WHITE" layoutX="139.0" layoutY="20.0" radius="5.0"
-                          stroke="BLACK" strokeType="INSIDE"/>
+                        <Label layoutX="21.0" layoutY="14.0" prefHeight="15.0" prefWidth="54.0" text="User 2" />
+                        <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="41.0" layoutY="42.0" prefHeight="38.0" prefWidth="502.0" text="Great breakfast, rooms could use some TLC." />
+                        <Separator layoutY="71.0" prefHeight="0.0" prefWidth="583.0" />
+                        <Circle fill="DODGERBLUE" layoutX="71.0" layoutY="20.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="DODGERBLUE" layoutX="88.0" layoutY="20.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="DODGERBLUE" layoutX="105.0" layoutY="20.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="DODGERBLUE" layoutX="122.0" layoutY="20.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="139.0" layoutY="20.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
                       </children>
                       <padding>
-                        <Insets bottom="2.0"/>
+                        <Insets bottom="2.0" />
                       </padding>
                     </Pane>
                     <Pane layoutY="150.0" prefHeight="75.0" prefWidth="583.0">
                       <children>
-                        <Circle fill="DODGERBLUE" layoutX="71.0" layoutY="23.0" radius="5.0"
-                          stroke="BLACK" strokeType="INSIDE"/>
-                        <Label layoutX="21.0" layoutY="14.0" prefHeight="18.0" prefWidth="54.0"
-                          text="User 3"/>
-                        <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="41.0"
-                          layoutY="42.0" prefHeight="38.0" prefWidth="502.0"
-                          text="For the money, it was good."/>
-                        <Separator layoutX="7.0" layoutY="69.0" prefHeight="4.0" prefWidth="583.0"/>
-                        <Circle fill="DODGERBLUE" layoutX="88.0" layoutY="23.0" radius="5.0"
-                          stroke="BLACK" strokeType="INSIDE"/>
-                        <Circle fill="DODGERBLUE" layoutX="105.0" layoutY="23.0" radius="5.0"
-                          stroke="BLACK" strokeType="INSIDE"/>
-                        <Circle fill="DODGERBLUE" layoutX="122.0" layoutY="23.0" radius="5.0"
-                          stroke="BLACK" strokeType="INSIDE"/>
-                        <Circle fill="WHITE" layoutX="139.0" layoutY="23.0" radius="5.0"
-                          stroke="BLACK" strokeType="INSIDE"/>
+                        <Circle fill="DODGERBLUE" layoutX="71.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label layoutX="21.0" layoutY="14.0" prefHeight="18.0" prefWidth="54.0" text="User 3" />
+                        <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="41.0" layoutY="42.0" prefHeight="38.0" prefWidth="502.0" text="For the money, it was good." />
+                        <Separator layoutX="7.0" layoutY="69.0" prefHeight="4.0" prefWidth="583.0" />
+                        <Circle fill="DODGERBLUE" layoutX="88.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="DODGERBLUE" layoutX="105.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="DODGERBLUE" layoutX="122.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="139.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
                       </children>
                       <padding>
-                        <Insets bottom="2.0"/>
+                        <Insets bottom="2.0" />
                       </padding>
                     </Pane>
                   </children>
@@ -106,43 +78,40 @@
             </ScrollPane>
             <MenuButton mnemonicParsing="false" text="Navigation">
               <items>
-                <MenuItem mnemonicParsing="false" text="My Account"/>
-                <MenuItem mnemonicParsing="false" text="My Saved Hotels"/>
-                <MenuItem mnemonicParsing="false" text="My Reservations"/>
+                <MenuItem mnemonicParsing="false" text="My Account" />
+                <MenuItem mnemonicParsing="false" text="My Saved Hotels" />
+                <MenuItem mnemonicParsing="false" text="My Reservations" />
               </items>
             </MenuButton>
-            <Label layoutX="182.0" layoutY="9.0" prefHeight="32.0" prefWidth="235.0"
-              text="Holiday Inn Reviews">
+            <Label layoutX="182.0" layoutY="9.0" prefHeight="32.0" prefWidth="235.0" text="Holiday Inn Reviews">
               <font>
-                <Font size="22.0"/>
+                <Font size="22.0" />
               </font>
             </Label>
           </children>
         </AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="141.0" prefWidth="598.0">
           <children>
-            <TextField alignment="TOP_LEFT" layoutX="4.0" layoutY="14.0" prefHeight="75.0"
-              prefWidth="556.0" promptText="Please enter Review here"/>
-            <Button layoutX="433.0" layoutY="97.0" mnemonicParsing="false" text="Submit"/>
+            <TextField alignment="TOP_LEFT" layoutX="4.0" layoutY="14.0" prefHeight="75.0" prefWidth="556.0" promptText="Please enter Review here" />
+            <Button layoutX="433.0" layoutY="97.0" mnemonicParsing="false" onAction="#SubmitButton" text="Submit" />
             <ChoiceBox layoutX="180.0" layoutY="97.0" prefHeight="25.0" prefWidth="54.0">
               <items>
                 <FXCollections fx:factory="observableArrayList">
-                  <String fx:value="1"/>
-                  <String fx:value="2"/>
-                  <String fx:value="3"/>
-                  <String fx:value="4"/>
-                  <String fx:value="5"/>
+                  <String fx:value="1" />
+                  <String fx:value="2" />
+                  <String fx:value="3" />
+                  <String fx:value="4" />
+                  <String fx:value="5" />
 
                 </FXCollections>
               </items>
             </ChoiceBox>
-            <Label layoutX="14.0" layoutY="97.0" prefHeight="17.0" prefWidth="150.0"
-              text="Choose Star Rating">
+            <Label layoutX="14.0" layoutY="97.0" prefHeight="17.0" prefWidth="150.0" text="Choose Star Rating">
               <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
               </font>
             </Label>
-            <Button layoutX="519.0" layoutY="97.0" mnemonicParsing="false" text="Back"/>
+            <Button layoutX="519.0" layoutY="97.0" mnemonicParsing="false" onAction="#BackButton" text="Back" />
 
           </children>
         </AnchorPane>
