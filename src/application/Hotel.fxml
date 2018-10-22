@@ -2,25 +2,27 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="672.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HotelController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="672.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HotelController">
   <children>
-    <Text fx:id="hotel" layoutX="41.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Holiday Inn">
+    <Text fx:id="hotel" layoutX="41.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Holiday Inn">
       <font>
         <Font size="24.0" />
       </font>
     </Text>
-    <Text fx:id="location" layoutX="41.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location : Fort Myers, FL&#10;&#10;&#10;&#10;" wrappingWidth="256.94139379262924" />
+    <Text fx:id="location" layoutX="41.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location : Fort Myers, FL&#10;&#10;&#10;&#10;" wrappingWidth="173.99999713897705" />
     <Text layoutX="41.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price : $119" wrappingWidth="202.01171875">
       <font>
         <Font size="24.0" />
       </font>
     </Text>
-    <Text layoutX="41.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Star Rating :" wrappingWidth="202.01171371340752">
+    <Text layoutX="41.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Star Rating : 4/5" wrappingWidth="202.01171371340752">
       <font>
         <Font size="24.0" />
       </font>
@@ -31,5 +33,12 @@
     <DatePicker fx:id="checkInDate" layoutX="41.0" layoutY="183.0" promptText="Enter Check-In Date" />
     <DatePicker fx:id="checkOutDate" layoutX="258.0" layoutY="183.0" promptText="Enter Ckeck-Out Date" />
     <TextField fx:id="numberOfRooms" layoutX="41.0" layoutY="140.0" promptText="Enter Number of Rooms" />
+      <MenuButton mnemonicParsing="false" text="Navigation">
+         <items>
+            <MenuItem mnemonicParsing="false" text="My Account" />
+            <MenuItem mnemonicParsing="false" text="My Saved Hotels" />
+            <MenuItem mnemonicParsing="false" text="My Reservations" />
+         </items>
+      </MenuButton>
   </children>
 </AnchorPane>
