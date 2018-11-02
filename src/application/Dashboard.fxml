@@ -15,7 +15,6 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DashController">
 
 
@@ -52,9 +51,9 @@
                         </Label>
                         <Circle fill="DODGERBLUE" layoutX="146.0" layoutY="55.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="#1f93ff00" layoutX="158.0" layoutY="55.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Label layoutX="206.0" layoutY="29.0" prefHeight="44.0" prefWidth="83.0" text="\$119" textFill="#1b9dc1">
+                        <Label layoutX="206.0" layoutY="29.0" prefHeight="52.0" prefWidth="92.0" text="\$119" textFill="#1b9dc1">
                           <font>
-                            <Font size="36.0" />
+                            <Font name="Avenir Black" size="36.0" />
                           </font>
                         </Label>
                         <Separator layoutX="-3.0" layoutY="95.0" prefHeight="3.0" prefWidth="313.0" />
@@ -153,7 +152,7 @@
                         <Circle fill="#1f93ff00" layoutX="158.0" layoutY="56.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
                         <Label layoutX="203.0" layoutY="33.0" prefHeight="50.0" prefWidth="111.0" text="\$109" textFill="#1b9dc1">
                           <font>
-                            <Font size="36.0" />
+                            <Font name="Avenir Black" size="36.0" />
                           </font>
                         </Label>
                         <Separator layoutX="-2.0" layoutY="95.0" prefHeight="3.0" prefWidth="304.0" />
