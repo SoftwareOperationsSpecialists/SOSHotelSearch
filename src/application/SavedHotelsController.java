@@ -1,17 +1,13 @@
 package application;
 
-import java.net.URL;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-
-public class DashController {
+public class SavedHotelsController {
 
   public void HotelInfo(ActionEvent event) throws Exception {
     Parent Hotel = FXMLLoader.load(getClass().getResource("Hotel.fxml"));
@@ -21,23 +17,15 @@ public class DashController {
     window.setScene(hotel);
     window.show();
   }
-  public void HighToLow(ActionEvent event) throws Exception{
 
-  }
-
-
-  public void savedHotels(ActionEvent event) throws Exception {
-   
-
-  }
-
-  public void logout(ActionEvent event) throws Exception {
-    Parent Logout = FXMLLoader.load(getClass().getResource("login.fxml"));
-    Scene logoutScene = new Scene(Logout);
+  public void back(ActionEvent event) throws Exception {
+    Parent Back = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+    Scene backScene = new Scene(Back);
 
     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(logoutScene);
+    window.setScene(backScene);
     window.show();
   }
+
 
 }

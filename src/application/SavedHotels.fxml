@@ -7,7 +7,6 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,22 +14,22 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DashController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SavedHotelsController">
 
 
 
   <children>
-    <SplitPane dividerPositions="0.45484949832775917" prefHeight="500.0" prefWidth="700.0">
+    <SplitPane prefHeight="500.0" prefWidth="700.0">
       <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;">
           <children>
-            <ScrollPane hbarPolicy="NEVER" layoutX="-6.0" layoutY="45.0" prefHeight="454.0" prefWidth="322.0" style="-fx-background-color: white; -fx-border-color: #dddddd;" styleClass="scroll" stylesheets="@style.css">
-              <content>
-                <AnchorPane prefHeight="423.0" prefWidth="248.0">
+            <ScrollPane hbarPolicy="NEVER" layoutX="-4.0" layoutY="46.0" prefHeight="452.0" prefWidth="706.0" style="-fx-background-color: white; -fx-border-color: #dddddd;" styleClass="scroll" stylesheets="@style.css">
+                     <content>
+                <AnchorPane prefHeight="480.0" prefWidth="706.0">
                   <children>
-                    <Pane prefHeight="96.0" prefWidth="303.0" style="-fx-background-color: white;">
+                    <Pane prefHeight="96.0" prefWidth="688.0" style="-fx-background-color: white;">
                       <children>
-                        <Button layoutX="-4.0" layoutY="1.0" mnemonicParsing="false" onAction="#HotelInfo" opacity="0.0" prefHeight="96.0" prefWidth="305.0" style="-fx-background-color: white;" text="Button" />
+                        <Button layoutX="-4.0" layoutY="1.0" mnemonicParsing="false" onAction="#HotelInfo" opacity="0.0" prefHeight="96.0" prefWidth="691.0" style="-fx-background-color: white;" text="Button" />
                         <ImageView fx:id="HolidayInn" fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                             <Image url="@hotelthumbs/holiday-inn-the-colony-4629618286-4x3.jpeg" />
@@ -39,7 +38,8 @@
                         <Label layoutX="107.0" layoutY="14.0" prefHeight="17.0" prefWidth="127.0" text="Holiday Inn" textAlignment="CENTER" textFill="#304468">
                           <font>
                             <Font name="Avenir Black" size="17.0" />
-                          </font></Label>
+                          </font>
+                                    </Label>
                         <Label layoutX="107.0" layoutY="33.0" text="3-Star Hotel" textFill="#1b9dc1" />
                         <Circle fill="DODGERBLUE" layoutX="111.0" layoutY="55.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="DODGERBLUE" layoutX="122.0" layoutY="55.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
@@ -56,10 +56,10 @@
                             <Font name="Avenir Black" size="36.0" />
                           </font>
                         </Label>
-                        <Separator layoutX="-3.0" layoutY="95.0" prefHeight="3.0" prefWidth="313.0" />
+                        <Separator layoutX="-3.0" layoutY="95.0" prefHeight="0.0" prefWidth="689.0" />
                       </children>
                     </Pane>
-                    <Pane layoutY="96.0" prefHeight="98.0" prefWidth="305.0" style="-fx-background-color: white;">
+                    <Pane layoutY="96.0" prefHeight="98.0" prefWidth="687.0" style="-fx-background-color: white;">
                       <children>
                         <ImageView fx:id="Hyatt" fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                           <image>
@@ -69,11 +69,13 @@
                         <Label layoutX="107.0" layoutY="7.0" prefHeight="17.0" prefWidth="127.0" text="Hyatt Place" textAlignment="CENTER" textFill="#304468">
                           <font>
                             <Font name="Avenir Black" size="17.0" />
-                          </font></Label>
+                          </font>
+                                    </Label>
                         <Label layoutX="107.0" layoutY="28.0" text="3-Star Hotel" textFill="#1b9dc1">
                           <font>
                             <Font name="Avenir Black" size="14.0" />
-                          </font></Label>
+                          </font>
+                                    </Label>
                         <Circle fill="DODGERBLUE" layoutX="111.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="DODGERBLUE" layoutX="122.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="DODGERBLUE" layoutX="134.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
@@ -89,11 +91,10 @@
                             <Font name="Avenir Black" size="36.0" />
                           </font>
                         </Label>
-                        <Separator layoutX="50.0" layoutY="95.0" prefHeight="3.0" prefWidth="252.0" />
-                                    <Button mnemonicParsing="false" onAction="#HotelInfo" opacity="0.0" prefHeight="96.0" prefWidth="305.0" style="-fx-background-color: white;" text="Button" />
+                        <Separator layoutX="2.0" layoutY="95.0" prefHeight="2.0" prefWidth="686.0" />
                       </children>
                     </Pane>
-                    <Pane layoutY="192.0" prefHeight="96.0" prefWidth="301.0" style="-fx-background-color: white;">
+                    <Pane layoutY="192.0" prefHeight="96.0" prefWidth="686.0" style="-fx-background-color: white;">
                       <children>
                         <ImageView fx:id="Marriott" fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                           <image>
@@ -103,11 +104,13 @@
                         <Label layoutX="107.0" layoutY="9.0" prefHeight="17.0" prefWidth="127.0" text="Marriott" textAlignment="CENTER" textFill="#304468">
                           <font>
                             <Font name="Avenir Black" size="17.0" />
-                          </font></Label>
+                          </font>
+                                    </Label>
                         <Label layoutX="107.0" layoutY="30.0" text="4-Star Hotel" textFill="#1b9dc1">
                           <font>
                             <Font name="Avenir Black" size="14.0" />
-                          </font></Label>
+                          </font>
+                                    </Label>
                         <Circle fill="DODGERBLUE" layoutX="111.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="DODGERBLUE" layoutX="122.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="DODGERBLUE" layoutX="134.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
@@ -123,11 +126,10 @@
                             <Font name="Avenir Black" size="36.0" />
                           </font>
                         </Label>
-                        <Separator layoutX="-3.0" layoutY="95.0" prefHeight="3.0" prefWidth="305.0" />
-                                    <Button mnemonicParsing="false" onAction="#HotelInfo" opacity="0.0" prefHeight="96.0" prefWidth="305.0" style="-fx-background-color: white;" text="Button" />
+                        <Separator layoutX="-3.0" layoutY="95.0" prefHeight="3.0" prefWidth="691.0" />
                       </children>
                     </Pane>
-                    <Pane layoutY="288.0" prefHeight="96.0" prefWidth="305.0" style="-fx-background-color: white;">
+                    <Pane layoutY="288.0" prefHeight="96.0" prefWidth="685.0" style="-fx-background-color: white;">
                       <children>
                         <ImageView fx:id="LaQuinta" fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                           <image>
@@ -137,11 +139,13 @@
                         <Label layoutX="107.0" layoutY="10.0" prefHeight="17.0" prefWidth="127.0" text="La Quinta" textAlignment="CENTER" textFill="#304468">
                           <font>
                             <Font name="Avenir Black" size="17.0" />
-                          </font></Label>
+                          </font>
+                                    </Label>
                         <Label layoutX="107.0" layoutY="31.0" text="3-Star Hotel" textFill="#1b9dc1">
                           <font>
                             <Font name="Avenir Black" size="14.0" />
-                          </font></Label>
+                          </font>
+                                    </Label>
                         <Circle fill="DODGERBLUE" layoutX="111.0" layoutY="56.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="DODGERBLUE" layoutX="122.0" layoutY="56.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="DODGERBLUE" layoutX="134.0" layoutY="56.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
@@ -157,11 +161,10 @@
                             <Font name="Avenir Black" size="36.0" />
                           </font>
                         </Label>
-                        <Separator layoutX="-2.0" layoutY="95.0" prefHeight="3.0" prefWidth="304.0" />
-                                    <Button mnemonicParsing="false" onAction="#HotelInfo" opacity="0.0" prefHeight="96.0" prefWidth="305.0" style="-fx-background-color: white;" text="Button" />
+                        <Separator layoutX="-2.0" layoutY="95.0" prefHeight="2.0" prefWidth="690.0" />
                       </children>
                     </Pane>
-                    <Pane layoutY="384.0" prefHeight="96.0" prefWidth="303.0" style="-fx-background-color: white;">
+                    <Pane layoutY="384.0" prefHeight="96.0" prefWidth="687.0" style="-fx-background-color: white;">
                       <children>
                         <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                           <image>
@@ -186,66 +189,33 @@
                           </font>
                         </Label>
                         <Separator layoutX="58.0" layoutY="95.0" prefWidth="200.0" />
-                                    <Button mnemonicParsing="false" onAction="#HotelInfo" opacity="0.0" prefHeight="96.0" prefWidth="305.0" style="-fx-background-color: white;" text="Button" />
                       </children>
                     </Pane>
                   </children>
                 </AnchorPane>
-              </content>
+                     </content>
             </ScrollPane>
-          </children></AnchorPane>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="444.0">
-          <children>
-            <ImageView fitHeight="532.0" fitWidth="1025.0" layoutX="-37.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
-              <image>
-                <Image url="@map-no-params.png" />
-              </image>
-            </ImageView>
-            <ImageView fitHeight="43.0" fitWidth="27.0" layoutX="253.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
-              <image>
-                <Image url="@Google-Maps-Marker-For-Residencelamontagne-Svg-Hi-Epic-Google-Maps-Marker.jpg" />
-              </image></ImageView>
-            <ImageView fitHeight="43.0" fitWidth="27.0" layoutX="198.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
-              <image>
-                <Image url="@Google-Maps-Marker-For-Residencelamontagne-Svg-Hi-Epic-Google-Maps-Marker.jpg" />
-              </image>
-            </ImageView>
-            <ImageView fitHeight="43.0" fitWidth="27.0" layoutX="293.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
-              <image>
-                <Image url="@Google-Maps-Marker-For-Residencelamontagne-Svg-Hi-Epic-Google-Maps-Marker.jpg" />
-              </image>
-            </ImageView>
-            <ImageView fitHeight="43.0" fitWidth="27.0" layoutX="332.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
-              <image>
-                <Image url="@Google-Maps-Marker-For-Residencelamontagne-Svg-Hi-Epic-Google-Maps-Marker.jpg" />
-              </image>
-            </ImageView>
-            <ImageView fitHeight="43.0" fitWidth="27.0" layoutX="211.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true">
-              <image>
-                <Image url="@Google-Maps-Marker-For-Residencelamontagne-Svg-Hi-Epic-Google-Maps-Marker.jpg" />
-              </image>
-            </ImageView>
-            <Button layoutX="253.0" layoutY="199.0" mnemonicParsing="false" onAction="#HotelInfo" opacity="0.0" prefHeight="43.0" prefWidth="27.0" text="Button" />
           </children></AnchorPane>
       </items>
     </SplitPane>
     <AnchorPane layoutY="-2.0" prefHeight="50.0" prefWidth="700.0" style="-fx-background-color: #304468;">
       <children>
-        <MenuButton layoutX="179.0" layoutY="12.0" mnemonicParsing="false" style="-fx-background-color: #1b9dc1; -fx-background-radius: 0px;" text="Navigation" textFill="WHITE">
+        <MenuButton layoutX="277.0" layoutY="12.0" mnemonicParsing="false" style="-fx-background-color: #1b9dc1; -fx-background-radius: 0px;" text="Navigation" textFill="WHITE">
           <items>
             <MenuItem mnemonicParsing="false" text="My Account" />
-            <MenuItem fx:id="SHItem" mnemonicParsing="false" onAction="#savedHotels" text="My Saved Hotels" />
-
             <MenuItem mnemonicParsing="false" text="My Reservations" />
-                  <MenuItem mnemonicParsing="false" text="Logout" />
           </items>
           <font>
             <Font size="14.0" />
           </font>
         </MenuButton>
-        <MenuButton layoutX="98.0" layoutY="12.0" mnemonicParsing="false" style="-fx-background-color: #1b9dc1; -fx-background-radius: 0px;" text="Sort" textFill="WHITE">
+        <Button layoutX="111.0" layoutY="12.0" mnemonicParsing="false" style="-fx-background-color: #1b9dc1; -fx-background-radius: 0px;" text="Remove" textFill="WHITE">
+          <font>
+            <Font size="14.0" />
+          </font></Button>
+        <MenuButton layoutX="197.0" layoutY="12.0" mnemonicParsing="false" style="-fx-background-color: #1b9dc1; -fx-background-radius: 0px;" text="Sort" textFill="WHITE">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#HighToLow" text="Price (high to low)" />
+            <MenuItem mnemonicParsing="false" text="Price (high to low)" />
             <MenuItem mnemonicParsing="false" text="Price (low to high)" />
             <MenuItem mnemonicParsing="false" text="User Rating" />
             <MenuItem mnemonicParsing="false" text="Distance" />
@@ -254,22 +224,16 @@
             <Font size="14.0" />
           </font>
         </MenuButton>
-        <TextField layoutX="315.0" layoutY="13.0" prefHeight="28.0" prefWidth="300.0" promptText="Destination, property or landmark" style="-fx-background-color: white; -fx-background-radius: 0px; -fx-border-color: #dddddd;" />
-        <Button layoutX="622.0" layoutY="13.0" mnemonicParsing="false" style="-fx-background-color: #1b9dc1; -fx-background-radius: 0px;" text="Search" textFill="WHITE">
-          <font>
-            <Font size="14.0" />
-          </font></Button>
-            <MenuButton layoutX="13.0" layoutY="12.0" mnemonicParsing="false" style="-fx-background-color: #1b9dc1; -fx-background-radius: 0px;" text="Filter" textFill="WHITE">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#HighToLow" text="Price (high to low)" />
-                  <MenuItem mnemonicParsing="false" text="Price (low to high)" />
-                  <MenuItem mnemonicParsing="false" text="User Rating" />
-                  <MenuItem mnemonicParsing="false" text="Distance" />
-               </items>
+            <Label layoutX="512.0" layoutY="8.0" text="Saved Hotels" textFill="WHITE">
                <font>
-                  <Font size="14.0" />
+                  <Font size="28.0" />
                </font>
-            </MenuButton>
+            </Label>
+            <Button layoutX="-8.0" layoutY="5.0" mnemonicParsing="false" onAction="#back" prefHeight="41.0" prefWidth="80.0" style="-fx-background-radius: 0px; -fx-background-color: transparent;" text="&lt; Back" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
       </children></AnchorPane>
   </children>
 

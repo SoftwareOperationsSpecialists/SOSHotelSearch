@@ -39,7 +39,7 @@
       <Label layoutX="331.0" layoutY="134.0" text="Username" textFill="#323232" />
       <Label layoutX="331.0" layoutY="261.0" text="Password" />
       <PasswordField layoutX="332.0" layoutY="284.0" promptText=" Password" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
-      <Button id="loginButton" layoutX="333.0" layoutY="353.0" mnemonicParsing="false" onAction="#Register" prefHeight="17.0" prefWidth="169.0" style="-fx-background-color: #304468;" text="Register" textFill="WHITE">
+      <Button id="loginButton" layoutX="333.0" layoutY="353.0" mnemonicParsing="false" onAction="#Register" prefHeight="17.0" prefWidth="169.0" style="-fx-background-color: #304468;" stylesheets="@style.css" text="Register" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
@@ -52,7 +52,7 @@
          <font>
             <Font size="28.0" />
          </font></Button>
-      <Button layoutX="295.0" layoutY="7.0" mnemonicParsing="false" onAction="#Login" style="-fx-background-color: transparent;" text="Log in" textFill="#1f4b7c">
+      <Button layoutX="295.0" layoutY="7.0" mnemonicParsing="false" onAction="#Login" style="-fx-background-color: transparent;" stylesheets="@style.css" text="Log in" textFill="#1f4b7c">
          <font>
             <Font size="28.0" />
          </font>

@@ -66,7 +66,7 @@
       </ImageView>
       <Label layoutX="331.0" layoutY="116.0" />
       <Label fx:id="lblStatus" layoutX="331.0" layoutY="108.0" text=" " />
-      <Button layoutX="444.0" layoutY="15.0" mnemonicParsing="false" onAction="#Register" style="-fx-background-color: transperent;" stylesheets="@style.css" text="Sign up" textFill="#3a5072">
+      <Button layoutX="444.0" layoutY="15.0" mnemonicParsing="false" onAction="#Register" style="-fx-background-color: transparent;" stylesheets="@style.css" text="Sign up" textFill="#3a5072">
          <font>
             <Font size="28.0" />
          </font></Button>
