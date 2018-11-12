@@ -17,14 +17,14 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DashController">
+<AnchorPane prefHeight="457.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DashController">
 
 
 
   <children>
-    <SplitPane dividerPositions="0.459" prefHeight="500.0" prefWidth="800.0">
+    <SplitPane>
       <items>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="397.0" style="-fx-background-color: white;">
           <children>
             <ScrollPane hbarPolicy="NEVER" layoutX="-6.0" layoutY="45.0" prefHeight="454.0" prefWidth="322.0" style="-fx-background-color: white; -fx-border-color: #dddddd;" styleClass="scroll" stylesheets="@style.css">
               <content>
@@ -196,45 +196,12 @@
               </content>
             </ScrollPane>
           </children></AnchorPane>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="444.0">
-          <children>
-            <ImageView fitHeight="532.0" fitWidth="1025.0" layoutX="-37.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
-              <image>
-                <Image url="@map-no-params.png" />
-              </image>
-            </ImageView>
-            <ImageView fitHeight="43.0" fitWidth="27.0" layoutX="253.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
-              <image>
-                <Image url="@Google-Maps-Marker-For-Residencelamontagne-Svg-Hi-Epic-Google-Maps-Marker.jpg" />
-              </image></ImageView>
-            <ImageView fitHeight="43.0" fitWidth="27.0" layoutX="198.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
-              <image>
-                <Image url="@Google-Maps-Marker-For-Residencelamontagne-Svg-Hi-Epic-Google-Maps-Marker.jpg" />
-              </image>
-            </ImageView>
-            <ImageView fitHeight="43.0" fitWidth="27.0" layoutX="293.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
-              <image>
-                <Image url="@Google-Maps-Marker-For-Residencelamontagne-Svg-Hi-Epic-Google-Maps-Marker.jpg" />
-              </image>
-            </ImageView>
-            <ImageView fitHeight="43.0" fitWidth="27.0" layoutX="332.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
-              <image>
-                <Image url="@Google-Maps-Marker-For-Residencelamontagne-Svg-Hi-Epic-Google-Maps-Marker.jpg" />
-              </image>
-            </ImageView>
-            <ImageView fitHeight="43.0" fitWidth="27.0" layoutX="211.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true">
-              <image>
-                <Image url="@Google-Maps-Marker-For-Residencelamontagne-Svg-Hi-Epic-Google-Maps-Marker.jpg" />
-              </image>
-            </ImageView>
-            <Button layoutX="253.0" layoutY="199.0" mnemonicParsing="false" onAction="#HotelInfo" opacity="0.0" prefHeight="43.0" prefWidth="27.0" text="Button" />
-          </children></AnchorPane>
       </items>
          <padding>
             <Insets left="112.0" />
          </padding>
     </SplitPane>
-    <AnchorPane layoutX="100.0" layoutY="-2.0" prefHeight="50.0" prefWidth="700.0" style="-fx-background-color: #304468;">
+    <AnchorPane layoutX="100.0" layoutY="-2.0" prefHeight="50.0" prefWidth="859.0" style="-fx-background-color: #304468;">
       <children>
         <MenuButton layoutX="144.0" layoutY="11.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="90.0" style="-fx-background-color: #1b9dc1; -fx-background-radius: 0px;" text="Sort" textFill="WHITE">
           <items>
@@ -310,6 +277,7 @@
                </cursor>
             </Button>
          </children></AnchorPane>
+      <Pane fx:id="mapPane" layoutX="430.0" layoutY="48.0" prefHeight="454.0" prefWidth="528.0" />
   </children>
 
 </AnchorPane>

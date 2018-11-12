@@ -15,7 +15,6 @@ public class LogInController {
   @FXML
   private Label lblStatus;
 
-
   @FXML
   private TextField txtUsername;
 
@@ -24,15 +23,15 @@ public class LogInController {
 
   //Action for login button
   public void Login(ActionEvent event) throws Exception{
-    if(txtUsername.getText().equals("user") && txtPassword.getText().equals("pass")){
+    if(txtUsername.getText().equals("jsmith") && txtPassword.getText().equals("pass")){
       lblStatus.setText("Login Success");
 
       //To change scenes copy and paste this into if statement and enter the new fxml scene name into parent root
-      Parent Dashboard = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
-      Scene dashboard = new Scene(Dashboard);
+      Parent Search = FXMLLoader.load(getClass().getResource("Search.fxml"));
+      Scene search = new Scene(Search);
       //Goes to register screen
       Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-      window.setScene(dashboard);
+      window.setScene(search);
       window.show();
     }
     else {
