@@ -27,7 +27,13 @@ public class DashController {
 
 
   public void savedHotels(ActionEvent event) throws Exception {
-   
+
+    Parent Saved = FXMLLoader.load(getClass().getResource("SavedHotels.fxml"));
+    Scene savedScene = new Scene(Saved);
+
+    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    window.setScene(savedScene);
+    window.show();
 
   }
 

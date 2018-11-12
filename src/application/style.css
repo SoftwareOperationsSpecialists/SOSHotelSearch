@@ -1,8 +1,11 @@
 .root{
   -fx-font-family: "Avenir Black";
 }
+.button{
+  -fx-background-color:#304468;
+}
 .button:hover{
-  -fx-background-color:#4286f4 ;
+  -fx-background-color:#4286f4;
   -fx-text-fill:  #1b9dc1;
 }
 .scroll .scroll-bar:vertical{
