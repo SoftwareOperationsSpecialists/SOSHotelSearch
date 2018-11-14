@@ -102,6 +102,8 @@ public class DashController {
     window.setScene(hotel);
     window.show();
   }
+
+
   public void HighToLow(ActionEvent event) throws Exception{
 
   }
