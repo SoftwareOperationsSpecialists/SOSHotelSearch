@@ -13,7 +13,9 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
@@ -214,8 +216,8 @@
             <Font size="14.0" />
           </font>
         </MenuButton>
-        <TextField layoutX="315.0" layoutY="13.0" prefHeight="28.0" prefWidth="300.0" promptText="Destination, property or landmark" style="-fx-background-color: white; -fx-background-radius: 0px; -fx-border-color: #dddddd;" />
-        <Button layoutX="622.0" layoutY="13.0" mnemonicParsing="false" style="-fx-background-color: #1b9dc1; -fx-background-radius: 0px;" text="Search" textFill="WHITE">
+        <TextField fx:id="searchBar" layoutX="315.0" layoutY="13.0" prefHeight="28.0" prefWidth="300.0" promptText="Destination, property or landmark" style="-fx-background-color: white; -fx-background-radius: 0px; -fx-border-color: #dddddd;" />
+        <Button layoutX="622.0" layoutY="13.0" mnemonicParsing="false" onAction="#initialize" style="-fx-background-color: #1b9dc1; -fx-background-radius: 0px;" text="Search" textFill="WHITE">
           <font>
             <Font size="14.0" />
           </font>
@@ -277,7 +279,11 @@
                </cursor>
             </Button>
          </children></AnchorPane>
-      <Pane fx:id="mapPane" layoutX="430.0" layoutY="48.0" prefHeight="454.0" prefWidth="528.0" />
+      <VBox fx:id="mapBox" layoutX="428.0" layoutY="48.0" prefHeight="448.0" prefWidth="531.0">
+         <children>
+            <BorderPane fx:id="mapPane" prefHeight="448.0" prefWidth="531.0" />
+         </children>
+      </VBox>
   </children>
 
 </AnchorPane>

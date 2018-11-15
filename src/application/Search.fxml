@@ -16,7 +16,7 @@
                 <MenuItem mnemonicParsing="false" text="My Reservations" />
             </items>
         </MenuButton>
-        <TextField layoutX="50.0" layoutY="46.0" prefHeight="25.0" prefWidth="200.0" promptText="Destination, Landmark or Property" />
+        <TextField fx:id="searchBar" layoutX="50.0" layoutY="46.0" prefHeight="25.0" prefWidth="200.0" promptText="Destination, Landmark or Property" />
         <TextField layoutX="84.0" layoutY="195.0" prefHeight="27.0" prefWidth="133.0" promptText="Number of Rooms" />
         <Button layoutX="125.0" layoutY="244.0" mnemonicParsing="false" onAction="#Search" text="Search" />
       <DatePicker layoutX="63.0" layoutY="99.0" promptText="Check-in Date" />

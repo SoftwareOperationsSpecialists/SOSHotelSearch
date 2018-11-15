@@ -1,17 +1,7 @@
 package application;
 
-import com.teamdev.jxmaps.MapViewOptions;
-import com.teamdev.jxmaps.Icon;
-import com.teamdev.jxmaps.MapReadyHandler;
-import com.teamdev.jxmaps.MapStatus;
-import com.teamdev.jxmaps.Map;
-import com.teamdev.jxmaps.GeocoderRequest;
-import com.teamdev.jxmaps.GeocoderCallback;
-import com.teamdev.jxmaps.GeocoderResult;
-import com.teamdev.jxmaps.GeocoderStatus;
-import com.teamdev.jxmaps.Marker;
+import com.teamdev.jxmaps.*;
 import com.teamdev.jxmaps.javafx.MapView;
-import com.teamdev.jxmaps.LatLng;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,8 +9,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -32,21 +25,32 @@ public class DashController {
   private double default_zoom = 14.0; // defines the default zoom level
   private double radius = 20 / DEGREES_TO_MILES; // defines radius (in degrees) to display hotels from searched for
                                                  // location on map. Integer literal represents radius in miles.
+
+  private String iconFilePath = "src/application/mapicons/marker_icon.png";
+  private String hotelFilePath = "src/application/hotels.txt";
+
+  boolean isNewInstance = true; // intended to set map location from previous screen on startup. Flagged false
+                                // after this has been done once
+
   @FXML
-  private Pane mapPane; //this needs to be implemented
-  // the mapView object just needs to be placed on this pane but I cannot get it to show up
+  private BorderPane mapPane;
 
-  public void HotelInfo(ActionEvent event) throws Exception {
-    Parent Hotel = FXMLLoader.load(getClass().getResource("Hotel.fxml"));
-    Scene hotel = new Scene(Hotel);
+  @FXML
+  private VBox mapBox;
 
+  @FXML
+  private TextField searchBar;
+
+  public void initialize() {
     // setup map stuff
+    MapView.InitJavaFX();
     MapViewOptions mapViewOptions = new MapViewOptions();
     mapViewOptions.setApiKey(API_KEY);
     Icon icon = new Icon();
-    icon.loadFromFile("mapicons/marker_icon.png");
+    icon.loadFromFile(iconFilePath);
     final MapView mapView = new MapView(mapViewOptions);
 
+    //create map ready handler
     mapView.setOnMapReadyHandler(new MapReadyHandler() {
       @Override
       public void onMapReady(MapStatus status) {
@@ -54,7 +58,16 @@ public class DashController {
           final Map map = mapView.getMap();
           map.setZoom(default_zoom);
           GeocoderRequest request = new GeocoderRequest();
-          request.setAddress("Disney World");
+
+          // if opened for first time, set location to location from previous screen
+          // else, user is searching again, set location to search bar location
+          if (isNewInstance) {
+            request.setAddress(SearchController.getLocation());
+          }
+          else {
+            request.setAddress(searchBar.getText());
+          }
+          isNewInstance = false;
 
           mapView.getServices().getGeocoder().geocode(request, new GeocoderCallback(map) {
             @Override
@@ -66,7 +79,7 @@ public class DashController {
                 double locLonRange = result[0].getGeometry().getLocation().getLng();
 
                 try {
-                  BufferedReader br = new BufferedReader(new FileReader("hotels.txt"));
+                  BufferedReader br = new BufferedReader(new FileReader(hotelFilePath));
                   br.readLine(); //ignore the first line
 
                   while (br.readLine() != null) {
@@ -75,11 +88,11 @@ public class DashController {
                       double lat = Double.parseDouble(line[5]);
                       double lon = Double.parseDouble(line[6]);
 
-                      // compares the difference between the coordinates of the location the user searched for
+                      // compare the difference between the coordinates of the location the user searched for
                       // and every hotel in the database. If that difference is at most 'radius' degrees,
                       // display the hotel on the map.
-                      if (Math.abs(Math.abs(lat)-Math.abs(locLatRange)) <= radius &&
-                          Math.abs(Math.abs(lon)-Math.abs(locLonRange)) <= radius) {
+                      if (Math.abs(Math.abs(lat) - Math.abs(locLatRange)) <= radius &&
+                          Math.abs(Math.abs(lon) - Math.abs(locLonRange)) <= radius) {
                         Marker marker = new Marker(map);
                         marker.setIcon(icon);
                         marker.setPosition(new LatLng(lat, lon));
@@ -92,16 +105,44 @@ public class DashController {
                   e.printStackTrace();
                 }
               }
+              else if (status == GeocoderStatus.ERROR) {
+                System.out.println("ERROR: There was an error connecting to the Google Servers.");
+              }
+              else if (status == GeocoderStatus.INVALID_REQUEST) {
+                System.out.println("ERROR: This request was invalid.");
+              }
+              else if (status == GeocoderStatus.OVER_QUERY_LIMIT) {
+                System.out.println("ERROR: The web page has gone over the requests limit in too short a period of time.");
+              }
+              else if (status == GeocoderStatus.REQUEST_DENIED) {
+                System.out.println("ERROR: Access denied.");
+              }
+              else if (status == GeocoderStatus.UNKNOWN_ERROR) {
+                System.out.println("ERROR: Your request could not be processed due to a server error.");
+              }
+              else {
+                System.out.println("ERROR: No results found for this location.");
+              }
             }
           });
         }
       }
     });
 
+    mapPane = new BorderPane(mapView);
+    mapPane.setPrefHeight(900.0);
+    mapBox.getChildren().add(mapPane);
+  }
+
+  public void HotelInfo(ActionEvent event) throws Exception {
+    Parent Hotel = FXMLLoader.load(getClass().getResource("Hotel.fxml"));
+    Scene hotel = new Scene(Hotel);
+
     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
     window.setScene(hotel);
     window.show();
   }
+
   public void HighToLow(ActionEvent event) throws Exception{
 
   }
