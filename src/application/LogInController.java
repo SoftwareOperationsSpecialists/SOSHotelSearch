@@ -1,5 +1,6 @@
 package application;
 
+import com.sun.deploy.xml.XMLable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class LogInController {
@@ -23,7 +26,7 @@ public class LogInController {
 
   //Action for login button
   public void Login(ActionEvent event) throws Exception{
-    if(txtUsername.getText().equals("jsmith") && txtPassword.getText().equals("pass")){
+    if(txtUsername.getText().equals("") && txtPassword.getText().equals("")){
       lblStatus.setText("Login Success");
 
       //To change scenes copy and paste this into if statement and enter the new fxml scene name into parent root
@@ -37,7 +40,6 @@ public class LogInController {
     else {
 
      lblStatus.setText("Login Failed");
-
     }
   }
   //Register button action
