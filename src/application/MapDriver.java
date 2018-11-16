@@ -9,7 +9,7 @@ import com.teamdev.jxmaps.*;
 import com.teamdev.jxmaps.javafx.MapView;
 
 public class MapDriver {
-  private final static String API_KEY = "AIzaSyChDY-krlOCW7QcWSoQndEoazJndJaOyyw"; // API key for Google Maps
+  protected final static String API_KEY = "AIzaSyChDY-krlOCW7QcWSoQndEoazJndJaOyyw"; // API key for Google Maps
   private final static double DEGREES_TO_MILES = 69; // const approx num of miles in one degree
 
   private double defaultZoom = 14.0; // defines the default zoom level
@@ -37,7 +37,7 @@ public class MapDriver {
     mapView = new MapView(mapViewOptions);
     address = "Fort Myers, FL";
     error = "No error";
-    //hasError = false;
+    hasError = false;
   }
 
   public void setDefaultZoom(double defaultZoom){

@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 public class DashController {
     private boolean isNewInstance = true; // intended to set map location from previous screen on startup. Flagged false
+    private int offset = 0;
 
   @FXML
   private BorderPane mapPane;
@@ -36,8 +37,14 @@ public class DashController {
     mapDriver.createMap();
 
     if (!mapDriver.getErrorStatus()) {
+      mapPane.getChildren().clear();
       mapPane = new BorderPane(mapDriver.getMapView());
-      mapPane.setPrefHeight(900.0);
+
+      // for some reason the prefHeight has to be set manually and also shifted up every time the map
+      // is redrawn. Unsure of reason. Please ignore magic numbers.
+      mapPane.setPrefHeight(900.0 + offset);
+      offset += 500;
+
       mapBox.getChildren().add(mapPane);
     }
   }
