@@ -19,290 +19,271 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="457.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DashController">
+<AnchorPane prefHeight="457.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DashController">
 
 
-  <children>
-    <SplitPane>
-      <items>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="397.0" style="-fx-background-color: white;">
-          <children>
-            <ScrollPane hbarPolicy="NEVER" layoutX="-6.0" layoutY="45.0" prefHeight="454.0" prefWidth="322.0" style="-fx-background-color: white; -fx-border-color: #dddddd;" styleClass="scroll" stylesheets="@style.css">
-              <content>
-                <AnchorPane prefHeight="423.0" prefWidth="248.0">
-                  <children>
-                    <Pane prefHeight="96.0" prefWidth="303.0" style="-fx-background-color: white;">
-                      <children>
-                        <Button layoutX="-4.0" layoutY="1.0" mnemonicParsing="false" onAction="#HotelInfo" opacity="0.0" prefHeight="96.0" prefWidth="305.0" style="-fx-background-color: white;" text="Button" />
-                        <ImageView fx:id="HolidayInn" fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
-                          <image>
-                            <Image url="@hotelthumbs/holiday-inn-the-colony-4629618286-4x3.jpeg" />
-                          </image>
-                        </ImageView>
-                        <Label layoutX="107.0" layoutY="14.0" prefHeight="17.0" prefWidth="127.0" text="Holiday Inn" textAlignment="CENTER" textFill="#304468">
-                          <font>
-                            <Font name="Avenir Black" size="17.0" />
-                          </font>
-                        </Label>
-                        <Label layoutX="107.0" layoutY="33.0" text="3-Star Hotel" textFill="#1b9dc1" />
-                        <Circle fill="DODGERBLUE" layoutX="111.0" layoutY="55.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="DODGERBLUE" layoutX="122.0" layoutY="55.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="DODGERBLUE" layoutX="134.0" layoutY="55.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Label layoutX="105.0" layoutY="62.0" text="User reviews: 4/5">
-                          <font>
-                            <Font size="10.0" />
-                          </font>
-                        </Label>
-                        <Circle fill="DODGERBLUE" layoutX="146.0" layoutY="55.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="#1f93ff00" layoutX="158.0" layoutY="55.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Label layoutX="205.0" layoutY="29.0" prefHeight="52.0" prefWidth="92.0" text="\$119" textFill="#1b9dc1">
-                          <font>
-                            <Font name="Avenir Black" size="36.0" />
-                          </font>
-                        </Label>
-                        <Separator layoutX="-3.0" layoutY="95.0" prefHeight="3.0" prefWidth="313.0" />
-                      </children>
-                    </Pane>
-                    <Pane layoutY="96.0" prefHeight="98.0" prefWidth="305.0" style="-fx-background-color: white;">
-                      <children>
-                        <ImageView fx:id="Hyatt" fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
-                          <image>
-                            <Image url="@hotelthumbs/Hyatt-Place-St-George-Convention-Center-P004-Exterior.adapt.16x9.1920.1080.jpg" />
-                          </image>
-                        </ImageView>
-                        <Label layoutX="107.0" layoutY="7.0" prefHeight="17.0" prefWidth="127.0" text="Hyatt Place" textAlignment="CENTER" textFill="#304468">
-                          <font>
-                            <Font name="Avenir Black" size="17.0" />
-                          </font>
-                        </Label>
-                        <Label layoutX="107.0" layoutY="28.0" text="3-Star Hotel" textFill="#1b9dc1">
-                          <font>
-                            <Font name="Avenir Black" size="14.0" />
-                          </font>
-                        </Label>
-                        <Circle fill="DODGERBLUE" layoutX="111.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="DODGERBLUE" layoutX="122.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="DODGERBLUE" layoutX="134.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Label layoutX="105.0" layoutY="62.0" text="User reviews: 4/5">
-                          <font>
-                            <Font size="10.0" />
-                          </font>
-                        </Label>
-                        <Circle fill="DODGERBLUE" layoutX="146.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="#1f93ff00" layoutX="158.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Label layoutX="203.0" layoutY="23.0" prefHeight="50.0" prefWidth="105.0" text="\$139" textFill="#1b9dc1">
-                          <font>
-                            <Font name="Avenir Black" size="36.0" />
-                          </font>
-                        </Label>
-                        <Separator layoutX="50.0" layoutY="95.0" prefHeight="3.0" prefWidth="252.0" />
-                        <Button mnemonicParsing="false" onAction="#HotelInfo" opacity="0.0" prefHeight="96.0" prefWidth="293.0" style="-fx-background-color: white;" text="Button" />
-                      </children>
-                    </Pane>
-                    <Pane layoutY="192.0" prefHeight="96.0" prefWidth="301.0" style="-fx-background-color: white;">
-                      <children>
-                        <ImageView fx:id="Marriott" fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
-                          <image>
-                            <Image url="@hotelthumbs/T1114MARRIOTTTUCSON.jpg" />
-                          </image>
-                        </ImageView>
-                        <Label layoutX="107.0" layoutY="9.0" prefHeight="17.0" prefWidth="127.0" text="Marriott" textAlignment="CENTER" textFill="#304468">
-                          <font>
-                            <Font name="Avenir Black" size="17.0" />
-                          </font>
-                        </Label>
-                        <Label layoutX="107.0" layoutY="30.0" text="4-Star Hotel" textFill="#1b9dc1">
-                          <font>
-                            <Font name="Avenir Black" size="14.0" />
-                          </font>
-                        </Label>
-                        <Circle fill="DODGERBLUE" layoutX="111.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="DODGERBLUE" layoutX="122.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="DODGERBLUE" layoutX="134.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Label layoutX="105.0" layoutY="63.0" text="User reviews: 4/5">
-                          <font>
-                            <Font size="10.0" />
-                          </font>
-                        </Label>
-                        <Circle fill="DODGERBLUE" layoutX="146.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="#1f93ff00" layoutX="158.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Label layoutX="204.0" layoutY="27.0" prefHeight="43.0" prefWidth="111.0" text="\$219" textFill="#1b9dc1">
-                          <font>
-                            <Font name="Avenir Black" size="36.0" />
-                          </font>
-                        </Label>
-                        <Separator layoutX="-3.0" layoutY="95.0" prefHeight="3.0" prefWidth="305.0" />
-                        <Button mnemonicParsing="false" onAction="#HotelInfo" opacity="0.0" prefHeight="96.0" prefWidth="305.0" style="-fx-background-color: white;" text="Button" />
-                      </children>
-                    </Pane>
-                    <Pane layoutY="288.0" prefHeight="96.0" prefWidth="305.0" style="-fx-background-color: white;">
-                      <children>
-                        <ImageView fx:id="LaQuinta" fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
-                          <image>
-                            <Image url="@hotelthumbs/La-Quinta.jpg" />
-                          </image>
-                        </ImageView>
-                        <Label layoutX="107.0" layoutY="10.0" prefHeight="17.0" prefWidth="127.0" text="La Quinta" textAlignment="CENTER" textFill="#304468">
-                          <font>
-                            <Font name="Avenir Black" size="17.0" />
-                          </font>
-                        </Label>
-                        <Label layoutX="107.0" layoutY="31.0" text="3-Star Hotel" textFill="#1b9dc1">
-                          <font>
-                            <Font name="Avenir Black" size="14.0" />
-                          </font>
-                        </Label>
-                        <Circle fill="DODGERBLUE" layoutX="111.0" layoutY="56.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="DODGERBLUE" layoutX="122.0" layoutY="56.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="DODGERBLUE" layoutX="134.0" layoutY="56.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Label layoutX="105.0" layoutY="63.0" text="User reviews: 4/5">
-                          <font>
-                            <Font size="10.0" />
-                          </font>
-                        </Label>
-                        <Circle fill="DODGERBLUE" layoutX="146.0" layoutY="56.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="#1f93ff00" layoutX="158.0" layoutY="56.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Label layoutX="204.0" layoutY="33.0" prefHeight="50.0" prefWidth="111.0" text="\$109" textFill="#1b9dc1">
-                          <font>
-                            <Font name="Avenir Black" size="36.0" />
-                          </font>
-                        </Label>
-                        <Separator layoutX="-2.0" layoutY="95.0" prefHeight="3.0" prefWidth="304.0" />
-                        <Button mnemonicParsing="false" onAction="#HotelInfo" opacity="0.0" prefHeight="96.0" prefWidth="305.0" style="-fx-background-color: white;" text="Button" />
-                      </children>
-                    </Pane>
-                    <Pane layoutY="384.0" prefHeight="96.0" prefWidth="303.0" style="-fx-background-color: white;">
-                      <children>
-                        <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
-                          <image>
-                            <Image url="@hotelthumbs/holiday-inn-the-colony-4629618286-4x3.jpeg" />
-                          </image>
-                        </ImageView>
-                        <Label layoutX="107.0" layoutY="14.0" prefHeight="17.0" prefWidth="127.0" text="Holdiay Inn" textAlignment="CENTER" />
-                        <Label layoutX="107.0" layoutY="31.0" text="3-Star Hotel" />
-                        <Circle fill="DODGERBLUE" layoutX="111.0" layoutY="52.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="DODGERBLUE" layoutX="122.0" layoutY="52.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="DODGERBLUE" layoutX="134.0" layoutY="52.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Label layoutX="105.0" layoutY="56.0" text="User reviews: 4/5">
-                          <font>
-                            <Font size="10.0" />
-                          </font>
-                        </Label>
-                        <Circle fill="DODGERBLUE" layoutX="146.0" layoutY="52.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="#1f93ff00" layoutX="158.0" layoutY="52.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Label layoutX="194.0" layoutY="67.0" prefHeight="26.0" prefWidth="54.0" text="\$119" textFill="RED">
-                          <font>
-                            <Font size="20.0" />
-                          </font>
-                        </Label>
-                        <Separator layoutX="58.0" layoutY="95.0" prefWidth="200.0" />
-                        <Button mnemonicParsing="false" onAction="#HotelInfo" opacity="0.0" prefHeight="96.0" prefWidth="305.0" style="-fx-background-color: white;" text="Button" />
-                      </children>
-                    </Pane>
-                  </children>
-                </AnchorPane>
-              </content>
-            </ScrollPane>
-          </children>
-        </AnchorPane>
-      </items>
-      <padding>
-        <Insets left="112.0" />
-      </padding>
-    </SplitPane>
-    <AnchorPane layoutX="100.0" layoutY="-2.0" prefHeight="50.0" prefWidth="859.0" style="-fx-background-color: #304468;">
-      <children>
-        <MenuButton layoutX="144.0" layoutY="11.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="90.0" style="-fx-background-color: #1b9dc1; -fx-background-radius: 0px;" text="Sort" textFill="WHITE">
-          <items>
-            <MenuItem mnemonicParsing="false" onAction="#HighToLow" text="Price (high to low)" />
-            <MenuItem mnemonicParsing="false" text="Price (low to high)" />
-            <MenuItem mnemonicParsing="false" text="User Rating" />
-            <MenuItem mnemonicParsing="false" text="Distance" />
-          </items>
-          <font>
-            <Font size="14.0" />
-          </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-        </MenuButton>
-        <TextField fx:id="searchBar" layoutX="315.0" layoutY="13.0" prefHeight="28.0" prefWidth="300.0" promptText="Destination, property or landmark" style="-fx-background-color: white; -fx-background-radius: 0px; -fx-border-color: #dddddd;" />
-        <Button layoutX="622.0" layoutY="13.0" mnemonicParsing="false" onAction="#initialize" style="-fx-background-color: #1b9dc1; -fx-background-radius: 0px;" text="Search" textFill="WHITE">
-          <font>
-            <Font size="14.0" />
-          </font>
-          <cursor>
-            <Cursor fx:constant="HAND" />
-          </cursor>
-        </Button>
-        <MenuButton layoutX="15.0" layoutY="11.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" style="-fx-background-color: #1b9dc1; -fx-background-radius: 0px;" text="Filter" textFill="WHITE">
-          <items>
-            <MenuItem mnemonicParsing="false" onAction="#HighToLow" text="Price (high to low)" />
-            <MenuItem mnemonicParsing="false" text="Price (low to high)" />
-            <MenuItem mnemonicParsing="false" text="User Rating" />
-            <MenuItem mnemonicParsing="false" text="Distance" />
-          </items>
-          <font>
-            <Font size="14.0" />
-          </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </MenuButton>
-         </children></AnchorPane>
-         <VBox fx:id="mapBox" layoutX="428.0" layoutY="48.0" prefHeight="448.0" prefWidth="531.0">
-           <children>
-            <BorderPane fx:id="mapPane" prefHeight="448.0" prefWidth="531.0" />
-           </children>
-          </VBox>
-        </MenuButton>
-      </children>
-    </AnchorPane>
-    <AnchorPane prefHeight="500.0" prefWidth="113.0" style="-fx-background-color: #304468;">
-      <children>
-        <Button layoutX="6.0" layoutY="49.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" style="-fx-background-color: #1b9dc1; -fx-background-radius: 0px;" text="Dashboard" textFill="WHITE">
-          <font>
-            <Font size="14.0" />
-          </font>
-          <cursor>
-            <Cursor fx:constant="HAND" />
-          </cursor>
-        </Button>
-        <Button layoutX="4.0" layoutY="78.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" style="-fx-background-color: #304468; -fx-background-radius: 0px;" stylesheets="@style.css" text="My Account" textFill="WHITE">
-          <font>
-            <Font size="14.0" />
-          </font>
-          <cursor>
-            <Cursor fx:constant="HAND" />
-          </cursor>
-        </Button>
-        <Button layoutX="4.0" layoutY="109.0" mnemonicParsing="false" onAction="#savedHotels" prefHeight="28.0" prefWidth="100.0" style="-fx-background-color: #304468; -fx-background-radius: 0px;" stylesheets="@style.css" text="Saved" textFill="WHITE">
-          <font>
-            <Font size="14.0" />
-          </font>
-          <cursor>
-            <Cursor fx:constant="HAND" />
-          </cursor>
-        </Button>
-        <Button alignment="CENTER_RIGHT" layoutX="-5.0" layoutY="137.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="111.0" style="-fx-background-color: #304468; -fx-background-radius: 0px;" stylesheets="@style.css" text="Reservations" textAlignment="CENTER" textFill="WHITE">
-          <font>
-            <Font size="14.0" />
-          </font>
-          <cursor>
-            <Cursor fx:constant="HAND" />
-          </cursor>
-        </Button>
-        <Button layoutX="3.0" layoutY="169.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="100.0" style="-fx-background-color: #304468; -fx-background-radius: 0px;" stylesheets="@style.css" text="Logout" textFill="WHITE">
-          <font>
-            <Font size="14.0" />
-          </font>
-          <cursor>
-            <Cursor fx:constant="HAND" />
-          </cursor>
-        </Button>
-      </children>
-    </AnchorPane>
-    <Pane fx:id="mapPane" layoutX="430.0" layoutY="48.0" prefHeight="454.0" prefWidth="528.0" />
-  </children>
+
+    <children>
+        <SplitPane>
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="397.0" style="-fx-background-color: white;">
+                    <children>
+                        <ScrollPane hbarPolicy="NEVER" layoutX="-6.0" layoutY="45.0" prefHeight="454.0" prefWidth="322.0" style="-fx-background-color: white; -fx-border-color: #dddddd;" styleClass="scroll" stylesheets="@style.css">
+                            <content>
+                                <AnchorPane prefHeight="423.0" prefWidth="248.0">
+                                    <children>
+                                        <Pane prefHeight="96.0" prefWidth="303.0" style="-fx-background-color: white;">
+                                            <children>
+                                                <Button layoutX="-4.0" layoutY="1.0" mnemonicParsing="false" onAction="#HotelInfo" opacity="0.0" prefHeight="96.0" prefWidth="305.0" style="-fx-background-color: white;" text="Button" />
+                                                <ImageView fx:id="HolidayInn" fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@hotelthumbs/holiday-inn-the-colony-4629618286-4x3.jpeg" />
+                                                    </image>
+                                                </ImageView>
+                                                <Label layoutX="107.0" layoutY="14.0" prefHeight="17.0" prefWidth="127.0" text="Holiday Inn" textAlignment="CENTER" textFill="#304468">
+                                                    <font>
+                                                        <Font name="Avenir Black" size="17.0" />
+                                                    </font></Label>
+                                                <Label layoutX="107.0" layoutY="33.0" text="3-Star Hotel" textFill="#1b9dc1" />
+                                                <Circle fill="DODGERBLUE" layoutX="111.0" layoutY="55.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Circle fill="DODGERBLUE" layoutX="122.0" layoutY="55.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Circle fill="DODGERBLUE" layoutX="134.0" layoutY="55.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Label layoutX="105.0" layoutY="62.0" text="User reviews: 4/5">
+                                                    <font>
+                                                        <Font size="10.0" />
+                                                    </font>
+                                                </Label>
+                                                <Circle fill="DODGERBLUE" layoutX="146.0" layoutY="55.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Circle fill="#1f93ff00" layoutX="158.0" layoutY="55.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Label layoutX="205.0" layoutY="29.0" prefHeight="52.0" prefWidth="92.0" text="\$119" textFill="#1b9dc1">
+                                                    <font>
+                                                        <Font name="Avenir Black" size="36.0" />
+                                                    </font>
+                                                </Label>
+                                                <Separator layoutX="-3.0" layoutY="95.0" prefHeight="3.0" prefWidth="313.0" />
+                                            </children>
+                                        </Pane>
+                                        <Pane layoutY="96.0" prefHeight="98.0" prefWidth="305.0" style="-fx-background-color: white;">
+                                            <children>
+                                                <ImageView fx:id="Hyatt" fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@hotelthumbs/Hyatt-Place-St-George-Convention-Center-P004-Exterior.adapt.16x9.1920.1080.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <Label layoutX="107.0" layoutY="7.0" prefHeight="17.0" prefWidth="127.0" text="Hyatt Place" textAlignment="CENTER" textFill="#304468">
+                                                    <font>
+                                                        <Font name="Avenir Black" size="17.0" />
+                                                    </font></Label>
+                                                <Label layoutX="107.0" layoutY="28.0" text="3-Star Hotel" textFill="#1b9dc1">
+                                                    <font>
+                                                        <Font name="Avenir Black" size="14.0" />
+                                                    </font></Label>
+                                                <Circle fill="DODGERBLUE" layoutX="111.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Circle fill="DODGERBLUE" layoutX="122.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Circle fill="DODGERBLUE" layoutX="134.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Label layoutX="105.0" layoutY="62.0" text="User reviews: 4/5">
+                                                    <font>
+                                                        <Font size="10.0" />
+                                                    </font>
+                                                </Label>
+                                                <Circle fill="DODGERBLUE" layoutX="146.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Circle fill="#1f93ff00" layoutX="158.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Label layoutX="203.0" layoutY="23.0" prefHeight="50.0" prefWidth="105.0" text="\$139" textFill="#1b9dc1">
+                                                    <font>
+                                                        <Font name="Avenir Black" size="36.0" />
+                                                    </font>
+                                                </Label>
+                                                <Separator layoutX="50.0" layoutY="95.0" prefHeight="3.0" prefWidth="252.0" />
+                                                <Button mnemonicParsing="false" onAction="#HotelInfo" opacity="0.0" prefHeight="96.0" prefWidth="293.0" style="-fx-background-color: white;" text="Button" />
+                                            </children>
+                                        </Pane>
+                                        <Pane layoutY="192.0" prefHeight="96.0" prefWidth="301.0" style="-fx-background-color: white;">
+                                            <children>
+                                                <ImageView fx:id="Marriott" fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@hotelthumbs/T1114MARRIOTTTUCSON.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <Label layoutX="107.0" layoutY="9.0" prefHeight="17.0" prefWidth="127.0" text="Marriott" textAlignment="CENTER" textFill="#304468">
+                                                    <font>
+                                                        <Font name="Avenir Black" size="17.0" />
+                                                    </font></Label>
+                                                <Label layoutX="107.0" layoutY="30.0" text="4-Star Hotel" textFill="#1b9dc1">
+                                                    <font>
+                                                        <Font name="Avenir Black" size="14.0" />
+                                                    </font></Label>
+                                                <Circle fill="DODGERBLUE" layoutX="111.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Circle fill="DODGERBLUE" layoutX="122.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Circle fill="DODGERBLUE" layoutX="134.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Label layoutX="105.0" layoutY="63.0" text="User reviews: 4/5">
+                                                    <font>
+                                                        <Font size="10.0" />
+                                                    </font>
+                                                </Label>
+                                                <Circle fill="DODGERBLUE" layoutX="146.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Circle fill="#1f93ff00" layoutX="158.0" layoutY="54.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Label layoutX="204.0" layoutY="27.0" prefHeight="43.0" prefWidth="111.0" text="\$219" textFill="#1b9dc1">
+                                                    <font>
+                                                        <Font name="Avenir Black" size="36.0" />
+                                                    </font>
+                                                </Label>
+                                                <Separator layoutX="-3.0" layoutY="95.0" prefHeight="3.0" prefWidth="305.0" />
+                                                <Button mnemonicParsing="false" onAction="#HotelInfo" opacity="0.0" prefHeight="96.0" prefWidth="305.0" style="-fx-background-color: white;" text="Button" />
+                                            </children>
+                                        </Pane>
+                                        <Pane layoutY="288.0" prefHeight="96.0" prefWidth="305.0" style="-fx-background-color: white;">
+                                            <children>
+                                                <ImageView fx:id="LaQuinta" fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@hotelthumbs/La-Quinta.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <Label layoutX="107.0" layoutY="10.0" prefHeight="17.0" prefWidth="127.0" text="La Quinta" textAlignment="CENTER" textFill="#304468">
+                                                    <font>
+                                                        <Font name="Avenir Black" size="17.0" />
+                                                    </font></Label>
+                                                <Label layoutX="107.0" layoutY="31.0" text="3-Star Hotel" textFill="#1b9dc1">
+                                                    <font>
+                                                        <Font name="Avenir Black" size="14.0" />
+                                                    </font></Label>
+                                                <Circle fill="DODGERBLUE" layoutX="111.0" layoutY="56.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Circle fill="DODGERBLUE" layoutX="122.0" layoutY="56.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Circle fill="DODGERBLUE" layoutX="134.0" layoutY="56.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Label layoutX="105.0" layoutY="63.0" text="User reviews: 4/5">
+                                                    <font>
+                                                        <Font size="10.0" />
+                                                    </font>
+                                                </Label>
+                                                <Circle fill="DODGERBLUE" layoutX="146.0" layoutY="56.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Circle fill="#1f93ff00" layoutX="158.0" layoutY="56.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Label layoutX="204.0" layoutY="33.0" prefHeight="50.0" prefWidth="111.0" text="\$109" textFill="#1b9dc1">
+                                                    <font>
+                                                        <Font name="Avenir Black" size="36.0" />
+                                                    </font>
+                                                </Label>
+                                                <Separator layoutX="-2.0" layoutY="95.0" prefHeight="3.0" prefWidth="304.0" />
+                                                <Button mnemonicParsing="false" onAction="#HotelInfo" opacity="0.0" prefHeight="96.0" prefWidth="305.0" style="-fx-background-color: white;" text="Button" />
+                                            </children>
+                                        </Pane>
+                                        <Pane layoutY="384.0" prefHeight="96.0" prefWidth="303.0" style="-fx-background-color: white;">
+                                            <children>
+                                                <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@hotelthumbs/holiday-inn-the-colony-4629618286-4x3.jpeg" />
+                                                    </image>
+                                                </ImageView>
+                                                <Label layoutX="107.0" layoutY="14.0" prefHeight="17.0" prefWidth="127.0" text="Holdiay Inn" textAlignment="CENTER" />
+                                                <Label layoutX="107.0" layoutY="31.0" text="3-Star Hotel" />
+                                                <Circle fill="DODGERBLUE" layoutX="111.0" layoutY="52.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Circle fill="DODGERBLUE" layoutX="122.0" layoutY="52.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Circle fill="DODGERBLUE" layoutX="134.0" layoutY="52.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Label layoutX="105.0" layoutY="56.0" text="User reviews: 4/5">
+                                                    <font>
+                                                        <Font size="10.0" />
+                                                    </font>
+                                                </Label>
+                                                <Circle fill="DODGERBLUE" layoutX="146.0" layoutY="52.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Circle fill="#1f93ff00" layoutX="158.0" layoutY="52.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                                                <Label layoutX="194.0" layoutY="67.0" prefHeight="26.0" prefWidth="54.0" text="\$119" textFill="RED">
+                                                    <font>
+                                                        <Font size="20.0" />
+                                                    </font>
+                                                </Label>
+                                                <Separator layoutX="58.0" layoutY="95.0" prefWidth="200.0" />
+                                                <Button mnemonicParsing="false" onAction="#HotelInfo" opacity="0.0" prefHeight="96.0" prefWidth="305.0" style="-fx-background-color: white;" text="Button" />
+                                            </children>
+                                        </Pane>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </ScrollPane>
+                    </children></AnchorPane>
+            </items>
+            <padding>
+                <Insets left="112.0" />
+            </padding>
+        </SplitPane>
+        <AnchorPane layoutX="100.0" layoutY="-2.0" prefHeight="50.0" prefWidth="859.0" style="-fx-background-color: #304468;">
+            <children>
+                <MenuButton layoutX="144.0" layoutY="11.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="90.0" style="-fx-background-color: #1b9dc1; -fx-background-radius: 0px;" text="Sort" textFill="WHITE">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#HighToLow" text="Price (high to low)" />
+                        <MenuItem mnemonicParsing="false" text="Price (low to high)" />
+                        <MenuItem mnemonicParsing="false" text="User Rating" />
+                        <MenuItem mnemonicParsing="false" text="Distance" />
+                    </items>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </MenuButton>
+                <TextField fx:id="searchBar" layoutX="315.0" layoutY="13.0" prefHeight="28.0" prefWidth="300.0" promptText="Destination, property or landmark" style="-fx-background-color: white; -fx-background-radius: 0px; -fx-border-color: #dddddd;" />
+                <Button layoutX="622.0" layoutY="13.0" mnemonicParsing="false" onAction="#initialize" style="-fx-background-color: #1b9dc1; -fx-background-radius: 0px;" text="Search" textFill="WHITE">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor></Button>
+                <MenuButton layoutX="15.0" layoutY="11.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" style="-fx-background-color: #1b9dc1; -fx-background-radius: 0px;" text="Filter" textFill="WHITE">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#HighToLow" text="Price (high to low)" />
+                        <MenuItem mnemonicParsing="false" text="Price (low to high)" />
+                        <MenuItem mnemonicParsing="false" text="User Rating" />
+                        <MenuItem mnemonicParsing="false" text="Distance" />
+                    </items>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </MenuButton>
+            </children></AnchorPane>
+        <AnchorPane prefHeight="500.0" prefWidth="113.0" style="-fx-background-color: #304468;">
+            <children>
+                <Button layoutX="6.0" layoutY="49.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" style="-fx-background-color: #1b9dc1; -fx-background-radius: 0px;" text="Dashboard" textFill="WHITE">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Button layoutX="4.0" layoutY="78.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" style="-fx-background-color: #304468; -fx-background-radius: 0px;" text="My Account" textFill="WHITE">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Button layoutX="4.0" layoutY="109.0" mnemonicParsing="false" onAction="#savedHotels" prefHeight="28.0" prefWidth="100.0" style="-fx-background-color: #304468; -fx-background-radius: 0px;" text="Saved" textFill="WHITE">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Button alignment="CENTER_RIGHT" layoutX="-5.0" layoutY="137.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="111.0" style="-fx-background-color: #304468; -fx-background-radius: 0px;" text="Reservations" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Button layoutX="3.0" layoutY="169.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="100.0" style="-fx-background-color: #304468; -fx-background-radius: 0px;" text="Logout" textFill="WHITE">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+            </children></AnchorPane>
+        <VBox fx:id="mapBox" layoutX="428.0" layoutY="48.0" prefHeight="448.0" prefWidth="531.0">
+            <children>
+                <BorderPane fx:id="mapPane" prefHeight="448.0" prefWidth="531.0" />
+            </children>
+        </VBox>
+    </children>
 
 </AnchorPane>
