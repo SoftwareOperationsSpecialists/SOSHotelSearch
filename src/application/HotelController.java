@@ -88,4 +88,13 @@ public class HotelController {
       imageArrayIndex = images.size()-1;
     }
   }
+
+  public void logout(ActionEvent event) throws Exception {
+    Parent Logout = FXMLLoader.load(getClass().getResource("login.fxml"));
+    Scene logoutScene = new Scene(Logout);
+
+    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    window.setScene(logoutScene);
+    window.show();
+  }
 }
