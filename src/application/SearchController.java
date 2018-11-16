@@ -17,11 +17,20 @@ public class SearchController {
     location = searchBar.getText();
 
     if (!location.isEmpty()) {
-      Parent Dashboard = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
-      Scene dashboard = new Scene(Dashboard);
-      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-      window.setScene(dashboard);
-      window.show();
+      MapDriver mapDriver = new MapDriver();
+      mapDriver.setAddress(location);
+      mapDriver.createMap();
+
+      if (mapDriver.getErrorStatus())   {
+        System.out.println(mapDriver.getError()); // this should be set to the text of a label
+      }
+      else {
+        Parent Dashboard = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+        Scene dashboard = new Scene(Dashboard);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(dashboard);
+        window.show();
+      }
     }
     else {
       // display error message
