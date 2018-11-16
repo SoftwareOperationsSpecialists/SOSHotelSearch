@@ -36,6 +36,7 @@
                         <Circle fill="DODGERBLUE" layoutX="105.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="DODGERBLUE" layoutX="122.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="DODGERBLUE" layoutX="139.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                                    <Separator layoutX="61.0" orientation="VERTICAL" prefHeight="304.0" prefWidth="3.0" />
                       </children>
                       <padding>
                         <Insets bottom="2.0" />
