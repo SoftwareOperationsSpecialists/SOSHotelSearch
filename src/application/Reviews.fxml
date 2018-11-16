@@ -28,8 +28,8 @@
                   <children>
                     <Pane prefHeight="80.0" prefWidth="799.0">
                       <children>
-                        <Label layoutX="21.0" layoutY="14.0" prefHeight="17.0" prefWidth="47.0" text="User 1" />
-                        <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="66.0" layoutY="50.0" prefHeight="32.0" prefWidth="502.0" text="Really enjoyed the front desk staff, pool was great too.&#10;" />
+                        <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="47.0" text="User 1" />
+                        <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="66.0" layoutY="40.0" prefHeight="32.0" prefWidth="502.0" text="Really enjoyed the front desk staff, pool was great too.&#10;" />
                         <Separator layoutY="80.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="6.0" prefWidth="797.0" />
                         <Circle fill="DODGERBLUE" layoutX="71.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="DODGERBLUE" layoutX="88.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
@@ -43,8 +43,8 @@
                     </Pane>
                     <Pane layoutY="75.0" prefHeight="80.0" prefWidth="796.0">
                       <children>
-                        <Label layoutX="21.0" layoutY="14.0" prefHeight="17.0" prefWidth="47.0" text="User 2" />
-                        <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="66.0" layoutY="47.0" prefHeight="38.0" prefWidth="502.0" text="Great breakfast, rooms could use some TLC." />
+                        <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="47.0" text="User 2" />
+                        <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="66.0" layoutY="40.0" prefHeight="38.0" prefWidth="502.0" text="Great breakfast, rooms could use some TLC." />
                         <Separator layoutY="80.0" prefHeight="7.0" prefWidth="797.0" />
                         <Circle fill="DODGERBLUE" layoutX="71.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="DODGERBLUE" layoutX="88.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
@@ -59,8 +59,8 @@
                     <Pane layoutY="150.0" prefHeight="80.0" prefWidth="796.0">
                       <children>
                         <Circle fill="DODGERBLUE" layoutX="71.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Label layoutX="21.0" layoutY="14.0" prefHeight="18.0" prefWidth="54.0" text="User 3" />
-                        <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="66.0" layoutY="47.0" prefHeight="38.0" prefWidth="502.0" text="For the money, it was good." />
+                        <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="54.0" text="User 3" />
+                        <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="66.0" layoutY="40.0" prefHeight="38.0" prefWidth="502.0" text="For the money, it was good." />
                         <Separator layoutY="80.0" prefHeight="7.0" prefWidth="802.0" />
                         <Circle fill="DODGERBLUE" layoutX="88.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="DODGERBLUE" layoutX="105.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
@@ -74,8 +74,8 @@
                               <Pane layoutX="2.0" layoutY="234.0" prefHeight="80.0" prefWidth="805.0">
                                  <children>
                                     <Circle fill="DODGERBLUE" layoutX="71.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
-                                    <Label layoutX="21.0" layoutY="14.0" prefHeight="18.0" prefWidth="54.0" text="User 4" />
-                                    <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="66.0" layoutY="47.0" prefHeight="38.0" prefWidth="502.0" text="Beds where very comfortable" />
+                                    <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="54.0" text="User 4" />
+                                    <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="66.0" layoutY="40.0" prefHeight="38.0" prefWidth="502.0" text="Beds where very comfortable" />
                                     <Separator layoutY="80.0" prefHeight="7.0" prefWidth="802.0" />
                                     <Circle fill="DODGERBLUE" layoutX="88.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
                                     <Circle fill="DODGERBLUE" layoutX="105.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
@@ -112,12 +112,12 @@
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="199.0" prefWidth="779.0">
           <children>
             <TextField alignment="TOP_LEFT" layoutX="4.0" layoutY="14.0" prefHeight="79.0" prefWidth="797.0" promptText="Please enter Review here" />
-            <Button layoutX="429.0" layoutY="97.0" mnemonicParsing="false" onAction="#SubmitButton" style="-fx-background-color: #304468; -fx-background-radius: 0px;" stylesheets="@style.css" text="Submit" textFill="WHITE">
+            <Button layoutX="429.0" layoutY="100.0" mnemonicParsing="false" onAction="#SubmitButton" style="-fx-background-color: #304468; -fx-background-radius: 0px;" stylesheets="@style.css" text="Submit" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
-            <ChoiceBox layoutX="180.0" layoutY="97.0" prefHeight="25.0" prefWidth="54.0" style="-fx-background-color: #304468; -fx-background-radius: 0px;" stylesheets="@style.css" >
-              <items >
+            <ChoiceBox layoutX="180.0" layoutY="100.0" prefHeight="25.0" prefWidth="54.0" style="-fx-background-color: #304468; -fx-background-radius: 0px;" stylesheets="@style.css">
+              <items>
                 <FXCollections fx:factory="observableArrayList">
                   <String fx:value="1" />
                   <String fx:value="2" />
@@ -131,7 +131,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
             </ChoiceBox>
-            <Label layoutX="14.0" layoutY="97.0" prefHeight="17.0" prefWidth="150.0" text="Choose Star Rating">
+            <Label layoutX="14.0" layoutY="100.0" prefHeight="17.0" prefWidth="150.0" text="Choose Star Rating">
               <font>
                 <Font size="16.0" />
               </font>
