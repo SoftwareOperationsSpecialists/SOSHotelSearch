@@ -3,24 +3,40 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FinalController">
+<AnchorPane prefHeight="363.0" prefWidth="448.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FinalController">
    <children>
-      <Text layoutX="60.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thank You!" wrappingWidth="179.291015625">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="371.0" stroke="#17000000" strokeType="INSIDE" width="448.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#ffbd07" />
+                  <Stop color="#ffbd07" offset="0.24394785847299813" />
+                  <Stop color="#07befc" offset="0.5996275605214153" />
+                  <Stop color="#304468" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Label layoutX="99.0" layoutY="80.0" prefHeight="72.0" prefWidth="228.0" text="Thank You!" textFill="#070707" wrapText="true">
          <font>
-            <Font size="31.0" />
-         </font></Text>
-      <Label layoutX="25.0" layoutY="150.0" prefHeight="17.0" prefWidth="257.0" text="A receipt has been sent to your email." textFill="#1b328d" underline="true">
+            <Font name="Andale Mono" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="96.0" layoutY="152.0" prefHeight="17.0" prefWidth="257.0" text="A receipt has been sent to your email." textFill="#0a0a0a" underline="true">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Button layoutX="121.0" layoutY="194.0" mnemonicParsing="false" onAction="#Ok" prefHeight="30.0" prefWidth="58.0" text="Ok">
+      <Button layoutX="121.0" layoutY="194.0" mnemonicParsing="false" onAction="#Ok" prefHeight="30.0" prefWidth="58.0" text="Ok" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
       </Button>
+      <Button layoutX="247.0" layoutY="192.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="58.0" text="Share" textFill="#fcf9f9" />
    </children>
 </AnchorPane>
