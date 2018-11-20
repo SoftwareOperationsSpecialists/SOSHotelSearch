@@ -75,12 +75,12 @@
       </Button>
       <TextField fx:id="txtUserName" layoutX="331.0" layoutY="150.0" prefHeight="0.0" prefWidth="169.0" promptText="Username" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
       <Label layoutX="332.0" layoutY="77.0" text="Full name" textFill="#323232" />
-      <RadioButton fx:id="regOwnerBtn" layoutX="298.0" layoutY="357.0" mnemonicParsing="false" style="-fx-unselected-color: white;" text="Hotel Owner">
+      <RadioButton fx:id="regOwnerBtn" layoutX="298.0" layoutY="357.0" mnemonicParsing="false" style="-fx-unselected-color: white;" text="Hotel Owner" textFill="#076ff5">
          <toggleGroup>
             <ToggleGroup fx:id="registerType" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="regSearcherBtn" layoutX="432.0" layoutY="357.0" mnemonicParsing="false" selected="true" style="-fx-unselected-color: white;" text="Hotel Searcher" toggleGroup="$registerType" />
+      <RadioButton fx:id="regSearcherBtn" layoutX="432.0" layoutY="357.0" mnemonicParsing="false" selected="true" style="-fx-unselected-color: white;" text="Hotel Searcher" textFill="#0877ff" toggleGroup="$registerType" />
       <Label layoutX="331.0" layoutY="245.0" text="Email" />
       <Label layoutX="333.0" layoutY="298.0" text="Date of Birth" />
       <TextField fx:id="txtDOB" layoutX="331.0" layoutY="315.0" promptText="Date of Birth" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
