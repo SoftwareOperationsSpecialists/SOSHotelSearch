@@ -12,9 +12,13 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class SearchController {
+  @FXML
+  private TextField searchBar;
+  private static String location;
 
   @FXML
   private MenuButton navigationBtn;
@@ -41,13 +45,32 @@ public class SearchController {
     window.show();
   }
 
-  public void Search(ActionEvent event) throws Exception {
-    //navigationBtn.
-    Parent Dashboard = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
-    Scene dashboard = new Scene(Dashboard);
-    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(dashboard);
-    window.show();
+  public void Search(javafx.event.ActionEvent event) throws Exception {
+    location = searchBar.getText();
+
+    if (!location.isEmpty()) {
+      MapDriver mapDriver = new MapDriver();
+      mapDriver.setAddress(location);
+      mapDriver.createMap();
+
+      if (mapDriver.getErrorStatus())   {
+        System.out.println(mapDriver.getError()); // this should be set to the text of a label
+      }
+      else {
+        Parent Dashboard = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+        Scene dashboard = new Scene(Dashboard);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(dashboard);
+        window.show();
+      }
+    }
+    else {
+      // display error message
+    }
+  }
+
+  public static String getLocation() {
+    return location;
   }
 
   public void modifyRoom() {
