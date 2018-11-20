@@ -36,8 +36,7 @@ public class LogInController {
   @FXML
   private ToggleGroup loginType;
 
-  static String url = "jdbc:derby:/Users/trainofthought/Documents/Allen/Application/lib"
-      + "/SOSHotelAccountDB";
+  static String url = "jdbc:derby:lib/SOSHotelAccountDB";
 
   //Action for login button
   public void Login(ActionEvent event) throws Exception {
