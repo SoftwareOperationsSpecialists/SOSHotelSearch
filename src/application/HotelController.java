@@ -1,17 +1,15 @@
 package application;
 
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import javafx.scene.image.Image;
-import java.util.ArrayList;
 
 public class HotelController {
 
@@ -29,6 +27,26 @@ public class HotelController {
   }
 
 
+  // Dashboard Button will go back to the "Hotel Search" Scene
+  public void DashboardButton(ActionEvent event) throws Exception {
+
+    Parent HotelSearch = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+    Scene hotelSearch = new Scene(HotelSearch);
+    //Goes to hotel search scene
+    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    window.setScene(hotelSearch);
+    window.show();
+  }
+
+  public void savedHotels(ActionEvent event) throws Exception {
+    Parent Saved = FXMLLoader.load(getClass().getResource("SavedHotels.fxml"));
+    Scene savedScene = new Scene(Saved);
+
+    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    window.setScene(savedScene);
+    window.show();
+  }
+
   // Book it button will open Payment information Scene
   public void BookItButton(ActionEvent event) throws Exception {
 
@@ -37,17 +55,6 @@ public class HotelController {
     //Goes to payment scene
     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
     window.setScene(payment);
-    window.show();
-  }
-
-  // Cancel Button will go back to the "Hotel Search" Scene
-  public void CancelButton(ActionEvent event) throws Exception {
-
-    Parent HotelSearch = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
-    Scene hotelSearch = new Scene(HotelSearch);
-    //Goes to hotel search scene
-    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(hotelSearch);
     window.show();
   }
 
@@ -80,5 +87,14 @@ public class HotelController {
       hotelPhotos.setImage(images.get(images.size()-1));
       imageArrayIndex = images.size()-1;
     }
+  }
+
+  public void logout(ActionEvent event) throws Exception {
+    Parent Logout = FXMLLoader.load(getClass().getResource("login.fxml"));
+    Scene logoutScene = new Scene(Logout);
+
+    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    window.setScene(logoutScene);
+    window.show();
   }
 }
