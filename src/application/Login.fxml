@@ -59,7 +59,7 @@
             <ColorAdjust brightness="0.15" contrast="-0.34" />
          </effect>
       </ImageView>
-      <Label layoutX="321.0" layoutY="107.0" />
+      <Label fx:id="lblStatus" alignment="CENTER" layoutX="331.0" layoutY="259.0" prefHeight="17.0" prefWidth="176.0" />
       <HBox layoutX="316.0" layoutY="58.0" prefHeight="6.0" prefWidth="81.0" style="-fx-background-color: #1b9dc1; -fx-background-radius: 10px;" />
       <ImageView fitHeight="17.0" fitWidth="20.0" layoutX="308.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -69,8 +69,6 @@
             <ColorAdjust contrast="-0.66" />
          </effect>
       </ImageView>
-      <Label layoutX="331.0" layoutY="116.0" />
-      <Label fx:id="lblStatus" layoutX="331.0" layoutY="108.0" text=" " />
       <Button fx:id="signUp" layoutX="444.0" layoutY="7.0" mnemonicParsing="false" onAction="#SignUp" style="-fx-background-color: transparent;" stylesheets="@style.css" text="Sign up" textFill="#3a5072">
          <font>
             <Font size="28.0" />
