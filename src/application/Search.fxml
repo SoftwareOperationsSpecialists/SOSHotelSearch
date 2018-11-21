@@ -222,7 +222,7 @@
         </MenuButton>
         <TextField fx:id="searchBar" layoutX="322.0" layoutY="14.0" prefHeight="28.0" prefWidth="300.0" promptText="Destination, property or landmark" style="-fx-background-color: white; -fx-background-radius: 0px; -fx-border-color: #dddddd;" stylesheets="@style.css">
                <cursor>
-                  <Cursor fx:constant="HAND" />
+                  <Cursor fx:constant="TEXT" />
                </cursor></TextField>
         <Button layoutX="644.0" layoutY="13.0" mnemonicParsing="false" onAction="#initialize" stylesheets="@style.css" text="Search" textFill="WHITE">
           <font>
@@ -268,7 +268,7 @@
             <Cursor fx:constant="HAND" />
           </cursor>
         </Button>
-        <Button alignment="CENTER" layoutX="5.0" layoutY="100.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="My Account" textFill="WHITE">
+        <Button alignment="CENTER" layoutX="5.0" layoutY="100.0" mnemonicParsing="false" onAction="#MyAccount" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Account" textFill="WHITE">
           <font>
             <Font size="14.0" />
           </font>
@@ -276,7 +276,7 @@
             <Cursor fx:constant="HAND" />
           </cursor>
         </Button>
-        <Button alignment="CENTER" layoutX="5.0" layoutY="140.0" mnemonicParsing="false" onAction="#savedHotels" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Saved" textFill="WHITE">
+        <Button alignment="CENTER" layoutX="3.0" layoutY="140.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Logout" textFill="WHITE">
           <font>
             <Font size="14.0" />
           </font>
@@ -284,22 +284,23 @@
             <Cursor fx:constant="HAND" />
           </cursor>
         </Button>
-        <Button alignment="CENTER" layoutX="5.0" layoutY="180.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Reservations" textAlignment="CENTER" textFill="WHITE">
-          <font>
-            <Font size="14.0" />
-          </font>
-          <cursor>
-            <Cursor fx:constant="HAND" />
-          </cursor>
-        </Button>
-        <Button alignment="CENTER" layoutX="3.0" layoutY="220.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Logout" textFill="WHITE">
-          <font>
-            <Font size="14.0" />
-          </font>
-          <cursor>
-            <Cursor fx:constant="HAND" />
-          </cursor>
-        </Button>
+            <Pane layoutX="-2.0" layoutY="401.0" prefHeight="95.0" prefWidth="119.0">
+               <children>
+                  <Label layoutX="10.0" layoutY="30.0" text="S.O.S">
+                     <font>
+                        <Font size="44.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#15f7ff" />
+                              <Stop color="#eedcab" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+               </children>
+            </Pane>
       </children>
     </AnchorPane>
     <VBox fx:id="mapBox" layoutX="428.0" layoutY="48.0" prefHeight="448.0" prefWidth="531.0">

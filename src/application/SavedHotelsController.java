@@ -19,7 +19,7 @@ public class SavedHotelsController {
   }
 
   public void back(ActionEvent event) throws Exception {
-    Parent Back = FXMLLoader.load(getClass().getResource("Search.fxml"));
+    Parent Back = FXMLLoader.load(getClass().getResource("MyAccount.fxml"));
     Scene backScene = new Scene(Back);
 
     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

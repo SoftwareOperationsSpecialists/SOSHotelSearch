@@ -9,50 +9,44 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#Register" prefHeight="432.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RegController">
    <children>
-      <AnchorPane prefHeight="432.0" prefWidth="276.0">
+      <AnchorPane prefHeight="432.0" prefWidth="276.0" style="-fx-background-color: #1b9dc1;">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="432.0" stroke="TRANSPARENT" strokeType="INSIDE" width="276.0">
-               <fill>
-                  <LinearGradient endX="1.0" endY="1.0" startX="1.0">
-                     <stops>
-                        <Stop color="#21a8ff" />
-                        <Stop color="#4757048f" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </fill>
-            </Rectangle>
-            <Label layoutX="58.0" layoutY="95.0" text="S.O.S">
-               <font>
-                  <Font size="59.0" />
-               </font>
-               <textFill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop color="#15f7ff" />
-                        <Stop color="#eedcab" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </Label>
-            <Label layoutX="62.0" layoutY="159.0" text="Hotel Search" textFill="WHITE">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
+            <Pane layoutX="58.0" layoutY="95.0">
+               <children>
+                  <Label text="S.O.S">
+                     <font>
+                        <Font size="59.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#15f7ff" />
+                              <Stop color="#eedcab" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <Label layoutX="4.0" layoutY="64.0" text="Hotel Search" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
          </children></AnchorPane>
       <Label fx:id="regStatus" layoutX="331.0" layoutY="108.0" text=" " />
       <TextField fx:id="txtFullName" layoutX="331.0" layoutY="94.0" prefHeight="0.0" prefWidth="169.0" promptText="Full Name" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
       <Label layoutX="333.0" layoutY="133.0" text="Username" textFill="#323232" />
       <Label layoutX="332.0" layoutY="191.0" text="Password" />
-      <PasswordField fx:id="txtPassword" layoutX="330.0" layoutY="208.0" promptText=" Password" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
-      <Button id="loginButton" layoutX="331.0" layoutY="389.0" mnemonicParsing="false" onAction="#Register" prefHeight="17.0" prefWidth="169.0" style="-fx-background-color: #304468;" stylesheets="@style.css" text="Register" textFill="WHITE">
+      <PasswordField fx:id="txtPassword" layoutX="330.0" layoutY="208.0" prefHeight="27.0" prefWidth="169.0" promptText=" Password" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
+      <Button id="loginButton" layoutX="331.0" layoutY="389.0" mnemonicParsing="false" onAction="#Register" prefHeight="17.0" prefWidth="169.0" stylesheets="@style.css" text="Register" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
@@ -75,15 +69,15 @@
       </Button>
       <TextField fx:id="txtUserName" layoutX="331.0" layoutY="150.0" prefHeight="0.0" prefWidth="169.0" promptText="Username" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
       <Label layoutX="332.0" layoutY="77.0" text="Full name" textFill="#323232" />
-      <RadioButton fx:id="regOwnerBtn" layoutX="298.0" layoutY="357.0" mnemonicParsing="false" style="-fx-unselected-color: white;" text="Hotel Owner" textFill="#076ff5">
+      <RadioButton fx:id="regOwnerBtn" layoutX="308.0" layoutY="357.0" mnemonicParsing="false" style="-fx-unselected-color: white;" text="Hotel Owner">
          <toggleGroup>
             <ToggleGroup fx:id="registerType" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="regSearcherBtn" layoutX="432.0" layoutY="357.0" mnemonicParsing="false" selected="true" style="-fx-unselected-color: white;" text="Hotel Searcher" textFill="#0877ff" toggleGroup="$registerType" />
+      <RadioButton fx:id="regSearcherBtn" layoutX="444.0" layoutY="357.0" mnemonicParsing="false" selected="true" style="-fx-unselected-color: white;" text="Hotel Searcher" toggleGroup="$registerType" />
       <Label layoutX="331.0" layoutY="245.0" text="Email" />
       <Label layoutX="333.0" layoutY="298.0" text="Date of Birth" />
-      <TextField fx:id="txtDOB" layoutX="331.0" layoutY="315.0" promptText="Date of Birth" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
-      <TextField fx:id="txtEmail" layoutX="330.0" layoutY="262.0" promptText="E-mail" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
+      <TextField fx:id="txtDOB" layoutX="331.0" layoutY="315.0" prefHeight="27.0" prefWidth="169.0" promptText="Date of Birth" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
+      <TextField fx:id="txtEmail" layoutX="330.0" layoutY="262.0" prefHeight="27.0" prefWidth="169.0" promptText="E-mail" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
    </children>
 </AnchorPane>

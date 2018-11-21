@@ -35,7 +35,16 @@
 }
 
 
-
+.choice-box{
+  -fx-background-color: #1b9dc1;
+  -fx-background-radius: 0;
+}
+.choice-box:hover{
+  -fx-background-color: #f0cc05;
+  -fx-background-radius: 0;
+  -fx-text-fill:  #1b9dc1;
+  -fx-cursor: hand;
+}
 
 .scroll .scroll-bar:vertical{
   -fx-background-color: white ;

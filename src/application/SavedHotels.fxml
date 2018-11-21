@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SavedHotelsController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SavedHotelsController">
 
 
 
@@ -58,6 +58,11 @@
                           </font>
                         </Label>
                         <Separator layoutX="-3.0" layoutY="95.0" prefHeight="0.0" prefWidth="689.0" />
+                                <Button layoutX="572.0" layoutY="33.0" mnemonicParsing="false" stylesheets="@style.css" text="Remove" textFill="WHITE">
+                                  <font>
+                                    <Font size="14.0" />
+                                  </font>
+                                    </Button>
                       </children>
                     </Pane>
                     <Pane layoutY="96.0" prefHeight="98.0" prefWidth="687.0" style="-fx-background-color: white;">
@@ -93,6 +98,11 @@
                           </font>
                         </Label>
                         <Separator layoutX="2.0" layoutY="95.0" prefHeight="2.0" prefWidth="686.0" />
+                                    <Button layoutX="572.0" layoutY="33.0" mnemonicParsing="false" stylesheets="@style.css" text="Remove" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
                       </children>
                     </Pane>
                     <Pane layoutY="192.0" prefHeight="96.0" prefWidth="686.0" style="-fx-background-color: white;">
@@ -128,6 +138,11 @@
                           </font>
                         </Label>
                         <Separator layoutX="-3.0" layoutY="95.0" prefHeight="3.0" prefWidth="691.0" />
+                                    <Button layoutX="572.0" layoutY="33.0" mnemonicParsing="false" stylesheets="@style.css" text="Remove" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
                       </children>
                     </Pane>
                     <Pane layoutY="288.0" prefHeight="96.0" prefWidth="685.0" style="-fx-background-color: white;">
@@ -163,6 +178,11 @@
                           </font>
                         </Label>
                         <Separator layoutX="-2.0" layoutY="95.0" prefHeight="2.0" prefWidth="690.0" />
+                                    <Button layoutX="572.0" layoutY="33.0" mnemonicParsing="false" stylesheets="@style.css" text="Remove" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
                       </children>
                     </Pane>
                     <Pane layoutY="384.0" prefHeight="96.0" prefWidth="687.0" style="-fx-background-color: white;">
@@ -190,6 +210,11 @@
                           </font>
                         </Label>
                         <Separator layoutX="58.0" layoutY="95.0" prefWidth="200.0" />
+                                    <Button layoutX="572.0" layoutY="33.0" mnemonicParsing="false" stylesheets="@style.css" text="Remove" textFill="WHITE">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
                       </children>
                     </Pane>
                   </children>
@@ -199,13 +224,9 @@
           </children></AnchorPane>
       </items>
     </SplitPane>
-    <AnchorPane layoutY="-2.0" prefHeight="50.0" prefWidth="700.0" style="-fx-background-color: #304468;">
+    <AnchorPane layoutY="-2.0" prefHeight="50.0" prefWidth="700.0" style="-fx-background-color: #1b9dc1;">
       <children>
-        <Button layoutX="111.0" layoutY="12.0" mnemonicParsing="false" style="-fx-background-color: #1b9dc1; -fx-background-radius: 0px;" text="Remove" textFill="WHITE">
-          <font>
-            <Font size="14.0" />
-          </font></Button>
-        <MenuButton layoutX="197.0" layoutY="12.0" mnemonicParsing="false" style="-fx-background-color: #1b9dc1; -fx-background-radius: 0px;" text="Sort" textFill="WHITE">
+        <MenuButton layoutX="94.0" layoutY="10.0" mnemonicParsing="false" stylesheets="@style.css" text="Sort" textFill="WHITE">
           <items>
             <MenuItem mnemonicParsing="false" text="Price (high to low)" />
             <MenuItem mnemonicParsing="false" text="Price (low to high)" />
@@ -216,12 +237,12 @@
             <Font size="14.0" />
           </font>
         </MenuButton>
-            <Label layoutX="512.0" layoutY="8.0" text="Saved Hotels" textFill="WHITE">
+            <Label layoutX="600.0" layoutY="15.0" text="Saved Hotels" textFill="WHITE">
                <font>
-                  <Font size="28.0" />
+                  <Font size="15.0" />
                </font>
             </Label>
-            <Button layoutX="-8.0" layoutY="5.0" mnemonicParsing="false" onAction="#back" prefHeight="41.0" prefWidth="80.0" style="-fx-background-radius: 0px; -fx-background-color: transparent;" text="&lt; Back" textFill="WHITE">
+            <Button layoutX="-8.0" layoutY="5.0" mnemonicParsing="false" onAction="#back" prefHeight="41.0" prefWidth="80.0" stylesheets="@style.css" text="&lt; Back" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>

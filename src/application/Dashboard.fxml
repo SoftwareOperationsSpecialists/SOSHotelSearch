@@ -11,6 +11,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
@@ -109,7 +110,7 @@
             </LinearGradient>
           </fill>
         </Rectangle>
-        <Button alignment="CENTER" layoutX="5.0" layoutY="60.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Dashboard" textFill="WHITE" AnchorPane.leftAnchor="5.0">
+        <Button alignment="CENTER" layoutX="5.0" layoutY="60.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" style="-fx-background-color: #f0cc05;" stylesheets="@style.css" text="Dashboard" textFill="#1b9dc1" AnchorPane.leftAnchor="5.0">
           <font>
             <Font size="14.0" />
           </font>
@@ -117,7 +118,7 @@
             <Cursor fx:constant="HAND" />
           </cursor>
         </Button>
-        <Button alignment="CENTER" layoutX="5.0" layoutY="100.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="My Account" textFill="WHITE" AnchorPane.leftAnchor="5.0">
+        <Button alignment="CENTER" layoutX="5.0" layoutY="100.0" mnemonicParsing="false" onAction="#MyAccount" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Account" textFill="WHITE" AnchorPane.leftAnchor="5.0">
           <font>
             <Font size="14.0" />
           </font>
@@ -125,23 +126,7 @@
             <Cursor fx:constant="HAND" />
           </cursor>
         </Button>
-        <Button alignment="CENTER" layoutX="5.0" layoutY="140.0" mnemonicParsing="false" onAction="#savedHotels" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Saved" textFill="WHITE" AnchorPane.leftAnchor="5.0">
-          <font>
-            <Font size="14.0" />
-          </font>
-          <cursor>
-            <Cursor fx:constant="HAND" />
-          </cursor>
-        </Button>
-        <Button alignment="CENTER" layoutX="5.0" layoutY="180.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Reservations" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="5.0">
-          <font>
-            <Font size="14.0" />
-          </font>
-          <cursor>
-            <Cursor fx:constant="HAND" />
-          </cursor>
-        </Button>
-        <Button alignment="CENTER" layoutX="5.0" layoutY="220.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Logout" textFill="WHITE" AnchorPane.leftAnchor="5.0">
+        <Button alignment="CENTER" layoutX="5.0" layoutY="140.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Logout" textFill="WHITE" AnchorPane.leftAnchor="5.0">
           <font>
             <Font size="14.0" />
           </font>
@@ -159,6 +144,23 @@
         <Rectangle2D />
       </viewport>
     </ImageView>
+      <Pane layoutX="232.0" layoutY="384.0" prefHeight="95.0" prefWidth="119.0">
+         <children>
+            <Label layoutX="10.0" layoutY="15.0" text="S.O.S">
+               <font>
+                  <Font size="44.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#15f7ff" />
+                        <Stop color="#eedcab" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+         </children>
+      </Pane>
   </children>
 
 </AnchorPane>

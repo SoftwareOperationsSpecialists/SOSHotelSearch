@@ -12,8 +12,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class SearchController {
-    private boolean isNewInstance = true; // intended to set map location from previous screen on startup. Flagged false
-    private int offset = 0;
+
+  private boolean isNewInstance = true; // intended to set map location from previous screen on startup. Flagged false
+  private int offset = 0;
 
   @FXML
   private BorderPane mapPane;
@@ -24,12 +25,38 @@ public class SearchController {
   @FXML
   private TextField searchBar;
 
+  //Side panel buttons
+  public void Dashboard(ActionEvent event) throws Exception {
+    Parent Logout = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+    Scene logoutScene = new Scene(Logout);
+
+    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    window.setScene(logoutScene);
+    window.show();
+  }
+  public void MyAccount(ActionEvent event) throws Exception {
+    Parent Logout = FXMLLoader.load(getClass().getResource("MyAccount.fxml"));
+    Scene logoutScene = new Scene(Logout);
+
+    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    window.setScene(logoutScene);
+    window.show();
+  }
+  public void logout(ActionEvent event) throws Exception {
+    Parent Logout = FXMLLoader.load(getClass().getResource("login.fxml"));
+    Scene logoutScene = new Scene(Logout);
+
+    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    window.setScene(logoutScene);
+    window.show();
+  }
+
+
   public void initialize() {
     MapDriver mapDriver = new MapDriver();
     if (isNewInstance) {
       mapDriver.setAddress(DashController.getLocation());
-    }
-    else {
+    } else {
       mapDriver.setAddress(searchBar.getText());
     }
 
@@ -57,37 +84,10 @@ public class SearchController {
     window.setScene(hotel);
     window.show();
   }
-  public void logout(ActionEvent event) throws Exception {
-    Parent Logout = FXMLLoader.load(getClass().getResource("login.fxml"));
-    Scene logoutScene = new Scene(Logout);
 
-    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(logoutScene);
-    window.show();
-  }
-  public void Dashboard(ActionEvent event) throws Exception {
-    Parent Logout = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
-    Scene logoutScene = new Scene(Logout);
-
-    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(logoutScene);
-    window.show();
-  }
-  public void savedHotels(ActionEvent event) throws Exception {
-    Parent Saved = FXMLLoader.load(getClass().getResource("SavedHotels.fxml"));
-    Scene savedScene = new Scene(Saved);
-
-    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(savedScene);
-    window.show();
-  }
-
-
-  public void HighToLow(ActionEvent event) throws Exception{
+  public void HighToLow(ActionEvent event) throws Exception {
 
   }
-
-
 
 
 }

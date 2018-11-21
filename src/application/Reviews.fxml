@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="434.0" prefWidth="807.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ReviewsController">
+<AnchorPane prefHeight="434.0" prefWidth="807.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ReviewsController">
   <children>
     <SplitPane dividerPositions="0.7157464212678937" orientation="VERTICAL" prefHeight="491.0" prefWidth="811.0">
       <items>
@@ -91,14 +91,14 @@
                 </AnchorPane>
               </content>
             </ScrollPane>
-                  <AnchorPane prefHeight="53.0" prefWidth="811.0" style="-fx-background-color: #304468;">
+                  <AnchorPane prefHeight="53.0" prefWidth="811.0" style="-fx-background-color: #1b9dc1;">
                      <children>
-                        <Label layoutX="595.0" layoutY="7.0" text="Hotel Reviews" textFill="WHITE">
+                        <Label layoutX="704.0" layoutY="15.0" text="Hotel Reviews" textFill="WHITE">
                            <font>
-                              <Font size="28.0" />
+                              <Font size="15.0" />
                            </font>
                         </Label>
-                        <Button layoutX="-8.0" layoutY="5.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="41.0" prefWidth="80.0" style="-fx-background-radius: 0px; -fx-background-color: transparent;" text="&lt; Back" textFill="WHITE">
+                        <Button layoutX="-8.0" layoutY="5.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="41.0" prefWidth="80.0" stylesheets="@style.css" text="&lt; Back" textFill="WHITE">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -113,11 +113,11 @@
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="199.0" prefWidth="779.0">
           <children>
             <TextField alignment="TOP_LEFT" layoutX="4.0" layoutY="14.0" prefHeight="79.0" prefWidth="797.0" promptText="Please enter Review here" />
-            <Button layoutX="429.0" layoutY="100.0" mnemonicParsing="false" onAction="#SubmitButton" style="-fx-background-color: #304468; -fx-background-radius: 0px;" stylesheets="@style.css" text="Submit" textFill="WHITE">
+            <Button layoutX="747.0" layoutY="100.0" mnemonicParsing="false" onAction="#SubmitButton" stylesheets="@style.css" text="Submit" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
-            <ChoiceBox layoutX="180.0" layoutY="100.0" prefHeight="25.0" prefWidth="54.0" style="-fx-background-color: #304468; -fx-background-radius: 0px;" stylesheets="@style.css">
+            <ChoiceBox layoutX="180.0" layoutY="100.0" prefHeight="25.0" prefWidth="54.0" stylesheets="@style.css">
               <items>
                 <FXCollections fx:factory="observableArrayList">
                   <String fx:value="1" />
