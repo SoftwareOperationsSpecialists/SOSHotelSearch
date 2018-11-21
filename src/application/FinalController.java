@@ -11,7 +11,7 @@ public class FinalController {
 
   public void Ok(ActionEvent event) throws Exception {
 
-    Parent Dashboard = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+    Parent Dashboard = FXMLLoader.load(getClass().getResource("Search.fxml"));
     Scene dashboard = new Scene(Dashboard);
 
     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

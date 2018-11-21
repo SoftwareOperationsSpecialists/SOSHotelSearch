@@ -6,61 +6,34 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class DashController {
-    private boolean isNewInstance = true; // intended to set map location from previous screen on startup. Flagged false
-    private int offset = 0;
-
-  @FXML
-  private BorderPane mapPane;
-
-  @FXML
-  private VBox mapBox;
-
   @FXML
   private TextField searchBar;
+  private static String location;
 
-  public void initialize() {
-    MapDriver mapDriver = new MapDriver();
-    if (isNewInstance) {
-      mapDriver.setAddress(SearchController.getLocation());
-    }
-    else {
-      mapDriver.setAddress(searchBar.getText());
-    }
+  @FXML
+  private MenuButton navigationBtn;
 
-    isNewInstance = false;
-    mapDriver.createMap();
+  @FXML
+  private MenuItem myAccountItem;
+  @FXML
+  private MenuItem mySavedHotelItem;
+  @FXML
+  private MenuItem myReservationItem;
+  @FXML
+  private MenuItem logoutItem;
 
-    if (!mapDriver.getErrorStatus()) {
-      mapPane.getChildren().clear();
-      mapPane = new BorderPane(mapDriver.getMapView());
-
-      // for some reason the prefHeight has to be set manually and also shifted up every time the map
-      // is redrawn. Unsure of reason. Please ignore magic numbers.
-      mapPane.setPrefHeight(900.0 + offset);
-      offset += 500;
-
-      mapBox.getChildren().add(mapPane);
-    }
-  }
-
-  public void HotelInfo(ActionEvent event) throws Exception {
-    Parent Hotel = FXMLLoader.load(getClass().getResource("Hotel.fxml"));
-    Scene hotel = new Scene(Hotel);
-
-    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(hotel);
-    window.show();
-  }
-
-  public void HighToLow(ActionEvent event) throws Exception{
-
-  }
+  @FXML
+  private Spinner roomCount;
+  private SpinnerValueFactory<Integer> roomCountFactory = new IntegerSpinnerValueFactory(0,9,1);
 
   public void savedHotels(ActionEvent event) throws Exception {
     Parent Saved = FXMLLoader.load(getClass().getResource("SavedHotels.fxml"));
@@ -72,11 +45,47 @@ public class DashController {
   }
 
   public void logout(ActionEvent event) throws Exception {
-    Parent Logout = FXMLLoader.load(getClass().getResource("login.fxml"));
-    Scene logoutScene = new Scene(Logout);
+    Parent Dashboard = FXMLLoader.load(getClass().getResource("Login.fxml"));
+    Scene dashboard = new Scene(Dashboard);
 
     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(logoutScene);
+    window.setScene(dashboard);
     window.show();
   }
+
+  public void Search(javafx.event.ActionEvent event) throws Exception {
+    location = searchBar.getText();
+
+    if (!location.isEmpty()) {
+      MapDriver mapDriver = new MapDriver();
+      mapDriver.setAddress(location);
+      mapDriver.createMap();
+
+      if (mapDriver.getErrorStatus())   {
+        System.out.println(mapDriver.getError()); // this should be set to the text of a label
+      }
+      else {
+        Parent Dashboard = FXMLLoader.load(getClass().getResource("Search.fxml"));
+        Scene dashboard = new Scene(Dashboard);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(dashboard);
+        window.show();
+      }
+    }
+    else {
+      // display error message
+    }
+  }
+
+  public static String getLocation() {
+    return location;
+  }
+
+  public void modifyRoom() {
+    this.roomCount.setValueFactory(roomCountFactory);
+  }
+
+  public void changeScene(){
+  }
+
 }

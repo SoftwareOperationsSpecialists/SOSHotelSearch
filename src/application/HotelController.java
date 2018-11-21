@@ -30,7 +30,7 @@ public class HotelController {
   // Dashboard Button will go back to the "Hotel Search" Scene
   public void DashboardButton(ActionEvent event) throws Exception {
 
-    Parent HotelSearch = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+    Parent HotelSearch = FXMLLoader.load(getClass().getResource("Search.fxml"));
     Scene hotelSearch = new Scene(HotelSearch);
     //Goes to hotel search scene
     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

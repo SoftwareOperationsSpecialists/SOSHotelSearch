@@ -2,21 +2,48 @@
   -fx-font-family: "Avenir Black";
 }
 .button{
-  -fx-background-color:#304468;
+  -fx-background-color: #1b9dc1;
+  -fx-background-radius: 0;
+
 }
 .button:hover{
-  -fx-background-color:#4286f4;
+  -fx-background-color:#f0cc05;
+  -fx-background-radius: 0;
   -fx-text-fill:  #1b9dc1;
+  -fx-cursor: hand;
 }
+
+.menu-button{
+  -fx-background-color: #1b9dc1;
+  -fx-background-radius: 0;
+}
+.menu-button:hover{
+  -fx-background-color: #f0cc05;
+  -fx-background-radius: 0;
+  -fx-text-fill:  #1b9dc1;
+  -fx-cursor: hand;
+}
+.menu-item{
+  -fx-background-radius: 0;
+  -fx-text-fill: white;
+}
+.menu-item:hover{
+  -fx-background-color: #f0cc05;
+  -fx-background-radius: 0;
+  -fx-text-fill:  #1b9dc1;
+  -fx-cursor: hand;
+}
+
+
+
+
 .scroll .scroll-bar:vertical{
-  -fx-background-color: white;
+  -fx-background-color: white ;
 }
 .scroll .scroll-bar:vertical .track{
 
   -fx-background-color: white;
-
 }
-
 .scroll .scroll-bar:vertical .thumb{
 
   -fx-background-color:  #e8e8e8;
