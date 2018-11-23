@@ -16,11 +16,10 @@ public class HotelController {
   @FXML
   private ImageView hotelPhotos;
 
-  private int numImages = 2;        // 3 images of the hotel (0, 1, and 2)
-  private int imageArrayIndex = 0;  // starts on the first image
+  private int numImages = 2;
+  private int imageArrayIndex = 0;
   private ArrayList<Image> images = new ArrayList<>(numImages);
 
-  // adds 3 images
   public HotelController(){
     images.add(new Image("application/hotelpics/holiday-inn-the-colony-4629618286-16x5.jpg"));
     images.add(new Image("application/hotelpics/room.jpg"));
@@ -38,8 +37,7 @@ public class HotelController {
     window.setScene(hotelSearch);
     window.show();
   }
-  
-  // Saved Hotels button will open the "Saved Hotels" scene
+
   public void savedHotels(ActionEvent event) throws Exception {
     Parent Saved = FXMLLoader.load(getClass().getResource("SavedHotels.fxml"));
     Scene savedScene = new Scene(Saved);
@@ -49,7 +47,7 @@ public class HotelController {
     window.show();
   }
 
-  // Book it button will open "Payment information" Scene
+  // Book it button will open Payment information Scene
   public void BookItButton(ActionEvent event) throws Exception {
 
     Parent paymentInfo = FXMLLoader.load(getClass().getResource("Payment.fxml"));
@@ -60,7 +58,7 @@ public class HotelController {
     window.show();
   }
 
-  // Go to Reviews button will go to the "Reviews" Scene
+  //Go to Reviews button will go to the "Reviews" Scene
   public void GoToReviews(ActionEvent event) throws Exception {
 
     Parent Reviews = FXMLLoader.load(getClass().getResource("Reviews.fxml"));
@@ -71,29 +69,26 @@ public class HotelController {
     window.show();
   }
 
-  // views next image by increasing the imageArrayIndex by 1
   public void NextImage(ActionEvent event) throws Exception {
     try {
-      imageArrayIndex++;                                    // inc by 1
-      hotelPhotos.setImage(images.get(imageArrayIndex));    // change image according to new image index
+      imageArrayIndex++;
+      hotelPhotos.setImage(images.get(imageArrayIndex));
     } catch (IndexOutOfBoundsException e) {
-      hotelPhotos.setImage(images.get(0));                  // wrap image index back to 0 if trying to increase it past 2
+      hotelPhotos.setImage(images.get(0));
       imageArrayIndex = 0;
     }
   }
 
-  // views previous image by decreasing the imageArrayIndex by 1
   public void PreviousImage(ActionEvent event) throws Exception {
     try {
-      imageArrayIndex--;                                    // dec by 1
-      hotelPhotos.setImage(images.get(imageArrayIndex));    // change image according to new image index
+      imageArrayIndex--;
+      hotelPhotos.setImage(images.get(imageArrayIndex));
     } catch (IndexOutOfBoundsException e) {
-      hotelPhotos.setImage(images.get(images.size()-1));    // wrap image index back to 2 if trying to decrease it past 0
+      hotelPhotos.setImage(images.get(images.size()-1));
       imageArrayIndex = images.size()-1;
     }
   }
 
-  // logout button goes to login scene
   public void logout(ActionEvent event) throws Exception {
     Parent Logout = FXMLLoader.load(getClass().getResource("login.fxml"));
     Scene logoutScene = new Scene(Logout);

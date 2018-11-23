@@ -12,28 +12,26 @@ public class Hotel {
   private int stdPrice;
   private int dlxPrice;
   private int suitePrice;
-  
-  // holds the unique hotel information
+
   public Hotel(int hotelId, String name, double stars, String city, String countryCode, String countryName, double lat,
                double lng, int stdPrice, int dlxPrice, int suitePrice) {
-    this.hotelId = hotelId;           // id to identify this specific hotel
-    this.name = name;                 // name of hotel
-    this.stars = stars;               // star rating (1-5)
-    this.city = city;                 // city of hotel
-    this.countryCode = countryCode;   // country code
-    this.countryName = countryName;   // country name
-    this.lat = lat;                   // latitude
-    this.lng = lng;                   // longitude
-    this.stdPrice = stdPrice;         // standard price
-    this.dlxPrice = dlxPrice;         // deluxe price
-    this.suitePrice = suitePrice;     // suite price
+    this.hotelId = hotelId;
+    this.name = name;
+    this.stars = stars;
+    this.city = city;
+    this.countryCode = countryCode;
+    this.countryName = countryName;
+    this.lat = lat;
+    this.lng = lng;
+    this.stdPrice = stdPrice;
+    this.dlxPrice = dlxPrice;
+    this.suitePrice = suitePrice;
   }
 
   public void setHotelId(int id) { this.hotelId = id; }
 
   public int getHotelId() { return hotelId; }
 
-  // "set" functions set the value of the respective variable
   public void setName(String name) {
     this.name = name;
   }
@@ -74,7 +72,6 @@ public class Hotel {
     this.suitePrice = suitePrice;
   }
 
-  // "get" functions return the value of the respective variable
   public String getName() {
     return name;
   }

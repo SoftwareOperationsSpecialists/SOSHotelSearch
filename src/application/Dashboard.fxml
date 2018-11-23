@@ -20,87 +20,13 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="457.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DashController">
+<AnchorPane prefHeight="457.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DashController">
 
 
   <children>
-    <AnchorPane layoutX="109.0" layoutY="1.0" prefHeight="457.0" prefWidth="850.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="109.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
-      <children>
-        <TextField fx:id="searchBar" layoutX="479.0" layoutY="89.0" prefHeight="27.0" prefWidth="245.0" promptText="Destination, Landmark or Property" AnchorPane.bottomAnchor="380.0" AnchorPane.rightAnchor="126.0">
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor></TextField>
-        <Button alignment="CENTER" layoutX="545.0" layoutY="352.0" mnemonicParsing="false" onAction="#Search" prefHeight="27.0" prefWidth="101.0" stylesheets="@style.css" text="Search" textFill="WHITE" AnchorPane.bottomAnchor="117.0" AnchorPane.rightAnchor="204.0">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-        <DatePicker layoutX="525.0" layoutY="164.0" prefHeight="27.0" prefWidth="142.0" promptText="Check-in Date" AnchorPane.bottomAnchor="305.0" AnchorPane.rightAnchor="183.0" />
-        <DatePicker layoutX="525.0" layoutY="236.0" prefHeight="27.0" prefWidth="142.0" promptText="Check-out Date" AnchorPane.bottomAnchor="233.0" AnchorPane.rightAnchor="183.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" height="500.0" layoutX="-1.0" stroke="WHITE" strokeType="INSIDE" width="358.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.topAnchor="-2.0">
-          <fill>
-            <LinearGradient endY="1.0" startX="1.0">
-              <stops>
-                <Stop color="#1b9dc1" />
-                <Stop color="#1b9dc1" offset="0.007662835249042145" />
-                <Stop color="#f59c0c" offset="1.0" />
-              </stops>
-            </LinearGradient>
-          </fill>
-        </Rectangle>
-        <Spinner fx:id="roomCount" editable="true" layoutX="626.0" layoutY="292.0" onMouseClicked="#modifyRoom" prefHeight="27.0" prefWidth="54.0" AnchorPane.bottomAnchor="177.0" AnchorPane.rightAnchor="170.0">
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor></Spinner>
-        <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="525.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="122.0" AnchorPane.rightAnchor="308.3695659637451">
-          <image>
-            <Image url="@searchicons/magnifyingGlass.JPG" />
-          </image>
-        </ImageView>
-        <Circle layoutX="175.0" layoutY="180.0" radius="20.0" stroke="TRANSPARENT" strokeType="INSIDE">
-          <fill>
-            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-              <stops>
-                <Stop color="#fae300" />
-                <Stop color="#ffd400" offset="0.0074487895716946" />
-                <Stop color="#f7cb07b8" offset="1.0" />
-              </stops>
-            </RadialGradient>
-          </fill>
-        </Circle>
-        <Line endX="105.0" endY="-2.0" fill="#f0cc05" layoutX="43.0" layoutY="155.0" startX="85.0" startY="-22.0" stroke="#eec10c" />
-        <Line endX="105.0" endY="-7.5" fill="#f0cc05" layoutX="109.0" layoutY="230.0" startX="86.0" startY="-29.0" stroke="#eec10c" />
-        <Line endX="68.0" endY="-6.5" fill="#f0cc05" layoutX="67.0" layoutY="230.0" startX="86.0" startY="-29.0" stroke="#eec10c" />
-        <Label alignment="CENTER" layoutX="7.0" layoutY="31.0" prefHeight="64.0" prefWidth="342.0" text="Hello">
-          <font>
-            <Font size="36.0" />
-          </font>
-        </Label>
-        <Label layoutX="484.0" layoutY="296.0" prefHeight="0.0" prefWidth="111.0" text="Number of Rooms" AnchorPane.bottomAnchor="181.0" AnchorPane.rightAnchor="255.0">
-          <effect>
-            <Blend mode="OVERLAY" opacity="0.0" />
-          </effect>
-          <font>
-            <Font name="System Bold Italic" size="13.0" />
-          </font>
-        </Label>
-        <Line endX="109.0" endY="-3.0" fill="#f0cc05" layoutX="35.0" layoutY="182.0" startX="67.0" startY="-3.0" stroke="#eec10c" />
-        <Line endX="109.0" endY="-3.0" fill="#f0cc05" layoutX="138.0" layoutY="181.0" startX="67.0" startY="-3.0" stroke="#eec10c" />
-        <Line endX="67.0" endY="38.5" fill="#f0cc05" layoutX="107.0" layoutY="212.0" startX="67.0" startY="-3.0" stroke="#eec10c" />
-        <Line endX="67.0" endY="38.5" fill="#f0cc05" layoutX="107.0" layoutY="106.0" startX="67.0" startY="-3.0" stroke="#eec10c" />
-        <ImageView fitHeight="23.0" fitWidth="17.0" layoutX="460.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="385.0" AnchorPane.rightAnchor="373.0">
-          <image>
-            <Image url="@searchicons/globe.JPG" />
-          </image>
-        </ImageView>
-        <Label layoutX="565.0" layoutY="63.0" text="Destination" AnchorPane.bottomAnchor="416.0" AnchorPane.rightAnchor="224.0" />
-        <Label layoutX="525.0" layoutY="215.0" text="Check-out Date" AnchorPane.bottomAnchor="264.0" AnchorPane.rightAnchor="242.0" />
-        <Label layoutX="525.0" layoutY="145.0" text="Check-in Date" AnchorPane.bottomAnchor="334.0" AnchorPane.rightAnchor="250.0" />
-        <Line endX="68.0" endY="-6.5" fill="#f0cc05" layoutX="137.0" layoutY="156.0" startX="86.0" startY="-29.0" stroke="#eec10c" />
-      </children>
-    </AnchorPane>
     <AnchorPane prefHeight="500.0" prefWidth="113.0">
       <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" height="500.0" stroke="WHITE" strokeType="INSIDE" width="111.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-2.0" AnchorPane.topAnchor="-2.0">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="500.0" stroke="WHITE" strokeType="INSIDE" width="116.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="-2.0" AnchorPane.topAnchor="-2.0">
           <fill>
             <LinearGradient endX="1.0" endY="1.0">
               <stops>
@@ -126,7 +52,7 @@
             <Cursor fx:constant="HAND" />
           </cursor>
         </Button>
-        <Button alignment="CENTER" layoutX="5.0" layoutY="140.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Logout" textFill="WHITE" AnchorPane.leftAnchor="5.0">
+        <Button alignment="CENTER" layoutX="5.0" layoutY="215.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Logout" textFill="WHITE" AnchorPane.leftAnchor="5.0">
           <font>
             <Font size="14.0" />
           </font>
@@ -134,6 +60,97 @@
             <Cursor fx:constant="HAND" />
           </cursor>
         </Button>
+            <Button alignment="CENTER" layoutX="5.0" layoutY="139.0" mnemonicParsing="false" onAction="#savedHotels" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Saved" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button alignment="CENTER" layoutX="5.0" layoutY="177.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Reservations" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+      </children>
+    </AnchorPane>
+    <AnchorPane layoutX="109.0" layoutY="1.0" prefHeight="457.0" prefWidth="850.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="109.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
+      <children>
+        <TextField fx:id="searchBar" layoutX="479.0" layoutY="89.0" prefHeight="27.0" prefWidth="245.0" promptText="Destination, Landmark or Property" AnchorPane.bottomAnchor="380.0" AnchorPane.rightAnchor="126.0">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextField>
+        <Button alignment="CENTER" layoutX="545.0" layoutY="352.0" mnemonicParsing="false" onAction="#Search" prefHeight="27.0" prefWidth="101.0" stylesheets="@style.css" text="Search" textFill="WHITE" AnchorPane.bottomAnchor="117.0" AnchorPane.rightAnchor="204.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+        <DatePicker layoutX="523.0" layoutY="166.0" prefHeight="27.0" prefWidth="142.0" promptText="Check-in Date" AnchorPane.bottomAnchor="305.0" AnchorPane.rightAnchor="185.0" />
+        <DatePicker layoutX="523.0" layoutY="238.0" prefHeight="27.0" prefWidth="142.0" promptText="Check-out Date" AnchorPane.bottomAnchor="233.0" AnchorPane.rightAnchor="185.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="500.0" layoutX="-1.0" stroke="WHITE" strokeType="INSIDE" width="358.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.topAnchor="-2.0">
+          <fill>
+            <LinearGradient endY="1.0" startX="1.0">
+              <stops>
+                <Stop color="#1b9dc1" />
+                <Stop color="#1b9dc1" offset="0.007662835249042145" />
+                <Stop color="#f59c0c" offset="1.0" />
+              </stops>
+            </LinearGradient>
+          </fill>
+        </Rectangle>
+        <Spinner fx:id="roomCount" editable="true" layoutX="625.0" layoutY="294.0" onMouseClicked="#modifyRoom" prefHeight="27.0" prefWidth="54.0" AnchorPane.bottomAnchor="177.0" AnchorPane.rightAnchor="171.0">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></Spinner>
+        <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="525.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="122.0" AnchorPane.rightAnchor="308.3695659637451">
+          <image>
+            <Image url="@searchicons/magnifyingGlass.JPG" />
+          </image>
+        </ImageView>
+        <Circle layoutX="175.0" layoutY="180.0" radius="20.0" stroke="TRANSPARENT" strokeType="INSIDE">
+          <fill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+              <stops>
+                <Stop color="#fae300" />
+                <Stop color="#ffd400" offset="0.0074487895716946" />
+                <Stop color="#f7cb07b8" offset="1.0" />
+              </stops>
+            </RadialGradient>
+          </fill>
+        </Circle>
+        <Line endX="105.0" endY="-2.0" fill="#f0cc05" layoutX="43.0" layoutY="155.0" startX="85.0" startY="-22.0" stroke="#eec10c" />
+        <Line endX="105.0" endY="-7.5" fill="#f0cc05" layoutX="109.0" layoutY="230.0" startX="86.0" startY="-29.0" stroke="#eec10c" />
+        <Line endX="68.0" endY="-6.5" fill="#f0cc05" layoutX="67.0" layoutY="230.0" startX="86.0" startY="-29.0" stroke="#eec10c" />
+        <Label alignment="CENTER" layoutX="7.0" layoutY="31.0" prefHeight="64.0" prefWidth="342.0" text="Welcome!">
+          <font>
+            <Font size="36.0" />
+          </font>
+        </Label>
+        <Label layoutX="486.0" layoutY="300.0" prefHeight="0.0" prefWidth="111.0" text="Number of Rooms" AnchorPane.bottomAnchor="181.0" AnchorPane.rightAnchor="253.0">
+          <effect>
+            <Blend mode="OVERLAY" opacity="0.0" />
+          </effect>
+          <font>
+            <Font name="System Bold Italic" size="13.0" />
+          </font>
+        </Label>
+        <Line endX="109.0" endY="-3.0" fill="#f0cc05" layoutX="35.0" layoutY="182.0" startX="67.0" startY="-3.0" stroke="#eec10c" />
+        <Line endX="109.0" endY="-3.0" fill="#f0cc05" layoutX="138.0" layoutY="181.0" startX="67.0" startY="-3.0" stroke="#eec10c" />
+        <Line endX="67.0" endY="38.5" fill="#f0cc05" layoutX="107.0" layoutY="212.0" startX="67.0" startY="-3.0" stroke="#eec10c" />
+        <Line endX="67.0" endY="38.5" fill="#f0cc05" layoutX="107.0" layoutY="106.0" startX="67.0" startY="-3.0" stroke="#eec10c" />
+        <ImageView fitHeight="23.0" fitWidth="17.0" layoutX="460.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="385.0" AnchorPane.rightAnchor="373.0">
+          <image>
+            <Image url="@searchicons/globe.JPG" />
+          </image>
+        </ImageView>
+        <Label layoutX="565.0" layoutY="63.0" text="Destination" AnchorPane.bottomAnchor="416.0" AnchorPane.rightAnchor="224.0" />
+        <Label layoutX="536.0" layoutY="215.0" text="Check-out Date" AnchorPane.bottomAnchor="266.0" AnchorPane.rightAnchor="216.0" />
+        <Label layoutX="540.0" layoutY="145.0" text="Check-in Date" AnchorPane.bottomAnchor="336.0" AnchorPane.rightAnchor="221.0" />
+        <Line endX="68.0" endY="-6.5" fill="#f0cc05" layoutX="137.0" layoutY="156.0" startX="86.0" startY="-29.0" stroke="#eec10c" />
+            <Label fx:id="status" layoutX="556.0" layoutY="23.0" text=" " />
       </children>
     </AnchorPane>
     <ImageView fitHeight="267.0" fitWidth="464.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
