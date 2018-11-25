@@ -38,8 +38,6 @@ public class DashController {
   private Spinner roomCount;
   private SpinnerValueFactory<Integer> roomCountFactory = new IntegerSpinnerValueFactory(0,9,1);
 
-
-
 //Side Panel buttons
   public void MyAccount(ActionEvent event) throws Exception {
   Parent Logout = FXMLLoader.load(getClass().getResource("MyAccount.fxml"));
@@ -71,7 +69,7 @@ public class DashController {
     location = searchBar.getText();
 
     if (!location.isEmpty()) {
-      MapDriver mapDriver = new MapDriver();
+      MapManager mapDriver = new MapManager();
       mapDriver.setAddress(location);
       mapDriver.createMap();
 
@@ -90,7 +88,6 @@ public class DashController {
       status.setText("Error"); // display error message
     }
   }
-
 
   public static String getLocation() {
     return location;
