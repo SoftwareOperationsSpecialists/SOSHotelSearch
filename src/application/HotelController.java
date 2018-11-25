@@ -37,13 +37,12 @@ public class HotelController {
     window.setScene(hotelSearch);
     window.show();
   }
-
-  public void savedHotels(ActionEvent event) throws Exception {
-    Parent Saved = FXMLLoader.load(getClass().getResource("SavedHotels.fxml"));
-    Scene savedScene = new Scene(Saved);
+  public void logout(ActionEvent event) throws Exception {
+    Parent Logout = FXMLLoader.load(getClass().getResource("login.fxml"));
+    Scene logoutScene = new Scene(Logout);
 
     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(savedScene);
+    window.setScene(logoutScene);
     window.show();
   }
 
@@ -57,7 +56,6 @@ public class HotelController {
     window.setScene(payment);
     window.show();
   }
-
   //Go to Reviews button will go to the "Reviews" Scene
   public void GoToReviews(ActionEvent event) throws Exception {
 
@@ -68,7 +66,6 @@ public class HotelController {
     window.setScene(reviews);
     window.show();
   }
-
   public void NextImage(ActionEvent event) throws Exception {
     try {
       imageArrayIndex++;
@@ -78,7 +75,6 @@ public class HotelController {
       imageArrayIndex = 0;
     }
   }
-
   public void PreviousImage(ActionEvent event) throws Exception {
     try {
       imageArrayIndex--;
@@ -89,12 +85,5 @@ public class HotelController {
     }
   }
 
-  public void logout(ActionEvent event) throws Exception {
-    Parent Logout = FXMLLoader.load(getClass().getResource("login.fxml"));
-    Scene logoutScene = new Scene(Logout);
 
-    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(logoutScene);
-    window.show();
-  }
 }

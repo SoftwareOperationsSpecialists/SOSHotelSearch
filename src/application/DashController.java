@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Spinner;
@@ -31,13 +30,10 @@ public class DashController {
   private MenuItem myReservationItem;
   @FXML
   private MenuItem logoutItem;
-  @FXML
-  private Label status;
 
   @FXML
   private Spinner roomCount;
   private SpinnerValueFactory<Integer> roomCountFactory = new IntegerSpinnerValueFactory(0,9,1);
-
 
 
 //Side Panel buttons
@@ -49,15 +45,6 @@ public class DashController {
   window.setScene(logoutScene);
   window.show();
 }
-
-  public void savedHotels(ActionEvent event) throws Exception {
-    Parent Saved = FXMLLoader.load(getClass().getResource("SavedHotels.fxml"));
-    Scene savedScene = new Scene(Saved);
-
-    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(savedScene);
-    window.show();
-  }
   public void logout(ActionEvent event) throws Exception {
     Parent Dashboard = FXMLLoader.load(getClass().getResource("Login.fxml"));
     Scene dashboard = new Scene(Dashboard);
@@ -71,12 +58,12 @@ public class DashController {
     location = searchBar.getText();
 
     if (!location.isEmpty()) {
-      MapDriver mapDriver = new MapDriver();
+      MapManager mapDriver = new MapManager();
       mapDriver.setAddress(location);
       mapDriver.createMap();
 
       if (mapDriver.getErrorStatus())   {
-        status.setText("Error"); // this should be set to the text of a label
+        System.out.println(mapDriver.getError()); // this should be set to the text of a label
       }
       else {
         Parent Dashboard = FXMLLoader.load(getClass().getResource("Search.fxml"));
@@ -87,7 +74,7 @@ public class DashController {
       }
     }
     else {
-      status.setText("Error"); // display error message
+      // display error message
     }
   }
 

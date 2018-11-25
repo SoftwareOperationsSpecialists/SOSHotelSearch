@@ -53,7 +53,7 @@ public class SearchController {
 
 
   public void initialize() {
-    MapDriver mapDriver = new MapDriver();
+    MapManager mapDriver = new MapManager();
     if (isNewInstance) {
       mapDriver.setAddress(DashController.getLocation());
     } else {

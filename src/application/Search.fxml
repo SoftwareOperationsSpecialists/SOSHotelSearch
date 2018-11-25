@@ -20,7 +20,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="457.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SearchController">
+<AnchorPane prefHeight="457.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SearchController">
 
 
   <children>
@@ -276,7 +276,7 @@
             <Cursor fx:constant="HAND" />
           </cursor>
         </Button>
-        <Button alignment="CENTER" layoutX="3.0" layoutY="222.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Logout" textFill="WHITE">
+        <Button alignment="CENTER" layoutX="3.0" layoutY="140.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Logout" textFill="WHITE">
           <font>
             <Font size="14.0" />
           </font>
@@ -301,22 +301,6 @@
                   </Label>
                </children>
             </Pane>
-            <Button alignment="CENTER" layoutX="4.0" layoutY="141.0" mnemonicParsing="false" onAction="#MyAccount" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Saved" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" layoutX="3.0" layoutY="181.0" mnemonicParsing="false" onAction="#MyAccount" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Reservations" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
       </children>
     </AnchorPane>
     <VBox fx:id="mapBox" layoutX="428.0" layoutY="48.0" prefHeight="448.0" prefWidth="531.0">
