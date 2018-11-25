@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="457.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ReservationsController">
+  <children>
+    <AnchorPane layoutX="106.0" prefHeight="50.0" prefWidth="853.0" style="-fx-background-color: #1b9dc1;">
+      <children>
+        <Label layoutX="752.0" layoutY="15.0" text="Reservations" textFill="WHITE">
+          <font>
+            <Font size="15.0" />
+          </font>
+        </Label>
+      </children>
+    </AnchorPane>
+    <AnchorPane prefHeight="435.0" prefWidth="117.0">
+      <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="498.0" stroke="WHITE" strokeType="INSIDE" width="111.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-2.0" AnchorPane.topAnchor="-2.0">
+          <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+              <stops>
+                <Stop color="#1b9dc1" />
+                <Stop color="#f79f0a" offset="1.0" />
+              </stops>
+            </LinearGradient>
+          </fill>
+        </Rectangle>
+        <Button alignment="CENTER" layoutX="5.0" layoutY="60.0" mnemonicParsing="false" onAction="#Dashboard" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Dashboard" textFill="WHITE">
+          <font>
+            <Font size="14.0" />
+          </font>
+          <cursor>
+            <Cursor fx:constant="HAND" />
+          </cursor>
+        </Button>
+        <Button alignment="CENTER" layoutX="5.0" layoutY="100.0" mnemonicParsing="false" onAction="#myAccount" prefHeight="28.0" prefWidth="100.0" style="-fx-background-color: &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;?import javafx.scene.Cursor?&gt;&lt;?import javafx.scene.control.Button?&gt;&lt;?import javafx.scene.control.Label?&gt;&lt;?import javafx.scene.layout.AnchorPane?&gt;&lt;?import javafx.scene.layout.Pane?&gt;&lt;?import javafx.scene.paint.LinearGradient?&gt;&lt;?import javafx.scene.paint.Stop?&gt;&lt;?import javafx.scene.shape.Rectangle?&gt;&lt;?import javafx.scene.text.Font?&gt;&lt;AnchorPane prefHeight=&quot;457.0&quot; prefWidth=&quot;959.0&quot; xmlns=&quot;http://javafx.com/javafx/10.0.1&quot; xmlns:fx=&quot;http://javafx.com/fxml/1&quot; fx:controller=&quot;application.MyAccountController&quot;&gt;   &lt;children&gt;      &lt;AnchorPane layoutX=&quot;106.0&quot; prefHeight=&quot;50.0&quot; prefWidth=&quot;853.0&quot; style=&quot;-fx-background-color: #1b9dc1;&quot;&gt;         &lt;children&gt;            &lt;Label layoutX=&quot;779.0&quot; layoutY=&quot;15.0&quot; text=&quot;Account&quot; textFill=&quot;WHITE&quot;&gt;               &lt;font&gt;                  &lt;Font size=&quot;15.0&quot; /&gt;               &lt;/font&gt;            &lt;/Label&gt;         &lt;/children&gt;      &lt;/AnchorPane&gt;      &lt;AnchorPane prefHeight=&quot;435.0&quot; prefWidth=&quot;117.0&quot;&gt;         &lt;children&gt;            &lt;Rectangle arcHeight=&quot;5.0&quot; arcWidth=&quot;5.0&quot; height=&quot;498.0&quot; stroke=&quot;WHITE&quot; strokeType=&quot;INSIDE&quot; width=&quot;111.0&quot; AnchorPane.bottomAnchor=&quot;0.0&quot; AnchorPane.leftAnchor=&quot;-2.0&quot; AnchorPane.topAnchor=&quot;-2.0&quot;&gt;               &lt;fill&gt;                  &lt;LinearGradient endX=&quot;1.0&quot; endY=&quot;1.0&quot;&gt;                     &lt;stops&gt;                        &lt;Stop color=&quot;#1b9dc1&quot; /&gt;                        &lt;Stop color=&quot;#f79f0a&quot; offset=&quot;1.0&quot; /&gt;                     &lt;/stops&gt;                  &lt;/LinearGradient&gt;               &lt;/fill&gt;            &lt;/Rectangle&gt;            &lt;Button alignment=&quot;CENTER&quot; layoutX=&quot;5.0&quot; layoutY=&quot;60.0&quot; mnemonicParsing=&quot;false&quot; onAction=&quot;#Dashboard&quot; prefHeight=&quot;28.0&quot; prefWidth=&quot;100.0&quot; stylesheets=&quot;@style.css&quot; text=&quot;Dashboard&quot; textFill=&quot;WHITE&quot;&gt;               &lt;font&gt;                  &lt;Font size=&quot;14.0&quot; /&gt;               &lt;/font&gt;               &lt;cursor&gt;                  &lt;Cursor fx:constant=&quot;HAND&quot; /&gt;               &lt;/cursor&gt;            &lt;/Button&gt;            &lt;Button alignment=&quot;CENTER&quot; layoutX=&quot;5.0&quot; layoutY=&quot;100.0&quot; mnemonicParsing=&quot;false&quot; prefHeight=&quot;28.0&quot; prefWidth=&quot;100.0&quot; style=&quot;-fx-background-color: #f0cc05;&quot; stylesheets=&quot;@style.css&quot; text=&quot;Account&quot; textFill=&quot;#1b9dc1&quot;&gt;               &lt;font&gt;                  &lt;Font size=&quot;14.0&quot; /&gt;               &lt;/font&gt;               &lt;cursor&gt;                  &lt;Cursor fx:constant=&quot;HAND&quot; /&gt;               &lt;/cursor&gt;            &lt;/Button&gt;            &lt;Button alignment=&quot;CENTER&quot; layoutX=&quot;5.0&quot; layoutY=&quot;140.0&quot; mnemonicParsing=&quot;false&quot; onAction=&quot;#savedHotels&quot; prefHeight=&quot;28.0&quot; prefWidth=&quot;100.0&quot; stylesheets=&quot;@style.css&quot; text=&quot;Saved&quot; textFill=&quot;WHITE&quot;&gt;               &lt;font&gt;                  &lt;Font size=&quot;14.0&quot; /&gt;               &lt;/font&gt;               &lt;cursor&gt;                  &lt;Cursor fx:constant=&quot;HAND&quot; /&gt;               &lt;/cursor&gt;            &lt;/Button&gt;            &lt;Button alignment=&quot;CENTER&quot; layoutX=&quot;5.0&quot; layoutY=&quot;180.0&quot; mnemonicParsing=&quot;false&quot; prefHeight=&quot;28.0&quot; prefWidth=&quot;100.0&quot; stylesheets=&quot;@style.css&quot; text=&quot;Reservations&quot; textAlignment=&quot;CENTER&quot; textFill=&quot;WHITE&quot;&gt;               &lt;font&gt;                  &lt;Font size=&quot;14.0&quot; /&gt;               &lt;/font&gt;               &lt;cursor&gt;                  &lt;Cursor fx:constant=&quot;HAND&quot; /&gt;               &lt;/cursor&gt;            &lt;/Button&gt;            &lt;Button alignment=&quot;CENTER&quot; layoutX=&quot;3.0&quot; layoutY=&quot;220.0&quot; mnemonicParsing=&quot;false&quot; onAction=&quot;#logout&quot; prefHeight=&quot;28.0&quot; prefWidth=&quot;100.0&quot; stylesheets=&quot;@style.css&quot; text=&quot;Logout&quot; textFill=&quot;WHITE&quot;&gt;               &lt;font&gt;                  &lt;Font size=&quot;14.0&quot; /&gt;               &lt;/font&gt;               &lt;cursor&gt;                  &lt;Cursor fx:constant=&quot;HAND&quot; /&gt;               &lt;/cursor&gt;            &lt;/Button&gt;            &lt;Pane layoutX=&quot;-2.0&quot; layoutY=&quot;401.0&quot; prefHeight=&quot;95.0&quot; prefWidth=&quot;119.0&quot;&gt;               &lt;children&gt;                  &lt;Label layoutX=&quot;10.0&quot; layoutY=&quot;30.0&quot; text=&quot;S.O.S&quot;&gt;                     &lt;font&gt;                        &lt;Font size=&quot;44.0&quot; /&gt;                     &lt;/font&gt;                     &lt;textFill&gt;                        &lt;LinearGradient endX=&quot;1.0&quot; endY=&quot;1.0&quot;&gt;                           &lt;stops&gt;                              &lt;Stop color=&quot;#15f7ff&quot; /&gt;                              &lt;Stop color=&quot;#eedcab&quot; offset=&quot;1.0&quot; /&gt;                           &lt;/stops&gt;                        &lt;/LinearGradient&gt;                     &lt;/textFill&gt;                  &lt;/Label&gt;               &lt;/children&gt;            &lt;/Pane&gt;         &lt;/children&gt;      &lt;/AnchorPane&gt;   &lt;/children&gt;&lt;/AnchorPane&gt;;" stylesheets="@style.css" text="Account" textFill="WHITE">
+          <font>
+            <Font size="14.0" />
+          </font>
+          <cursor>
+            <Cursor fx:constant="HAND" />
+          </cursor>
+        </Button>
+        <Button alignment="CENTER" layoutX="5.0" layoutY="140.0" mnemonicParsing="false" onAction="#savedHotels" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Saved" textFill="WHITE">
+          <font>
+            <Font size="14.0" />
+          </font>
+          <cursor>
+            <Cursor fx:constant="HAND" />
+          </cursor>
+        </Button>
+        <Button alignment="CENTER" layoutX="3.0" layoutY="220.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Logout" textFill="WHITE">
+          <font>
+            <Font size="14.0" />
+          </font>
+          <cursor>
+            <Cursor fx:constant="HAND" />
+          </cursor>
+        </Button>
+        <Pane layoutX="-2.0" layoutY="401.0" prefHeight="95.0" prefWidth="119.0">
+          <children>
+            <Label layoutX="10.0" layoutY="30.0" text="S.O.S">
+              <font>
+                <Font size="44.0" />
+              </font>
+              <textFill>
+                <LinearGradient endX="1.0" endY="1.0">
+                  <stops>
+                    <Stop color="#15f7ff" />
+                    <Stop color="#eedcab" offset="1.0" />
+                  </stops>
+                </LinearGradient>
+              </textFill>
+            </Label>
+          </children>
+        </Pane>
+            <Button alignment="CENTER" layoutX="4.0" layoutY="181.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" style="-fx-background-color: #f0cc05;" stylesheets="@style.css" text="Reservations" textFill="#1b9dc1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+      </children>
+    </AnchorPane>
+      <Label layoutX="132.0" layoutY="65.0" text="My Reservations">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Label>
+      <TableView layoutX="144.0" layoutY="136.0" prefHeight="320.0" prefWidth="681.0">
+        <columns>
+          <TableColumn fx:id="HotelNameCol" prefWidth="75.0" text="Hotel name" />
+          <TableColumn fx:id="CheckInCol" prefWidth="75.0" text="Check in date" />
+            <TableColumn fx:id="CheckOutCol" prefWidth="75.0" text="Check out date" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+  </children>
+</AnchorPane>
