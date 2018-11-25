@@ -10,9 +10,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="457.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MyAccountController">
+<AnchorPane prefHeight="457.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MyAccountController">
    <children>
-      <AnchorPane layoutX="111.0" prefHeight="50.0" prefWidth="848.0" style="-fx-background-color: #1b9dc1;">
+      <AnchorPane layoutX="106.0" prefHeight="50.0" prefWidth="853.0" style="-fx-background-color: #1b9dc1;">
          <children>
             <Label layoutX="779.0" layoutY="15.0" text="Account" textFill="WHITE">
                <font>
@@ -23,7 +23,7 @@
       </AnchorPane>
       <AnchorPane prefHeight="435.0" prefWidth="117.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="498.0" stroke="WHITE" strokeType="INSIDE" width="119.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-2.0" AnchorPane.topAnchor="-2.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="498.0" stroke="WHITE" strokeType="INSIDE" width="111.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-2.0" AnchorPane.topAnchor="-2.0">
                <fill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -65,7 +65,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="CENTER" layoutX="5.0" layoutY="220.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Logout" textFill="WHITE">
+            <Button alignment="CENTER" layoutX="3.0" layoutY="220.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Logout" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>

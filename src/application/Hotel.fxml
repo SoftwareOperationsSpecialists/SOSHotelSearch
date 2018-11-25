@@ -44,23 +44,7 @@
             <Cursor fx:constant="HAND" />
           </cursor>
         </Button>
-        <Button layoutX="5.0" layoutY="140.0" mnemonicParsing="false" onAction="#savedHotels" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Saved" textFill="WHITE">
-          <font>
-            <Font size="14.0" />
-          </font>
-          <cursor>
-            <Cursor fx:constant="HAND" />
-          </cursor>
-        </Button>
-        <Button alignment="CENTER_RIGHT" layoutX="5.0" layoutY="180.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Reservations" textAlignment="CENTER" textFill="WHITE">
-          <font>
-            <Font size="14.0" />
-          </font>
-          <cursor>
-            <Cursor fx:constant="HAND" />
-          </cursor>
-        </Button>
-        <Button layoutX="5.0" layoutY="220.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Logout" textFill="WHITE">
+        <Button layoutX="5.0" layoutY="140.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Logout" textFill="WHITE">
           <font>
             <Font size="14.0" />
           </font>
@@ -70,7 +54,7 @@
         </Button>
             <Pane layoutX="1.0" layoutY="411.0" prefHeight="55.0" prefWidth="92.0">
                <children>
-                  <Label layoutX="12.0" layoutY="11.0" text="S.O.S">
+                  <Label layoutX="14.0" layoutY="28.0" text="S.O.S">
                      <font>
                         <Font size="40.0" />
                      </font>
@@ -110,7 +94,7 @@
             <Cursor fx:constant="HAND" />
           </cursor>
         </Button>
-        <Button layoutX="708.0" layoutY="438.0" mnemonicParsing="false" onAction="#GoToReviews" stylesheets="@style.css" text="Go to Reviews" textFill="WHITE">
+        <Button layoutX="708.0" layoutY="438.0" mnemonicParsing="false" onAction="#GoToReviews" stylesheets="@style.css" text="View Reviews" textFill="WHITE">
           <cursor>
             <Cursor fx:constant="HAND" />
           </cursor>
