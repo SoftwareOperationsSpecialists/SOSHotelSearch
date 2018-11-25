@@ -144,20 +144,7 @@
         <Rectangle2D />
       </viewport>
     </ImageView>
-      <Pane layoutX="232.0" layoutY="384.0" prefHeight="95.0" prefWidth="119.0" />
-      <Label layoutX="16.0" layoutY="436.0" prefHeight="56.0" prefWidth="100.0" text="S.O.S">
-         <font>
-            <Font size="44.0" />
-         </font>
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="#15f7ff" />
-                  <Stop color="#eedcab" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </textFill>
-      </Label>
+      <Pane layoutX="14.0" layoutY="397.0" prefHeight="81.0" prefWidth="100.0" />
   </children>
 
 </AnchorPane>

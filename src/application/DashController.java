@@ -19,10 +19,8 @@ public class DashController {
   @FXML
   private TextField searchBar;
   private static String location;
-
   @FXML
   private MenuButton navigationBtn;
-
   @FXML
   private MenuItem myAccountItem;
   @FXML
@@ -33,13 +31,15 @@ public class DashController {
   private MenuItem logoutItem;
   @FXML
   private Label status;
-
   @FXML
   private Spinner roomCount;
   private SpinnerValueFactory<Integer> roomCountFactory = new IntegerSpinnerValueFactory(0,9,1);
 
+
+
 //Side Panel buttons
   public void MyAccount(ActionEvent event) throws Exception {
+
   Parent Logout = FXMLLoader.load(getClass().getResource("MyAccount.fxml"));
   Scene logoutScene = new Scene(Logout);
 

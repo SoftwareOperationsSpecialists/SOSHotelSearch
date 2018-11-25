@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="457.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HotelOwnerController">
+<AnchorPane prefHeight="457.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HotelOwnerController">
   <children>
     <AnchorPane layoutX="106.0" prefHeight="50.0" prefWidth="853.0" style="-fx-background-color: #1b9dc1;">
       <children>
@@ -55,7 +55,7 @@
         </Button>
         <Pane layoutX="-2.0" layoutY="401.0" prefHeight="95.0" prefWidth="119.0">
                <children>
-                  <ImageView fitHeight="76.0" fitWidth="111.0" layoutX="4.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="76.0" fitWidth="155.0" layoutX="4.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@logo/soslogo.png" />
                      </image>

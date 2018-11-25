@@ -38,7 +38,7 @@ public class ReservationsController implements Initializable {
 
   }
   public void myAccount(ActionEvent event) throws Exception {
-    Parent Account = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+    Parent Account = FXMLLoader.load(getClass().getResource("MyAccount.fxml"));
     Scene account = new Scene(Account);
 
     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

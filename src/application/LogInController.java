@@ -36,6 +36,7 @@ public class LogInController {
   @FXML
   private ToggleGroup loginType;
 
+
   static String url = "jdbc:derby:lib/SOSHotelAccountDB";
 
   //Action for login button

@@ -1,13 +1,32 @@
 package application;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+
 public class MyAccountController {
+  @FXML
+  private TextField txtFullName;
+  @FXML
+  private TextField txtUserName;
+  @FXML
+  private TextField txtEmail;
+  @FXML
+  private TextField txtDOB;
+  @FXML
+  private TextField txtPassword;
+
+  //function that will edit the information
+  public void editInformation(ActionEvent event) throws Exception {
+
+  }
+
 
 
   //Side panel buttons
@@ -27,7 +46,6 @@ public class MyAccountController {
     window.setScene(savedScene);
     window.show();
   }
-
   public void reservation(ActionEvent event) throws Exception {
     Parent Dashboard = FXMLLoader.load(getClass().getResource("Reservations.fxml"));
     Scene dashboard = new Scene(Dashboard);
@@ -44,5 +62,4 @@ public class MyAccountController {
     window.setScene(dashboard);
     window.show();
   }
-
 }
