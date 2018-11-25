@@ -19,12 +19,25 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 public class RegController {
 
   @FXML
-  private Label regStatus;
+  private Label nameStatus;
+
+  @FXML
+  private Label userStatus;
+
+  @FXML
+  private Label passwordStatus;
+
+  @FXML
+  private Label emailStatus;
+
+  @FXML
+  private Label dobStatus;
 
   @FXML
   private TextField txtFullName;
@@ -95,31 +108,20 @@ public class RegController {
     RadioButton selectedRadioButton = (RadioButton) registerType.getSelectedToggle();
 
     if (!validFullNamePattern(txtFullName.getText())) {
-      Alert errorAlert = new Alert(AlertType.ERROR);
-      errorAlert.setHeaderText("Invalid full name pattern");
-      errorAlert.setContentText("Name must be at least two letters and must only contain letters.");
-      errorAlert.showAndWait();
+      nameStatus.setText("Invalid name input!");
+      nameStatus.setTextFill(Paint.valueOf("red"));
 
     } else if (!validPSWDPattern(txtPassword.getText())) {
-      Alert errorAlert = new Alert(AlertType.ERROR);
-      errorAlert.setHeaderText("Invalid Password pattern!");
-      errorAlert.setContentText("Password must contain at least:" + "\n" + "One capital letter"
-          + "\n" + "One lowercase letter" + "\n" + "One number");
-      errorAlert.showAndWait();
+      passwordStatus.setText("Password must not contain special characters!");
+      passwordStatus.setTextFill(Paint.valueOf("red"));
 
     } else if (!validUserNamePattern(txtUserName.getText())) {
-      Alert errorAlert = new Alert(AlertType.ERROR);
-      errorAlert.setHeaderText("Invalid username pattern");
-      errorAlert.setContentText("Username must include a capital letter, one number and must be"
-          + " atleast 6 characters" + " long.");
-      errorAlert.showAndWait();
+      userStatus.setText("Username must not contain spaces!");
+      userStatus.setTextFill(Paint.valueOf("red"));
 
     } else if (!validEmailPattern(txtEmail.getText())) {
-      Alert errorAlert = new Alert(AlertType.ERROR);
-      errorAlert.setHeaderText("Invalid email");
-      errorAlert
-          .setContentText("Email must include @ symbol.");
-      errorAlert.showAndWait();
+      emailStatus.setText("Must be a valid email address!");
+      emailStatus.setTextFill(Paint.valueOf("red"));
 
     } else if (selectedRadioButton == regSearcherBtn) {
       try {
