@@ -71,16 +71,16 @@ public class DashController implements Initializable {
             searchStatus.setText("Please select check in and check out date!");
 
         } else {
-            MapManager mapDriver = new MapManager();
-            mapDriver.setAddress(location);
-            mapDriver.createMap();
+            MapManager mapManager = new MapManager();
+            mapManager.setAddress(location);
+            mapManager.createMap();
             Parent Dashboard = FXMLLoader.load(getClass().getResource("Search.fxml"));
             Scene dashboard = new Scene(Dashboard);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.setScene(dashboard);
             window.show();
 
-            if (mapDriver.getErrorStatus()) {
+            if (mapManager.getErrorStatus()) {
                 searchStatus.setText(mapManager.getError()); // this should be set to the text of a label
             }
         }

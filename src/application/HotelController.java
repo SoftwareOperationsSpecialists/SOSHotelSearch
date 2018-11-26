@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class HotelController {
@@ -22,7 +23,7 @@ public class HotelController {
   private int numImages = 2;
   private int imageArrayIndex = 0;
   private ArrayList<Image> images = new ArrayList<>(numImages);
-  private static Navigator = new Navigator();
+  private static Navigator navigator = new Navigator();
   private static Hotel hotel;
 
   public HotelController(){
@@ -49,6 +50,7 @@ public class HotelController {
   //Go to Reviews button will go to the "Reviews" Scene
   public void GoToReviews(ActionEvent event) throws Exception {
     navigator.reviews(event);
+  }
   
   public void NextImage(ActionEvent event) throws Exception {
     try {
