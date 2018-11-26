@@ -111,4 +111,21 @@ public class Hotel {
   public int getSuitePrice() {
     return suitePrice;
   }
+  
+  @Override
+  public String toString() {
+    return "Hotel{" +
+            "hotelId=" + hotelId +
+            ", name='" + name + '\'' +
+            ", stars=" + stars +
+            ", city='" + city + '\'' +
+            ", countryCode='" + countryCode + '\'' +
+            ", countryName='" + countryName + '\'' +
+            ", lat=" + lat +
+            ", lng=" + lng +
+            ", stdPrice=" + stdPrice +
+            ", dlxPrice=" + dlxPrice +
+            ", suitePrice=" + suitePrice +
+            '}';
+  }
 }
