@@ -28,8 +28,9 @@ public class DashController implements Initializable {
     private Label searchStatus;
     @FXML
     private Spinner roomCount;
+    
     private SpinnerValueFactory<Integer> roomCountFactory = new IntegerSpinnerValueFactory(0, 9, 1);
-
+    private static Navigator navigator = new Navigator();
 
     //Side Panel buttons
     public void MyAccount(ActionEvent event) throws Exception {
@@ -80,7 +81,7 @@ public class DashController implements Initializable {
             window.show();
 
             if (mapDriver.getErrorStatus()) {
-                searchStatus.setText("Error"); // this should be set to the text of a label
+                searchStatus.setText(mapManager.getError()); // this should be set to the text of a label
             }
         }
     }
