@@ -12,8 +12,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
@@ -26,16 +24,12 @@ public class RegController {
 
   @FXML
   private Label nameStatus;
-
   @FXML
   private Label userStatus;
-
   @FXML
   private Label passwordStatus;
-
   @FXML
   private Label emailStatus;
-
   @FXML
   private Label dobStatus;
 
@@ -59,51 +53,56 @@ public class RegController {
   @FXML
   private ToggleGroup registerType;
 
-  private String passwordREGEX = "^([0-9A-Za-z@.]{1,255})$";
-  private String fullNameREGEX = "[a-zA-Z]*( [a-zA-Z]*)?";
-  private String userNameREGEX = "^([a-zA-Z])[a-zA-Z_-]*[\\w_-]*[\\S]$|^([a-zA-Z])"
+   static String passwordREGEX = "^([0-9A-Za-z@.]{1,255})$";
+   static String fullNameREGEX = "[a-zA-Z]*( [a-zA-Z]*)?";
+   static String userNameREGEX = "^([a-zA-Z])[a-zA-Z_-]*[\\w_-]*[\\S]$|^([a-zA-Z])"
       + "[0-9_-]*[\\S]$|^[a-zA-Z]*[\\S]$";
-  private String emailREGEX = "^([\\w\\-\\.]+)@((\\[([0-9]{1,3}\\.){3}[0-9]{1,3}\\])"
+   static String emailREGEX = "^([\\w\\-\\.]+)@((\\[([0-9]{1,3}\\.){3}[0-9]{1,3}\\])"
       + "|(([\\w\\-]+\\.)+)([a-zA-Z]{2,4}))$";
+   static String dobREGEX = "^(([1-9])|(0[1-9])|(1[0-2]))\\/(([0-9])|([0-2][0-9])|(3[0-1]))" +
+           "\\/(([0-9][0-9])|([1-2][0,9][0-9][0-9]))$";
 
 
-  private Pattern passwordPattern = Pattern.compile(passwordREGEX);
-  private Pattern fullNamePattern = Pattern.compile(fullNameREGEX);
-  private Pattern userNamePattern = Pattern.compile(userNameREGEX);
-  private Pattern emailPattern = Pattern.compile(emailREGEX);
+   static Pattern passwordPattern = Pattern.compile(passwordREGEX);
+   static Pattern fullNamePattern = Pattern.compile(fullNameREGEX);
+   static Pattern userNamePattern = Pattern.compile(userNameREGEX);
+   static Pattern emailPattern = Pattern.compile(emailREGEX);
+   static Pattern dobPattern = Pattern.compile(dobREGEX);
+
+   private String searcherSql = "INSERT INTO SOS.SEARCHER VALUES(?,?,?,?,?)";
+   private String ownerSql = "INSERT INTO SOS.OWNER VALUES(?,?,?,?,?)";
 
   public void Register(ActionEvent event) throws Exception {
     createHotelSearcher(event);
   }
 
-  private boolean validPSWDPattern(String password) {
+   static boolean validPSWDPattern(String password) {
     return passwordPattern.matcher(password).matches();
   }
 
-  private boolean validFullNamePattern(String fullName) {
+   static boolean validFullNamePattern(String fullName) {
     return fullNamePattern.matcher(fullName).matches();
   }
 
-  private boolean validUserNamePattern(String userName) {
+   static boolean validUserNamePattern(String userName) {
     return userNamePattern.matcher(userName).matches();
   }
 
-  private boolean validEmailPattern(String email) {
+   static boolean validEmailPattern(String email) {
     return emailPattern.matcher(email).matches();
   }
 
-  private void createHotelSearcher(ActionEvent event) throws IOException, SQLException {
+   static boolean validDOBPattern(String dob) {
+    return dobPattern.matcher(dob).matches();
+  }
+
+  public void createHotelSearcher(ActionEvent event) throws IOException, SQLException {
 
     String name = txtFullName.getText();
     String user = txtUserName.getText();
     String pass = txtPassword.getText();
     String email = txtEmail.getText();
     String birthDate = txtDOB.getText();
-
-    String searcherSql = "INSERT INTO SOS.SEARCHER VALUES(?,?,?,?,?)";
-    String ownerSql = "INSERT INTO SOS.OWNER VALUES(?,?,?,?,?)";
-
-    PreparedStatement reg = null;
 
     RadioButton selectedRadioButton = (RadioButton) registerType.getSelectedToggle();
 
@@ -123,63 +122,49 @@ public class RegController {
       emailStatus.setText("Must be a valid email address!");
       emailStatus.setTextFill(Paint.valueOf("red"));
 
+    } else if (!validDOBPattern(txtDOB.getText())) {
+      dobStatus.setText("DOB Pattern: MM/DD/YYYY");
+      dobStatus.setTextFill(Paint.valueOf("red"));
+
     } else if (selectedRadioButton == regSearcherBtn) {
       try {
-        Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+        Class.forName(LogInController.driver);
         Connection loginConnection = DriverManager.getConnection(LogInController.url);
+        PreparedStatement searcherREG = loginConnection.prepareStatement(searcherSql);
 
-        reg = loginConnection.prepareStatement(searcherSql);
+        searcherREG.setString(1, user);
+        searcherREG.setString(2, birthDate);
+        searcherREG.setString(3, pass);
+        searcherREG.setString(4, name);
+        searcherREG.setString(5, email);
 
-        reg.setString(1, user);
-        reg.setString(2, birthDate);
-        reg.setString(3, pass);
-        reg.setString(4, name);
-        reg.setString(5, email);
+        searcherREG.executeUpdate();
+        searcherREG.close();
 
-      } catch (SQLException e) {
+        Login(event);
+
+      } catch (SQLException | ClassNotFoundException e) {
         e.printStackTrace();
-      } catch (ClassNotFoundException e) {
-        e.printStackTrace();
-      } finally {
-        assert reg != null;
-        reg.executeUpdate();
-        reg.close();
-
-        Parent Dashboard = FXMLLoader.load(getClass().getResource("Login.fxml"));
-        Scene dashboard = new Scene(Dashboard);
-
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(dashboard);
-        window.show();
       }
     } else if (selectedRadioButton == regOwnerBtn) {
       try {
-        Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+        Class.forName(LogInController.driver);
         Connection loginConnection = DriverManager.getConnection(LogInController.url);
+        PreparedStatement ownerREG = loginConnection.prepareStatement(ownerSql);
 
-        reg = loginConnection.prepareStatement(ownerSql);
+        ownerREG.setString(1, name);
+        ownerREG.setString(2, birthDate);
+        ownerREG.setString(3, user);
+        ownerREG.setString(4, email);
+        ownerREG.setString(5, pass);
 
-        reg.setString(1, name);
-        reg.setString(2, birthDate);
-        reg.setString(3, user);
-        reg.setString(4, email);
-        reg.setString(5, pass);
+        ownerREG.executeUpdate();
+        ownerREG.close();
 
-      } catch (ClassNotFoundException e) {
+        Login(event);
+
+      } catch (ClassNotFoundException | SQLException e) {
         e.printStackTrace();
-      } catch (SQLException e) {
-        e.printStackTrace();
-      } finally {
-        assert reg != null;
-        reg.executeUpdate();
-        reg.close();
-
-        Parent Dashboard = FXMLLoader.load(getClass().getResource("Login.fxml"));
-        Scene dashboard = new Scene(Dashboard);
-
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(dashboard);
-        window.show();
       }
     }
   }
