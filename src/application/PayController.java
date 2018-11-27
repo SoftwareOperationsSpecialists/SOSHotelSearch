@@ -22,6 +22,7 @@ private Label numberOfNights;
 
 
 
+
   public void Pay(ActionEvent event) throws Exception {
 
     Parent FinalScene = FXMLLoader.load(getClass().getResource("FinalScene.fxml"));
