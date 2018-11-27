@@ -34,8 +34,8 @@
       <children>
         <MenuButton layoutX="144.0" layoutY="11.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="90.0" stylesheets="@style.css" text="Sort" textFill="WHITE">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#HighToLow" text="Price (high to low)" />
-            <MenuItem mnemonicParsing="false" text="Price (low to high)" />
+            <MenuItem mnemonicParsing="false" onAction="#setHighToLow" text="Price (high to low)" />
+            <MenuItem mnemonicParsing="false" onAction="#setLowToHigh" text="Price (low to high)" />
             <MenuItem mnemonicParsing="false" text="User Rating" />
             <MenuItem mnemonicParsing="false" text="Distance" />
           </items>
@@ -60,10 +60,9 @@
         </Button>
         <MenuButton layoutX="15.0" layoutY="11.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Filter" textFill="WHITE">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#HighToLow" text="Price (high to low)" />
-            <MenuItem mnemonicParsing="false" text="Price (low to high)" />
+            <MenuItem mnemonicParsing="false" onAction="#setHighToLow" text="Price (high to low)" />
+            <MenuItem mnemonicParsing="false" onAction="#setLowToHigh" text="Price (low to high)" />
             <MenuItem mnemonicParsing="false" text="User Rating" />
-            <MenuItem mnemonicParsing="false" text="Distance" />
           </items>
           <font>
             <Font size="14.0" />
@@ -86,7 +85,7 @@
             </LinearGradient>
           </fill>
         </Rectangle>
-        <Button alignment="CENTER" layoutX="5.0" layoutY="60.0" mnemonicParsing="false" onAction="#Dashboard" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Dashboard" textFill="WHITE">
+        <Button alignment="CENTER" layoutX="5.0" layoutY="60.0" mnemonicParsing="false" onAction="#dashboard" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Dashboard" textFill="WHITE">
           <font>
             <Font size="14.0" />
           </font>
@@ -94,7 +93,7 @@
             <Cursor fx:constant="HAND" />
           </cursor>
         </Button>
-        <Button alignment="CENTER" layoutX="5.0" layoutY="100.0" mnemonicParsing="false" onAction="#MyAccount" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Account" textFill="WHITE">
+        <Button alignment="CENTER" layoutX="5.0" layoutY="100.0" mnemonicParsing="false" onAction="#myAccount" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Account" textFill="WHITE">
           <font>
             <Font size="14.0" />
           </font>

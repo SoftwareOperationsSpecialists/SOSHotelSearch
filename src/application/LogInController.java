@@ -19,7 +19,7 @@ import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 public class LogInController {
-  private static Navigator = new Navigator();
+  private static Navigator navigator = new Navigator();
 
   @FXML
   private Label lblStatus;
@@ -110,7 +110,7 @@ public class LogInController {
 
   //Register button action
   public void SignUp(ActionEvent event) throws Exception {
-    navigator.register();
+    navigator.register(event);
   }
 
 }

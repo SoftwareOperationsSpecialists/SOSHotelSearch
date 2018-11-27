@@ -1,6 +1,6 @@
 package application;
 
-public class Hotel {
+public class Hotel implements Comparable<Hotel>{
   private int hotelId;
   private String name;
   private double stars;
@@ -127,5 +127,10 @@ public class Hotel {
             ", dlxPrice=" + dlxPrice +
             ", suitePrice=" + suitePrice +
             '}';
+  }
+
+  @Override
+  public int compareTo(Hotel o) {
+    return (this.getStdPrice()-o.getStdPrice());
   }
 }
