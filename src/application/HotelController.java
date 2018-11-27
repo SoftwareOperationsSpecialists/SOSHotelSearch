@@ -1,18 +1,12 @@
 package application;
 
-import java.util.ArrayList;
-
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 public class HotelController {
 
@@ -28,12 +22,12 @@ public class HotelController {
   private static Navigator navigator = new Navigator();
   private static Hotel hotel;
 
-  public HotelController(){
+  public void initialize(){
     images.add(new Image("application/hotelpics/holiday-inn-the-colony-4629618286-16x5.jpg"));
     images.add(new Image("application/hotelpics/room.jpg"));
     images.add(new Image("application/hotelpics/holiday-inn-the-colony-4549822872-4x3.jpg"));
 
-    
+    hotelName.setText(hotel.getName());
   }
   
   // Dashboard Button will go back to the "Hotel Search" Scene
@@ -76,6 +70,5 @@ public class HotelController {
     
   public static void setHotel(Hotel thisHotel) {
     hotel = thisHotel;
-    hotelName.setText(hotel.getName());
   }
 }
