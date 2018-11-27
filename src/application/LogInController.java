@@ -102,8 +102,8 @@ public class LogInController {
           loginConnection.close();
           //To change scenes copy and paste this into if statement and enter the new fxml scene name into parent root
         }
-      } catch (SQLException ex) {
-        System.out.println(ex);
+      } catch (SQLException e) {
+        e.printStackTrace();
       }
     }
   }
