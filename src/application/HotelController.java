@@ -19,6 +19,13 @@ public class HotelController {
   
   @FXML
   private Text hotelName;
+  @FXML
+  private Text hotelLocation;
+  @FXML
+  private Text hotelStars;
+  @FXML
+  private Text hotelPrice;
+
 
   private int numImages = 2;
   private int imageArrayIndex = 0;
@@ -34,6 +41,9 @@ public class HotelController {
     images.add(new Image("application/hotelpics/holiday-inn-the-colony-4549822872-4x3.jpg"));
 
     hotelName.setText(hotel.getName());
+    hotelLocation.setText("Location: "+hotel.getCity()+", "+hotel.getCountryName());
+    hotelStars.setText("This is a "+hotel.getStars()+" star hotel.");
+    hotelPrice.setText("Price : "+hotel.getStdPrice()+"$");
   }
   
   // Dashboard Button will go back to the "Hotel Search" Scene
@@ -48,14 +58,14 @@ public class HotelController {
   public void BookItButton(ActionEvent event) throws Exception {
     navigator.payment(event);
 
-    String insert_reservation ="INSERT INTO RESERVATIONS VALUES(" + DashController.checkInDate.getValue()
-        +","+ DashController.checkOutDate.getValue() +")";
+    //String insert_reservation ="INSERT INTO RESERVATIONS VALUES(" + DashController.checkInDate.getValue()
+        //+","+ DashController.checkOutDate.getValue() +")";
     //String insert_hotel = "INSERT INTO HOTEL VALUES(" +
 
 
     try (Connection connection = DriverManager.getConnection(url);
         Statement statement = connection.createStatement()) {
-      statement.executeUpdate(insert_reservation);
+     // statement.executeUpdate(insert_reservation);
 
     }
 

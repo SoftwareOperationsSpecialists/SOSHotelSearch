@@ -32,12 +32,11 @@
     </AnchorPane>
     <AnchorPane layoutX="111.0" layoutY="-2.0" prefHeight="50.0" prefWidth="848.0" style="-fx-background-color: #1b9dc1;">
       <children>
-        <MenuButton layoutX="144.0" layoutY="11.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="90.0" stylesheets="@style.css" text="Sort" textFill="WHITE">
+        <MenuButton layoutX="14.0" layoutY="10.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="90.0" stylesheets="@style.css" text="Sort" textFill="WHITE">
           <items>
             <MenuItem mnemonicParsing="false" onAction="#setHighToLow" text="Price (high to low)" />
             <MenuItem mnemonicParsing="false" onAction="#setLowToHigh" text="Price (low to high)" />
             <MenuItem mnemonicParsing="false" text="User Rating" />
-            <MenuItem mnemonicParsing="false" text="Distance" />
           </items>
           <font>
             <Font size="14.0" />
@@ -58,19 +57,6 @@
             <Cursor fx:constant="HAND" />
           </cursor>
         </Button>
-        <MenuButton layoutX="15.0" layoutY="11.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Filter" textFill="WHITE">
-          <items>
-            <MenuItem mnemonicParsing="false" onAction="#setHighToLow" text="Price (high to low)" />
-            <MenuItem mnemonicParsing="false" onAction="#setLowToHigh" text="Price (low to high)" />
-            <MenuItem mnemonicParsing="false" text="User Rating" />
-          </items>
-          <font>
-            <Font size="14.0" />
-          </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-        </MenuButton>
       </children>
     </AnchorPane>
     <AnchorPane prefHeight="435.0" prefWidth="117.0">

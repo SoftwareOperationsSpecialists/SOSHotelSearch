@@ -20,9 +20,9 @@ public class DashController implements Initializable {
     private static String location;
 
     @FXML
-     static DatePicker checkInDate;
+    private DatePicker checkInDate;
     @FXML
-     static DatePicker checkOutDate;
+    private DatePicker checkOutDate;
 
     @FXML
     private Label searchStatus;
