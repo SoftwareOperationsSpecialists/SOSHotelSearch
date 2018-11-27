@@ -1,5 +1,9 @@
 package application;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
@@ -21,6 +25,8 @@ public class HotelController {
   private ArrayList<Image> images = new ArrayList<>(numImages);
   private static Navigator navigator = new Navigator();
   private static Hotel hotel;
+  static String url = "jdbc:derby:lib/SOSHotelAccountDB";
+  static String driver = "org.apache.derby.jdbc.EmbeddedDriver";
 
   public void initialize(){
     images.add(new Image("application/hotelpics/holiday-inn-the-colony-4629618286-16x5.jpg"));
@@ -41,6 +47,17 @@ public class HotelController {
   // Book it button will open Payment information Scene
   public void BookItButton(ActionEvent event) throws Exception {
     navigator.payment(event);
+
+    String insert_reservation ="INSERT INTO RESERVATIONS VALUES(" + DashController.checkInDate.getValue()
+        +","+ DashController.checkOutDate.getValue() +")";
+
+
+    try (Connection connection = DriverManager.getConnection(url);
+        Statement statement = connection.createStatement()) {
+      statement.executeUpdate(insert_reservation);
+
+    }
+
   }
 
   //Go to Reviews button will go to the "Reviews" Scene
