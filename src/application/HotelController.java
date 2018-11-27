@@ -66,7 +66,7 @@ public class HotelController {
     navigator.reviews(event);
   }
   
-  public void NextImage(ActionEvent event) throws Exception {
+  public void NextImage(){
     try {
       imageArrayIndex++;
       hotelPhotos.setImage(images.get(imageArrayIndex));
@@ -76,7 +76,7 @@ public class HotelController {
     }
   }
     
-  public void PreviousImage(ActionEvent event) throws Exception {
+  public void PreviousImage(){
     try {
       imageArrayIndex--;
       hotelPhotos.setImage(images.get(imageArrayIndex));
