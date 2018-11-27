@@ -34,31 +34,15 @@ public class DashController implements Initializable {
 
     //Side Panel buttons
     public void MyAccount(ActionEvent event) throws Exception {
-
-        Parent Logout = FXMLLoader.load(getClass().getResource("MyAccount.fxml"));
-        Scene logoutScene = new Scene(Logout);
-
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(logoutScene);
-        window.show();
+        navigator.myAccount(event);
     }
 
     public void savedHotels(ActionEvent event) throws Exception {
-        Parent Saved = FXMLLoader.load(getClass().getResource("SavedHotels.fxml"));
-        Scene savedScene = new Scene(Saved);
-
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(savedScene);
-        window.show();
+        navigator.savedHotels(event);
     }
 
     public void logout(ActionEvent event) throws Exception {
-        Parent Dashboard = FXMLLoader.load(getClass().getResource("Login.fxml"));
-        Scene dashboard = new Scene(Dashboard);
-
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(dashboard);
-        window.show();
+        navigator.logout(event);
     }
 
     public void Search(ActionEvent event) throws Exception {
@@ -74,11 +58,7 @@ public class DashController implements Initializable {
             MapManager mapManager = new MapManager();
             mapManager.setAddress(location);
             mapManager.createMap();
-            Parent Dashboard = FXMLLoader.load(getClass().getResource("Search.fxml"));
-            Scene dashboard = new Scene(Dashboard);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(dashboard);
-            window.show();
+            navigator.search(event);
 
             if (mapManager.getErrorStatus()) {
                 searchStatus.setText(mapManager.getError()); // this should be set to the text of a label

@@ -12,6 +12,7 @@ public class Hotel implements Comparable<Hotel>{
   private int stdPrice;
   private int dlxPrice;
   private int suitePrice;
+  private static int numReservations = 0;
 
   public Hotel(int hotelId, String name, double stars, String city, String countryCode, String countryName, double lat,
                double lng, int stdPrice, int dlxPrice, int suitePrice) {
@@ -111,6 +112,10 @@ public class Hotel implements Comparable<Hotel>{
   public int getSuitePrice() {
     return suitePrice;
   }
+
+  public void addReservation(int numUserRooms) {
+    numReservations += numUserRooms;
+  }
   
   @Override
   public String toString() {
@@ -126,6 +131,7 @@ public class Hotel implements Comparable<Hotel>{
             ", stdPrice=" + stdPrice +
             ", dlxPrice=" + dlxPrice +
             ", suitePrice=" + suitePrice +
+            ", numReservations=" + numReservations +
             '}';
   }
 
