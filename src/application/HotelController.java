@@ -65,7 +65,8 @@ public class HotelController {
         + "," + Reservation.getCheckOutDate() +")";
 
         String insert_hotel = "INSERT INTO HOTEL VALUES(" + hotelName +","
-            + Reservation.getFinalCost() +","+ hotelStars +","+ DashController.getLocation();
+            + Integer.toString(Reservation.getFinalCost()) +"," + Double.toString(Hotel.getStars()) + "," + DashController.getLocation()
+            + "," + DashController.getNumOfRooms() +")";
 
 
     try (Connection connection = DriverManager.getConnection(url);

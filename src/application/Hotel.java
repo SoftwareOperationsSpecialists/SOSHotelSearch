@@ -3,7 +3,7 @@ package application;
 public class Hotel implements Comparable<Hotel>{
   private int hotelId;
   private String name;
-  private double stars;
+  private static double stars;
   private String city;
   private String countryCode;
   private String countryName;
@@ -77,7 +77,7 @@ public class Hotel implements Comparable<Hotel>{
     return name;
   }
 
-  public double getStars() {
+  public static double getStars() {
     return stars;
   }
 
