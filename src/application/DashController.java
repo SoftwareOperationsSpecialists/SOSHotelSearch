@@ -12,6 +12,8 @@ import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class DashController implements Initializable {
@@ -31,6 +33,9 @@ public class DashController implements Initializable {
     
     private SpinnerValueFactory<Integer> roomCountFactory = new IntegerSpinnerValueFactory(0, 9, 1);
     private static Navigator navigator = new Navigator();
+    private static LocalDate userCheckInDate;
+    private static LocalDate userCheckOutDate;
+    private static int numOfRooms;
 
     //Side Panel buttons
     public void MyAccount(ActionEvent event) throws Exception {
@@ -58,6 +63,9 @@ public class DashController implements Initializable {
             MapManager mapManager = new MapManager();
             mapManager.setAddress(location);
             mapManager.createMap();
+            userCheckInDate = checkInDate.getValue();
+            userCheckOutDate = checkOutDate.getValue();
+            numOfRooms = (int) roomCount.getValue();
             navigator.search(event);
 
             if (mapManager.getErrorStatus()) {
@@ -68,6 +76,18 @@ public class DashController implements Initializable {
 
     public static String getLocation() {
         return location;
+    }
+
+    public LocalDate getUserCheckInDate() {
+      return userCheckInDate;
+    }
+
+    public LocalDate getUserCheckOutDate() {
+      return userCheckOutDate;
+    }
+
+    public int getNumOfRooms() {
+      return numOfRooms;
     }
 
     public void modifyRoom() {

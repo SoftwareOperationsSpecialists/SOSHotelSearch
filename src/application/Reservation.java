@@ -1,24 +1,22 @@
 package application;
 
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Reservation {
-
     private Hotel hotel;
-    private Date checkInDate;
-    private Date checkOutDate;
+    private LocalDate checkInDate;
+    private LocalDate checkOutDate;
     private int numberOfRooms;
     private int finalCost;
-    private int roomPrice;
 
-
-    public Reservation(Hotel hotel, Date checkInDate, Date checkOutDate, int numberOfRooms, int roomPrice) {
+    public Reservation(Hotel hotel, LocalDate checkInDate,
+                       LocalDate checkOutDate, int numberOfRooms) {
         this.hotel = hotel;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
         this.numberOfRooms = numberOfRooms;
-        finalCost = roomPrice * numberOfRooms;
+        finalCost = hotel.getStdPrice() * numberOfRooms;
     }
 
     public Hotel getHotel() {
@@ -29,21 +27,19 @@ public class Reservation {
         this.hotel = hotel;
     }
 
-
-
-    public Date getCheckInDate() {
+    public LocalDate getCheckInDate() {
         return checkInDate;
     }
 
-    public void setCheckInDate(Date checkInDate) {
+    public void setCheckInDate(LocalDate checkInDate) {
         this.checkInDate = checkInDate;
     }
 
-    public Date getCheckOutDate() {
+    public LocalDate getCheckOutDate() {
         return checkOutDate;
     }
 
-    public void setCheckOutDate(Date checkOutDate) {
+    public void setCheckOutDate(LocalDate checkOutDate) {
         this.checkOutDate = checkOutDate;
     }
 
@@ -57,13 +53,5 @@ public class Reservation {
 
     public int getFinalCost() {
         return finalCost;
-    }
-
-    public int getRoomPrice() {
-        return roomPrice;
-    }
-
-    public void setRoomPrice(int roomPrice) {
-        this.roomPrice = roomPrice;
     }
 }
