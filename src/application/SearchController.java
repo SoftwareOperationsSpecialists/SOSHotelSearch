@@ -170,7 +170,7 @@ public class SearchController {
 
       // make every other pane have a light background
       if (hotelPaneOffset % 2 == 0) {
-        hotelPane.setBackground(new Background(new BackgroundFill(Paint.valueOf("#1b9dc1"),
+        hotelPane.setBackground(new Background(new BackgroundFill(Paint.valueOf("#78c9f4"),
                                           null, null)));
       } else {
         hotelPane.setBackground(new Background(new BackgroundFill(Paint.valueOf("#FFFFFF"),
