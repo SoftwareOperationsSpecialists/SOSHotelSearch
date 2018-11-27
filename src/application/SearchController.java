@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public class SearchController {
 
@@ -29,6 +30,8 @@ public class SearchController {
   private boolean isLowToHigh = false;
   private ArrayList<Hotel> hotels;
   private static Navigator navigator = new Navigator();
+  private static Random rand = new Random();
+  private ArrayList<Image> images = new ArrayList<>();
 
   @FXML
   private BorderPane mapPane;
@@ -56,6 +59,13 @@ public class SearchController {
   public void initialize() {
     // need to pass the current stage to the constructor of the mapManager
       MapManager mapManager = new MapManager();
+
+    images.add(new Image("application/hotelthumbs/La-Quinta.jpg"));
+    images.add(new Image("application/hotelthumbs/holiday-inn-the-colony-4629618286-4x3.jpeg"));
+    images.add(new Image("application/hotelthumbs/hotel1.jpg"));
+    images.add(new Image("application/hotelthumbs/hotel2.jpg"));
+    images.add(new Image("application/hotelthumbs/Hyatt-Place-St-George-Convention-Center-P004-Exterior.adapt.16x9.1920.1080.jpg"));
+    images.add(new Image("application/hotelthumbs/T1114MARRIOTTTUCSON.jpg"));
 
     // get list of hotels returned from mapManager
     hotels = mapManager.getHotelsToDisplay();
@@ -93,7 +103,10 @@ public class SearchController {
     for (Hotel hotel : hotels) {
       // create nodes for each hotel preview
       Pane hotelPane = new Pane();
-      ImageView hotelImage = new ImageView(new Image("application/hotelthumbs/La-Quinta.jpg"));
+
+      Image image = images.get(rand.nextInt(images.size()));
+      ImageView hotelImage = new ImageView(image);
+
       Label hotelName = new Label();
       Label hotelStars = new Label();
       Label hotelPrice = new Label();
