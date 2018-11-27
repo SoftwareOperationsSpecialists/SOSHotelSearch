@@ -93,7 +93,7 @@
             <Font size="38.0" />
          </font>
       </Label>
-      <TableView layoutX="144.0" layoutY="136.0" prefHeight="320.0" prefWidth="681.0">
+      <TableView fx:id="tableView" layoutX="144.0" layoutY="136.0" prefHeight="320.0" prefWidth="681.0">
         <columns>
           <TableColumn fx:id="HotelNameCol" prefWidth="75.0" text="Hotel name" />
           <TableColumn fx:id="CheckInCol" prefWidth="75.0" text="Check in date" />
@@ -103,5 +103,6 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
+      <Label fx:id="status" layoutX="426.0" layoutY="84.0" text=" " />
   </children>
 </AnchorPane>

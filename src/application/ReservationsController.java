@@ -69,13 +69,13 @@ public class ReservationsController implements Initializable {
 
   }
   private void addData() {
-    final String JOIN_RECIPES = "SELECT hotel.name, reservations.checkindata, "
+    final String JOIN_Hotels = "SELECT hotel.name, reservations.checkindata, "
         + "reservations.checkoutdate"
         + " FROM hotel INNER JOIN "
         + "reservations ON reservations.id=hotel.id";
     try (Connection connection = DriverManager.getConnection(url);
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(JOIN_RECIPES)) {
+        ResultSet resultSet = statement.executeQuery(JOIN_Hotels)) {
 
       // Values from Resultset object are added into list
       while(resultSet.next()) {
