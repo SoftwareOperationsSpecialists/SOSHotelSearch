@@ -56,16 +56,23 @@ public class HotelController {
 
   // Book it button will open Payment information Scene
   public void BookItButton(ActionEvent event) throws Exception {
+    Reservation reservation = new Reservation(hotel, DashController.getUserCheckInDate(),
+        DashController.getUserCheckOutDate(), DashController.getNumOfRooms() );
+
     navigator.payment(event);
 
-    //String insert_reservation ="INSERT INTO RESERVATIONS VALUES(" + DashController.checkInDate.getValue()
-        //+","+ DashController.checkOutDate.getValue() +")";
-    //String insert_hotel = "INSERT INTO HOTEL VALUES(" +
+    String insert_reservation ="INSERT INTO RESERVATIONS VALUES(" + Reservation.getCheckInDate()
+        + "," + Reservation.getCheckOutDate() +")";
+
+        String insert_hotel = "INSERT INTO HOTEL VALUES(" + hotelName +","
+            + Reservation.getFinalCost() +","+ hotelStars +","+ DashController.getLocation();
 
 
     try (Connection connection = DriverManager.getConnection(url);
         Statement statement = connection.createStatement()) {
-     // statement.executeUpdate(insert_reservation);
+        statement.executeUpdate(insert_reservation);
+      statement.executeUpdate(insert_hotel);
+
 
     }
 

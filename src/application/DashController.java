@@ -78,15 +78,15 @@ public class DashController implements Initializable {
         return location;
     }
 
-    public LocalDate getUserCheckInDate() {
+    public static LocalDate getUserCheckInDate() {
       return userCheckInDate;
     }
 
-    public LocalDate getUserCheckOutDate() {
+    public static LocalDate getUserCheckOutDate() {
       return userCheckOutDate;
     }
 
-    public int getNumOfRooms() {
+    public static int getNumOfRooms() {
       return numOfRooms;
     }
 
