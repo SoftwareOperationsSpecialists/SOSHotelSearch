@@ -48,16 +48,16 @@ public class HotelController {
   public void BookItButton(ActionEvent event) throws Exception {
     navigator.payment(event);
 
-    String insert_reservation ="INSERT INTO RESERVATIONS VALUES(" + DashController.checkInDate.getValue()
-        +","+ DashController.checkOutDate.getValue() +")";
-    //String insert_hotel = "INSERT INTO HOTEL VALUES(" +
-
-
-    try (Connection connection = DriverManager.getConnection(url);
-        Statement statement = connection.createStatement()) {
-      statement.executeUpdate(insert_reservation);
-
-    }
+//    String insert_reservation ="INSERT INTO RESERVATIONS VALUES(" + DashController.checkInDate.getValue()
+//        +","+ DashController.getCheckOutDate.getValue() +")";
+//    //String insert_hotel = "INSERT INTO HOTEL VALUES(" +
+//
+//
+//    try (Connection connection = DriverManager.getConnection(url);
+//        Statement statement = connection.createStatement()) {
+//      statement.executeUpdate(insert_reservation);
+//
+//    }
 
   }
 
