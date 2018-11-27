@@ -50,6 +50,7 @@ public class HotelController {
 
     String insert_reservation ="INSERT INTO RESERVATIONS VALUES(" + DashController.checkInDate.getValue()
         +","+ DashController.checkOutDate.getValue() +")";
+    //String insert_hotel = "INSERT INTO HOTEL VALUES(" +
 
 
     try (Connection connection = DriverManager.getConnection(url);
