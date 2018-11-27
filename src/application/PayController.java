@@ -7,8 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.awt.*;
+import javax.xml.soap.Text;
+import javafx.scene.control.Label;
 
 public class PayController {
 @FXML

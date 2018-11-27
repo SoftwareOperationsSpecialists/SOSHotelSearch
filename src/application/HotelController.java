@@ -2,7 +2,6 @@ package application;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.Statement;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -43,7 +42,7 @@ public class HotelController {
     hotelName.setText(hotel.getName());
     hotelLocation.setText("Location: "+hotel.getCity()+", "+hotel.getCountryName());
     hotelStars.setText("This is a "+hotel.getStars()+" star hotel.");
-    hotelPrice.setText("Price : "+hotel.getStdPrice()+"$");
+    hotelPrice.setText("Price : $"+hotel.getStdPrice());
   }
   
   // Dashboard Button will go back to the "Hotel Search" Scene

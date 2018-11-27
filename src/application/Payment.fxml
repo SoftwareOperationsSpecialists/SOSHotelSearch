@@ -12,85 +12,87 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PayController">
-   <children>
-      <AnchorPane prefHeight="432.0" prefWidth="267.0" style="-fx-background-color: #1b9dc1;">
-         <children>
-            <Label fx:id="hotelName" alignment="CENTER" layoutX="40.0" layoutY="21.0" prefHeight="48.0" prefWidth="198.0" text="Holiday Inn" textFill="WHITE">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-            <Label layoutX="14.0" layoutY="105.0" prefHeight="25.0" prefWidth="118.0" text="Rooms :" textFill="WHITE">
+    <children>
+        <AnchorPane prefHeight="432.0" prefWidth="267.0" style="-fx-background-color: #1b9dc1;">
+            <children>
+                <Label fx:id="hotelName" alignment="CENTER" layoutX="40.0" layoutY="21.0" prefHeight="48.0" prefWidth="198.0" text="Holiday Inn" textFill="WHITE">
+                    <font>
+                        <Font size="25.0" />
+                    </font>
+                </Label>
+                <Label layoutX="14.0" layoutY="105.0" prefHeight="25.0" prefWidth="118.0" text="Rooms :" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Separator layoutX="2.0" layoutY="78.0" opacity="0.4" prefHeight="3.0" prefWidth="289.0" />
+                <Separator layoutX="2.0" layoutY="155.0" opacity="0.4" prefHeight="3.0" prefWidth="289.0" />
+                <Label layoutX="14.0" layoutY="183.0" prefHeight="25.0" prefWidth="118.0" text="Nights :" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Separator layoutX="3.0" layoutY="240.0" opacity="0.4" prefHeight="3.0" prefWidth="289.0" />
+                <Separator layoutX="7.0" layoutY="319.0" opacity="0.4" prefHeight="3.0" prefWidth="289.0" />
+                <Label layoutX="14.0" layoutY="268.0" prefHeight="25.0" prefWidth="118.0" text="Price : " textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Pane layoutX="93.0" layoutY="347.0" prefHeight="55.0" prefWidth="92.0">
+                    <children>
+                        <Label layoutX="1.0" layoutY="-1.0" text="S.O.S">
+                            <font>
+                                <Font size="40.0" />
+                            </font>
+                            <textFill>
+                                <LinearGradient endX="1.0" endY="1.0">
+                                    <stops>
+                                        <Stop color="#15f7ff" />
+                                        <Stop color="#eedcab" offset="1.0" />
+                                    </stops>
+                                </LinearGradient>
+                            </textFill>
+                        </Label>
+                    </children>
+                </Pane>
+            <Label fx:id="numberOfRooms" layoutX="164.0" layoutY="105.0" text="1" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="numberOfRooms" layoutX="187.0" layoutY="105.0" prefHeight="25.0" prefWidth="56.0" text="3" textFill="#fffefe">
+            <Label fx:id="numberOfNights" layoutX="164.0" layoutY="183.0" text="2" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Separator layoutX="2.0" layoutY="78.0" opacity="0.4" prefHeight="3.0" prefWidth="289.0" />
-            <Separator layoutX="2.0" layoutY="155.0" opacity="0.4" prefHeight="3.0" prefWidth="289.0" />
-            <Label layoutX="14.0" layoutY="183.0" prefHeight="25.0" prefWidth="118.0" text="Nights :" textFill="WHITE">
+            <Label fx:id="price" layoutX="164.0" layoutY="268.0" text="\$ 436" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="numberOfNights" layoutX="187.0" layoutY="183.0" prefHeight="25.0" prefWidth="56.0" text="2" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Separator layoutX="3.0" layoutY="240.0" opacity="0.4" prefHeight="3.0" prefWidth="289.0" />
-            <Separator layoutX="7.0" layoutY="319.0" opacity="0.4" prefHeight="3.0" prefWidth="289.0" />
-            <Label layoutX="14.0" layoutY="268.0" prefHeight="25.0" prefWidth="118.0" text="Price : $" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="price" layoutX="187.0" layoutY="268.0" prefHeight="25.0" prefWidth="56.0" text="780" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Pane layoutX="93.0" layoutY="347.0" prefHeight="55.0" prefWidth="92.0">
-               <children>
-                  <Label layoutX="1.0" layoutY="-1.0" text="S.O.S">
-                     <font>
-                        <Font size="40.0" />
-                     </font>
-                     <textFill>
-                        <LinearGradient endX="1.0" endY="1.0">
-                           <stops>
-                              <Stop color="#15f7ff" />
-                              <Stop color="#eedcab" offset="1.0" />
-                           </stops>
-                        </LinearGradient>
-                     </textFill>
-                  </Label>
-               </children>
-            </Pane>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="276.0" prefHeight="432.0" prefWidth="366.0">
-         <children>
-            <Label layoutX="76.0" layoutY="57.0" prefHeight="25.0" prefWidth="149.0" text="Enter information below" />
-            <TextField layoutX="76.0" layoutY="100.0" promptText="Card type" />
-            <TextField layoutX="76.0" layoutY="150.0" promptText="Card number" />
-            <TextField layoutX="76.0" layoutY="200.0" promptText="Name on card" />
-            <TextField layoutX="76.0" layoutY="250.0" prefHeight="27.0" prefWidth="107.0" promptText="Expiry date" />
-            <TextField layoutX="188.0" layoutY="250.0" prefHeight="27.0" prefWidth="56.0" promptText="Code" />
-            <TextField layoutX="76.0" layoutY="300.0" promptText="Zip/Postal code" />
-            <Button layoutX="76.0" layoutY="350.0" mnemonicParsing="false" onAction="#Pay" prefHeight="25.0" prefWidth="56.0" stylesheets="@style.css" text="Pay" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button layoutX="199.0" layoutY="350.0" mnemonicParsing="false" onAction="#HotelInfo" stylesheets="@style.css" text="Cancel" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-         </children>
-      </AnchorPane>
-   </children>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="276.0" prefHeight="432.0" prefWidth="366.0">
+            <children>
+                <Label layoutX="76.0" layoutY="57.0" prefHeight="25.0" prefWidth="149.0" text="Enter information below" />
+                <TextField layoutX="76.0" layoutY="100.0" promptText="Card type" />
+                <TextField layoutX="76.0" layoutY="150.0" promptText="Card number" />
+                <TextField layoutX="76.0" layoutY="200.0" promptText="Name on card" />
+                <TextField layoutX="76.0" layoutY="250.0" prefHeight="27.0" prefWidth="107.0" promptText="Expiry date" />
+                <TextField layoutX="188.0" layoutY="250.0" prefHeight="27.0" prefWidth="56.0" promptText="Code" />
+                <TextField layoutX="76.0" layoutY="300.0" promptText="Zip/Postal code" />
+                <Button layoutX="76.0" layoutY="350.0" mnemonicParsing="false" onAction="#Pay" prefHeight="25.0" prefWidth="56.0" stylesheets="@style.css" text="Pay" textFill="WHITE">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Button layoutX="199.0" layoutY="350.0" mnemonicParsing="false" onAction="#HotelInfo" stylesheets="@style.css" text="Cancel" textFill="WHITE">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+            </children>
+        </AnchorPane>
+    </children>
 </AnchorPane>
