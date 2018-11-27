@@ -12,6 +12,8 @@ import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class DashController implements Initializable {
@@ -20,9 +22,9 @@ public class DashController implements Initializable {
     private static String location;
 
     @FXML
-     private DatePicker checkInDate;
+    private DatePicker checkInDate;
     @FXML
-     private DatePicker checkOutDate;
+    private DatePicker checkOutDate;
 
     @FXML
     private Label searchStatus;
@@ -31,34 +33,21 @@ public class DashController implements Initializable {
     
     private SpinnerValueFactory<Integer> roomCountFactory = new IntegerSpinnerValueFactory(0, 9, 1);
     private static Navigator navigator = new Navigator();
+    private static LocalDate userCheckInDate;
+    private static LocalDate userCheckOutDate;
+    private static int numOfRooms;
 
     //Side Panel buttons
     public void MyAccount(ActionEvent event) throws Exception {
-
-        Parent Logout = FXMLLoader.load(getClass().getResource("MyAccount.fxml"));
-        Scene logoutScene = new Scene(Logout);
-
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(logoutScene);
-        window.show();
+        navigator.myAccount(event);
     }
 
     public void savedHotels(ActionEvent event) throws Exception {
-        Parent Saved = FXMLLoader.load(getClass().getResource("SavedHotels.fxml"));
-        Scene savedScene = new Scene(Saved);
-
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(savedScene);
-        window.show();
+        navigator.savedHotels(event);
     }
 
     public void logout(ActionEvent event) throws Exception {
-        Parent Dashboard = FXMLLoader.load(getClass().getResource("Login.fxml"));
-        Scene dashboard = new Scene(Dashboard);
-
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(dashboard);
-        window.show();
+        navigator.logout(event);
     }
 
     public void Search(ActionEvent event) throws Exception {
@@ -74,11 +63,10 @@ public class DashController implements Initializable {
             MapManager mapManager = new MapManager();
             mapManager.setAddress(location);
             mapManager.createMap();
-            Parent Dashboard = FXMLLoader.load(getClass().getResource("Search.fxml"));
-            Scene dashboard = new Scene(Dashboard);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(dashboard);
-            window.show();
+            userCheckInDate = checkInDate.getValue();
+            userCheckOutDate = checkOutDate.getValue();
+            numOfRooms = (int) roomCount.getValue();
+            navigator.search(event);
 
             if (mapManager.getErrorStatus()) {
                 searchStatus.setText(mapManager.getError()); // this should be set to the text of a label
@@ -88,6 +76,18 @@ public class DashController implements Initializable {
 
     public static String getLocation() {
         return location;
+    }
+
+    public static LocalDate getUserCheckInDate() {
+      return userCheckInDate;
+    }
+
+    public static LocalDate getUserCheckOutDate() {
+      return userCheckOutDate;
+    }
+
+    public static int getNumOfRooms() {
+      return numOfRooms;
     }
 
     public void modifyRoom() {

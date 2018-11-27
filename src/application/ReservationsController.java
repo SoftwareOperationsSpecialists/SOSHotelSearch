@@ -2,9 +2,16 @@ package application;
 
 import application.HotelOwnerController.Info;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,29 +19,77 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class ReservationsController implements Initializable {
 
+  ObservableList<Data> list = FXCollections.observableArrayList();
+  static String url = "jdbc:derby:lib/SOSHotelAccountDB";
+
   @FXML
-  private TableView<application.HotelOwnerController.Info> tableView;
+  private TableView<Data> tableView;
   @FXML
-  private TableColumn<application.HotelOwnerController.Info, Integer> HotelNameCol;
+  private TableColumn<Data, Integer> HotelNameCol;
   @FXML
-  private TableColumn<application.HotelOwnerController.Info, String> CheckInCol;
+  private TableColumn<Data, String> CheckInCol;
   @FXML
-  private TableColumn<application.HotelOwnerController.Info, String> CheckOutCol;
+  private TableColumn<Data, String> CheckOutCol;
+  @FXML
+  private Label status;
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
 
   }
 
-  public static class Info {
-
+  public static class Data {
+    private final SimpleStringProperty HotelName;
+    private final SimpleStringProperty CheckIn;
+    private final SimpleStringProperty CheckOut;
     // Class constructor takes in fields as parameters
+    Data(String name, String checkIn, String checkOut) {
+      this.HotelName = new SimpleStringProperty(name);
+      this.CheckIn = new SimpleStringProperty(checkIn);
+      this.CheckOut = new SimpleStringProperty(checkOut);
+    }
+    public String getName(){ return HotelName.get();}
+    public String getCheckIn(){ return CheckIn.get();}
+    public String getCheckOut(){ return CheckOut.get();}
+  }
+  private void initCol() {
+    HotelNameCol.setCellValueFactory(new PropertyValueFactory<>("HotelName"));
+    CheckInCol.setCellValueFactory(new PropertyValueFactory<>("CheckIn"));
+    CheckOutCol.setCellValueFactory(new PropertyValueFactory<>("CheckOut"));
+
+  }
+  private void addData() {
+    final String JOIN_RECIPES = "SELECT hotel.name, reservations.checkindata, "
+        + "reservations.checkoutdate"
+        + " FROM hotel INNER JOIN "
+        + "reservations ON reservations.id=hotel.id";
+    try (Connection connection = DriverManager.getConnection(url);
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(JOIN_RECIPES)) {
+
+      // Values from Resultset object are added into list
+      while(resultSet.next()) {
+        String HotelName = resultSet.getString("name");
+        String CheckIn = resultSet.getString("checkindate");
+        String CheckOut = resultSet.getString("checkoutdate");
+
+        list.add(new Data(HotelName, CheckIn,CheckOut));
+      }
+    }
+    catch (SQLException e) {
+      status.setText("Error");
+      e.printStackTrace();
+    }
+    // Associates tableView with list items
+    tableView.getItems().setAll(list);
 
   }
   public void myAccount(ActionEvent event) throws Exception {
@@ -70,3 +125,4 @@ public class ReservationsController implements Initializable {
     window.show();
   }
 }
+

@@ -11,11 +11,11 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PayController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PayController">
    <children>
       <AnchorPane prefHeight="432.0" prefWidth="267.0" style="-fx-background-color: #1b9dc1;">
          <children>
-            <Label alignment="CENTER" layoutX="40.0" layoutY="21.0" prefHeight="48.0" prefWidth="198.0" text="Holiday Inn" textFill="WHITE">
+            <Label fx:id="hotelName" alignment="CENTER" layoutX="40.0" layoutY="21.0" prefHeight="48.0" prefWidth="198.0" text="Holiday Inn" textFill="WHITE">
                <font>
                   <Font size="25.0" />
                </font>
@@ -25,7 +25,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="187.0" layoutY="105.0" prefHeight="25.0" prefWidth="56.0" text="3" textFill="#fffefe">
+            <Label fx:id="numberOfRooms" layoutX="187.0" layoutY="105.0" prefHeight="25.0" prefWidth="56.0" text="3" textFill="#fffefe">
                <font>
                   <Font size="18.0" />
                </font>
@@ -37,7 +37,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="187.0" layoutY="183.0" prefHeight="25.0" prefWidth="56.0" text="2" textFill="WHITE">
+            <Label fx:id="numberOfNights" layoutX="187.0" layoutY="183.0" prefHeight="25.0" prefWidth="56.0" text="2" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -49,7 +49,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="187.0" layoutY="268.0" prefHeight="25.0" prefWidth="56.0" text="780" textFill="WHITE">
+            <Label fx:id="price" layoutX="187.0" layoutY="268.0" prefHeight="25.0" prefWidth="56.0" text="780" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -73,7 +73,7 @@
             </Pane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="276.0" prefHeight="432.0" prefWidth="326.0">
+      <AnchorPane layoutX="276.0" prefHeight="432.0" prefWidth="366.0">
          <children>
             <Label layoutX="76.0" layoutY="57.0" prefHeight="25.0" prefWidth="149.0" text="Enter information below" />
             <TextField layoutX="76.0" layoutY="100.0" promptText="Card type" />
