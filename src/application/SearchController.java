@@ -47,15 +47,15 @@ public class SearchController {
 
   //Side panel buttons
   public void dashboard(ActionEvent event) throws Exception {
-    navigator.dashboard(event);
+    Navigator.dashboard(event);
   }
 
   public void myAccount(ActionEvent event) throws Exception {
-    navigator.myAccount(event);
+    Navigator.myAccount(event);
   }
 
   public void logout(ActionEvent event) throws Exception {
-    navigator.logout(event);
+    Navigator.logout(event);
   }
 
   public void initialize() {
@@ -171,7 +171,7 @@ public class SearchController {
         @Override
         public void handle(ActionEvent event) {
           try {
-            navigator.hotelInfo(hotel, event);
+            Navigator.hotelInfo(hotel, event);
           } catch (Exception e) {
             e.printStackTrace();
           }

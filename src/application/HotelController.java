@@ -31,8 +31,6 @@ public class HotelController {
   private ArrayList<Image> images = new ArrayList<>(numImages);
   private static Navigator navigator = new Navigator();
   private static Hotel hotel;
-  static String url = "jdbc:derby:lib/SOSHotelAccountDB";
-  static String driver = "org.apache.derby.jdbc.EmbeddedDriver";
 
   public void initialize(){
     images.add(new Image("application/hotelpics/holiday-inn-the-colony-4629618286-16x5.jpg"));
@@ -47,10 +45,10 @@ public class HotelController {
   
   // Dashboard Button will go back to the "Hotel Search" Scene
   public void DashboardButton(ActionEvent event) throws Exception {
-    navigator.dashboard(event);
+    Navigator.dashboard(event);
   }
   public void logout(ActionEvent event) throws Exception {
-    navigator.logout(event);
+    Navigator.logout(event);
   }
 
   // Book it button will open Payment information Scene
@@ -58,7 +56,7 @@ public class HotelController {
     Reservation reservation = new Reservation(hotel, DashController.getUserCheckInDate(),
         DashController.getUserCheckOutDate(), DashController.getNumOfRooms() );
 
-    navigator.payment(event);
+    Navigator.payment(event);
 
     String insert_reservation ="INSERT INTO RESERVATIONS VALUES(" + Reservation.getCheckInDate()
         + "," + Reservation.getCheckOutDate() +")";
@@ -68,19 +66,16 @@ public class HotelController {
             + "," + DashController.getNumOfRooms() +")";
 
 
-    try (Connection connection = DriverManager.getConnection(url);
+    try (Connection connection = DriverManager.getConnection(Credentials.url);
         Statement statement = connection.createStatement()) {
         statement.executeUpdate(insert_reservation);
       statement.executeUpdate(insert_hotel);
-
-
     }
-
   }
 
   //Go to Reviews button will go to the "Reviews" Scene
   public void GoToReviews(ActionEvent event) throws Exception {
-    navigator.reviews(event);
+    Navigator.reviews(event);
   }
   
   public void NextImage(){

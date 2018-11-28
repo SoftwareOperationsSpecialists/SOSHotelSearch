@@ -39,15 +39,15 @@ public class DashController implements Initializable {
 
     //Side Panel buttons
     public void MyAccount(ActionEvent event) throws Exception {
-        navigator.myAccount(event);
+        Navigator.myAccount(event);
     }
 
     public void savedHotels(ActionEvent event) throws Exception {
-        navigator.savedHotels(event);
+        Navigator.savedHotels(event);
     }
 
     public void logout(ActionEvent event) throws Exception {
-        navigator.logout(event);
+        Navigator.logout(event);
     }
 
     public void Search(ActionEvent event) throws Exception {
@@ -66,7 +66,7 @@ public class DashController implements Initializable {
             userCheckInDate = checkInDate.getValue();
             userCheckOutDate = checkOutDate.getValue();
             numOfRooms = (int) roomCount.getValue();
-            navigator.search(event);
+            Navigator.search(event);
 
             if (mapManager.getErrorStatus()) {
                 searchStatus.setText(mapManager.getError()); // this should be set to the text of a label
@@ -78,15 +78,15 @@ public class DashController implements Initializable {
         return location;
     }
 
-    public static LocalDate getUserCheckInDate() {
+    static LocalDate getUserCheckInDate() {
       return userCheckInDate;
     }
 
-    public static LocalDate getUserCheckOutDate() {
+    static LocalDate getUserCheckOutDate() {
       return userCheckOutDate;
     }
 
-    public static int getNumOfRooms() {
+    static int getNumOfRooms() {
       return numOfRooms;
     }
 
