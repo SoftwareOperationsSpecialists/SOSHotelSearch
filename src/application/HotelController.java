@@ -41,7 +41,7 @@ public class HotelController {
 
     hotelName.setText(hotel.getName());
     hotelLocation.setText("Location: "+hotel.getCity()+", "+hotel.getCountryName());
-    hotelStars.setText("This is a "+hotel.getStars()+" star hotel.");
+    hotelStars.setText("This is a "+ Hotel.getStars()+" star hotel.");
     hotelPrice.setText("Price : $"+hotel.getStdPrice());
   }
   
@@ -64,7 +64,7 @@ public class HotelController {
         + "," + Reservation.getCheckOutDate() +")";
 
         String insert_hotel = "INSERT INTO HOTEL VALUES(" + hotelName +","
-            + Integer.toString(Reservation.getFinalCost()) +"," + Double.toString(Hotel.getStars()) + "," + DashController.getLocation()
+            + Reservation.getFinalCost() +"," + Hotel.getStars() + "," + DashController.getLocation()
             + "," + DashController.getNumOfRooms() +")";
 
 

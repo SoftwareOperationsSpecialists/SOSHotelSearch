@@ -18,7 +18,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
-public class LogInController {
+public class LogInController extends Credentials {
   private static Navigator navigator = new Navigator();
 
   @FXML
@@ -37,13 +37,6 @@ public class LogInController {
   @FXML
   private ToggleGroup loginType;
 
-
-  static String url = "jdbc:derby:lib/SOSHotelAccountDB";
-  static String driver = "org.apache.derby.jdbc.EmbeddedDriver";
-
-  static String clientUsername;
-  static String clientPassword;
-
   //Action for login button
   public void Login(ActionEvent event) throws Exception {
 
@@ -59,13 +52,7 @@ public class LogInController {
         ResultSet result = statement.executeQuery(searcherSQL);
 
         if (result.next()) {
-          Parent Search = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
-          Scene search = new Scene(Search);
-
-          //Goes to register screen
-          Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-          window.setScene(search);
-          window.show();
+          Navigator.dashboard(event);
           clientUsername = txtUsername.getText();
           clientPassword = txtPassword.getText();
           loginConnection.close();
@@ -88,13 +75,7 @@ public class LogInController {
         ResultSet result = statement.executeQuery(ownerSQL);
 
         if (result.next()) {
-          Parent Search = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
-          Scene search = new Scene(Search);
-
-          //Goes to register screen
-          Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-          window.setScene(search);
-          window.show();
+          Navigator.dashboard(event);
           loginConnection.close();
         } else {
           lblStatus.setText("Login Failed");
@@ -110,7 +91,7 @@ public class LogInController {
 
   //Register button action
   public void SignUp(ActionEvent event) throws Exception {
-    navigator.register(event);
+    Navigator.register(event);
   }
 
 }

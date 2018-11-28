@@ -13,8 +13,8 @@ public class Reservation {
     public Reservation(Hotel hotel, LocalDate checkInDate,
                        LocalDate checkOutDate, int numberOfRooms) {
         this.hotel = hotel;
-        this.checkInDate = checkInDate;
-        this.checkOutDate = checkOutDate;
+        Reservation.checkInDate = checkInDate;
+        Reservation.checkOutDate = checkOutDate;
         this.numberOfRooms = numberOfRooms;
         finalCost = hotel.getStdPrice() * numberOfRooms;
     }
@@ -32,7 +32,7 @@ public class Reservation {
     }
 
     public void setCheckInDate(LocalDate checkInDate) {
-        this.checkInDate = checkInDate;
+        Reservation.checkInDate = checkInDate;
     }
 
     public static LocalDate getCheckOutDate() {
@@ -40,7 +40,7 @@ public class Reservation {
     }
 
     public void setCheckOutDate(LocalDate checkOutDate) {
-        this.checkOutDate = checkOutDate;
+        Reservation.checkOutDate = checkOutDate;
     }
 
     public int getNumberOfRooms() {

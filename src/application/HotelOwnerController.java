@@ -27,7 +27,6 @@ import javafx.stage.Stage;
 public class HotelOwnerController implements Initializable {
 
   ObservableList<Info> list = FXCollections.observableArrayList();
-  static String url = "jdbc:derby:lib/SOSHotelAccountDB";
 
   @FXML
   private TableView<Info> tableView;
@@ -77,7 +76,7 @@ public class HotelOwnerController implements Initializable {
         + "reservations.checkoutdate, hotel.numrooms"
         + " FROM hotel INNER JOIN "
         + "reservations ON reservations.id=hotel.id";
-    try (Connection connection = DriverManager.getConnection(url);
+    try (Connection connection = DriverManager.getConnection(Credentials.url);
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(JOIN_RECIPES)) {
 
@@ -101,12 +100,7 @@ public class HotelOwnerController implements Initializable {
   }
 
   public void logout(ActionEvent event) throws Exception {
-    Parent Dashboard = FXMLLoader.load(getClass().getResource("Login.fxml"));
-    Scene dashboard = new Scene(Dashboard);
-
-    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(dashboard);
-    window.show();
+    Navigator.logout(event);
   }
 }
 

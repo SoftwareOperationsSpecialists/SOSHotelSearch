@@ -49,16 +49,18 @@ public class SearchController {
   public void dashboard(ActionEvent event) throws Exception {
     navigator.dashboard(event);
   }
+
   public void myAccount(ActionEvent event) throws Exception {
     navigator.myAccount(event);
   }
+
   public void logout(ActionEvent event) throws Exception {
     navigator.logout(event);
   }
 
   public void initialize() {
     // need to pass the current stage to the constructor of the mapManager
-      MapManager mapManager = new MapManager();
+    MapManager mapManager = new MapManager();
 
     images.add(new Image("application/hotelthumbs/La-Quinta.jpg"));
     images.add(new Image("application/hotelthumbs/holiday-inn-the-colony-4629618286-4x3.jpeg"));
@@ -118,7 +120,7 @@ public class SearchController {
 
       // set fields of preview window to those from each hotel object
       Text name = new Text(hotel.getName());
-      Text stars = new Text(hotel.getStars() + "-Star Hotel");
+      Text stars = new Text(Hotel.getStars() + "-Star Hotel");
       Text rating = new Text("User rating: 4/5");
       Text price = new Text("$" + hotel.getStdPrice());
 
@@ -132,7 +134,7 @@ public class SearchController {
       // configure layout of elements on hotel list
       double baseXOffset = hotelImage.getImage().getWidth() + 10;
       double baseYOffset = (hotelImage.getImage().getHeight() + 5)
-                            - hotelImage.getImage().getHeight();
+              - hotelImage.getImage().getHeight();
       int yPadding = 17;
       int hotelPriceOffset = 100;
 
@@ -162,7 +164,7 @@ public class SearchController {
       infoButton.setLayoutX(hotelImage.getLayoutX());
       infoButton.setLayoutY(hotelImage.getLayoutY());
       infoButton.setPrefWidth(hotelImage.getImage().getWidth() + baseXOffset
-                              + hotelName.getMaxWidth() + 10);
+              + hotelName.getMaxWidth() + 10);
       infoButton.setPrefHeight(hotelImage.getImage().getHeight());
 
       infoButton.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
@@ -184,10 +186,10 @@ public class SearchController {
       // make every other pane have a light background
       if (hotelPaneOffset % 2 == 0) {
         hotelPane.setBackground(new Background(new BackgroundFill(Paint.valueOf("#78c9f4"),
-                                          null, null)));
+                null, null)));
       } else {
         hotelPane.setBackground(new Background(new BackgroundFill(Paint.valueOf("#FFFFFF"),
-                                          null, null)));
+                null, null)));
       }
       hotelList.getChildren().add(hotelPane);
 
@@ -208,17 +210,12 @@ public class SearchController {
     sortList();
   }
 
-  public void setHighToLow () {
+  public void setHighToLow() {
     isLowToHigh = false;
     sortList();
   }
 
   public void hotelInfo(ActionEvent event) throws Exception {
-    Parent Hotel = FXMLLoader.load(getClass().getResource("Hotel.fxml"));
-    Scene hotel = new Scene(Hotel);
-
-    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(hotel);
-    window.show();
+    Navigator.hotelInfo(event);
   }
 }

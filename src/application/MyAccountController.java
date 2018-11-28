@@ -16,7 +16,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class MyAccountController implements Initializable {
+public class MyAccountController extends Credentials implements Initializable {
 
   @FXML
   private TextField txtFullName;
@@ -32,9 +32,6 @@ public class MyAccountController implements Initializable {
   @FXML
   private Label updateStatus;
 
-  private String updateSQL = "UPDATE SOS.SEARCHER SET NAME = ?, PASSWORD = ?, EMAIL = ?, DOB = ? " +
-          "WHERE USERNAME = ?";
-
     //function that will edit the information
   public void editInformation(){
 
@@ -43,36 +40,26 @@ public class MyAccountController implements Initializable {
       String newEmail = txtEmail.getText();
       String newBirthDate = txtDOB.getText();
 
-      if (!RegController.validFullNamePattern(txtFullName.getText())) {
+      if (validFullNamePattern(txtFullName.getText())) {
           updateStatus.setText("Invalid name input!");
           updateStatus.setTextFill(Paint.valueOf("red"));
 
-      } else if (!RegController.validPSWDPattern(txtPassword.getText())) {
+      } else if (validPSWDPattern(txtPassword.getText())) {
           updateStatus.setText("Password must not contain special characters!");
           updateStatus.setTextFill(Paint.valueOf("red"));
 
-      }else if (!RegController.validEmailPattern(txtEmail.getText())) {
+      }else if (validEmailPattern(txtEmail.getText())) {
           updateStatus.setText("Must be a valid email address!");
           updateStatus.setTextFill(Paint.valueOf("red"));
 
-      } else if (!RegController.validDOBPattern(txtDOB.getText())) {
+      } else if (validDOBPattern(txtDOB.getText())) {
           updateStatus.setText("DOB Pattern: MM/DD/YYYY");
           updateStatus.setTextFill(Paint.valueOf("red"));
 
       } else {
           try {
-              Class.forName(LogInController.driver);
-              Connection loginConnection = DriverManager.getConnection(LogInController.url);
-              PreparedStatement update = loginConnection.prepareStatement(updateSQL);
-
-              update.setString(1, newName);
-              update.setString(2, newPassword);
-              update.setString(3, newEmail);
-              update.setString(4, newBirthDate);
-              update.setString(5, txtUserName.getText());
-              update.executeUpdate();
-              updateStatus.setTextFill(Paint.valueOf("green"));
-              update.close();
+              String username = txtUserName.getText();
+              update(newName, newPassword, newEmail, newBirthDate, username, updateSQL, updateStatus);
 
           } catch (ClassNotFoundException | SQLException e) {
               e.printStackTrace();
@@ -81,20 +68,10 @@ public class MyAccountController implements Initializable {
   }
   //Side panel buttons
   public void Dashboard(ActionEvent event) throws Exception {
-    Parent Logout = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
-    Scene logoutScene = new Scene(Logout);
-
-    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(logoutScene);
-    window.show();
+    Navigator.dashboard(event);
   }
   public void savedHotels(ActionEvent event) throws Exception {
-    Parent Saved = FXMLLoader.load(getClass().getResource("SavedHotels.fxml"));
-    Scene savedScene = new Scene(Saved);
-
-    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(savedScene);
-    window.show();
+    Navigator.savedHotels(event);
   }
   public void reservation(ActionEvent event) throws Exception {
     Parent Dashboard = FXMLLoader.load(getClass().getResource("Reservations.fxml"));
@@ -118,10 +95,10 @@ public class MyAccountController implements Initializable {
         txtUserName.setText(LogInController.clientUsername);
         txtPassword.setText(LogInController.clientPassword);
         try {
-            Class.forName(LogInController.driver);
+            Class.forName(driver);
             String getInfoSQL = "SELECT NAME, DOB, PASSWORD, EMAIL FROM SOS.SEARCHER WHERE USERNAME='"
                     + txtUserName.getText() + "'";
-            Connection loginConnection = DriverManager.getConnection(LogInController.url);
+            Connection loginConnection = DriverManager.getConnection(url);
             Statement grabInfo = loginConnection.createStatement();
             ResultSet result = grabInfo.executeQuery(getInfoSQL);
             if (result.next()){

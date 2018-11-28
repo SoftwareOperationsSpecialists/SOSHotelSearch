@@ -92,7 +92,7 @@
       <Separator layoutX="110.0" layoutY="94.0" prefHeight="3.0" prefWidth="846.0" />
       <Label layoutX="118.0" layoutY="57.0" prefHeight="37.0" prefWidth="399.0" text="Edit Account information below :" />
       <Label layoutX="305.0" layoutY="65.0" prefHeight="21.0" prefWidth="424.0" text="Please edit any information and click  the checkmark if you wish to change it." />
-      <Label fx:id="usernameStatus" layoutX="146.0" layoutY="144.0" text="Username" />
+      <Label fx:id="usernameStatus" layoutX="146.0" layoutY="144.0" text="CANNOT CHANGE USERNAME" textFill="#f70505" />
       <Label fx:id="passwordStatus" layoutX="146.0" layoutY="248.0" text="Password" />
       <TextField fx:id="txtUserName" editable="false" layoutX="146.0" layoutY="161.0" prefHeight="0.0" prefWidth="169.0" promptText="Username" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
       <TextField fx:id="txtEmail" layoutX="146.0" layoutY="369.0" prefHeight="27.0" prefWidth="169.0" promptText="E-mail" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
@@ -101,7 +101,7 @@
       <Label fx:id="fullNameStatus" layoutX="650.0" layoutY="153.0" text="Full name" textFill="#323232" />
       <TextField fx:id="txtDOB" layoutX="645.0" layoutY="265.0" prefHeight="27.0" prefWidth="169.0" promptText="MM/DD/YYYY" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
       <Label fx:id="dobStatus" layoutX="646.0" layoutY="248.0" text="Date of Birth" />
-      <Button fx:id="submitBTN" layoutX="676.0" layoutY="370.0" mnemonicParsing="false" onAction="#editInformation" prefHeight="25.0" prefWidth="109.0" stylesheets="@style.css" text="Submit" textFill="WHITE" />
+      <Button fx:id="submitBTN" defaultButton="true" layoutX="676.0" layoutY="370.0" mnemonicParsing="false" onAction="#editInformation" prefHeight="25.0" prefWidth="109.0" stylesheets="@style.css" text="Submit" textFill="WHITE" />
       <TextField fx:id="txtPassword" layoutX="146.0" layoutY="265.0" prefHeight="0.0" prefWidth="169.0" promptText="Password" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
       <Label fx:id="updateStatus" layoutX="585.0" layoutY="422.0" prefHeight="30.0" prefWidth="289.0" text="Update Sucessful!" textFill="#5acc0200">
          <font>

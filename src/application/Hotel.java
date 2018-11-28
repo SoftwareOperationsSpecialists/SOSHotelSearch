@@ -18,7 +18,7 @@ public class Hotel implements Comparable<Hotel>{
                double lng, int stdPrice, int dlxPrice, int suitePrice) {
     this.hotelId = hotelId;
     this.name = name;
-    this.stars = stars;
+    Hotel.stars = stars;
     this.city = city;
     this.countryCode = countryCode;
     this.countryName = countryName;
@@ -38,7 +38,7 @@ public class Hotel implements Comparable<Hotel>{
   }
 
   public void setStars(double stars) {
-    this.stars = stars;
+    Hotel.stars = stars;
   }
 
   public void setCity(String city) {

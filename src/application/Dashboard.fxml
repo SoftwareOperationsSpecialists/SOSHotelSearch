@@ -20,7 +20,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="457.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DashController">
+<AnchorPane prefHeight="457.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DashController">
 
 
   <children>
@@ -30,7 +30,7 @@
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor></TextField>
-        <Button alignment="CENTER" layoutX="545.0" layoutY="352.0" mnemonicParsing="false" onAction="#Search" prefHeight="27.0" prefWidth="101.0" stylesheets="@style.css" text="Search" textFill="WHITE" AnchorPane.bottomAnchor="117.0" AnchorPane.rightAnchor="204.0">
+        <Button alignment="CENTER" defaultButton="true" layoutX="545.0" layoutY="352.0" mnemonicParsing="false" onAction="#Search" prefHeight="27.0" prefWidth="101.0" stylesheets="@style.css" text="Search" textFill="WHITE" AnchorPane.bottomAnchor="117.0" AnchorPane.rightAnchor="204.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

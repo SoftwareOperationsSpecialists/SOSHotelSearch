@@ -103,12 +103,7 @@ public class ReservationsController implements Initializable {
     window.show();
   }
   public void Dashboard(ActionEvent event) throws Exception {
-    Parent Logout = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
-    Scene logoutScene = new Scene(Logout);
-
-    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(logoutScene);
-    window.show();
+    Navigator.dashboard(event);
   }
   public void savedHotels(ActionEvent event) throws Exception {
     Parent Saved = FXMLLoader.load(getClass().getResource("SavedHotels.fxml"));
