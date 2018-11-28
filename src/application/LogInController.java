@@ -19,6 +19,7 @@ import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 public class LogInController {
+  private static Navigator navigator = new Navigator();
 
   @FXML
   private Label lblStatus;
@@ -38,6 +39,10 @@ public class LogInController {
 
 
   static String url = "jdbc:derby:lib/SOSHotelAccountDB";
+  static String driver = "org.apache.derby.jdbc.EmbeddedDriver";
+
+  static String clientUsername;
+  static String clientPassword;
 
   //Action for login button
   public void Login(ActionEvent event) throws Exception {
@@ -46,14 +51,12 @@ public class LogInController {
 
     if (selectedRadioButton == searcherBtn) {
       try {
-        Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+        Class.forName(driver);
         Connection loginConnection = DriverManager.getConnection(url);
-
-        String sql = "SELECT USERNAME, PASSWORD FROM SOS.SEARCHER WHERE USERNAME='"
-            + txtUsername.getText() + "'" + " AND PASSWORD='" + txtPassword.getText() + "'";
-
         Statement statement = loginConnection.createStatement();
-        ResultSet result = statement.executeQuery(sql);
+        String searcherSQL = "SELECT USERNAME, PASSWORD FROM SOS.SEARCHER WHERE USERNAME='"
+                + txtUsername.getText() + "'" + " AND PASSWORD='" + txtPassword.getText() + "'";
+        ResultSet result = statement.executeQuery(searcherSQL);
 
         if (result.next()) {
           Parent Search = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
@@ -63,6 +66,8 @@ public class LogInController {
           Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
           window.setScene(search);
           window.show();
+          clientUsername = txtUsername.getText();
+          clientPassword = txtPassword.getText();
           loginConnection.close();
         } else {
           lblStatus.setText("Login Failed");
@@ -75,14 +80,12 @@ public class LogInController {
       }
     } else if (selectedRadioButton == ownerBtn) {
       try {
-        Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+        Class.forName(driver);
         Connection loginConnection = DriverManager.getConnection(url);
-
-        String sql = "SELECT USERNAME, PASSWORD FROM SOS.OWNER WHERE USERNAME='"
-            + txtUsername.getText() + "'" + " AND PASSWORD='" + txtPassword.getText() + "'";
-
+        String ownerSQL = "SELECT USERNAME, PASSWORD FROM SOS.OWNER WHERE USERNAME='"
+                + txtUsername.getText() + "'" + " AND PASSWORD='" + txtPassword.getText() + "'";
         Statement statement = loginConnection.createStatement();
-        ResultSet result = statement.executeQuery(sql);
+        ResultSet result = statement.executeQuery(ownerSQL);
 
         if (result.next()) {
           Parent Search = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
@@ -99,22 +102,15 @@ public class LogInController {
           loginConnection.close();
           //To change scenes copy and paste this into if statement and enter the new fxml scene name into parent root
         }
-      } catch (SQLException ex) {
-        System.out.println(ex);
+      } catch (SQLException e) {
+        e.printStackTrace();
       }
     }
   }
 
   //Register button action
   public void SignUp(ActionEvent event) throws Exception {
-
-    Parent register = FXMLLoader.load(getClass().getResource("Register.fxml"));
-    Scene registerScene = new Scene(register);
-
-    //Goes to register screen
-    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(registerScene);
-    window.show();
+    navigator.register(event);
   }
 
 }

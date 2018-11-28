@@ -64,20 +64,20 @@
     </AnchorPane>
     <AnchorPane layoutX="113.0" prefHeight="500.0" prefWidth="847.0">
       <children>
-        <Text fx:id="location" layoutX="14.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location : Fort Myers, FL&#10;&#10;&#10;&#10;" wrappingWidth="173.99999713897705" />
-        <Text fx:id="hotel" layoutX="14.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Holiday Inn" wrappingWidth="293.38134765625">
-          <font>
-            <Font size="41.0" />
-          </font>
-        </Text>
-        <Text layoutX="14.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price : $119" wrappingWidth="202.01171875">
+        <Text fx:id="hotelLocation" layoutX="14.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location : Fort Myers, FL&#10;&#10;&#10;&#10;" wrappingWidth="173.99999713897705" />
+        <Text fx:id="hotelName" boundsType="VISUAL" layoutX="22.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Holiday Inn" textOrigin="CENTER" wrappingWidth="153.5632781982422">
           <font>
             <Font size="24.0" />
           </font>
         </Text>
-        <Text layoutX="387.0" layoutY="459.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Rating : 4/5" wrappingWidth="202.01171371340752">
+        <Text fx:id="hotelPrice" layoutX="14.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price : $119" wrappingWidth="202.01171875">
           <font>
-            <Font size="24.0" />
+            <Font size="20.0" />
+          </font>
+        </Text>
+        <Text fx:id="hotelStars" layoutX="341.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Rating : 4/5" wrappingWidth="352.81164047122">
+          <font>
+            <Font size="20.0" />
           </font>
         </Text>
         <Button layoutX="253.0" layoutY="438.0" mnemonicParsing="false" onAction="#BookItButton" stylesheets="@style.css" text="Book it" textFill="WHITE">
@@ -85,7 +85,7 @@
             <Cursor fx:constant="HAND" />
           </cursor>
         </Button>
-        <Button layoutX="708.0" layoutY="438.0" mnemonicParsing="false" onAction="#GoToReviews" stylesheets="@style.css" text="View Reviews" textFill="WHITE">
+        <Button layoutX="712.0" layoutY="438.0" mnemonicParsing="false" onAction="#GoToReviews" stylesheets="@style.css" text="View Reviews" textFill="WHITE">
           <cursor>
             <Cursor fx:constant="HAND" />
           </cursor>

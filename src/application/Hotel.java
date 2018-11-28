@@ -1,9 +1,9 @@
 package application;
 
-public class Hotel {
+public class Hotel implements Comparable<Hotel>{
   private int hotelId;
   private String name;
-  private double stars;
+  private static double stars;
   private String city;
   private String countryCode;
   private String countryName;
@@ -12,6 +12,7 @@ public class Hotel {
   private int stdPrice;
   private int dlxPrice;
   private int suitePrice;
+  private static int numReservations = 0;
 
   public Hotel(int hotelId, String name, double stars, String city, String countryCode, String countryName, double lat,
                double lng, int stdPrice, int dlxPrice, int suitePrice) {
@@ -76,7 +77,7 @@ public class Hotel {
     return name;
   }
 
-  public double getStars() {
+  public static double getStars() {
     return stars;
   }
 
@@ -110,5 +111,32 @@ public class Hotel {
 
   public int getSuitePrice() {
     return suitePrice;
+  }
+
+  public void addReservation(int numUserRooms) {
+    numReservations += numUserRooms;
+  }
+  
+  @Override
+  public String toString() {
+    return "Hotel{" +
+            "hotelId=" + hotelId +
+            ", name='" + name + '\'' +
+            ", stars=" + stars +
+            ", city='" + city + '\'' +
+            ", countryCode='" + countryCode + '\'' +
+            ", countryName='" + countryName + '\'' +
+            ", lat=" + lat +
+            ", lng=" + lng +
+            ", stdPrice=" + stdPrice +
+            ", dlxPrice=" + dlxPrice +
+            ", suitePrice=" + suitePrice +
+            ", numReservations=" + numReservations +
+            '}';
+  }
+
+  @Override
+  public int compareTo(Hotel o) {
+    return (this.getStdPrice()-o.getStdPrice());
   }
 }
