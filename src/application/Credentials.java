@@ -8,31 +8,31 @@ import java.util.regex.Pattern;
 
 abstract class Credentials {
 
-    private String passwordREGEX = "^([0-9A-Za-z@.]{1,255})$";
-    private String fullNameREGEX = "[a-zA-Z]*( [a-zA-Z]*)?";
-    private String userNameREGEX = "^([a-zA-Z])[a-zA-Z_-]*[\\w_-]*[\\S]$|^([a-zA-Z])"
+    private final String passwordREGEX = "^([0-9A-Za-z@.]{1,255})$";
+    private final String fullNameREGEX = "[a-zA-Z]*( [a-zA-Z]*)?";
+    private final String userNameREGEX = "^([a-zA-Z])[a-zA-Z_-]*[\\w_-]*[\\S]$|^([a-zA-Z])"
             + "[0-9_-]*[\\S]$|^[a-zA-Z]*[\\S]$";
-    private String emailREGEX = "^([\\w\\-\\.]+)@((\\[([0-9]{1,3}\\.){3}[0-9]{1,3}\\])"
+    private final String emailREGEX = "^([\\w\\-]+)@((\\[([0-9]{1,3}\\.){3}[0-9]{1,3})"
             + "|(([\\w\\-]+\\.)+)([a-zA-Z]{2,4}))$";
-    private String dobREGEX = "^(([1-9])|(0[1-9])|(1[0-2]))\\/(([0-9])|([0-2][0-9])|(3[0-1]))" +
-            "\\/(([0-9][0-9])|([1-2][0,9][0-9][0-9]))$";
+    private final String dobREGEX = "^(([1-9])|(0[1-9])|(1[0-2]))(([0-9])|([0-2][0-9])|(3[0-1]))" +
+            "(([0-9][0-9])|([1-2][0,9][0-9][0-9]))$";
 
-    String searcherSql = "INSERT INTO SOS.SEARCHER VALUES(?,?,?,?,?)";
-    String ownerSql = "INSERT INTO SOS.OWNER VALUES(?,?,?,?,?)";
-    String updateSQL = "UPDATE SOS.SEARCHER SET NAME = ?, PASSWORD = ?, EMAIL = ?, DOB = ? " +
+    final String searcherSql = "INSERT INTO SOS.SEARCHER VALUES(?,?,?,?,?)";
+    final String ownerSql = "INSERT INTO SOS.OWNER VALUES(?,?,?,?,?)";
+    final String updateSQL = "UPDATE SOS.SEARCHER SET NAME = ?, PASSWORD = ?, EMAIL = ?, DOB = ? " +
             "WHERE USERNAME = ?";
 
-    static String url = "jdbc:derby:lib/SOSHotelAccountDB";
-    static String driver = "org.apache.derby.jdbc.EmbeddedDriver";
+    static final String url = "jdbc:derby:lib/SOSHotelAccountDB";
+    static final String driver = "org.apache.derby.jdbc.EmbeddedDriver";
 
     static String clientUsername;
     static String clientPassword;
 
-    private Pattern passwordPattern = Pattern.compile(passwordREGEX);
-    private Pattern fullNamePattern = Pattern.compile(fullNameREGEX);
-    private Pattern userNamePattern = Pattern.compile(userNameREGEX);
-    private Pattern emailPattern = Pattern.compile(emailREGEX);
-    private Pattern dobPattern = Pattern.compile(dobREGEX);
+    private final Pattern passwordPattern = Pattern.compile(passwordREGEX);
+    private final Pattern fullNamePattern = Pattern.compile(fullNameREGEX);
+    private final Pattern userNamePattern = Pattern.compile(userNameREGEX);
+    private final Pattern emailPattern = Pattern.compile(emailREGEX);
+    private final Pattern dobPattern = Pattern.compile(dobREGEX);
 
     boolean validPSWDPattern(String password) {
         return !passwordPattern.matcher(password).matches();
@@ -54,7 +54,8 @@ abstract class Credentials {
         return !dobPattern.matcher(dob).matches();
     }
 
-    void register(String user, String birthDate, String pass, String name, String email, String typeSQL) throws ClassNotFoundException, SQLException{
+    void register(String user, String birthDate, String pass, String name, String email, String typeSQL)
+            throws ClassNotFoundException, SQLException{
         Class.forName(driver);
         Connection loginConnection = DriverManager.getConnection(url);
         PreparedStatement registerStatement = loginConnection.prepareStatement(typeSQL);
@@ -69,7 +70,8 @@ abstract class Credentials {
         registerStatement.close();
     }
 
-    void update(String newName, String newPassword, String newEmail, String newBirthDate, String userName, String typeSQL, Label updateStatus) throws ClassNotFoundException, SQLException {
+    void update(String newName, String newPassword, String newEmail, String newBirthDate, String userName,
+                String typeSQL, Label updateStatus) throws ClassNotFoundException, SQLException {
 
         Class.forName(driver);
         Connection loginConnection = DriverManager.getConnection(url);
