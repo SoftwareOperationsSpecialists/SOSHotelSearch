@@ -93,7 +93,7 @@
             <Font size="38.0" />
          </font>
       </Label>
-      <TableView layoutX="144.0" layoutY="136.0" prefHeight="320.0" prefWidth="634.0" style="-fx-background-radius: 0px;" stylesheets="@style.css">
+      <TableView layoutX="144.0" layoutY="136.0" prefHeight="320.0" prefWidth="634.0" stylesheets="@style.css">
          <columns>
             <TableColumn fx:id="HotelNameCol" prefWidth="75.0" text="Hotel name" />
             <TableColumn fx:id="CheckInCol" prefWidth="75.0" text="Price" />

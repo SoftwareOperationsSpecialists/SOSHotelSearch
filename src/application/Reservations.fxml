@@ -69,6 +69,14 @@
             <Cursor fx:constant="HAND" />
           </cursor>
         </Button>
+            <Button alignment="CENTER" layoutX="4.0" layoutY="181.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" style="-fx-background-color: #f0cc05;" stylesheets="@style.css" text="Reservations" textFill="#1b9dc1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
         <Pane layoutX="-2.0" layoutY="401.0" prefHeight="95.0" prefWidth="119.0">
                <children>
                   <ImageView fitHeight="76.0" fitWidth="155.0" layoutX="5.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
@@ -78,14 +86,6 @@
                   </ImageView>
                </children>
         </Pane>
-            <Button alignment="CENTER" layoutX="4.0" layoutY="181.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" style="-fx-background-color: #f0cc05;" stylesheets="@style.css" text="Reservations" textFill="#1b9dc1">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
       </children>
     </AnchorPane>
       <Label layoutX="132.0" layoutY="65.0" text="My Reservations">
@@ -93,7 +93,7 @@
             <Font size="38.0" />
          </font>
       </Label>
-      <TableView fx:id="tableView" layoutX="144.0" layoutY="136.0" prefHeight="320.0" prefWidth="681.0">
+      <TableView layoutX="144.0" layoutY="136.0" prefHeight="320.0" prefWidth="681.0" stylesheets="@style.css">
         <columns>
           <TableColumn fx:id="HotelNameCol" prefWidth="75.0" text="Hotel name" />
           <TableColumn fx:id="CheckInCol" prefWidth="75.0" text="Check in date" />
@@ -103,6 +103,5 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Label fx:id="status" layoutX="426.0" layoutY="84.0" text=" " />
   </children>
 </AnchorPane>
