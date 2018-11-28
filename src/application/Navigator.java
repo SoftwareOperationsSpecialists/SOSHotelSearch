@@ -111,4 +111,16 @@ public class Navigator {
     window.setScene(hotel);
     window.show();
   }
+
+  public static void thankYouScene(ActionEvent event) throws Exception {
+
+    Parent FinalScene = FXMLLoader.load(Navigator.class.getResource("FinalScene.fxml"));
+    Scene finalScene = new Scene(FinalScene);
+
+    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    window.setScene(finalScene);
+    window.show();
+
+
+  }
 }

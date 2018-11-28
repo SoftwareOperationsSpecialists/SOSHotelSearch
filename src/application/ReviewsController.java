@@ -14,19 +14,9 @@ import javafx.stage.Stage;
 public class ReviewsController {
 
   public void SubmitButton(ActionEvent event) throws Exception {
-    Parent hotel = FXMLLoader.load(getClass().getResource("Hotel.fxml"));
-    Scene Hotel = new Scene(hotel);
-
-    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(Hotel);
-    window.show();
+    Navigator.hotelInfo(event);
   }
   public void BackButton(ActionEvent event) throws Exception {
-    Parent hotel = FXMLLoader.load(getClass().getResource("Hotel.fxml"));
-    Scene Hotel = new Scene(hotel);
-
-    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(Hotel);
-    window.show();
+    Navigator.hotelInfo(event);
   }
 }

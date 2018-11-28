@@ -95,31 +95,16 @@ public class ReservationsController implements Initializable {
 
   }
   public void myAccount(ActionEvent event) throws Exception {
-    Parent Account = FXMLLoader.load(getClass().getResource("MyAccount.fxml"));
-    Scene account = new Scene(Account);
-
-    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(account);
-    window.show();
+    Navigator.myAccount(event);
   }
   public void Dashboard(ActionEvent event) throws Exception {
     Navigator.dashboard(event);
   }
   public void savedHotels(ActionEvent event) throws Exception {
-    Parent Saved = FXMLLoader.load(getClass().getResource("SavedHotels.fxml"));
-    Scene savedScene = new Scene(Saved);
-
-    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(savedScene);
-    window.show();
+    Navigator.savedHotels(event);
   }
   public void logout(ActionEvent event) throws Exception {
-    Parent Dashboard = FXMLLoader.load(getClass().getResource("Login.fxml"));
-    Scene dashboard = new Scene(Dashboard);
-
-    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(dashboard);
-    window.show();
+    Navigator.logout(event);
   }
 }
 
