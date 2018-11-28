@@ -1,14 +1,18 @@
 ----------------------------------------------------------------
-Sun Nov 25 11:40:41 EST 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0167-4bbe-96c5-0000007ee348 
-on database directory C:\Users\trainofthought\IdeaProjects\SOSHotelSearch\lib\SOSHotelAccountDB with class loader sun.misc.Launcher$AppClassLoader@b4aac2 
-Loaded from file:/C:/Users/trainofthought/IdeaProjects/SOSHotelSearch/lib/derby.jar
+Mon Nov 26 00:48:00 EST 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0167-4e8f-67f6-00000d670e80 
+on database directory C:\Code\SOSHotelSearch\lib\SOSHotelAccountDB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
+Loaded from file:/C:/Code/SOSHotelSearch/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_191-b12
-user.dir=C:\Users\trainofthought\IdeaProjects\SOSHotelSearch
+java.runtime.version=1.8.0_192-b12
+user.dir=C:\Code\SOSHotelSearch
 os.name=Windows 10
-os.arch=x86
+os.arch=amd64
 os.version=10.0
 derby.system.home=null
-Warning: Log file not found, creating new log. Possible inconsistency in the database
+------------  Begin Error Message -------------
+
+System may be in a inconsistent state, missing file C:\Code\SOSHotelSearch\lib\SOSHotelAccountDB\log\log1.dat
+------------  End Error Message -------------
+
 Database Class Loader started - derby.database.classpath=''
