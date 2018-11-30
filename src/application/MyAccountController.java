@@ -17,46 +17,52 @@ import java.sql.*;
 import java.util.ResourceBundle;
 
 public class MyAccountController extends Credentials implements Initializable {
+  //initialize TextFields
   @FXML
-  private TextField txtFullName;
+  private TextField txtFullName;    //full name
   @FXML
-  private TextField txtPassword;
+  private TextField txtPassword;    //password
   @FXML
-  private TextField txtUserName;
+  private TextField txtUserName;    //username
   @FXML
-  private TextField txtEmail;
+  private TextField txtEmail;       //email address
   @FXML
-  private TextField txtDOB;
+  private TextField txtDOB;         //date of birth
 
   @FXML
   private Label updateStatus;
 
-    //function that will edit the information
+  //function that will edit the information
   public void editInformation(){
 
-      String newName = txtFullName.getText();
+      String newName = txtFullName.getText();         
       String newPassword = txtPassword.getText();
       String newEmail = txtEmail.getText();
       String newBirthDate = txtDOB.getText();
 
+      //checks if full name is invalid
       if (validFullNamePattern(txtFullName.getText())) {
           updateStatus.setText("Invalid name input!");
           updateStatus.setTextFill(Paint.valueOf("red"));
 
+      //checks if password is invalid
       } else if (validPSWDPattern(txtPassword.getText())) {
           updateStatus.setText("Password must not contain special characters!");
           updateStatus.setTextFill(Paint.valueOf("red"));
 
+      //checks if email is invalid
       }else if (validEmailPattern(txtEmail.getText())) {
           updateStatus.setText("Must be a valid email address!");
           updateStatus.setTextFill(Paint.valueOf("red"));
 
+      //checks if DOB is invalid
       } else if (validDOBPattern(txtDOB.getText())) {
           updateStatus.setText("DOB Pattern: MM/DD/YYYY");
           updateStatus.setTextFill(Paint.valueOf("red"));
 
       } else {
           try {
+              //update username and info
               String username = txtUserName.getText();
               update(newName, newPassword, newEmail, newBirthDate, username, updateSQL, updateStatus);
 
@@ -67,10 +73,10 @@ public class MyAccountController extends Credentials implements Initializable {
   }
   //Side panel buttons
   public void Dashboard(ActionEvent event) throws Exception {
-    Navigator.dashboard(event);
+    Navigator.dashboard(event);               //go to dashboard scene
   }
   public void savedHotels(ActionEvent event) throws Exception {
-    Navigator.savedHotels(event);
+    Navigator.savedHotels(event);             //go to saved hotels scene
   }
   public void reservation(ActionEvent event) throws Exception {
     Parent Dashboard = FXMLLoader.load(getClass().getResource("Reservations.fxml"));
