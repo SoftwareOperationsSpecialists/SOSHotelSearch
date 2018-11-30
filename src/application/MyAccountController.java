@@ -16,6 +16,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
+//functionality for editing account info
 public class MyAccountController extends Credentials implements Initializable {
   //initialize TextFields
   @FXML
@@ -35,10 +36,10 @@ public class MyAccountController extends Credentials implements Initializable {
   //function that will edit the information
   public void editInformation(){
 
-      String newName = txtFullName.getText();         
-      String newPassword = txtPassword.getText();
-      String newEmail = txtEmail.getText();
-      String newBirthDate = txtDOB.getText();
+      String newName = txtFullName.getText();       //update new name  
+      String newPassword = txtPassword.getText();   //update new password
+      String newEmail = txtEmail.getText();         //update email address
+      String newBirthDate = txtDOB.getText();       //update DOB
 
       //checks if full name is invalid
       if (validFullNamePattern(txtFullName.getText())) {
