@@ -2,21 +2,23 @@ package application;
 
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Reservation {
     private Hotel hotel;
-    private static LocalDate checkInDate;
-    private static LocalDate checkOutDate;
-    private int numberOfRooms;
-    private static int finalCost;
+    private long numOfNights;
+    private int numOfRooms;
+    private long finalCost;
+    private LocalDate checkInDate;
+    private LocalDate checkOutDate;
 
-    public Reservation(Hotel hotel, LocalDate checkInDate,
-                       LocalDate checkOutDate, int numberOfRooms) {
-        this.hotel = hotel;
-        Reservation.checkInDate = checkInDate;
-        Reservation.checkOutDate = checkOutDate;
-        this.numberOfRooms = numberOfRooms;
-        finalCost = hotel.getStdPrice() * numberOfRooms;
+    public Reservation(LocalDate checkInDate,
+                       LocalDate checkOutDate, int numOfRooms) {
+        this.checkInDate = checkInDate;
+        this.checkOutDate = checkOutDate;
+        this.numOfRooms = numOfRooms;
+        numOfNights = ChronoUnit.DAYS.between(checkInDate, checkOutDate);
+        System.out.println(numOfNights);
     }
 
     public Hotel getHotel() {
@@ -25,33 +27,42 @@ public class Reservation {
 
     public void setHotel(Hotel hotel) {
         this.hotel = hotel;
+        finalCost = hotel.getStdPrice() * numOfRooms * numOfNights;
     }
 
-    public static LocalDate getCheckInDate() {
-        return checkInDate;
+    public long getNumOfNights() {
+        return numOfNights;
+    }
+
+    public void setNumOfNights(LocalDate checkInDate, LocalDate checkOutDate) {
+      numOfNights = ChronoUnit.DAYS.between(checkInDate, checkOutDate);
+    }
+
+    public int getNumOfRooms() {
+        return numOfRooms;
+    }
+
+    public void setNumOfRooms(int numberOfRooms) {
+        this.numOfRooms = numberOfRooms;
+    }
+
+    public long getFinalCost() {
+        return finalCost;
+    }
+
+    public LocalDate getCheckInDate() {
+      return checkInDate;
     }
 
     public void setCheckInDate(LocalDate checkInDate) {
-        Reservation.checkInDate = checkInDate;
+      this.checkInDate = checkInDate;
     }
 
-    public static LocalDate getCheckOutDate() {
-        return checkOutDate;
+    public LocalDate getCheckOutDate() {
+      return checkOutDate;
     }
 
     public void setCheckOutDate(LocalDate checkOutDate) {
-        Reservation.checkOutDate = checkOutDate;
-    }
-
-    public int getNumberOfRooms() {
-        return numberOfRooms;
-    }
-
-    public void setNumberOfRooms(int numberOfRooms) {
-        this.numberOfRooms = numberOfRooms;
-    }
-
-    public static int getFinalCost() {
-        return finalCost;
+      this.checkOutDate = checkOutDate;
     }
 }

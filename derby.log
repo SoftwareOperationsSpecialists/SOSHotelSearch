@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Fri Nov 30 00:20:17 EST 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0167-630f-768e-000003822a08 
+Fri Nov 30 00:45:53 EST 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0167-6326-e632-00000388d278 
 on database directory C:\Users\heyth\IdeaProjects\SOSHotelSearch\lib\SOSHotelAccountDB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 Loaded from file:/C:/Users/heyth/IdeaProjects/SOSHotelSearch/lib/derby.jar
 java.vendor=Oracle Corporation

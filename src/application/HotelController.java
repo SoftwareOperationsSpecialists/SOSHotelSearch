@@ -29,7 +29,6 @@ public class HotelController {
   private int numImages = 2;
   private int imageArrayIndex = 0;
   private ArrayList<Image> images = new ArrayList<>(numImages);
-  private static Navigator navigator = new Navigator();
   private static Hotel hotel;
 
   public void initialize(){
@@ -53,17 +52,17 @@ public class HotelController {
 
   // Book it button will open Payment information Scene
   public void BookItButton(ActionEvent event) throws Exception {
-    Reservation reservation = new Reservation(hotel, DashController.getUserCheckInDate(),
-        DashController.getUserCheckOutDate(), DashController.getNumOfRooms() );
+    Reservation reservation = DashController.getReservation();
+    reservation.setHotel(hotel);
 
     Navigator.payment(event);
 
-    String insert_reservation ="INSERT INTO RESERVATIONS VALUES(" + Reservation.getCheckInDate()
-        + "," + Reservation.getCheckOutDate() +")";
+    String insert_reservation ="INSERT INTO RESERVATIONS VALUES(" + reservation.getCheckInDate()
+        + "," + reservation.getCheckOutDate() +")";
 
         String insert_hotel = "INSERT INTO HOTEL VALUES(" + hotelName +","
-            + Reservation.getFinalCost() +"," + Hotel.getStars() + "," + DashController.getLocation()
-            + "," + DashController.getNumOfRooms() +")";
+            + reservation.getFinalCost() +"," + Hotel.getStars() + "," + DashController.getLocation()
+            + "," + reservation.getNumOfRooms() +")";
 
 
     try (Connection connection = DriverManager.getConnection(Credentials.url);

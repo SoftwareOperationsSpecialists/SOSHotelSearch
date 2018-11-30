@@ -1,6 +1,5 @@
 package application;
 
-import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,16 +11,13 @@ import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 //functionality for the initial search from the dashboard
 public class DashController implements Initializable {
-  private final int WAIT_TIME_MILLIS = 1000;  // how long to display loading animation
 
   @FXML
   private TextField searchBar;                // search bar where location is to be entered
-  private static String location;             // location user has searched for
 
   @FXML
   private DatePicker checkInDate;             //check-in date
@@ -37,9 +33,9 @@ public class DashController implements Initializable {
   @FXML
   private ProgressIndicator indicator;         // indicates that the search screen is loading
 
-  private static LocalDate userCheckInDate;    // stores the check-in date chosen by the user
-  private static LocalDate userCheckOutDate;   // stores the check-out date chosen by the user
-  private static int numOfRooms;               // stores the number of rooms chosen by the user
+  private static Reservation reservation;      // reservation made by the user
+  private static String location;              // location user has searched for
+
 
   //allows user to inc/dec # of rooms
   private SpinnerValueFactory<Integer> roomCountFactory = new IntegerSpinnerValueFactory(0, 9, 1);
@@ -59,7 +55,7 @@ public class DashController implements Initializable {
 
   //Search
   public void Search(ActionEvent event) throws Exception {
-    location = searchBar.getText();     // location variable becomes what is written in the searchbar
+    location = searchBar.getText(); // location variable becomes what is written in the search bar
 
     //checks if a location was entered
     if (location.isEmpty()) {
@@ -91,9 +87,8 @@ public class DashController implements Initializable {
         MapManager mapManager = new MapManager();
         mapManager.setAddress(location);                // sets map location
         mapManager.createMap();                         // creates map
-        userCheckInDate = checkInDate.getValue();       // gets check-in date
-        userCheckOutDate = checkOutDate.getValue();     // gets check-out date
-        numOfRooms = (int) roomCount.getValue();        // gets number of rooms
+        reservation = new Reservation(checkInDate.getValue(), checkOutDate.getValue(),
+                                      (int) roomCount.getValue());
 
         //checks for error
         if (mapManager.getErrorStatus()) {
@@ -101,7 +96,7 @@ public class DashController implements Initializable {
         } else {
           searchStatus.setVisible(false);
           try {
-            Navigator.search(event);                      // go to search screen
+            Navigator.search(event); // go to search screen
           } catch (Exception e) {
             e.printStackTrace();
           }
@@ -120,19 +115,9 @@ public class DashController implements Initializable {
     return location;
   }
 
-  //gets check-in date
-  public static LocalDate getUserCheckInDate() {
-    return userCheckInDate;
-  }
-
-  //gets check-out date
-  public static LocalDate getUserCheckOutDate() {
-    return userCheckOutDate;
-  }
-
-  //gets number of rooms
-  public static int getNumOfRooms() {
-    return numOfRooms;
+  //gets reservation details
+  public static Reservation getReservation() {
+    return reservation;
   }
 
   //sets number of rooms
