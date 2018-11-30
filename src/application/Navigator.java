@@ -9,7 +9,6 @@ import javafx.stage.Stage;
 
 
 public class Navigator {
-
   public static void dashboard(ActionEvent event) throws Exception {
     Parent Logout = FXMLLoader.load(Navigator.class.getResource("Dashboard.fxml"));
     Scene dashboardScene = new Scene(Logout);

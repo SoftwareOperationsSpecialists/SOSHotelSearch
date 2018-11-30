@@ -17,7 +17,6 @@ import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 public class RegController extends Credentials {
-
   @FXML
   private Label nameStatus;
   @FXML

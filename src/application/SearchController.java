@@ -23,13 +23,11 @@ import java.util.Collections;
 import java.util.Random;
 
 public class SearchController {
-
   // intended to set map location from previous screen on startup. Flagged false
   private boolean isNewInstance = true;
   private int offset = 0;
   private boolean isLowToHigh = false;
   private ArrayList<Hotel> hotels;
-  private static Navigator navigator = new Navigator();
   private static Random rand = new Random();
   private ArrayList<Image> images = new ArrayList<>();
 
@@ -66,7 +64,8 @@ public class SearchController {
     images.add(new Image("application/hotelthumbs/holiday-inn-the-colony-4629618286-4x3.jpeg"));
     images.add(new Image("application/hotelthumbs/hotel1.jpg"));
     images.add(new Image("application/hotelthumbs/hotel2.jpg"));
-    images.add(new Image("application/hotelthumbs/Hyatt-Place-St-George-Convention-Center-P004-Exterior.adapt.16x9.1920.1080.jpg"));
+    images.add(new Image("application/hotelthumbs/Hyatt-Place-St-George-Convention-Center-P004-"
+                          + "Exterior.adapt.16x9.1920.1080.jpg"));
     images.add(new Image("application/hotelthumbs/T1114MARRIOTTTUCSON.jpg"));
 
     // get list of hotels returned from mapManager

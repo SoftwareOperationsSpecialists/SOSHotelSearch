@@ -17,7 +17,6 @@ import java.sql.*;
 import java.util.ResourceBundle;
 
 public class MyAccountController extends Credentials implements Initializable {
-
   @FXML
   private TextField txtFullName;
   @FXML

@@ -3,7 +3,6 @@ package application;
 import javafx.event.ActionEvent;
 
 public class SavedHotelsController {
-
   //Side panel buttons
   public void Dashboard(ActionEvent event) throws Exception {
     Navigator.dashboard(event);

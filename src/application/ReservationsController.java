@@ -1,6 +1,5 @@
 package application;
 
-import application.HotelOwnerController.Info;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -26,7 +25,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class ReservationsController implements Initializable {
-
   ObservableList<Data> list = FXCollections.observableArrayList();
   static String url = "jdbc:derby:lib/SOSHotelAccountDB";
 
@@ -52,22 +50,32 @@ public class ReservationsController implements Initializable {
     private final SimpleStringProperty HotelName;
     private final SimpleStringProperty CheckIn;
     private final SimpleStringProperty CheckOut;
+
     // Class constructor takes in fields as parameters
     Data(String name, String checkIn, String checkOut) {
       this.HotelName = new SimpleStringProperty(name);
       this.CheckIn = new SimpleStringProperty(checkIn);
       this.CheckOut = new SimpleStringProperty(checkOut);
     }
-    public String getName(){ return HotelName.get();}
-    public String getCheckIn(){ return CheckIn.get();}
-    public String getCheckOut(){ return CheckOut.get();}
+
+    public String getName() {
+      return HotelName.get();
+    }
+    public String getCheckIn(){
+      return CheckIn.get();
+    }
+    public String getCheckOut(){
+      return CheckOut.get();
+    }
   }
+
   private void initCol() {
     HotelNameCol.setCellValueFactory(new PropertyValueFactory<>("HotelName"));
     CheckInCol.setCellValueFactory(new PropertyValueFactory<>("CheckIn"));
     CheckOutCol.setCellValueFactory(new PropertyValueFactory<>("CheckOut"));
 
   }
+
   private void addData() {
     final String JOIN_Hotels = "SELECT NAME, CHECKINDATE, "
         + "CHECKOUTDATE"
@@ -94,15 +102,19 @@ public class ReservationsController implements Initializable {
     tableView.getItems().setAll(list);
 
   }
+
   public void myAccount(ActionEvent event) throws Exception {
     Navigator.myAccount(event);
   }
+
   public void Dashboard(ActionEvent event) throws Exception {
     Navigator.dashboard(event);
   }
+
   public void savedHotels(ActionEvent event) throws Exception {
     Navigator.savedHotels(event);
   }
+
   public void logout(ActionEvent event) throws Exception {
     Navigator.logout(event);
   }

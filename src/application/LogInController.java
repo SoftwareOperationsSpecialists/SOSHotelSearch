@@ -11,8 +11,6 @@ import javafx.scene.paint.Paint;
 import java.sql.*;
 
 public class LogInController extends Credentials {
-  private static Navigator navigator = new Navigator();
-
   @FXML
   private Label lblStatus;
 
