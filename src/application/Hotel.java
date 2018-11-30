@@ -1,19 +1,20 @@
 package application;
 
 public class Hotel implements Comparable<Hotel>{
-  private int hotelId;
-  private String name;
-  private static double stars;
-  private String city;
-  private String countryCode;
-  private String countryName;
-  private double lat;
-  private double lng;
-  private int stdPrice;
-  private int dlxPrice;
-  private int suitePrice;
-  private static int numReservations = 0;
+  private int hotelId;            //identifies the specific hotel
+  private String name;            //hotel name
+  private static double stars;    //stars
+  private String city;            //city
+  private String countryCode;     //country name abbreviation
+  private String countryName;     //country name
+  private double lat;             //latitude
+  private double lng;             //longitude
+  private int stdPrice;           //standard price
+  private int dlxPrice;           //deluxe price
+  private int suitePrice;         //suite price
+  private static int numReservations = 0; //number of reservations
 
+  //Hotels will store their own specific data from the parameters
   public Hotel(int hotelId, String name, double stars, String city, String countryCode, String countryName, double lat,
                double lng, int stdPrice, int dlxPrice, int suitePrice) {
     this.hotelId = hotelId;
@@ -33,6 +34,7 @@ public class Hotel implements Comparable<Hotel>{
 
   public int getHotelId() { return hotelId; }
 
+  //"set" functions will set assign the respective variable to this specific hotel
   public void setName(String name) {
     this.name = name;
   }
@@ -73,6 +75,7 @@ public class Hotel implements Comparable<Hotel>{
     this.suitePrice = suitePrice;
   }
 
+  //"get" functions return the respective variable
   public String getName() {
     return name;
   }
@@ -113,11 +116,13 @@ public class Hotel implements Comparable<Hotel>{
     return suitePrice;
   }
 
+  //increases number of reservations by numUserRooms
   public void addReservation(int numUserRooms) {
     numReservations += numUserRooms;
   }
   
   @Override
+  //prints all hotel information
   public String toString() {
     return "Hotel{" +
             "hotelId=" + hotelId +
@@ -136,6 +141,7 @@ public class Hotel implements Comparable<Hotel>{
   }
 
   @Override
+  //compares the standard price of hotels
   public int compareTo(Hotel o) {
     return (this.getStdPrice()-o.getStdPrice());
   }
