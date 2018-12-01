@@ -27,7 +27,7 @@
                   </LinearGradient>
                </fill>
             </Rectangle>
-        <Button layoutX="5.0" layoutY="60.0" mnemonicParsing="false" onAction="#DashboardButton" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Dashboard" textFill="WHITE">
+        <Button layoutX="5.0" layoutY="60.0" mnemonicParsing="false" onAction="#dashboardButton" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Dashboard" textFill="WHITE">
           <font>
             <Font size="14.0" />
           </font>
@@ -80,7 +80,7 @@
             <Font size="20.0" />
           </font>
         </Text>
-        <Button layoutX="253.0" layoutY="438.0" mnemonicParsing="false" onAction="#BookItButton" stylesheets="@style.css" text="Book it" textFill="WHITE">
+        <Button layoutX="253.0" layoutY="438.0" mnemonicParsing="false" onAction="#bookItButton" stylesheets="@style.css" text="Book it" textFill="WHITE">
           <cursor>
             <Cursor fx:constant="HAND" />
           </cursor>

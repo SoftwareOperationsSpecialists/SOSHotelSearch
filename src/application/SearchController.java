@@ -1,12 +1,7 @@
 package application;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -16,7 +11,6 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,9 +23,10 @@ public class SearchController {
   private int offset = 0;
   private boolean isLowToHigh = false;
   private ArrayList<Hotel> hotels;
-  private static Navigator navigator = new Navigator();
   private static Random rand = new Random();
   private ArrayList<Image> images = new ArrayList<>();
+
+  static Hotel hotelClicked;
 
   @FXML
   private BorderPane mapPane;
@@ -97,7 +92,7 @@ public class SearchController {
     if (isLowToHigh) {
       Collections.sort(hotels);
     } else {
-      Collections.sort(hotels, Collections.reverseOrder());
+      hotels.sort(Collections.reverseOrder());
     }
 
     int hotelPaneOffset = 0; // Y offset that each successive hotel pane will need to be at
@@ -119,7 +114,7 @@ public class SearchController {
       hotelPane.setPrefHeight(hotelImage.getImage().getHeight());
 
       // set fields of preview window to those from each hotel object
-      Text name = new Text(hotel.getName());
+      Text name = new Text(Hotel.getName());
       Text stars = new Text(Hotel.getStars() + "-Star Hotel");
       Text rating = new Text("User rating: 4/5");
       Text price = new Text("$" + hotel.getStdPrice());
@@ -167,14 +162,14 @@ public class SearchController {
               + hotelName.getMaxWidth() + 10);
       infoButton.setPrefHeight(hotelImage.getImage().getHeight());
 
-      infoButton.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
-        @Override
-        public void handle(ActionEvent event) {
-          try {
-            Navigator.hotelInfo(hotel, event);
-          } catch (Exception e) {
-            e.printStackTrace();
-          }
+      infoButton.addEventHandler(ActionEvent.ACTION, event -> {
+        try {
+         // hotelClicked = new Hotel(hotelID, hotelName.getText(),hotelStars.getText(),h);
+         // public Hotel(int hotelId, String name, double stars, String city, String countryCode, String countryName, double lat,
+          //double lng, int stdPrice, int dlxPrice, int suitePrice) {
+          Navigator.hotelInfo(hotel, event);
+        } catch (Exception e) {
+          e.printStackTrace();
         }
       });
 

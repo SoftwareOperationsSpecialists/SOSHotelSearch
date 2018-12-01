@@ -5,7 +5,7 @@ import javafx.event.ActionEvent;
 public class SavedHotelsController {
 
   //Side panel buttons
-  public void Dashboard(ActionEvent event) throws Exception {
+  public void dashboard(ActionEvent event) throws Exception {
     Navigator.dashboard(event);
   }
   public void myAccount(ActionEvent event) throws Exception {

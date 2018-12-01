@@ -8,25 +8,27 @@ import java.util.regex.Pattern;
 
 abstract class Credentials {
 
-    private final String passwordREGEX = "^([0-9A-Za-z@.]{1,255})$";
-    private final String fullNameREGEX = "[a-zA-Z]*( [a-zA-Z]*)?";
-    private final String userNameREGEX = "^([a-zA-Z])[a-zA-Z_-]*[\\w_-]*[\\S]$|^([a-zA-Z])"
+    private static final String passwordREGEX = "^([0-9A-Za-z@.]{1,255})$";
+    private static final String fullNameREGEX = "[a-zA-Z]*( [a-zA-Z]*)?";
+    private static final String userNameREGEX = "^([a-zA-Z])[a-zA-Z_-]*[\\w_-]*[\\S]$|^([a-zA-Z])"
             + "[0-9_-]*[\\S]$|^[a-zA-Z]*[\\S]$";
-    private final String emailREGEX = "^([\\w\\-]+)@((\\[([0-9]{1,3}\\.){3}[0-9]{1,3})"
+    private static final String emailREGEX = "^([\\w\\-]+)@((\\[([0-9]{1,3}\\.){3}[0-9]{1,3})"
             + "|(([\\w\\-]+\\.)+)([a-zA-Z]{2,4}))$";
-    private final String dobREGEX = "^(([1-9])|(0[1-9])|(1[0-2]))(([0-9])|([0-2][0-9])|(3[0-1]))" +
+    private static final String dobREGEX = "^(([1-9])|(0[1-9])|(1[0-2]))(([0-9])|([0-2][0-9])|(3[0-1]))" +
             "(([0-9][0-9])|([1-2][0,9][0-9][0-9]))$";
 
-    final String searcherSql = "INSERT INTO SOS.SEARCHER VALUES(?,?,?,?,?)";
-    final String ownerSql = "INSERT INTO SOS.OWNER VALUES(?,?,?,?,?)";
-    final String updateSQL = "UPDATE SOS.SEARCHER SET NAME = ?, PASSWORD = ?, EMAIL = ?, DOB = ? " +
+    static final  String searcherSql = "INSERT INTO SOS.SEARCHER VALUES(?,?,?,?,?)";
+    static final String ownerSql = "INSERT INTO SOS.OWNER VALUES(?,?,?,?,?)";
+    static final String updateSQL = "UPDATE SOS.SEARCHER SET NAME = ?, PASSWORD = ?, EMAIL = ?, DOB = ? " +
             "WHERE USERNAME = ?";
+
 
     static final String url = "jdbc:derby:lib/SOSHotelAccountDB";
     static final String driver = "org.apache.derby.jdbc.EmbeddedDriver";
 
     static String clientUsername;
     static String clientPassword;
+    static boolean isSearcher = false;
 
     private final Pattern passwordPattern = Pattern.compile(passwordREGEX);
     private final Pattern fullNamePattern = Pattern.compile(fullNameREGEX);
@@ -54,7 +56,7 @@ abstract class Credentials {
         return !dobPattern.matcher(dob).matches();
     }
 
-    void register(String user, String birthDate, String pass, String name, String email, String typeSQL)
+    void registerClient(String user, String birthDate, String pass, String name, String email, String typeSQL)
             throws ClassNotFoundException, SQLException{
         Class.forName(driver);
         Connection loginConnection = DriverManager.getConnection(url);
@@ -68,6 +70,7 @@ abstract class Credentials {
 
         registerStatement.executeUpdate();
         registerStatement.close();
+        loginConnection.close();
     }
 
     void update(String newName, String newPassword, String newEmail, String newBirthDate, String userName,
@@ -85,5 +88,6 @@ abstract class Credentials {
         update.executeUpdate();
         updateStatus.setTextFill(Paint.valueOf("green"));
         update.close();
+        loginConnection.close();
     }
 }

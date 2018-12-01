@@ -13,45 +13,39 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="363.0" prefWidth="448.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FinalController">
-   <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="371.0" stroke="#17000000" strokeType="INSIDE" width="448.0">
-         <fill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="#ffbd07" />
-                  <Stop color="#ffbd07" offset="0.24394785847299813" />
-                  <Stop color="#07befc" offset="0.5996275605214153" />
-                  <Stop color="#304468" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Rectangle>
-      <Label alignment="CENTER" layoutX="99.0" layoutY="65.0" prefHeight="72.0" prefWidth="257.0" text="Thank You!" textFill="#070707" wrapText="true">
-         <font>
-            <Font name="Andale Mono" size="36.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="96.0" layoutY="127.0" prefHeight="20.0" prefWidth="257.0" text="A receipt has been sent to your email." textFill="#0a0a0a" underline="true">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Button layoutX="199.0" layoutY="165.0" mnemonicParsing="false" onAction="#Ok" prefHeight="30.0" prefWidth="58.0" stylesheets="@style.css" text="Ok" textFill="WHITE">
-         <font>
-            <Font size="19.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Pane layoutX="122.0" layoutY="226.0" prefHeight="116.0" prefWidth="204.0">
-         <children>
-            <ImageView fitHeight="149.0" fitWidth="204.0" layoutX="3.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@logo/soslogo.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-   </children>
+   <Rectangle arcHeight="5.0" arcWidth="5.0" height="371.0" stroke="#17000000" strokeType="INSIDE" width="448.0">
+      <fill>
+         <LinearGradient endX="1.0" endY="1.0">
+            <stops>
+               <Stop color="#ffbd07" />
+               <Stop color="#ffbd07" offset="0.24394785847299813" />
+               <Stop color="#07befc" offset="0.5996275605214153" />
+               <Stop color="#304468" offset="1.0" />
+            </stops>
+         </LinearGradient>
+      </fill>
+   </Rectangle>
+   <Label alignment="CENTER" layoutX="99.0" layoutY="65.0" prefHeight="72.0" prefWidth="257.0" text="Thank You!" textFill="#070707" wrapText="true">
+      <font>
+         <Font name="Andale Mono" size="36.0" />
+      </font>
+   </Label>
+   <Label alignment="CENTER" layoutX="96.0" layoutY="127.0" prefHeight="20.0" prefWidth="257.0" text="A receipt has been sent to your email." textFill="#0a0a0a" underline="true">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Label>
+   <Button layoutX="199.0" layoutY="165.0" mnemonicParsing="false" onAction="#ok" prefHeight="30.0" prefWidth="58.0" stylesheets="@style.css" text="Ok" textFill="WHITE">
+      <font>
+         <Font size="19.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </Button>
+   <Pane layoutX="122.0" layoutY="226.0" prefHeight="116.0" prefWidth="204.0">
+      <ImageView fitHeight="149.0" fitWidth="204.0" layoutX="3.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@logo/soslogo.png" />
+      </ImageView>
+   </Pane>
 </AnchorPane>

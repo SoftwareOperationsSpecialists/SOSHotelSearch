@@ -2,7 +2,7 @@ package application;
 
 public class Hotel implements Comparable<Hotel>{
   private int hotelId;
-  private String name;
+  private static String name;
   private static double stars;
   private String city;
   private String countryCode;
@@ -17,7 +17,7 @@ public class Hotel implements Comparable<Hotel>{
   public Hotel(int hotelId, String name, double stars, String city, String countryCode, String countryName, double lat,
                double lng, int stdPrice, int dlxPrice, int suitePrice) {
     this.hotelId = hotelId;
-    this.name = name;
+    Hotel.name = name;
     Hotel.stars = stars;
     this.city = city;
     this.countryCode = countryCode;
@@ -29,12 +29,14 @@ public class Hotel implements Comparable<Hotel>{
     this.suitePrice = suitePrice;
   }
 
+ // public Hotel(String name, double stars, ){}
+
   public void setHotelId(int id) { this.hotelId = id; }
 
   public int getHotelId() { return hotelId; }
 
   public void setName(String name) {
-    this.name = name;
+    Hotel.name = name;
   }
 
   public void setStars(double stars) {
@@ -73,35 +75,35 @@ public class Hotel implements Comparable<Hotel>{
     this.suitePrice = suitePrice;
   }
 
-  public String getName() {
-    return name;
+  public static String getName() {
+    return Hotel.name;
   }
 
-  public static double getStars() {
+  static double getStars() {
     return stars;
   }
 
-  public String getCity() {
+  String getCity() {
     return city;
   }
 
-  public String getCountryCode() {
+  String getCountryCode() {
     return countryCode;
   }
 
-  public String getCountryName() {
+  String getCountryName() {
     return countryName;
   }
 
-  public double getLat() {
+  double getLat() {
     return lat;
   }
 
-  public double getLng() {
+  double getLng() {
     return lng;
   }
 
-  public int getStdPrice() {
+  int getStdPrice() {
     return stdPrice;
   }
 

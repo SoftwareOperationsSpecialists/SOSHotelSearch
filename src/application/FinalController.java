@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 
 public class FinalController {
 
-  public void Ok(ActionEvent event) throws Exception {
+  public void ok(ActionEvent event) throws Exception {
     Navigator.search(event);
   }
 

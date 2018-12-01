@@ -11,7 +11,6 @@ import javafx.scene.paint.Paint;
 import java.sql.*;
 
 public class LogInController extends Credentials {
-  private static Navigator navigator = new Navigator();
 
   @FXML
   private Label lblStatus;
@@ -47,11 +46,14 @@ public class LogInController extends Credentials {
           Navigator.dashboard(event);
           clientUsername = txtUsername.getText();
           clientPassword = txtPassword.getText();
+          isSearcher = true;
           loginConnection.close();
+          statement.close();
         } else {
           lblStatus.setText("Login Failed");
           lblStatus.setTextFill(Paint.valueOf("red"));
           loginConnection.close();
+          statement.close();
         }
       } catch (SQLException ex) {
         System.out.println(ex);
@@ -68,12 +70,17 @@ public class LogInController extends Credentials {
 
         if (result.next()) {
           Navigator.dashboard(event);
+          clientUsername = txtUsername.getText();
+          clientPassword = txtPassword.getText();
+          result.close();
           loginConnection.close();
+          statement.close();
         } else {
           lblStatus.setText("Login Failed");
           lblStatus.setTextFill(Paint.valueOf("red"));
+          result.close();
           loginConnection.close();
-          //To change scenes copy and paste this into if statement and enter the new fxml scene name into parent root
+          statement.close();
         }
       } catch (SQLException e) {
         e.printStackTrace();
@@ -81,8 +88,8 @@ public class LogInController extends Credentials {
     }
   }
 
-  //Register button action
-  public void SignUp(ActionEvent event) throws Exception {
+  //register button action
+  public void signUp(ActionEvent event) throws Exception {
     Navigator.register(event);
   }
 

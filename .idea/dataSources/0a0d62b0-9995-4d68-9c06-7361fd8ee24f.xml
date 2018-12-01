@@ -38,102 +38,98 @@
     </column>
     <column id="20" parent="14" name="PRICE">
       <Position>3</Position>
-      <DataType>VARCHAR(255)|12s</DataType>
+      <DataType>INTEGER|4s</DataType>
     </column>
     <column id="21" parent="14" name="RATING">
       <Position>4</Position>
-      <DataType>VARCHAR(255)|12s</DataType>
+      <DataType>DOUBLE|8s</DataType>
     </column>
     <column id="22" parent="14" name="LOCATION">
       <Position>5</Position>
       <DataType>VARCHAR(255)|12s</DataType>
     </column>
-    <column id="23" parent="14" name="NUMROOMS">
+    <column id="23" parent="14" name="ROOMS">
       <Position>6</Position>
       <DataType>INTEGER|4s</DataType>
     </column>
-    <column id="24" parent="14" name="COLUMN_7">
-      <Position>7</Position>
-      <DataType>INTEGER|4s</DataType>
-    </column>
-    <index id="25" parent="14" name="SQL181127012337200">
+    <index id="24" parent="14" name="SQL181127012337200">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="26" parent="14" name="HOTEL_PK">
+    <key id="25" parent="14" name="HOTEL_PK">
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="27" parent="15" name="USERNAME">
+    <column id="26" parent="15" name="USERNAME">
       <Position>1</Position>
       <DataType>VARCHAR(255)|12s</DataType>
     </column>
-    <column id="28" parent="15" name="DOB">
+    <column id="27" parent="15" name="DOB">
       <Position>2</Position>
       <DataType>VARCHAR(255)|12s</DataType>
     </column>
-    <column id="29" parent="15" name="PASSWORD">
+    <column id="28" parent="15" name="PASSWORD">
       <Position>3</Position>
       <DataType>VARCHAR(255)|12s</DataType>
     </column>
-    <column id="30" parent="15" name="NAME">
+    <column id="29" parent="15" name="NAME">
       <Position>4</Position>
       <DataType>VARCHAR(255)|12s</DataType>
     </column>
-    <column id="31" parent="15" name="EMAIL">
+    <column id="30" parent="15" name="EMAIL">
       <Position>5</Position>
       <DataType>VARCHAR(255)|12s</DataType>
     </column>
-    <index id="32" parent="15" name="OWNER_USERNAME_UINDEX">
+    <index id="31" parent="15" name="OWNER_USERNAME_UINDEX">
       <ColNames>USERNAME</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="33" parent="15" name="OWNER_USERNAME_UINDEX">
+    <key id="32" parent="15" name="OWNER_USERNAME_UINDEX">
       <ColNames>USERNAME</ColNames>
     </key>
-    <column id="34" parent="16" name="ID">
+    <column id="33" parent="16" name="ID">
       <Position>1</Position>
       <DataType>INTEGER|4s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <DefaultExpression>AUTOINCREMENT: start 1 increment 1</DefaultExpression>
     </column>
-    <column id="35" parent="16" name="CHECKINDATE">
+    <column id="34" parent="16" name="CHECKIN">
       <Position>2</Position>
       <DataType>VARCHAR(255)|12s</DataType>
     </column>
-    <column id="36" parent="16" name="CHECKOUTDATE">
+    <column id="35" parent="16" name="CHECKOUT">
       <Position>3</Position>
       <DataType>VARCHAR(255)|12s</DataType>
     </column>
-    <column id="37" parent="17" name="USERNAME">
+    <column id="36" parent="17" name="USERNAME">
       <Position>1</Position>
       <DataType>VARCHAR(25)|12s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="38" parent="17" name="DOB">
+    <column id="37" parent="17" name="DOB">
       <Position>2</Position>
       <DataType>VARCHAR(255)|12s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="39" parent="17" name="PASSWORD">
+    <column id="38" parent="17" name="PASSWORD">
       <Position>3</Position>
       <DataType>VARCHAR(25)|12s</DataType>
     </column>
-    <column id="40" parent="17" name="NAME">
+    <column id="39" parent="17" name="NAME">
       <Position>4</Position>
       <DataType>VARCHAR(255)|12s</DataType>
     </column>
-    <column id="41" parent="17" name="EMAIL">
+    <column id="40" parent="17" name="EMAIL">
       <Position>5</Position>
       <DataType>VARCHAR(255)|12s</DataType>
     </column>
-    <index id="42" parent="17" name="SEARCHER_SEARCHER_USERNAME_UINDEX">
+    <index id="41" parent="17" name="SEARCHER_SEARCHER_USERNAME_UINDEX">
       <ColNames>USERNAME</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="43" parent="17" name="SEARCHER_SEARCHER_USERNAME_UINDEX">
+    <key id="42" parent="17" name="SEARCHER_SEARCHER_USERNAME_UINDEX">
       <ColNames>USERNAME</ColNames>
     </key>
   </database-model>

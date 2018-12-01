@@ -1,20 +1,14 @@
 package application;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.paint.Paint;
-import javafx.stage.Stage;
 
 public class RegController extends Credentials {
 
@@ -49,11 +43,11 @@ public class RegController extends Credentials {
   @FXML
   private ToggleGroup registerType;
 
-  public void Register(ActionEvent event) throws Exception {
+  public void register(ActionEvent event) throws Exception {
     createHotelSearcher(event);
   }
 
-  private void createHotelSearcher(ActionEvent event) throws IOException {
+  private void createHotelSearcher(ActionEvent event) throws Exception {
 
     String name = txtFullName.getText();
     String user = txtUserName.getText();
@@ -86,16 +80,16 @@ public class RegController extends Credentials {
 
     } else if (selectedRadioButton == regSearcherBtn) {
       try {
-          register(user, birthDate, pass, name, email, searcherSql);
-        Login(event);
+          registerClient(user, birthDate, pass, name, email, searcherSql);
+        login(event);
 
       } catch (SQLException | ClassNotFoundException e) {
         e.printStackTrace();
       }
     } else if (selectedRadioButton == regOwnerBtn) {
       try {
-        register(user, birthDate, pass, name, email, ownerSql);
-        Login(event);
+        registerClient(user, birthDate, pass, name, email, ownerSql);
+        login(event);
 
       } catch (ClassNotFoundException | SQLException e) {
         e.printStackTrace();
@@ -103,14 +97,8 @@ public class RegController extends Credentials {
     }
   }
 
-  public void Login(ActionEvent event) throws IOException {
-
-    Parent Dashboard = FXMLLoader.load(getClass().getResource("Login.fxml"));
-    Scene dashboard = new Scene(Dashboard);
-
-    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    window.setScene(dashboard);
-    window.show();
+   @FXML
+   private void login(ActionEvent event) throws Exception {
+    Navigator.logout(event);
   }
-
 }

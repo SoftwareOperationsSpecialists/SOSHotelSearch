@@ -13,14 +13,14 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#Register" prefHeight="432.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RegController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#register" prefHeight="432.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RegController">
    <children>
-      <Label fx:id="regStatus" layoutX="331.0" layoutY="108.0" text=" " />
+      <Label layoutX="331.0" layoutY="108.0" text=" " />
       <TextField fx:id="txtFullName" layoutX="331.0" layoutY="94.0" prefHeight="0.0" prefWidth="169.0" promptText="Full Name" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
       <Label fx:id="userStatus" layoutX="333.0" layoutY="133.0" text="Username" textFill="#323232" />
       <Label fx:id="passwordStatus" layoutX="332.0" layoutY="191.0" text="Password" />
       <PasswordField fx:id="txtPassword" layoutX="330.0" layoutY="208.0" prefHeight="27.0" prefWidth="169.0" promptText=" Password" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
-      <Button id="loginButton" layoutX="331.0" layoutY="389.0" mnemonicParsing="false" onAction="#Register" prefHeight="17.0" prefWidth="169.0" stylesheets="@style.css" text="Register" textFill="WHITE">
+      <Button id="loginButton" layoutX="331.0" layoutY="389.0" mnemonicParsing="false" onAction="#register" prefHeight="17.0" prefWidth="169.0" stylesheets="@style.css" text="Register" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
@@ -28,12 +28,12 @@
       <Label layoutX="321.0" layoutY="107.0" />
       <HBox layoutX="467.0" layoutY="58.0" prefHeight="7.0" prefWidth="92.0" style="-fx-background-color: #1b9dc1; -fx-background-radius: 10px;" />
       <Label layoutX="331.0" layoutY="116.0" />
-      <Label fx:id="lblStatus" layoutX="331.0" layoutY="108.0" text=" " />
+      <Label layoutX="331.0" layoutY="108.0" text=" " />
       <Button layoutX="444.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Sign up" textFill="#1b9dc1">
          <font>
             <Font size="28.0" />
          </font></Button>
-      <Button layoutX="295.0" layoutY="7.0" mnemonicParsing="false" onAction="#Login" style="-fx-background-color: transparent;" stylesheets="@style.css" text="Log in" textFill="#1f4b7c">
+      <Button layoutX="295.0" layoutY="7.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: transparent;" stylesheets="@style.css" text="Log in" textFill="#1f4b7c">
          <font>
             <Font size="28.0" />
          </font>
@@ -54,13 +54,9 @@
       <TextField fx:id="txtDOB" layoutX="331.0" layoutY="315.0" prefHeight="27.0" prefWidth="169.0" promptText="MM/DD/YYYY" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
       <TextField fx:id="txtEmail" layoutX="330.0" layoutY="262.0" prefHeight="27.0" prefWidth="169.0" promptText="E-mail" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
       <AnchorPane prefHeight="432.0" prefWidth="276.0" style="-fx-background-color: #1b9dc1;">
-         <children>
-            <ImageView fitHeight="181.0" fitWidth="245.0" layoutX="16.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@logo/soslogowhite.png" />
-               </image>
-            </ImageView>
-         </children>
+         <ImageView fitHeight="181.0" fitWidth="245.0" layoutX="16.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@logo/soslogowhite.png" />
+         </ImageView>
       </AnchorPane>
    </children>
 </AnchorPane>

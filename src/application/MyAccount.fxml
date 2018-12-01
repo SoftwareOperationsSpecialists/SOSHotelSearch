@@ -37,7 +37,7 @@
                   </LinearGradient>
                </fill>
             </Rectangle>
-            <Button alignment="CENTER" layoutX="5.0" layoutY="60.0" mnemonicParsing="false" onAction="#Dashboard" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Dashboard" textFill="WHITE">
+            <Button alignment="CENTER" layoutX="5.0" layoutY="60.0" mnemonicParsing="false" onAction="#dashboard" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Dashboard" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>

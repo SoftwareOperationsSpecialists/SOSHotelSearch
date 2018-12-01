@@ -8,6 +8,7 @@ import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class DashController implements Initializable {
@@ -26,7 +27,6 @@ public class DashController implements Initializable {
     private Spinner roomCount;
     
     private SpinnerValueFactory<Integer> roomCountFactory = new IntegerSpinnerValueFactory(0, 9, 1);
-    private static Navigator navigator = new Navigator();
     private static LocalDate userCheckInDate;
     private static LocalDate userCheckOutDate;
     private static int numOfRooms;
@@ -44,7 +44,7 @@ public class DashController implements Initializable {
         Navigator.logout(event);
     }
 
-    public void Search(ActionEvent event) throws Exception {
+    public void search(ActionEvent event) throws Exception {
         location = searchBar.getText();
 
         if (location.isEmpty()) {
@@ -72,12 +72,14 @@ public class DashController implements Initializable {
         return location;
     }
 
-    static LocalDate getUserCheckInDate() {
-      return userCheckInDate;
+    static String getUserCheckInDate() {
+        userCheckInDate.format(DateTimeFormatter.ofPattern("MM/DD/YYYY"));
+        return userCheckInDate.toString();
     }
 
-    static LocalDate getUserCheckOutDate() {
-      return userCheckOutDate;
+    static String getUserCheckOutDate() {
+      userCheckOutDate.format(DateTimeFormatter.ofPattern("MM/DD/YYYY"));
+      return userCheckOutDate.toString();
     }
 
     static int getNumOfRooms() {

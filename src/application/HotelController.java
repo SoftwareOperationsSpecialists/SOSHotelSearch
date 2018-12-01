@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class HotelController {
@@ -37,14 +38,14 @@ public class HotelController {
     images.add(new Image("application/hotelpics/room.jpg"));
     images.add(new Image("application/hotelpics/holiday-inn-the-colony-4549822872-4x3.jpg"));
 
-    hotelName.setText(hotel.getName());
+    hotelName.setText(Hotel.getName());
     hotelLocation.setText("Location: "+hotel.getCity()+", "+hotel.getCountryName());
     hotelStars.setText("This is a "+ Hotel.getStars()+" star hotel.");
     hotelPrice.setText("Price : $"+hotel.getStdPrice());
   }
   
   // Dashboard Button will go back to the "Hotel Search" Scene
-  public void DashboardButton(ActionEvent event) throws Exception {
+  public void dashboardButton(ActionEvent event) throws Exception {
     Navigator.dashboard(event);
   }
   public void logout(ActionEvent event) throws Exception {
@@ -52,19 +53,27 @@ public class HotelController {
   }
 
   // Book it button will open Payment information Scene
-  public void BookItButton(ActionEvent event) throws Exception {
-    Reservation reservation = new Reservation(hotel, DashController.getUserCheckInDate(),
-        DashController.getUserCheckOutDate(), DashController.getNumOfRooms() );
+  public void bookItButton(ActionEvent event) throws Exception {
+    //Reservation reservation = new Reservation(hotel, DashController.getUserCheckInDate(),
+        //DashController.getUserCheckOutDate(), DashController.getNumOfRooms() );
+
+    //Hotel hotel = new Hotel();
 
     Navigator.payment(event);
 
-    String insert_reservation ="INSERT INTO RESERVATIONS VALUES(" + Reservation.getCheckInDate()
-        + "," + Reservation.getCheckOutDate() +")";
+    LocalDate checkIn = Reservation.getCheckInDate();
+    LocalDate checkOut = Reservation.getCheckOutDate();
 
-        String insert_hotel = "INSERT INTO HOTEL VALUES(" + hotelName +","
-            + Reservation.getFinalCost() +"," + Hotel.getStars() + "," + DashController.getLocation()
-            + "," + DashController.getNumOfRooms() +")";
+    String name = Hotel.getName();
+    int price = Reservation.getFinalCost();
+    double rating = Hotel.getStars();
+    String location = DashController.getLocation();
+    int rooms = DashController.getNumOfRooms();
 
+
+    String insert_reservation ="INSERT INTO SOS.RESERVATIONS (CHECKIN, CHECKOUT) VALUES("+checkIn+","+checkOut+")";
+
+        String insert_hotel = "INSERT INTO SOS.HOTEL (NAME, PRICE, RATING, LOCATION, ROOMS) VALUES("+name+","+price+","+rating+","+location+","+rooms+")";
 
     try (Connection connection = DriverManager.getConnection(Credentials.url);
         Statement statement = connection.createStatement()) {

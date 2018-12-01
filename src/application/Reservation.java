@@ -5,14 +5,16 @@ import java.time.LocalDate;
 
 public class Reservation {
     private Hotel hotel;
+    private String hotelName;
     private static LocalDate checkInDate;
     private static LocalDate checkOutDate;
     private int numberOfRooms;
     private static int finalCost;
 
-    public Reservation(Hotel hotel, LocalDate checkInDate,
-                       LocalDate checkOutDate, int numberOfRooms) {
+    Reservation(Hotel hotel, LocalDate checkInDate,
+                LocalDate checkOutDate, int numberOfRooms) {
         this.hotel = hotel;
+        this.hotelName = hotel.getName();
         Reservation.checkInDate = checkInDate;
         Reservation.checkOutDate = checkOutDate;
         this.numberOfRooms = numberOfRooms;
@@ -27,7 +29,7 @@ public class Reservation {
         this.hotel = hotel;
     }
 
-    public static LocalDate getCheckInDate() {
+    static LocalDate getCheckInDate() {
         return checkInDate;
     }
 
@@ -35,7 +37,7 @@ public class Reservation {
         Reservation.checkInDate = checkInDate;
     }
 
-    public static LocalDate getCheckOutDate() {
+    static LocalDate getCheckOutDate() {
         return checkOutDate;
     }
 
@@ -51,7 +53,7 @@ public class Reservation {
         this.numberOfRooms = numberOfRooms;
     }
 
-    public static int getFinalCost() {
+    static int getFinalCost() {
         return finalCost;
     }
 }

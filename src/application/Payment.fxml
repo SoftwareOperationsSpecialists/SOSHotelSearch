@@ -82,12 +82,12 @@
                 <TextField layoutX="76.0" layoutY="250.0" prefHeight="27.0" prefWidth="107.0" promptText="Expiry date" />
                 <TextField layoutX="188.0" layoutY="250.0" prefHeight="27.0" prefWidth="56.0" promptText="Code" />
                 <TextField layoutX="76.0" layoutY="300.0" promptText="Zip/Postal code" />
-                <Button layoutX="76.0" layoutY="350.0" mnemonicParsing="false" onAction="#Pay" prefHeight="25.0" prefWidth="56.0" stylesheets="@style.css" text="Pay" textFill="WHITE">
+                <Button layoutX="76.0" layoutY="350.0" mnemonicParsing="false" onAction="#pay" prefHeight="25.0" prefWidth="56.0" stylesheets="@style.css" text="Pay" textFill="WHITE">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <Button layoutX="199.0" layoutY="350.0" mnemonicParsing="false" onAction="#HotelInfo" stylesheets="@style.css" text="Cancel" textFill="WHITE">
+                <Button layoutX="199.0" layoutY="350.0" mnemonicParsing="false" onAction="#hotelInfo" stylesheets="@style.css" text="Cancel" textFill="WHITE">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>

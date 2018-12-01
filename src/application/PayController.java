@@ -12,11 +12,11 @@ private Label price;
 @FXML
 private Label numberOfNights;
 
-  public void Pay(ActionEvent event) throws Exception {
+  public void pay(ActionEvent event) throws Exception {
     Navigator.thankYouScene(event);
   }
 
-  public void HotelInfo(ActionEvent event) throws Exception {
+  public void hotelInfo(ActionEvent event) throws Exception {
     Navigator.hotelInfo(event);
   }
 }

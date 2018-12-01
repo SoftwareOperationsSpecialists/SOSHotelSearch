@@ -1,6 +1,5 @@
 package application;
 
-import application.HotelOwnerController.Info;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,26 +7,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
-import javafx.beans.property.SimpleIntegerProperty;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
 public class ReservationsController implements Initializable {
 
-  ObservableList<Data> list = FXCollections.observableArrayList();
+  private ObservableList<Data> list = FXCollections.observableArrayList();
   static String url = "jdbc:derby:lib/SOSHotelAccountDB";
 
   @FXML
@@ -69,19 +63,19 @@ public class ReservationsController implements Initializable {
 
   }
   private void addData() {
-    final String JOIN_Hotels = "SELECT NAME, CHECKINDATE, "
-        + "CHECKOUTDATE"
+    final String JOIN_Hotels = "SELECT NAME, CHECKIN, "
+        + "CHECKOUT"
         + " FROM SOS.HOTEL INNER JOIN "
-        + "SOS.RESERVATIONS ON RESERVATIONS.ID=HOTEL.ID";
+        + "SOS.RESERVATIONS ON SOS.RESERVATIONS.ID=SOS.HOTEL.ID";
     try (Connection connection = DriverManager.getConnection(url);
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(JOIN_Hotels)) {
 
       // Values from Resultset object are added into list
       while(resultSet.next()) {
-        String HotelName = resultSet.getString("name");
-        String CheckIn = resultSet.getString("checkindate");
-        String CheckOut = resultSet.getString("checkoutdate");
+        String HotelName = resultSet.getString("NAME");
+        String CheckIn = resultSet.getString("checkin");
+        String CheckOut = resultSet.getString("checkout");
 
         list.add(new Data(HotelName, CheckIn,CheckOut));
       }
@@ -97,7 +91,7 @@ public class ReservationsController implements Initializable {
   public void myAccount(ActionEvent event) throws Exception {
     Navigator.myAccount(event);
   }
-  public void Dashboard(ActionEvent event) throws Exception {
+  public void dashboard(ActionEvent event) throws Exception {
     Navigator.dashboard(event);
   }
   public void savedHotels(ActionEvent event) throws Exception {

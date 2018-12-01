@@ -13,10 +13,10 @@ import javafx.stage.Stage;
 
 public class ReviewsController {
 
-  public void SubmitButton(ActionEvent event) throws Exception {
+  public void submitButton(ActionEvent event) throws Exception {
     Navigator.hotelInfo(event);
   }
-  public void BackButton(ActionEvent event) throws Exception {
+  public void backButton(ActionEvent event) throws Exception {
     Navigator.hotelInfo(event);
   }
 }

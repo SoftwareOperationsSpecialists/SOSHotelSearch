@@ -15,61 +15,52 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LogInController">
-   <children>
-      <AnchorPane prefHeight="432.0" prefWidth="276.0" style="-fx-background-color: #1b9dc1;">
-         <children>
-            <ImageView fitHeight="181.0" fitWidth="245.0" layoutX="16.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@logo/soslogowhite.png" />
-               </image>
-            </ImageView>
-         </children></AnchorPane>
-      <TextField fx:id="txtUsername" layoutX="331.0" layoutY="139.0" prefHeight="27.0" prefWidth="169.0" promptText="Username" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
-      <Label layoutX="331.0" layoutY="115.0" text="Username" textFill="#323232" />
-      <Label layoutX="331.0" layoutY="194.0" text="Password" />
-      <PasswordField fx:id="txtPassword" layoutX="332.0" layoutY="217.0" prefHeight="27.0" prefWidth="169.0" promptText=" Password" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
-      <Button id="loginButton" defaultButton="true" layoutX="335.0" layoutY="340.0" mnemonicParsing="false" onAction="#Login" prefHeight="17.0" prefWidth="169.0" stylesheets="@style.css" text="Continue" textFill="WHITE">
-         <font>
-            <Font size="15.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <ImageView fitHeight="17.0" fitWidth="20.0" layoutX="308.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Loginicons/user.png" />
-         </image>
-         <effect>
-            <ColorAdjust brightness="0.15" contrast="-0.34" />
-         </effect>
+   <AnchorPane prefHeight="432.0" prefWidth="276.0" style="-fx-background-color: #1b9dc1;">
+      <ImageView fitHeight="181.0" fitWidth="245.0" layoutX="16.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@logo/soslogowhite.png" />
       </ImageView>
-      <Label fx:id="lblStatus" alignment="CENTER" layoutX="331.0" layoutY="259.0" prefHeight="17.0" prefWidth="176.0" />
-      <HBox layoutX="316.0" layoutY="58.0" prefHeight="6.0" prefWidth="81.0" style="-fx-background-color: #1b9dc1; -fx-background-radius: 10px;" />
-      <ImageView fitHeight="17.0" fitWidth="20.0" layoutX="308.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Loginicons/password.png" />
-         </image>
-         <effect>
-            <ColorAdjust contrast="-0.66" />
-         </effect>
-      </ImageView>
-      <Button fx:id="signUp" layoutX="444.0" layoutY="7.0" mnemonicParsing="false" onAction="#SignUp" style="-fx-background-color: transparent;" stylesheets="@style.css" text="Sign up" textFill="#3a5072">
-         <font>
-            <Font size="28.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button layoutX="295.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Log in" textFill="#1b9dc1">
-         <font>
-            <Font size="28.0" />
-         </font>
-      </Button>
-      <RadioButton fx:id="searcherBtn" layoutX="317.0" layoutY="290.0" mnemonicParsing="false" selected="true" text="Hotel Searcher">
-         <toggleGroup>
-            <ToggleGroup fx:id="loginType" />
-         </toggleGroup></RadioButton>
-      <RadioButton fx:id="ownerBtn" layoutX="429.0" layoutY="290.0" mnemonicParsing="false" text="Hotel Owner" toggleGroup="$loginType" />
-   </children>
+   </AnchorPane>
+   <TextField fx:id="txtUsername" layoutX="331.0" layoutY="139.0" prefHeight="27.0" prefWidth="169.0" promptText="Username" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
+   <Label layoutX="331.0" layoutY="115.0" text="Username" textFill="#323232" />
+   <Label layoutX="331.0" layoutY="194.0" text="Password" />
+   <PasswordField fx:id="txtPassword" layoutX="332.0" layoutY="217.0" prefHeight="27.0" prefWidth="169.0" promptText=" Password" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" />
+   <Button id="loginButton" defaultButton="true" layoutX="335.0" layoutY="340.0" mnemonicParsing="false" onAction="#Login" prefHeight="17.0" prefWidth="169.0" stylesheets="@style.css" text="Continue" textFill="WHITE">
+      <font>
+         <Font size="15.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </Button>
+   <ImageView fitHeight="17.0" fitWidth="20.0" layoutX="308.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@Loginicons/user.png" />
+      <effect>
+         <ColorAdjust brightness="0.15" contrast="-0.34" />
+      </effect>
+   </ImageView>
+   <Label fx:id="lblStatus" alignment="CENTER" layoutX="331.0" layoutY="259.0" prefHeight="17.0" prefWidth="176.0" />
+   <HBox layoutX="316.0" layoutY="58.0" prefHeight="6.0" prefWidth="81.0" style="-fx-background-color: #1b9dc1; -fx-background-radius: 10px;" />
+   <ImageView fitHeight="17.0" fitWidth="20.0" layoutX="308.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+      <effect>
+         <ColorAdjust contrast="-0.66"/>
+      </effect>
+      <Image url="@Loginicons/password.png"/>
+   </ImageView>
+   <Button fx:id="signUp" layoutX="444.0" layoutY="7.0" mnemonicParsing="false" onAction="#signUp" style="-fx-background-color: transparent;" stylesheets="@style.css" text="Sign up" textFill="#3a5072">
+      <font>
+         <Font size="28.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor></Button>
+   <Button layoutX="295.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Log in" textFill="#1b9dc1">
+      <font>
+         <Font size="28.0" />
+      </font>
+   </Button>
+   <RadioButton fx:id="searcherBtn" layoutX="317.0" layoutY="290.0" mnemonicParsing="false" selected="true" text="Hotel Searcher">
+      <toggleGroup>
+         <ToggleGroup fx:id="loginType" />
+      </toggleGroup></RadioButton>
+   <RadioButton fx:id="ownerBtn" layoutX="429.0" layoutY="290.0" mnemonicParsing="false" text="Hotel Owner" toggleGroup="$loginType" />
 </AnchorPane>
