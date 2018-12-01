@@ -10,213 +10,215 @@ import com.teamdev.jxmaps.*;
 import com.teamdev.jxmaps.javafx.MapView;
 
 public class MapManager {
-    protected final static String API_KEY = "AIzaSyChDY-krlOCW7QcWSoQndEoazJndJaOyyw"; // API key for Google Maps
-    private final static double DEGREES_TO_MILES = 69; // const approx num of miles in one degree
-    private int WAIT_TIME = 2; // const wait time for function delay in seconds
+  // API key for Google Maps
+  protected final static String API_KEY = "AIzaSyChDY-krlOCW7QcWSoQndEoazJndJaOyyw";
+  private final static double DEGREES_TO_MILES = 69; // const approx num of miles in one degree
+  private int WAIT_TIME = 2; // const wait time for function delay in seconds
 
-    private double defaultZoom; // defines the default zoom level
-    private double radiusInMiles; // defines radius (in miles) to display hotels from searched for
-    private double radiusInDegrees;
+  private double defaultZoom; // defines the default zoom level
+  private double radiusInMiles; // defines radius (in miles) to display hotels from searched for
+  private double radiusInDegrees;
 
-    private String iconFilePath = "src/application/mapicons/marker_icon.png";
-    private String hotelFilePath = "src/application/hotels.txt";
+  private String iconFilePath = "src/application/mapicons/marker_icon.png";
+  private String hotelFilePath = "src/application/hotels.txt";
 
-    private MapView mapView;
-    private MapViewOptions mapViewOptions;
-    private Icon icon;
+  private MapView mapView;
+  private MapViewOptions mapViewOptions;
+  private Icon icon;
 
-    private String address;
-    private String error;
+  private String address;
+  private String error;
 
-    private boolean hasError;
-    private ArrayList<Hotel> hotelsToDisplay = new ArrayList<>();
+  private boolean hasError;
+  private ArrayList<Hotel> hotelsToDisplay = new ArrayList<>();
 
-    public MapManager() {
-        MapView.InitJavaFX();
-        mapViewOptions = new MapViewOptions();
-        mapViewOptions.setApiKey(API_KEY);
-        defaultZoom = 14.0;
-        radiusInMiles = 20;
-        radiusInDegrees = radiusInMiles / DEGREES_TO_MILES;
-        icon = new Icon();
-        icon.loadFromFile(iconFilePath);
-        mapView = new MapView(mapViewOptions);
-        address = "Fort Myers, FL";
-        error = "No error";
-        hasError = false;
-    }
+  public MapManager() {
+    MapView.InitJavaFX();
+    mapViewOptions = new MapViewOptions();
+    mapViewOptions.setApiKey(API_KEY);
+    defaultZoom = 14.0;
+    radiusInMiles = 20;
+    radiusInDegrees = radiusInMiles / DEGREES_TO_MILES;
+    icon = new Icon();
+    icon.loadFromFile(iconFilePath);
+    mapView = new MapView(mapViewOptions);
+    address = "Fort Myers, FL";
+    error = "No error";
+    hasError = false;
+  }
 
-    public void setDefaultZoom(double defaultZoom) {
-        this.defaultZoom = defaultZoom;
-    }
+  public void setDefaultZoom(double defaultZoom) {
+    this.defaultZoom = defaultZoom;
+  }
 
-    public void setRadiusInMiles(double radiusInMiles) {
-        this.radiusInMiles = radiusInMiles;
-    }
+  public void setRadiusInMiles(double radiusInMiles) {
+    this.radiusInMiles = radiusInMiles;
+  }
 
-    public void setIconFilePath(String iconFilePath) {
-        this.iconFilePath = iconFilePath;
-        this.icon.loadFromFile(iconFilePath);
-    }
+  public void setIconFilePath(String iconFilePath) {
+    this.iconFilePath = iconFilePath;
+    this.icon.loadFromFile(iconFilePath);
+  }
 
-    public void setHotelFilePath(String hotelFilePath) {
-        this.hotelFilePath = hotelFilePath;
-    }
+  public void setHotelFilePath(String hotelFilePath) {
+    this.hotelFilePath = hotelFilePath;
+  }
 
-    public void setMapView(MapView mapView) {
-        this.mapView = mapView;
-    }
+  public void setMapView(MapView mapView) {
+    this.mapView = mapView;
+  }
 
-    public void setMapViewOptions(MapViewOptions mapViewOptions) {
-        this.mapViewOptions = mapViewOptions;
-    }
+  public void setMapViewOptions(MapViewOptions mapViewOptions) {
+    this.mapViewOptions = mapViewOptions;
+  }
 
-    public void setIcon(Icon icon) {
-        this.icon = icon;
-    }
+  public void setIcon(Icon icon) {
+    this.icon = icon;
+  }
 
-    private void setError(String error) {
-        this.error = error;
-    }
+  private void setError(String error) {
+    this.error = error;
+  }
 
-    private void setErrorStatus(boolean status) {
-        this.hasError = status;
-    }
+  private void setErrorStatus(boolean status) {
+    this.hasError = status;
+  }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+  public void setAddress(String address) {
+    this.address = address;
+  }
 
-    public double getDefaultZoom() {
-        return defaultZoom;
-    }
+  public double getDefaultZoom() {
+    return defaultZoom;
+  }
 
-    public double getRadiusInMiles() {
-        return radiusInMiles;
-    }
+  public double getRadiusInMiles() {
+    return radiusInMiles;
+  }
 
-    public double getRadiusInDegrees() {
-        return radiusInDegrees;
-    }
+  public double getRadiusInDegrees() {
+    return radiusInDegrees;
+  }
 
-    public String getIconFilePath() {
-        return iconFilePath;
-    }
+  public String getIconFilePath() {
+    return iconFilePath;
+  }
 
-    public String getHotelFilePath() {
-        return hotelFilePath;
-    }
+  public String getHotelFilePath() {
+    return hotelFilePath;
+  }
 
-    public MapView getMapView() {
-        return mapView;
-    }
+  public MapView getMapView() {
+    return mapView;
+  }
 
-    public MapViewOptions getMapViewOptions() {
-        return mapViewOptions;
-    }
+  public MapViewOptions getMapViewOptions() {
+    return mapViewOptions;
+  }
 
-    public String getAddress() {
-        return address;
-    }
+  public String getAddress() {
+    return address;
+  }
 
-    public String getError() {
-        return error;
-    }
+  public String getError() {
+    return error;
+  }
 
-    public boolean getErrorStatus() {
-        return hasError;
-    }
+  public boolean getErrorStatus() {
+    return hasError;
+  }
 
-    public ArrayList getHotelsToDisplay() {
-        return hotelsToDisplay;
-    }
+  public ArrayList getHotelsToDisplay() {
+    return hotelsToDisplay;
+  }
 
-    public void createMap() {
-        //create map ready handler
-        mapView.setOnMapReadyHandler(new MapReadyHandler() {
+  public void createMap() {
+    //create map ready handler
+    mapView.setOnMapReadyHandler(new MapReadyHandler() {
+      @Override
+      public void onMapReady(MapStatus status) {
+        if (status == MapStatus.MAP_STATUS_OK) {
+          final Map map = mapView.getMap();
+          map.setZoom(defaultZoom);
+          GeocoderRequest request = new GeocoderRequest();
+          request.setAddress(address);
+
+          mapView.getServices().getGeocoder().geocode(request, new GeocoderCallback(map) {
             @Override
-            public void onMapReady(MapStatus status) {
-                if (status == MapStatus.MAP_STATUS_OK) {
-                    final Map map = mapView.getMap();
-                    map.setZoom(defaultZoom);
-                    GeocoderRequest request = new GeocoderRequest();
-                    request.setAddress(address);
+            public void onComplete(GeocoderResult[] result, GeocoderStatus status) {
+              if (status == GeocoderStatus.OK) {
+                map.setCenter(result[0].getGeometry().getLocation());
 
-                    mapView.getServices().getGeocoder().geocode(request, new GeocoderCallback(map) {
-                        @Override
-                        public void onComplete(GeocoderResult[] result, GeocoderStatus status) {
-                            if (status == GeocoderStatus.OK) {
-                                map.setCenter(result[0].getGeometry().getLocation());
+                double locLatRange = result[0].getGeometry().getLocation().getLat();
+                double locLonRange = result[0].getGeometry().getLocation().getLng();
 
-                                double locLatRange = result[0].getGeometry().getLocation().getLat();
-                                double locLonRange = result[0].getGeometry().getLocation().getLng();
+                try {
+                  BufferedReader br = new BufferedReader(new FileReader(hotelFilePath));
+                  br.readLine(); //ignore the first line
 
-                                try {
-                                    BufferedReader br = new BufferedReader(new FileReader(hotelFilePath));
-                                    br.readLine(); //ignore the first line
+                  while (br.readLine() != null) {
+                    try {
+                      String line = br.readLine();
+                      String[] h = line.split(",");
 
-                                    while (br.readLine() != null) {
-                                        try {
-                                            String line = br.readLine();
-                                            String[] h = line.split(",");
+                      Hotel hotel = new Hotel(Integer.parseInt(h[0]), h[1],
+                              Double.parseDouble(h[2]), h[3], h[4], h[5], Double.parseDouble(h[6]),
+                              Double.parseDouble(h[7]), Integer.parseInt(h[8]),
+                              Integer.parseInt(h[9]), Integer.parseInt(h[10]));
 
-                                            Hotel hotel = new Hotel(Integer.parseInt(h[0]), h[1],
-                                              Double.parseDouble(h[2]), h[3], h[4], h[5], Double.parseDouble(h[6]),
-                                                    Double.parseDouble(h[7]), Integer.parseInt(h[8]),
-                                                    Integer.parseInt(h[9]), Integer.parseInt(h[10]));
+                      double lat = hotel.getLat();
+                      double lon = hotel.getLng();
 
-                                            double lat = hotel.getLat();
-                                            double lon = hotel.getLng();
+                      // compare the difference between the coordinates of the location the user
+                      // searched for and every hotel in the database. If that difference is at
+                      // most 'radius' degrees, display the hotel on the map.
+                      if (Math.abs(Math.abs(lat) - Math.abs(locLatRange)) <= radiusInDegrees &&
+                              Math.abs(Math.abs(lon) - Math.abs(locLonRange)) <= radiusInDegrees) {
+                        Marker marker = new Marker(map);
+                        marker.setIcon(icon);
+                        marker.setPosition(new LatLng(lat, lon));
 
-                                            // compare the difference between the coordinates of the location the user searched for
-                                            // and every hotel in the database. If that difference is at most 'radius' degrees,
-                                            // display the hotel on the map.
-                                            if (Math.abs(Math.abs(lat) - Math.abs(locLatRange)) <= radiusInDegrees &&
-                                                    Math.abs(Math.abs(lon) - Math.abs(locLonRange)) <= radiusInDegrees) {
-                                                Marker marker = new Marker(map);
-                                                marker.setIcon(icon);
-                                                marker.setPosition(new LatLng(lat, lon));
-
-                                                hotelsToDisplay.add(hotel);
-                                            }
-                                        } catch (NullPointerException e) {
-                                            e.printStackTrace();
-                                        }
-                                    }
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                            } else if (status == GeocoderStatus.ERROR) {
-                                setError("There was an error connecting to the Google Servers.");
-                                setErrorStatus(true);
-                            } else if (status == GeocoderStatus.INVALID_REQUEST) {
-                                setError("This request was invalid.");
-                                setErrorStatus(true);
-                            } else if (status == GeocoderStatus.OVER_QUERY_LIMIT) {
-                                setError("The web page has gone over the requests limit in too short a period of time.");
-                                setErrorStatus(true);
-                            } else if (status == GeocoderStatus.REQUEST_DENIED) {
-                                setError("Access denied.");
-                                setErrorStatus(true);
-                            } else if (status == GeocoderStatus.UNKNOWN_ERROR) {
-                                setError("Your request could not be processed due to a server error.");
-                                setErrorStatus(true);
-                            } else {
-                                setError("No results found for this location.");
-                                setErrorStatus(true);
-                            }
-                        }
-                    });
-                } else {
-                    setError("Map status error.");
-                    setErrorStatus(true);
+                        hotelsToDisplay.add(hotel);
+                      }
+                    } catch (NullPointerException e) {
+                      e.printStackTrace();
+                    }
+                  }
+                } catch (IOException e) {
+                  e.printStackTrace();
                 }
+              } else if (status == GeocoderStatus.ERROR) {
+                setError("There was an error connecting to the Google Servers.");
+                setErrorStatus(true);
+              } else if (status == GeocoderStatus.INVALID_REQUEST) {
+                setError("This request was invalid.");
+                setErrorStatus(true);
+              } else if (status == GeocoderStatus.OVER_QUERY_LIMIT) {
+                setError("The web page has gone over the requests limit in too short a period "
+                         + "of time.");
+                setErrorStatus(true);
+              } else if (status == GeocoderStatus.REQUEST_DENIED) {
+                setError("Access denied.");
+                setErrorStatus(true);
+              } else if (status == GeocoderStatus.UNKNOWN_ERROR) {
+                setError("Your request could not be processed due to a server error.");
+                setErrorStatus(true);
+              } else {
+                setError("No results found for this location.");
+                setErrorStatus(true);
+              }
             }
-        });
-        try {
-            TimeUnit.SECONDS.sleep(WAIT_TIME); // wait WAIT_TIME seconds to finish parsing the text file
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+          });
+        } else {
+          setError("Map status error.");
+          setErrorStatus(true);
         }
+      }
+    });
+    try {
+      TimeUnit.SECONDS.sleep(WAIT_TIME); // wait WAIT_TIME seconds to finish parsing the text file
+    } catch (InterruptedException e) {
+      e.printStackTrace();
     }
+  }
 }
