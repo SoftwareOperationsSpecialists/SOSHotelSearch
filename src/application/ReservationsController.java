@@ -24,18 +24,20 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+//functionality to show the reservations that the user has
 public class ReservationsController implements Initializable {
   ObservableList<Data> list = FXCollections.observableArrayList();
   static String url = "jdbc:derby:lib/SOSHotelAccountDB";
 
+  //table of reservations
   @FXML
   private TableView<Data> tableView;
   @FXML
-  private TableColumn<Data, Integer> HotelNameCol;
+  private TableColumn<Data, Integer> HotelNameCol;  //hotel name column
   @FXML
-  private TableColumn<Data, String> CheckInCol;
+  private TableColumn<Data, String> CheckInCol;     //check-in date column
   @FXML
-  private TableColumn<Data, String> CheckOutCol;
+  private TableColumn<Data, String> CheckOutCol;    //check-out date column
   @FXML
   private Label status;
 
@@ -103,18 +105,22 @@ public class ReservationsController implements Initializable {
 
   }
 
+  //go to my account scene
   public void myAccount(ActionEvent event) throws Exception {
     Navigator.myAccount(event);
   }
 
+  //go to dashboard scene
   public void Dashboard(ActionEvent event) throws Exception {
     Navigator.dashboard(event);
   }
 
+  //go to saved hotels scene
   public void savedHotels(ActionEvent event) throws Exception {
     Navigator.savedHotels(event);
   }
 
+  //go to logout scene
   public void logout(ActionEvent event) throws Exception {
     Navigator.logout(event);
   }
