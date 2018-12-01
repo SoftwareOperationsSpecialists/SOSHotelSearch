@@ -76,7 +76,7 @@ public class Hotel implements Comparable<Hotel>{
   }
 
   public static String getName() {
-    return Hotel.name;
+    return name;
   }
 
   static double getStars() {

@@ -2,21 +2,26 @@ package application;
 
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Reservation {
     private Hotel hotel;
-    private String hotelName;
     private static LocalDate checkInDate;
     private static LocalDate checkOutDate;
+    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    static String bookedCheckInDate;
+    static String bookedCheckOutDate;
     private int numberOfRooms;
     private static int finalCost;
 
     Reservation(Hotel hotel, LocalDate checkInDate,
                 LocalDate checkOutDate, int numberOfRooms) {
+
         this.hotel = hotel;
-        this.hotelName = hotel.getName();
         Reservation.checkInDate = checkInDate;
         Reservation.checkOutDate = checkOutDate;
+        Reservation.bookedCheckInDate = checkInDate.format(formatter);
+        Reservation.bookedCheckOutDate = checkOutDate.format(formatter);
         this.numberOfRooms = numberOfRooms;
         finalCost = hotel.getStdPrice() * numberOfRooms;
     }
@@ -56,4 +61,20 @@ public class Reservation {
     static int getFinalCost() {
         return finalCost;
     }
+
+    public static String getBookedCheckOutDate() {
+        return bookedCheckOutDate;
+    }
+
+    public static void setBookedCheckOutDate(String bookedCheckOutDate) {
+        Reservation.bookedCheckOutDate = bookedCheckOutDate;
+    }
+    public static String getBookedCheckIutDate() {
+        return bookedCheckInDate;
+    }
+
+    public static void setBookedCheckInDate(String bookedCheckInDate) {
+        Reservation.bookedCheckInDate = bookedCheckInDate;
+    }
+
 }

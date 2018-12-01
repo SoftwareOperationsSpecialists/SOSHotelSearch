@@ -1,8 +1,7 @@
 package application;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import java.sql.*;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
@@ -10,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class HotelController {
@@ -54,31 +54,33 @@ public class HotelController {
 
   // Book it button will open Payment information Scene
   public void bookItButton(ActionEvent event) throws Exception {
-    //Reservation reservation = new Reservation(hotel, DashController.getUserCheckInDate(),
-        //DashController.getUserCheckOutDate(), DashController.getNumOfRooms() );
-
-    //Hotel hotel = new Hotel();
+    Reservation reservation = new Reservation(hotel, DashController.getUserCheckInDate(),
+        DashController.getUserCheckOutDate(), Reservation.getFinalCost());
 
     Navigator.payment(event);
 
-    LocalDate checkIn = Reservation.getCheckInDate();
-    LocalDate checkOut = Reservation.getCheckOutDate();
+    String checkInDate = Reservation.bookedCheckInDate;
+    String checkOutDate = Reservation.bookedCheckOutDate;
 
-    String name = Hotel.getName();
-    int price = Reservation.getFinalCost();
-    double rating = Hotel.getStars();
+    String bookedHotelName = reservation.getHotel().getCity();
+    int bookedHotelPrice = Reservation.getFinalCost();
+    double rating = reservation.getHotel().getStdPrice();
     String location = DashController.getLocation();
     int rooms = DashController.getNumOfRooms();
 
 
-    String insert_reservation ="INSERT INTO SOS.RESERVATIONS (CHECKIN, CHECKOUT) VALUES("+checkIn+","+checkOut+")";
+    String insert_reservation ="INSERT INTO SOS.RESERVATIONS (CHECKIN, CHECKOUT) VALUES('"+checkInDate+"','"+checkOutDate+"')";
 
-        String insert_hotel = "INSERT INTO SOS.HOTEL (NAME, PRICE, RATING, LOCATION, ROOMS) VALUES("+name+","+price+","+rating+","+location+","+rooms+")";
-
-    try (Connection connection = DriverManager.getConnection(Credentials.url);
-        Statement statement = connection.createStatement()) {
-        statement.executeUpdate(insert_reservation);
-      statement.executeUpdate(insert_hotel);
+        String insert_hotel = "INSERT INTO SOS.HOTEL (NAME, PRICE, RATING, LOCATION, ROOMS) VALUES('"+bookedHotelName+"',"+bookedHotelPrice+","+rating+",'"+location+"',"+rooms+")";
+    try {
+      Connection connection = DriverManager.getConnection(Credentials.url);
+      PreparedStatement insertReservation = connection.prepareStatement(insert_reservation);
+      PreparedStatement insertHotel = connection.prepareStatement(insert_hotel);
+      insertReservation.executeUpdate();
+      insertHotel.executeUpdate();
+      connection.close();
+    } catch (SQLException e){
+      e.printStackTrace();
     }
   }
 

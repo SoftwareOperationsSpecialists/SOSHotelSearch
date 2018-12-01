@@ -8,7 +8,6 @@ import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class DashController implements Initializable {
@@ -72,14 +71,12 @@ public class DashController implements Initializable {
         return location;
     }
 
-    static String getUserCheckInDate() {
-        userCheckInDate.format(DateTimeFormatter.ofPattern("MM/DD/YYYY"));
-        return userCheckInDate.toString();
+    static LocalDate getUserCheckInDate() {
+        return userCheckInDate;
     }
 
-    static String getUserCheckOutDate() {
-      userCheckOutDate.format(DateTimeFormatter.ofPattern("MM/DD/YYYY"));
-      return userCheckOutDate.toString();
+    static LocalDate getUserCheckOutDate() {
+      return userCheckOutDate;
     }
 
     static int getNumOfRooms() {
