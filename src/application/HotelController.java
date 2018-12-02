@@ -30,18 +30,18 @@ public class HotelController {
   private int numImages = 2;
   private int imageArrayIndex = 0;
   private ArrayList<Image> images = new ArrayList<>(numImages);
-  private static Navigator navigator = new Navigator();
   private static Hotel hotel;
+  private static Reservation reservation;
 
   public void initialize(){
     images.add(new Image("application/hotelpics/holiday-inn-the-colony-4629618286-16x5.jpg"));
     images.add(new Image("application/hotelpics/room.jpg"));
     images.add(new Image("application/hotelpics/holiday-inn-the-colony-4549822872-4x3.jpg"));
 
-    hotelName.setText(Hotel.getName());
+    hotelName.setText(hotel.getName());
     hotelLocation.setText("Location: "+hotel.getCity()+", "+hotel.getCountryName());
-    hotelStars.setText("This is a "+ Hotel.getStars()+" star hotel.");
-    hotelPrice.setText("Price : $"+hotel.getStdPrice());
+    hotelStars.setText("This is a "+ hotel.getStars()+" star hotel.");
+    hotelPrice.setText("Price : $"+hotel.getPrice());
   }
   
   // Dashboard Button will go back to the "Hotel Search" Scene
@@ -54,20 +54,19 @@ public class HotelController {
 
   // Book it button will open Payment information Scene
   public void bookItButton(ActionEvent event) throws Exception {
-    Reservation reservation = new Reservation(hotel, DashController.getUserCheckInDate(),
-        DashController.getUserCheckOutDate(), Reservation.getFinalCost());
+    reservation = new Reservation(hotel, DashController.getUserCheckInDate(),
+        DashController.getUserCheckOutDate(), DashController.getNumOfRooms());
 
     Navigator.payment(event);
 
-    String checkInDate = Reservation.bookedCheckInDate;
-    String checkOutDate = Reservation.bookedCheckOutDate;
+    String checkInDate = reservation.getCheckInDate().toString();
+    String checkOutDate = reservation.getCheckOutDate().toString();
 
     String bookedHotelName = reservation.getHotel().getCity();
-    int bookedHotelPrice = Reservation.getFinalCost();
-    double rating = reservation.getHotel().getStdPrice();
+    int bookedHotelPrice = reservation.getFinalCost();
+    double rating = reservation.getHotel().getPrice();
     String location = DashController.getLocation();
     int rooms = DashController.getNumOfRooms();
-
 
     String insert_reservation ="INSERT INTO SOS.RESERVATIONS (CHECKIN, CHECKOUT) VALUES('"+checkInDate+"','"+checkOutDate+"')";
 
@@ -108,8 +107,20 @@ public class HotelController {
       imageArrayIndex = images.size()-1;
     }
   }
-    
+
   public static void setHotel(Hotel thisHotel) {
     hotel = thisHotel;
+  }
+
+  public static Hotel getHotel() {
+    return hotel;
+  }
+
+  public static void setReservation(Reservation thisReservation) {
+    reservation = thisReservation;
+  }
+
+  public static Reservation getReservation() {
+    return reservation;
   }
 }

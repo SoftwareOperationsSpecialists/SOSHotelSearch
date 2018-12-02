@@ -5,12 +5,18 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 public class PayController {
-@FXML
-private Label numberOfRooms;
-@FXML
-private Label price;
-@FXML
-private Label numberOfNights;
+  @FXML
+  private Label numberOfRooms;
+  @FXML
+  private Label price;
+  @FXML
+  private Label numberOfNights;
+
+  public void initialize() {
+    numberOfRooms.setText("" + DashController.getNumOfRooms());
+    price.setText("$" + HotelController.getReservation().getFinalCost());
+    numberOfNights.setText("" + HotelController.getReservation().getNumberOfNights());
+  }
 
   public void pay(ActionEvent event) throws Exception {
     Navigator.thankYouScene(event);

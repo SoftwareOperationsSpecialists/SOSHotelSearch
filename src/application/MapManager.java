@@ -163,8 +163,7 @@ public class MapManager {
 
                       Hotel hotel = new Hotel(Integer.parseInt(h[0]), h[1],
                               Double.parseDouble(h[2]), h[3], h[4], h[5], Double.parseDouble(h[6]),
-                              Double.parseDouble(h[7]), Integer.parseInt(h[8]),
-                              Integer.parseInt(h[9]), Integer.parseInt(h[10]));
+                              Double.parseDouble(h[7]), Integer.parseInt(h[8]));
 
                       double lat = hotel.getLat();
                       double lon = hotel.getLng();

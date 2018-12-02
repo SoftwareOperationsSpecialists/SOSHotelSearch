@@ -2,31 +2,27 @@ package application;
 
 public class Hotel implements Comparable<Hotel>{
   private int hotelId;
-  private static String name;
-  private static double stars;
+  private String name;
+  private double stars;
   private String city;
   private String countryCode;
   private String countryName;
   private double lat;
   private double lng;
-  private int stdPrice;
-  private int dlxPrice;
-  private int suitePrice;
+  private int price;
   private static int numReservations = 0;
 
   public Hotel(int hotelId, String name, double stars, String city, String countryCode, String countryName, double lat,
-               double lng, int stdPrice, int dlxPrice, int suitePrice) {
+               double lng, int price) {
     this.hotelId = hotelId;
-    Hotel.name = name;
-    Hotel.stars = stars;
+    this.name = name;
+    this.stars = stars;
     this.city = city;
     this.countryCode = countryCode;
     this.countryName = countryName;
     this.lat = lat;
     this.lng = lng;
-    this.stdPrice = stdPrice;
-    this.dlxPrice = dlxPrice;
-    this.suitePrice = suitePrice;
+    this.price = price;
   }
 
  // public Hotel(String name, double stars, ){}
@@ -36,11 +32,11 @@ public class Hotel implements Comparable<Hotel>{
   public int getHotelId() { return hotelId; }
 
   public void setName(String name) {
-    Hotel.name = name;
+    this.name = name;
   }
 
   public void setStars(double stars) {
-    Hotel.stars = stars;
+    this.stars = stars;
   }
 
   public void setCity(String city) {
@@ -63,56 +59,40 @@ public class Hotel implements Comparable<Hotel>{
     this.lng = lng;
   }
 
-  public void setStdPrice(int stdPrice) {
-    this.stdPrice = stdPrice;
+  public void setPrice(int price) {
+    this.price = price;
   }
 
-  public void setDlxPrice(int dlxPrice) {
-    this.dlxPrice = dlxPrice;
-  }
-
-  public void setSuitePrice(int suitePrice) {
-    this.suitePrice = suitePrice;
-  }
-
-  public static String getName() {
+  public String getName() {
     return name;
   }
 
-  static double getStars() {
+  public double getStars() {
     return stars;
   }
 
-  String getCity() {
+  public String getCity() {
     return city;
   }
 
-  String getCountryCode() {
+  public String getCountryCode() {
     return countryCode;
   }
 
-  String getCountryName() {
+  public String getCountryName() {
     return countryName;
   }
 
-  double getLat() {
+  public double getLat() {
     return lat;
   }
 
-  double getLng() {
+  public double getLng() {
     return lng;
   }
 
-  int getStdPrice() {
-    return stdPrice;
-  }
-
-  public int getDlxPrice() {
-    return dlxPrice;
-  }
-
-  public int getSuitePrice() {
-    return suitePrice;
+  public int getPrice() {
+    return this.price;
   }
 
   public void addReservation(int numUserRooms) {
@@ -130,15 +110,13 @@ public class Hotel implements Comparable<Hotel>{
             ", countryName='" + countryName + '\'' +
             ", lat=" + lat +
             ", lng=" + lng +
-            ", stdPrice=" + stdPrice +
-            ", dlxPrice=" + dlxPrice +
-            ", suitePrice=" + suitePrice +
+            ", price=" + price +
             ", numReservations=" + numReservations +
             '}';
   }
 
   @Override
   public int compareTo(Hotel o) {
-    return (this.getStdPrice()-o.getStdPrice());
+    return (this.getPrice()-o.getPrice());
   }
 }

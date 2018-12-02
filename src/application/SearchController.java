@@ -53,7 +53,6 @@ public class SearchController {
   }
 
   public void initialize() {
-    // need to pass the current stage to the constructor of the mapManager
     MapManager mapManager = new MapManager();
 
     images.add(new Image("application/hotelthumbs/La-Quinta.jpg"));
@@ -61,7 +60,7 @@ public class SearchController {
     images.add(new Image("application/hotelthumbs/hotel1.jpg"));
     images.add(new Image("application/hotelthumbs/hotel2.jpg"));
     images.add(new Image("application/hotelthumbs/Hyatt-Place-St-George-Convention-Center-P004-"
-                          + "Exterior.adapt.16x9.1920.1080.jpg"));
+            + "Exterior.adapt.16x9.1920.1080.jpg"));
     images.add(new Image("application/hotelthumbs/T1114MARRIOTTTUCSON.jpg"));
 
     // get list of hotels returned from mapManager
@@ -114,10 +113,10 @@ public class SearchController {
       hotelPane.setPrefHeight(hotelImage.getImage().getHeight());
 
       // set fields of preview window to those from each hotel object
-      Text name = new Text(Hotel.getName());
-      Text stars = new Text(Hotel.getStars() + "-Star Hotel");
+      Text name = new Text(hotel.getName());
+      Text stars = new Text(hotel.getStars() + "-Star Hotel");
       Text rating = new Text("User rating: 4/5");
-      Text price = new Text("$" + hotel.getStdPrice());
+      Text price = new Text("$" + hotel.getPrice());
 
       price.setFill(Paint.valueOf("#1b9dc1"));
 
@@ -164,8 +163,8 @@ public class SearchController {
 
       infoButton.addEventHandler(ActionEvent.ACTION, event -> {
         try {
-         // hotelClicked = new Hotel(hotelID, hotelName.getText(),hotelStars.getText(),h);
-         // public Hotel(int hotelId, String name, double stars, String city, String countryCode, String countryName, double lat,
+          // hotelClicked = new Hotel(hotelID, hotelName.getText(),hotelStars.getText(),h);
+          // public Hotel(int hotelId, String name, double stars, String city, String countryCode, String countryName, double lat,
           //double lng, int stdPrice, int dlxPrice, int suitePrice) {
           Navigator.hotelInfo(hotel, event);
         } catch (Exception e) {
@@ -208,9 +207,5 @@ public class SearchController {
   public void setHighToLow() {
     isLowToHigh = false;
     sortList();
-  }
-
-  public void hotelInfo(ActionEvent event) throws Exception {
-    Navigator.hotelInfo(event);
   }
 }
