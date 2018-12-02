@@ -12,121 +12,125 @@ import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
 import java.util.ResourceBundle;
 
 public class DashController implements Initializable {
-    @FXML
-    private TextField searchBar;
-    private static String location;
+  @FXML
+  private TextField searchBar;
+  private static String location;
 
-    @FXML
-    private DatePicker checkInDate;
-    @FXML
-    private DatePicker checkOutDate;
+  @FXML
+  private DatePicker checkInDate;
+  @FXML
+  private DatePicker checkOutDate;
 
-    @FXML
-    private Label searchStatus;
-    @FXML
-    private Spinner roomCount;
+  @FXML
+  private Label searchStatus;
+  @FXML
+  private Spinner roomCount;
 
-    @FXML
-    private ProgressIndicator indicator;
-    
-    private SpinnerValueFactory<Integer> roomCountFactory = new IntegerSpinnerValueFactory(0, 9, 1);
-    private static LocalDate userCheckInDate;
-    private static LocalDate userCheckOutDate;
-    private static int numOfRooms;
+  @FXML
+  private ProgressIndicator indicator;
 
-    //Side Panel buttons
-    public void MyAccount(ActionEvent event) throws Exception {
-        Navigator.myAccount(event);
-    }
+  private SpinnerValueFactory<Integer> roomCountFactory = new IntegerSpinnerValueFactory(0, 9, 1);
+  private static LocalDate userCheckInDate;
+  private static LocalDate userCheckOutDate;
+  private static int numOfRooms;
 
-    public void savedHotels(ActionEvent event) throws Exception {
-        Navigator.savedHotels(event);
-    }
+  //Side Panel buttons
+  public void MyAccount(ActionEvent event) throws Exception {
+    Navigator.myAccount(event);
+  }
 
-    public void logout(ActionEvent event) throws Exception {
-        Navigator.logout(event);
-    }
+  public void savedHotels(ActionEvent event) throws Exception {
+    Navigator.savedHotels(event);
+  }
 
-    public void search(ActionEvent event) throws Exception {
-        location = searchBar.getText();
+  public void logout(ActionEvent event) throws Exception {
+    Navigator.logout(event);
+  }
 
-        if (location.isEmpty()) {
-            searchStatus.setText("Must input Location");
+  public void search(ActionEvent event) throws Exception {
+    location = searchBar.getText();
 
-        } else if (checkInDate.getValue() == null || checkOutDate.getValue() == null) {
-            searchStatus.setText("Please select check in and check out date!");
+    if (location.isEmpty()) {
+      searchStatus.setText("Please enter a location.");
 
-        } else {
-            // setup a new task for UI thread to run while loading the new scene
-            Task<Parent> loadAnimation = new Task<Parent>() {
-                @Override
-                public Parent call() throws IOException {
-                    searchStatus.setVisible(false);
-                    indicator.setVisible(true);
+    } else if (checkInDate.getValue() == null || checkOutDate.getValue() == null) {
+      searchStatus.setText("Please select check-in and check-out dates.");
 
-                    // dummy data because the function needs to have the parent returned
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
-                    Parent root = loader.load();
-                    return root;
-                }
-            };
+    } else if (checkInDate.getValue().compareTo(checkOutDate.getValue()) > 0 ||
+               checkInDate.getValue().isBefore(LocalDate.now())) {
+        searchStatus.setText("Please select valid check-in and check-out dates.");
+    } else {
+      // setup a new task for UI thread to run while loading the new scene
+      Task<Parent> loadAnimation = new Task<Parent>() {
+        @Override
+        public Parent call() throws IOException {
+          searchStatus.setVisible(false);
+          indicator.setVisible(true);
 
-            loadAnimation.setOnSucceeded(successEvent -> {
-                indicator.setVisible(false);
-                searchStatus.setVisible(true);
-                MapManager mapManager = new MapManager();
-                mapManager.setAddress(location);                // sets map location
-                mapManager.createMap();                         // creates map
-                userCheckInDate = checkInDate.getValue();       // gets check-in date
-                userCheckOutDate = checkOutDate.getValue();     // gets check-out date
-                numOfRooms = (int) roomCount.getValue();        // gets number of rooms
-
-                //checks for error
-                if (mapManager.getErrorStatus()) {
-                    searchStatus.setText(mapManager.getError());
-                } else {
-                    searchStatus.setVisible(false);
-                    try {
-                        Navigator.search(event);                      // go to search screen
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-
-            loadAnimation.setOnFailed(e -> loadAnimation.getException().printStackTrace());
-
-            Thread thread = new Thread(loadAnimation);
-            thread.start();
+          // dummy data because the function needs to have the parent returned
+          FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+          Parent root = loader.load();
+          return root;
         }
-    }
+      };
 
-    public static String getLocation() {
-        return location;
-    }
+      loadAnimation.setOnSucceeded(successEvent -> {
+        indicator.setVisible(false);
+        searchStatus.setVisible(true);
+        MapManager mapManager = new MapManager();
+        mapManager.setAddress(location);                // sets map location
+        mapManager.createMap();                         // creates map
+        userCheckInDate = checkInDate.getValue();       // gets check-in date
+        userCheckOutDate = checkOutDate.getValue();     // gets check-out date
+        numOfRooms = (int) roomCount.getValue();        // gets number of rooms
 
-    static LocalDate getUserCheckInDate() {
-        return userCheckInDate;
-    }
+        //checks for error
+        if (mapManager.getErrorStatus()) {
+          searchStatus.setText(mapManager.getError());
+        } else {
+          searchStatus.setVisible(false);
+          try {
+            Navigator.search(event);                      // go to search screen
+          } catch (Exception e) {
+            e.printStackTrace();
+          }
+        }
+      });
 
-    static LocalDate getUserCheckOutDate() {
-      return userCheckOutDate;
-    }
+      loadAnimation.setOnFailed(e -> loadAnimation.getException().printStackTrace());
 
-    static int getNumOfRooms() {
-      return numOfRooms;
+      Thread thread = new Thread(loadAnimation);
+      thread.start();
     }
+  }
 
-    public void modifyRoom() {
-        this.roomCount.setValueFactory(roomCountFactory);
-    }
+  public static String getLocation() {
+    return location;
+  }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        roomCount.setValueFactory(roomCountFactory);
-    }
+  static LocalDate getUserCheckInDate() {
+    return userCheckInDate;
+  }
+
+  static LocalDate getUserCheckOutDate() {
+    return userCheckOutDate;
+  }
+
+  static int getNumOfRooms() {
+    return numOfRooms;
+  }
+
+  public void modifyRoom() {
+    this.roomCount.setValueFactory(roomCountFactory);
+  }
+
+  @Override
+  public void initialize(URL location, ResourceBundle resources) {
+    roomCount.setValueFactory(roomCountFactory);
+  }
 }
 

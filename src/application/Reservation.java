@@ -2,28 +2,24 @@ package application;
 
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class Reservation {
     private Hotel hotel;
-    private static LocalDate checkInDate;
-    private static LocalDate checkOutDate;
-    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    static String bookedCheckInDate;
-    static String bookedCheckOutDate;
+    private LocalDate checkInDate;
+    private LocalDate checkOutDate;
     private int numberOfRooms;
-    private static int finalCost;
+    private int numberOfNights;
+    private int finalCost;
 
     Reservation(Hotel hotel, LocalDate checkInDate,
                 LocalDate checkOutDate, int numberOfRooms) {
 
         this.hotel = hotel;
-        Reservation.checkInDate = checkInDate;
-        Reservation.checkOutDate = checkOutDate;
-        Reservation.bookedCheckInDate = checkInDate.format(formatter);
-        Reservation.bookedCheckOutDate = checkOutDate.format(formatter);
+        this.checkInDate = checkInDate;
+        this.checkOutDate = checkOutDate;
         this.numberOfRooms = numberOfRooms;
-        finalCost = hotel.getStdPrice() * numberOfRooms;
+        this.numberOfNights = Math.abs(checkInDate.compareTo(checkOutDate));
+        this.finalCost = hotel.getPrice() * numberOfRooms * numberOfNights;
     }
 
     public Hotel getHotel() {
@@ -34,20 +30,20 @@ public class Reservation {
         this.hotel = hotel;
     }
 
-    static LocalDate getCheckInDate() {
+    public LocalDate getCheckInDate() {
         return checkInDate;
     }
 
     public void setCheckInDate(LocalDate checkInDate) {
-        Reservation.checkInDate = checkInDate;
+        this.checkInDate = checkInDate;
     }
 
-    static LocalDate getCheckOutDate() {
+    public LocalDate getCheckOutDate() {
         return checkOutDate;
     }
 
     public void setCheckOutDate(LocalDate checkOutDate) {
-        Reservation.checkOutDate = checkOutDate;
+        this.checkOutDate = checkOutDate;
     }
 
     public int getNumberOfRooms() {
@@ -58,23 +54,27 @@ public class Reservation {
         this.numberOfRooms = numberOfRooms;
     }
 
-    static int getFinalCost() {
+    public void setNumberOfNights(LocalDate date1, LocalDate date2) {
+        this.numberOfNights = Math.abs(date1.compareTo(date2));
+    }
+
+    public int getNumberOfNights() {
+        return this.numberOfNights;
+    }
+
+    public int getFinalCost() {
         return finalCost;
     }
 
-    public static String getBookedCheckOutDate() {
-        return bookedCheckOutDate;
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "hotel=" + hotel +
+                ", checkInDate=" + checkInDate +
+                ", checkOutDate=" + checkOutDate +
+                ", numberOfRooms=" + numberOfRooms +
+                ", numberOfNights=" + numberOfNights +
+                ", finalCost=" + finalCost +
+                '}';
     }
-
-    public static void setBookedCheckOutDate(String bookedCheckOutDate) {
-        Reservation.bookedCheckOutDate = bookedCheckOutDate;
-    }
-    public static String getBookedCheckIutDate() {
-        return bookedCheckInDate;
-    }
-
-    public static void setBookedCheckInDate(String bookedCheckInDate) {
-        Reservation.bookedCheckInDate = bookedCheckInDate;
-    }
-
 }
