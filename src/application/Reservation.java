@@ -11,7 +11,7 @@ public class Reservation {
     private int numberOfNights;
     private int finalCost;
 
-    Reservation(Hotel hotel, LocalDate checkInDate,
+    public Reservation(Hotel hotel, LocalDate checkInDate,
                 LocalDate checkOutDate, int numberOfRooms) {
 
         this.hotel = hotel;
