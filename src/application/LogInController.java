@@ -69,7 +69,7 @@ public class LogInController extends Credentials {
         ResultSet result = statement.executeQuery(ownerSQL);
 
         if (result.next()) {
-          Navigator.dashboard(event);
+          Navigator.hotelOwner(event);
           clientUsername = txtUsername.getText();
           clientPassword = txtPassword.getText();
           result.close();

@@ -37,6 +37,7 @@ public class HotelOwnerController implements Initializable {
   public void initialize(URL location, ResourceBundle resources) {
     // function will initialize column values
     initCol();
+    addData();
   }
 
   public static class Info {
@@ -64,26 +65,25 @@ public class HotelOwnerController implements Initializable {
 
   }
   private void addData() {
-    final String JOIN_RECIPES = "SELECT hotel.searchername, reservations.checkindata, "
-        + "reservations.checkoutdate, hotel.numrooms"
-        + " FROM hotel INNER JOIN "
-        + "reservations ON reservations.id=hotel.id";
+    final String JOIN_RECIPES = "SELECT SOS.hotel.name, sos.reservations.checkin, "
+        + "sos.reservations.checkout, sos.hotel.rooms"
+        + " FROM sos.hotel INNER JOIN "
+        + "sos.reservations ON sos.reservations.HOTEL_ID=sos.hotel.id";
     try (Connection connection = DriverManager.getConnection(Credentials.url);
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(JOIN_RECIPES)) {
 
       // Values from Resultset object are added into list
       while(resultSet.next()) {
-        String Name = resultSet.getString("searcherName");
-        String CheckIn = resultSet.getString("checkindata");
-        String CheckOut = resultSet.getString("checkoutdate");
-        Integer NumRooms = resultSet.getInt("numrooms");
+        String Name = resultSet.getString("name");
+        String CheckIn = resultSet.getString("checkin");
+        String CheckOut = resultSet.getString("checkout");
+        Integer NumRooms = resultSet.getInt("rooms");
 
         list.add(new Info(Name, CheckIn,CheckOut, NumRooms));
       }
     }
     catch (SQLException e) {
-      status.setText("Error");
       e.printStackTrace();
     }
     // Associates tableView with list items

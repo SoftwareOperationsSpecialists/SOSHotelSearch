@@ -121,6 +121,16 @@ public class Navigator {
     window.setScene(finalScene);
     window.show();
 
+  }
+  static void hotelOwner(ActionEvent event) throws Exception {
+
+    Parent HotelOwner = FXMLLoader.load(Navigator.class.getResource("HotelOwner.fxml"));
+    Scene hotelOwner = new Scene(HotelOwner);
+
+    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    window.setScene(hotelOwner);
+    window.show();
+
 
   }
 }

@@ -32,6 +32,9 @@ public class HotelController {
   private ArrayList<Image> images = new ArrayList<>(numImages);
   private static Hotel hotel;
   private static Reservation reservation;
+  private int id;
+  private String GET_ID = "SELECT USER_ID FROM SOS.SEARCHER WHERE USERNAME ="
+      + LogInController.clientUsername;
 
   public void initialize(){
     images.add(new Image("application/hotelpics/holiday-inn-the-colony-4629618286-16x5.jpg"));
@@ -42,6 +45,7 @@ public class HotelController {
     hotelLocation.setText("Location: "+hotel.getCity()+", "+hotel.getCountryName());
     hotelStars.setText("This is a "+ hotel.getStars()+" star hotel.");
     hotelPrice.setText("Price : $"+hotel.getPrice());
+
   }
   
   // Dashboard Button will go back to the "Hotel Search" Scene
@@ -54,6 +58,14 @@ public class HotelController {
 
   // Book it button will open Payment information Scene
   public void bookItButton(ActionEvent event) throws Exception {
+    try (Connection conn = DriverManager.getConnection(Credentials.url);
+        Statement stmt = conn.createStatement();
+        ResultSet resultSet = stmt.executeQuery(GET_ID)) {
+      resultSet.next();
+      id = resultSet.getInt(1);
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
     reservation = new Reservation(hotel, DashController.getUserCheckInDate(),
         DashController.getUserCheckOutDate(), DashController.getNumOfRooms());
 
@@ -68,9 +80,9 @@ public class HotelController {
     String location = DashController.getLocation();
     int rooms = DashController.getNumOfRooms();
 
-    String insert_reservation ="INSERT INTO SOS.RESERVATIONS (CHECKIN, CHECKOUT) VALUES('"+checkInDate+"','"+checkOutDate+"')";
+    String insert_reservation ="INSERT INTO SOS.RESERVATIONS (CHECKIN, CHECKOUT, HOTEL_ID) VALUES('"+checkInDate+"','"+checkOutDate+"','"+id+"')";
 
-        String insert_hotel = "INSERT INTO SOS.HOTEL (NAME, PRICE, RATING, LOCATION, ROOMS) VALUES('"+bookedHotelName+"',"+bookedHotelPrice+","+rating+",'"+location+"',"+rooms+")";
+        String insert_hotel = "INSERT INTO SOS.HOTEL (ID, NAME, PRICE, RATING, LOCATION, ROOMS) VALUES('"+id+"','"+bookedHotelName+"',"+bookedHotelPrice+","+rating+",'"+location+"',"+rooms+")";
     try {
       Connection connection = DriverManager.getConnection(Credentials.url);
       PreparedStatement insertReservation = connection.prepareStatement(insert_reservation);
