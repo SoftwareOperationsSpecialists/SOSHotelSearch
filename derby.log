@@ -1,13 +1,13 @@
 ----------------------------------------------------------------
-Sat Dec 01 11:59:25 EST 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0167-6ab5-e90c-0000004afa28 
-on database directory C:\Users\trainofthought\IdeaProjects\SOSHotelSearch\lib\SOSHotelAccountDB with class loader sun.misc.Launcher$AppClassLoader@b4aac2 
-Loaded from file:/C:/Users/trainofthought/IdeaProjects/SOSHotelSearch/lib/derby.jar
+Sat Dec 01 21:58:49 EST 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0167-6cda-abb8-0000062fece8 
+on database directory /Users/florapierre/IdeaProjects/SOSHotelSearch/lib/SOSHotelAccountDB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
+Loaded from file:/Users/florapierre/IdeaProjects/SOSHotelSearch/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_191-b12
-user.dir=C:\Users\trainofthought\IdeaProjects\SOSHotelSearch
-os.name=Windows 10
-os.arch=x86
-os.version=10.0
+java.runtime.version=1.8.0_131-b11
+user.dir=/Users/florapierre/IdeaProjects/SOSHotelSearch
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.14.1
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''

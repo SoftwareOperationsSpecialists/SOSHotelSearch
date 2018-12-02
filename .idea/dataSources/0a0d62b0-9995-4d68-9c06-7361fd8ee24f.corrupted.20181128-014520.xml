@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="SOSHotelAccountDB">
+  <database-model serializer="dbm" dbms="DERBY" family-id="DERBY" format-version="4.14">
+    <root id="1">
+      <ServerVersion>10.14.1.0</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="APP">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="NULLID"/>
+    <schema id="4" parent="1" name="SOS">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="5" parent="1" name="SQLJ"/>
+    <schema id="6" parent="1" name="SYS"/>
+    <schema id="7" parent="1" name="SYSCAT"/>
+    <schema id="8" parent="1" name="SYSCS_DIAG"/>
+    <schema id="9" parent="1" name="SYSCS_UTIL"/>
+    <schema id="10" parent="1" name="SYSFUN"/>
+    <schema id="11" parent="1" name="SYSIBM"/>
+    <schema id="12" parent="1" name="SYSPROC"/>
+    <schema id="13" parent="1" name="SYSSTAT"/>
+    <table id="14" parent="4" name="HOTEL"/>
+    <table id="15" parent="4" name="OWNER"/>
+    <table id="16" parent="4" name="RESERVATIONS"/>
+    <table id="17" parent="4" name="SEARCHER"/>
+    <column id="18" parent="14" name="ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>AUTOINCREMENT: start 1 increment 1</DefaultExpression>
+    </column>
+    <column id="19" parent="14" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="20" parent="14" name="PRICE">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="21" parent="14" name="RATING">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="22" parent="14" name="LOCATION">
+      <Position>5</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="23" parent="14" name="NUMROOMS">
+      <Position>6</Position>
+      <DataType>INTEGER|4s</DataType>
+    </column>
+    <column id="24" parent="14" name="COLUMN_7">
+      <Position>7</Position>
+      <DataType>INTEGER|4s</DataType>
+    </column>
+    <index id="25" parent="14" name="SQL181127012337200">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="26" parent="14" name="HOTEL_PK">
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="27" parent="15" name="NAME">
+      <Position>1</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="15" name="USERNAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="15" name="EMAIL">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="15" name="PASSWORD">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="31" parent="15" name="ID">
+      <Position>5</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>AUTOINCREMENT: start 1 increment 1</DefaultExpression>
+    </column>
+    <column id="32" parent="15" name="DOB">
+      <Position>6</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <index id="33" parent="15" name="OWNER_OWNER_USERNAME_UINDEX">
+      <ColNames>USERNAME</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="34" parent="15" name="OWNER_OWNER_EMAIL_UINDEX">
+      <ColNames>EMAIL</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="35" parent="15" name="OWNER_ID_UINDEX">
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="36" parent="15" name="SQL181126163245810">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="37" parent="15" name="OWNER_PK">
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="38" parent="15" name="OWNER_OWNER_EMAIL_UINDEX">
+      <ColNames>EMAIL</ColNames>
+    </key>
+    <key id="39" parent="15" name="OWNER_OWNER_USERNAME_UINDEX">
+      <ColNames>USERNAME</ColNames>
+    </key>
+    <column id="40" parent="16" name="ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>AUTOINCREMENT: start 1 increment 1</DefaultExpression>
+    </column>
+    <column id="41" parent="16" name="CHECKINDATE">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="42" parent="16" name="CHECKOUTDATE">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="43" parent="17" name="USERNAME">
+      <Position>1</Position>
+      <DataType>VARCHAR(25)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="17" name="DOB">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="17" name="PASSWORD">
+      <Position>3</Position>
+      <DataType>VARCHAR(25)|12s</DataType>
+    </column>
+    <column id="46" parent="17" name="NAME">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="47" parent="17" name="EMAIL">
+      <Position>5</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="48" parent="17" name="ID">
+      <Position>6</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>AUTOINCREMENT: start 1 increment 1</DefaultExpression>
+    </column>
+    <index id="49" parent="17" name="SEARCHER_SEARCHER_USERNAME_UINDEX">
+      <ColNames>USERNAME</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="50" parent="17" name="SEARCHER_ID_UINDEX">
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="51" parent="17" name="SQL181126163212950">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="52" parent="17" name="SEARCHER_PK">
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="53" parent="17" name="SEARCHER_SEARCHER_USERNAME_UINDEX">
+      <ColNames>USERNAME</ColNames>
+    </key>
+  </database-model>
+</dataSource>

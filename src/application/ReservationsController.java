@@ -27,7 +27,7 @@ public class ReservationsController implements Initializable {
   @FXML
   private TableView<Data> tableView;
   @FXML
-  private TableColumn<Data, Integer> HotelNameCol;
+  private TableColumn<Data, String> HotelNameCol;
   @FXML
   private TableColumn<Data, String> CheckInCol;
   @FXML
@@ -63,10 +63,10 @@ public class ReservationsController implements Initializable {
 
   }
   private void addData() {
-    final String JOIN_Hotels = "SELECT NAME, CHECKIN, "
-        + "CHECKOUT"
+    final String JOIN_Hotels = "SELECT HOTEL.NAME, RESERVATIONS.CHECKIN, "
+        + "RESERVATIONS.CHECKOUT"
         + " FROM SOS.HOTEL INNER JOIN "
-        + "SOS.RESERVATIONS ON SOS.RESERVATIONS.ID=SOS.HOTEL.ID";
+        + "SOS.RESERVATIONS ON SOS.RESERVATIONS.HOTEL_ID=SOS.HOTEL.ID";
     try (Connection connection = DriverManager.getConnection(url);
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(JOIN_Hotels)) {
