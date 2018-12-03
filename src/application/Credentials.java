@@ -6,6 +6,10 @@ import javafx.scene.paint.Paint;
 import java.sql.*;
 import java.util.regex.Pattern;
 
+/**
+* Desc: verifies the validity of the information the user
+*   uses to create their account.
+*/
 abstract class Credentials {
 
   private static final String passwordREGEX = "^([0-9A-Za-z@.]{1,255})$";
@@ -36,26 +40,62 @@ abstract class Credentials {
   private final Pattern emailPattern = Pattern.compile(emailREGEX);
   private final Pattern dobPattern = Pattern.compile(dobREGEX);
 
+  /**
+  * Desc: checks validity of the password
+  * @param: password - the password being used for the account
+  * @return: bool
+  */
   boolean validPSWDPattern(String password) {
     return !passwordPattern.matcher(password).matches();
   }
 
+  /**
+  * Desc: checks validity of the full name
+  * @param: fullName - the full name being used for the account
+  * @return: bool
+  */
   boolean validFullNamePattern(String fullName) {
     return !fullNamePattern.matcher(fullName).matches();
   }
 
+  /**
+  * Desc: checks validity of the username
+  * @param: username - the username being for the account
+  * @return: bool
+  */
   boolean validUserNamePattern(String userName) {
     return userNamePattern.matcher(userName).matches();
   }
 
+   /**
+  * Desc: checks validity of the email
+  * @param: email - the email being used for the account
+  * @return: bool
+  */
   boolean validEmailPattern(String email) {
     return !emailPattern.matcher(email).matches();
   }
 
+  /**
+  * Desc: checks validity of the date of birth
+  * @param: dob - the date of birth used for the account
+  * @return: bool
+  */
   boolean validDOBPattern(String dob) {
     return !dobPattern.matcher(dob).matches();
   }
 
+  /**
+  * Desc: registers an account by using the parameters for account information
+  * @param: user - username
+  * @param: birthDate - date of birth
+  * @param: pass - password
+  * @param: name - full name
+  * @param: email - email
+  * @param: typeSQL
+  * @throws: ClassNotFoundException
+  * @throws: SQLException
+  */
   void registerClient(String user, String birthDate, String pass, String name, String email,
                       String typeSQL) throws ClassNotFoundException, SQLException {
     Class.forName(driver);
@@ -73,6 +113,18 @@ abstract class Credentials {
     loginConnection.close();
   }
 
+  /**
+  * Desc: updates an account's information
+  * @param: newName - updated full name
+  * @param: newPassword - updated password
+  * @param: newWEmail - updated email
+  * @param: newBirthDate - updated DOB
+  * @param: userName - updated username
+  * @param: typeSQL
+  * @param: updateStatus
+  * @throws: ClassNotFoundException
+  * @throws: SQLException
+  */
   void update(String newName, String newPassword, String newEmail, String newBirthDate,
               String userName, String typeSQL, Label updateStatus)
               throws ClassNotFoundException, SQLException {
