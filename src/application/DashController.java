@@ -44,17 +44,22 @@ public class DashController implements Initializable {
 
   //Side Panel buttons
   /**
-  * Desc: performs a search by getting the location from the searchbar
-  *   when the user clicks the search button
+  * goes to my account scene
   */
   public void MyAccount(ActionEvent event) throws Exception {
     Navigator.myAccount(event);
   }
 
+  /**
+  * goes to saved hotels scene
+  */
   public void savedHotels(ActionEvent event) throws Exception {
     Navigator.savedHotels(event);
   }
 
+  /**
+  * goes to logout scene
+  */
   public void logout(ActionEvent event) throws Exception {
     Navigator.logout(event);
   }
