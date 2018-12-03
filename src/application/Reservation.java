@@ -16,11 +16,11 @@ public class Reservation {
 
     /**
     * Desc: sets the hotel, check-in date, check-out date, and number of rooms
-    *   for the current reservation, and calculates the final cost.
-    * @param: hotel
-    * @param: checkInDate
-    * @param: checkOutDate
-    * @param: numberOfRooms
+    *       for the current reservation, and calculates the final cost
+    * @param: hotel - the hotel selected by the user
+    * @param: checkInDate - the check-in date chosen by the user
+    * @param: checkOutDate - the check-out date chosen by the user
+    * @param: numberOfRooms - the number of rooms chosen by the user
     */
     public Reservation(Hotel hotel, LocalDate checkInDate,
                 LocalDate checkOutDate, int numberOfRooms) {
@@ -30,7 +30,8 @@ public class Reservation {
         this.checkOutDate = checkOutDate;
         this.numberOfRooms = numberOfRooms;
         this.numberOfNights = Math.abs(checkInDate.compareTo(checkOutDate));
-        this.finalCost = hotel.getPrice() * numberOfRooms * numberOfNights;
+        this.finalCost = hotel.getPrice() * numberOfRooms * numberOfNights; //calculates final cost by multiplying
+                                                                            //   the hotel price, # of rooms, and # of nights
     }
 
     /**
@@ -83,7 +84,7 @@ public class Reservation {
     
     /**
     * Desc: gets the number of rooms.
-    * @return: numberOfRooms - numberOfRooms
+    * @return: numberOfRooms - number of rooms
     */
     public int getNumberOfRooms() {
         return numberOfRooms;
@@ -99,7 +100,7 @@ public class Reservation {
 
     /**
     * Desc: calculates the number of nights by finding the difference
-    *   between the check-in date and check-out date.
+    *       between the check-in date and check-out date.
     * @param: date1 - check-in date
     * @param: date2 - check-out date
     */
@@ -110,7 +111,7 @@ public class Reservation {
     /**
     * Desc: gets the number of nights.
     * @return: numberOfNights - the difference between the check-in date
-    *   and check-out date
+    *          and check-out date
     */
     public int getNumberOfNights() {
         return this.numberOfNights;
@@ -119,7 +120,7 @@ public class Reservation {
     /**
     * Desc: gets the final cost.
     * @return: finalCost - the total cost based on the price, number of rooms
-    *   and number of nights
+    *          and number of nights
     */
     public int getFinalCost() {
         return finalCost;
