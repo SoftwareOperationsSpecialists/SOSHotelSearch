@@ -116,6 +116,7 @@ public class RegController extends Credentials {
    * @param: event - the ActionEvent from the button
    * @throws: Exception
    */
+  @FXML
    private void login(ActionEvent event) throws Exception {
     Navigator.logout(event);
   }
