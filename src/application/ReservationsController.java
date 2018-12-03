@@ -134,7 +134,7 @@ public class ReservationsController implements Initializable {
 
   }
   
-  /**
+  /*
    * Desc: goes to myAccount scene
    * @param: event - ActionEvent from the button
    * @throws exception
@@ -143,7 +143,7 @@ public class ReservationsController implements Initializable {
     Navigator.myAccount(event);
   }
   
-  /**
+  /*
    * Desc: goes to dashbard scene
    * @param: event - ActionEvent from the button
    * @throws exception
@@ -152,7 +152,7 @@ public class ReservationsController implements Initializable {
     Navigator.dashboard(event);
   }
   
-  /**
+  /*
    * Desc: goes to logout scene
    * @param: event - ActionEvent from the button
    * @throws exception
