@@ -9,7 +9,6 @@ import java.util.regex.Pattern;
 /**
 * Desc: verifies the validity of the information the user
 *   uses to create their account.
-*
 */
 abstract class Credentials {
 
@@ -87,12 +86,12 @@ abstract class Credentials {
   }
 
   /**
-  * Desc:
+  * Desc: registers an account by using the parameters for account information
   * @param: user - username
   * @param: birthDate - date of birth
   * @param: pass - password
   * @param: name - full name
-  * @param: email
+  * @param: email - email
   * @param: typeSQL
   * @throws: ClassNotFoundException
   * @throws: SQLException
@@ -115,12 +114,12 @@ abstract class Credentials {
   }
 
   /**
-  * Desc:
-  * @param: newName
-  * @param: newPassword
-  * @param: newWEmail
-  * @param: newBirthDate
-  * @param: userName
+  * Desc: updates an account's information
+  * @param: newName - updated full name
+  * @param: newPassword - updated password
+  * @param: newWEmail - updated email
+  * @param: newBirthDate - updated DOB
+  * @param: userName - updated username
   * @param: typeSQL
   * @param: updateStatus
   * @throws: ClassNotFoundException
