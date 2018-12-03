@@ -16,6 +16,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
+/**
+ * Desc: controller class for the search scene
+ */
+
 public class SearchController {
   // intended to set map location from previous screen on startup. Flagged false
   private boolean isNewInstance = true;
@@ -40,18 +44,38 @@ public class SearchController {
   private AnchorPane hotelList;
 
   //Side panel buttons
+  
+  /**
+   * Desc: goes to dashboard scene
+   * @param: event - ActionEvent from the button
+   * @throws exception
+   */
   public void dashboard(ActionEvent event) throws Exception {
     Navigator.dashboard(event);
   }
 
+  /**
+   * Desc: goes to myAccount scene
+   * @param: event - ActionEvent from the button
+   * @throws exception
+   */
   public void myAccount(ActionEvent event) throws Exception {
     Navigator.myAccount(event);
   }
 
+  /**
+   * Desc: goes to logout scene
+   * @param: event - ActionEvent from the button
+   * @throws exception
+   */
   public void logout(ActionEvent event) throws Exception {
     Navigator.logout(event);
   }
 
+  /**
+   * Desc: intialize the scene by creating a map manager and creating images. Checks for new
+   *       instance and sets map location accordingly.
+   */
   public void initialize() {
     MapManager mapManager = new MapManager();
 
@@ -83,6 +107,10 @@ public class SearchController {
     sortList();
   }
 
+  /**
+   * Desc: sorts the hotel list by price. Every pass the list must be redrawn, so creates all objects
+   *       comprising each entry in the list using data pulled from hotelsToDisplay in mapManager
+   */
   private void sortList() {
     //clear any children on the list
     hotelList.getChildren().removeAll();
@@ -199,11 +227,19 @@ public class SearchController {
     mapBox.getChildren().add(mapPane);
   }
 
+  /**
+   * Desc: sets lowToHigh to true and calls sortList
+   * @param: lowToHigh - boolean controlling sorting scheme for list
+   */
   public void setLowToHigh() {
     isLowToHigh = true;
     sortList();
   }
 
+  /**
+   * Desc: sets lowToHigh to false and calls sortList
+   * @param: lowToHigh - boolean controlling sorting scheme for list
+   */
   public void setHighToLow() {
     isLowToHigh = false;
     sortList();

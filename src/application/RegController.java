@@ -10,6 +10,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.paint.Paint;
 
+/**
+ * Desc: controller for the register screen
+ */
+
 public class RegController extends Credentials {
 
   @FXML
@@ -43,12 +47,22 @@ public class RegController extends Credentials {
   @FXML
   private ToggleGroup registerType;
 
+  /**
+   * Desc: registers the user
+   * @param: event - the ActionEvent from the button
+   * @throws: Exception
+   */
   public void register(ActionEvent event) throws Exception {
     createHotelSearcher(event);
   }
 
+  /**
+   * Desc: creates a hotel searcher. Contains regex functionality to
+   *       ensure the user inputs proper naming conventions
+   * @param: event - the ActionEvent from the button
+   * @throws: Exception
+   */
   private void createHotelSearcher(ActionEvent event) throws Exception {
-
     String name = txtFullName.getText();
     String user = txtUserName.getText();
     String pass = txtPassword.getText();
@@ -97,7 +111,11 @@ public class RegController extends Credentials {
     }
   }
 
-   @FXML
+  /**
+   * Desc: goes to the login scene.
+   * @param: event - the ActionEvent from the button
+   * @throws: Exception
+   */
    private void login(ActionEvent event) throws Exception {
     Navigator.logout(event);
   }

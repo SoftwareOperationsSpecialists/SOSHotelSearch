@@ -12,6 +12,9 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
+/**
+* Desc: allows the user to edit account information.
+*/
 public class MyAccountController extends Credentials implements Initializable {
 
     @FXML
@@ -28,7 +31,10 @@ public class MyAccountController extends Credentials implements Initializable {
     @FXML
     private Label updateStatus;
 
-    //function that will edit the information
+    /**
+    * Desc: edits the full name, password, email, and date of birth
+    *   tied to the account.
+    */
     public void editInformation() {
 
         String newName = txtFullName.getText();
@@ -36,18 +42,22 @@ public class MyAccountController extends Credentials implements Initializable {
         String newEmail = txtEmail.getText();
         String newBirthDate = txtDOB.getText();
 
+        //checks the validity of the full name.
         if (validFullNamePattern(txtFullName.getText())) {
             updateStatus.setText("Invalid name input!");
             updateStatus.setTextFill(Paint.valueOf("red"));
 
+        //checks the validity of the password.
         } else if (validPSWDPattern(txtPassword.getText())) {
             updateStatus.setText("Password must not contain special characters!");
             updateStatus.setTextFill(Paint.valueOf("red"));
 
+        //checks the validity of the email address.
         } else if (validEmailPattern(txtEmail.getText())) {
             updateStatus.setText("Must be a valid email address!");
             updateStatus.setTextFill(Paint.valueOf("red"));
 
+       //checks the validity of the date of birth.
         } else if (validDOBPattern(txtDOB.getText())) {
             updateStatus.setText("DOB Pattern: MM/DD/YYYY");
             updateStatus.setTextFill(Paint.valueOf("red"));
@@ -65,22 +75,44 @@ public class MyAccountController extends Credentials implements Initializable {
     }
 
     //Side panel buttons
+    
+    /**
+    * Desc: goes to the dashboard scene.
+    * @param: event
+    */
     public void dashboard(ActionEvent event) throws Exception {
         Navigator.dashboard(event);
     }
 
+    /**
+    * Desc: goes to the saved hotels scene.
+    * @param: event
+    */
     public void savedHotels(ActionEvent event) throws Exception {
         Navigator.savedHotels(event);
     }
 
+    /**
+    * Desc: goes to the reservations scene.
+    * @param: event
+    */
     public void reservation(ActionEvent event) throws Exception {
         Navigator.reservation(event);
     }
 
+    /**
+    * Desc: goes to the login scene.
+    * @param: event
+    */
     public void logout(ActionEvent event) throws Exception {
         Navigator.logout(event);
     }
 
+    /**
+    * Desc: loads the text for the username and password.
+    * @param: location
+    * @param: resources
+    */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         txtUserName.setText(LogInController.getClientPassword());
@@ -94,6 +126,10 @@ public class MyAccountController extends Credentials implements Initializable {
         }
     }
 
+    /**
+    * Desc: gets the fullname, email, and date of birth
+    * @param: accTypeSQL - account type
+    */
     private void getAccountData(String accTypeSQL){
         Statement grabInfo = null;
         try {

@@ -3,6 +3,9 @@ package application;
 
 import java.time.LocalDate;
 
+/**
+* Desc: allows the user to make a reservation
+*/
 public class Reservation {
     private Hotel hotel;
     private LocalDate checkInDate;
@@ -11,6 +14,14 @@ public class Reservation {
     private int numberOfNights;
     private int finalCost;
 
+    /**
+    * Desc: sets the hotel, check-in date, check-out date, and number of rooms
+    *   for the current reservation, and calculates the final cost.
+    * @param: hotel
+    * @param: checkInDate
+    * @param: checkOutDate
+    * @param: numberOfRooms
+    */
     public Reservation(Hotel hotel, LocalDate checkInDate,
                 LocalDate checkOutDate, int numberOfRooms) {
 
@@ -22,46 +33,93 @@ public class Reservation {
         this.finalCost = hotel.getPrice() * numberOfRooms * numberOfNights;
     }
 
+    /**
+    * Desc: gets the current hotel.
+    * @return: hotel - the current hotel
+    */
     public Hotel getHotel() {
         return hotel;
     }
 
+    /**
+    * Desc: sets the hotel for the reservation.
+    * @param: hotel - the current hotel
+    */
     public void setHotel(Hotel hotel) {
         this.hotel = hotel;
     }
 
+    /**
+    * Desc: gets the check-in date.
+    * @return: checkInDate - check-in date
+    */
     public LocalDate getCheckInDate() {
         return checkInDate;
     }
 
+    /**
+    * Desc: sets the check-in date.
+    * @param: checkInDate - check-in date
+    */
     public void setCheckInDate(LocalDate checkInDate) {
         this.checkInDate = checkInDate;
     }
 
+    /**
+    * Desc: gets the check-out date.
+    * @return: checkOutDate - check-out date
+    */
     public LocalDate getCheckOutDate() {
         return checkOutDate;
     }
 
+    /**
+    * Desc: sets the check-out date.
+    * @param: checkOutDate - check-out date
+    */
     public void setCheckOutDate(LocalDate checkOutDate) {
         this.checkOutDate = checkOutDate;
     }
-
+    
+    /**
+    * Desc: gets the number of rooms.
+    * @return: numberOfRooms - numberOfRooms
+    */
     public int getNumberOfRooms() {
         return numberOfRooms;
     }
 
+    /**
+    * Desc: sets the number of rooms.
+    * @param: numberOfRooms - number of rooms.
+    */
     public void setNumberOfRooms(int numberOfRooms) {
         this.numberOfRooms = numberOfRooms;
     }
 
+    /**
+    * Desc: calculates the number of nights by finding the difference
+    *   between the check-in date and check-out date.
+    * @param: date1 - check-in date
+    * @param: date2 - check-out date
+    */
     public void setNumberOfNights(LocalDate date1, LocalDate date2) {
         this.numberOfNights = Math.abs(date1.compareTo(date2));
     }
 
+    /**
+    * Desc: gets the number of nights.
+    * @return: numberOfNights - the difference between the check-in date
+    *   and check-out date
+    */
     public int getNumberOfNights() {
         return this.numberOfNights;
     }
 
+    /**
+    * Desc: gets the check-in date.
+    * @param: checkInDate - check-in date
+    */
     public int getFinalCost() {
         return finalCost;
     }
