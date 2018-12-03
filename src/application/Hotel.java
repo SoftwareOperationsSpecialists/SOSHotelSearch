@@ -5,7 +5,7 @@ package application;
  */
 
 public class Hotel implements Comparable<Hotel>{
-  private int hotelId;
+  private String hotelId;
   private String name;
   private double stars;
   private String city;
@@ -30,7 +30,7 @@ public class Hotel implements Comparable<Hotel>{
    */
   public Hotel(int hotelId, String name, double stars, String city, String countryCode, String countryName, double lat,
                double lng, int price) {
-    this.hotelId = hotelId;
+    this.hotelId = Integer.toString(hotelId);
     this.name = name;
     this.stars = stars;
     this.city = city;
@@ -45,15 +45,15 @@ public class Hotel implements Comparable<Hotel>{
    * Desc: sets the hotel ID
    * @param: id - the hotel id in the database
    */
-  public void setHotelId(int id) { 
-    this.hotelId = id; 
+  public void setHotelId(int id) {
+    this.hotelId = Integer.toString(id);
   }
 
   /**
    * Desc: gets the hotel ID
    * @return: hoteldId - the hotel ID number
    */
-  public int getHotelId() { 
+  public String getHotelId() {
     return hotelId; 
   }
 

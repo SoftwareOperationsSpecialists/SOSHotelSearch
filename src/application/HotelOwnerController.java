@@ -69,7 +69,7 @@ public class HotelOwnerController implements Initializable {
         + "sos.reservations.checkout, sos.hotel.rooms"
         + " FROM sos.hotel INNER JOIN "
         + "sos.reservations ON sos.reservations.HOTEL_ID=sos.hotel.id";
-    try (Connection connection = DriverManager.getConnection(Credentials.url);
+    try (Connection connection = DriverManager.getConnection(Credentials.getUrl());
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(JOIN_RECIPES)) {
 

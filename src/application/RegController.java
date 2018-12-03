@@ -94,7 +94,7 @@ public class RegController extends Credentials {
 
     } else if (selectedRadioButton == regSearcherBtn) {
       try {
-          registerClient(user, birthDate, pass, name, email, searcherSql);
+          registerClient(user, birthDate, pass, name, email, Credentials.getSearcherSql());
         login(event);
 
       } catch (SQLException | ClassNotFoundException e) {
@@ -102,7 +102,7 @@ public class RegController extends Credentials {
       }
     } else if (selectedRadioButton == regOwnerBtn) {
       try {
-        registerClient(user, birthDate, pass, name, email, ownerSql);
+        registerClient(user, birthDate, pass, name, email, Credentials.getOwnerSql());
         login(event);
 
       } catch (ClassNotFoundException | SQLException e) {

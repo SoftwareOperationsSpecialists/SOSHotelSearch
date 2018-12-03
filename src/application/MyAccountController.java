@@ -83,15 +83,7 @@ public class MyAccountController extends Credentials implements Initializable {
     public void dashboard(ActionEvent event) throws Exception {
         Navigator.dashboard(event);
     }
-
-    /**
-    * Desc: goes to the saved hotels scene.
-    * @param: event
-    */
-    public void savedHotels(ActionEvent event) throws Exception {
-        Navigator.savedHotels(event);
-    }
-
+    
     /**
     * Desc: goes to the reservations scene.
     * @param: event

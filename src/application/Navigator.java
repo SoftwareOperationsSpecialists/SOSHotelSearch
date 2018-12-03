@@ -42,7 +42,16 @@ public class Navigator {
     window.setScene(hotelInfoScene);
     window.show();
   }
+  static void hotelInfo(ActionEvent event) throws Exception {
+    HotelController hotelController = new HotelController();
 
+    Parent HotelInfo = FXMLLoader.load(Navigator.class.getResource("Hotel.fxml"));
+    Scene hotelInfoScene = new Scene(HotelInfo);
+
+    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    window.setScene(hotelInfoScene);
+    window.show();
+  }
   /**
    * Desc: goes to the logout scene.
    * @param: event - the ActionEvent from the button

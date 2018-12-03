@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import java.lang.Integer?>
 <AnchorPane prefHeight="502.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ReviewsController">
   <children>
   <AnchorPane prefHeight="53.0" prefWidth="959.0" style="-fx-background-color: #1b9dc1;">
@@ -30,7 +31,7 @@
   </AnchorPane>
   <AnchorPane layoutX="4.0" layoutY="369.0" minHeight="0.0" minWidth="0.0" prefHeight="133.0" prefWidth="952.0">
     <children>
-      <TextField fx:id="review" alignment="TOP_LEFT" layoutX="4.0" layoutY="14.0" prefHeight="79.0" prefWidth="942.0" promptText="Please enter Review here" />
+      <TextField fx:id="Review" alignment="TOP_LEFT" layoutX="4.0" layoutY="14.0" prefHeight="79.0" prefWidth="942.0" promptText="Please enter Review here" />
       <Button layoutX="892.0" layoutY="100.0" mnemonicParsing="false" onAction="#submitButton" stylesheets="@style.css" text="Submit" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -39,11 +40,11 @@
       <ChoiceBox fx:id="userRating" layoutX="180.0" layoutY="100.0" prefHeight="25.0" prefWidth="54.0" stylesheets="@style.css">
         <items>
           <FXCollections fx:factory="observableArrayList">
-            <String fx:value="1" />
-            <String fx:value="2" />
-            <String fx:value="3" />
-            <String fx:value="4" />
-            <String fx:value="5" />
+            <Integer fx:value="1" />
+            <Integer fx:value="2" />
+            <Integer fx:value="3" />
+            <Integer fx:value="4" />
+            <Integer fx:value="5" />
 
           </FXCollections>
         </items>
