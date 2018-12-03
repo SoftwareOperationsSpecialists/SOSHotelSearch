@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 /**
 * Desc: verifies the validity of the information the user
-*   uses to create their account.
+*       uses to create their account.
 */
 abstract class Credentials {
 
@@ -43,7 +43,7 @@ abstract class Credentials {
   /**
   * Desc: checks validity of the password
   * @param: password - the password being used for the account
-  * @return: bool
+  * @return: true if password is valid
   */
   boolean validPSWDPattern(String password) {
     return !passwordPattern.matcher(password).matches();
@@ -52,7 +52,7 @@ abstract class Credentials {
   /**
   * Desc: checks validity of the full name
   * @param: fullName - the full name being used for the account
-  * @return: bool
+  * @return: true if full name is valid
   */
   boolean validFullNamePattern(String fullName) {
     return !fullNamePattern.matcher(fullName).matches();
@@ -61,7 +61,7 @@ abstract class Credentials {
   /**
   * Desc: checks validity of the username
   * @param: username - the username being for the account
-  * @return: bool
+  * @return: true if username is valid
   */
   boolean validUserNamePattern(String userName) {
     return userNamePattern.matcher(userName).matches();
@@ -70,7 +70,7 @@ abstract class Credentials {
    /**
   * Desc: checks validity of the email
   * @param: email - the email being used for the account
-  * @return: bool
+  * @return: true if email is valid
   */
   boolean validEmailPattern(String email) {
     return !emailPattern.matcher(email).matches();
@@ -79,7 +79,7 @@ abstract class Credentials {
   /**
   * Desc: checks validity of the date of birth
   * @param: dob - the date of birth used for the account
-  * @return: bool
+  * @return: true if DOB is valid
   */
   boolean validDOBPattern(String dob) {
     return !dobPattern.matcher(dob).matches();
@@ -121,7 +121,7 @@ abstract class Credentials {
   * @param: newBirthDate - updated DOB
   * @param: userName - updated username
   * @param: typeSQL
-  * @param: updateStatus
+  * @param: updateStatus - tells user when updated
   * @throws: ClassNotFoundException
   * @throws: SQLException
   */
@@ -143,46 +143,90 @@ abstract class Credentials {
     loginConnection.close();
   }
 
+  /**
+  * Desc: gets url to database
+  * @return: url to access database
+  */
   public static String getUrl() {
     return url;
   }
 
+  /**
+  * Desc: gets the client's username
+  * @return: clientUsername - the username of the client
+  */
   public static String getClientUsername() {
     return clientUsername;
   }
 
+  /**
+  * Desc: sets the client's username
+  * @param: thisClientUsername - the username of this client
+  */
   public static void setClientUsername(String thisClientUsername) {
     clientUsername = thisClientUsername;
   }
 
+  /**
+  * Desc: gets the client's password
+  * @return: clientPassword - the client's password
+  */
   public static String getClientPassword() {
     return clientPassword;
   }
 
+  /**
+  * Desc: sets the client's password
+  * @param: thisClientPassword - the password of the client
+  */
   public static void setClientPassword(String thisClientPassword) {
     clientPassword = thisClientPassword;
   }
 
+  /**
+  * Desc: gets whether the user is a searcher
+  * @return: isSearcher - true if searcher
+  */
   public static boolean getIsSearcher() {
     return isSearcher;
   }
 
+  /**
+  * Desc: sets user as a searcher
+  * @param: thisIsSearcher - true if searcher
+  */
   public static void setIsSearcher(boolean thisIsSearcher) {
     isSearcher = thisIsSearcher;
   }
 
+  /**
+  * Desc: gets driver
+  * @return: driver
+  */
   public static String getDriver() {
     return driver;
   }
 
+  /**
+  * Desc: gets updated SQL
+  * @return: updateSQL - the updated SQL
+  */
   public static String getUpdateSQL() {
     return updateSQL;
   }
 
+  /**
+  * Desc: gets searcher SQL
+  * @return: searcherSql - the hotel searcher SQL data
+  */
   public static String getSearcherSql() {
     return searcherSql;
   }
 
+  /**
+  * Desc: gets owner SQL
+  * @return: ownerSql - the hotel owner SQL data
+  */
   public static String getOwnerSql() {
     return ownerSql;
   }
