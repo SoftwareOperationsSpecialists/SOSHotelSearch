@@ -9,7 +9,6 @@ import java.util.regex.Pattern;
 /**
 * Desc: verifies the validity of the information the user
 *   uses to create their account.
-*
 */
 abstract class Credentials {
 
@@ -22,18 +21,18 @@ abstract class Credentials {
   private static final String dobREGEX = "^(([1-9])|(0[1-9])|(1[0-2]))(([0-9])|([0-2][0-9])|"
                                          + "(3[0-1]))(([0-9][0-9])|([1-2][0,9][0-9][0-9]))$";
 
-  static final String searcherSql = "INSERT INTO SOS.SEARCHER VALUES(?,?,?,?,?)";
-  static final String ownerSql = "INSERT INTO SOS.OWNER VALUES(?,?,?,?,?)";
-  static final String updateSQL = "UPDATE SOS.SEARCHER SET NAME = ?, PASSWORD = ?, EMAIL = ?, "
+  private static final String searcherSql = "INSERT INTO SOS.SEARCHER VALUES(?,?,?,?,?)";
+  private static final String ownerSql = "INSERT INTO SOS.OWNER VALUES(?,?,?,?,?)";
+  private static final String updateSQL = "UPDATE SOS.SEARCHER SET NAME = ?, PASSWORD = ?, EMAIL = ?, "
                                   + "DOB = ? WHERE USERNAME = ?";
 
 
-  static final String url = "jdbc:derby:lib/SOSHotelAccountDB";
-  static final String driver = "org.apache.derby.jdbc.EmbeddedDriver";
+  private static final String url = "jdbc:derby:lib/SOSHotelAccountDB";
+  private static final String driver = "org.apache.derby.jdbc.EmbeddedDriver";
 
   static String clientUsername;
-  static String clientPassword;
-  static boolean isSearcher = false;
+  private static String clientPassword;
+  private static boolean isSearcher = false;
 
   private final Pattern passwordPattern = Pattern.compile(passwordREGEX);
   private final Pattern fullNamePattern = Pattern.compile(fullNameREGEX);
@@ -87,12 +86,12 @@ abstract class Credentials {
   }
 
   /**
-  * Desc:
+  * Desc: registers an account by using the parameters for account information
   * @param: user - username
   * @param: birthDate - date of birth
   * @param: pass - password
   * @param: name - full name
-  * @param: email
+  * @param: email - email
   * @param: typeSQL
   * @throws: ClassNotFoundException
   * @throws: SQLException
@@ -115,12 +114,12 @@ abstract class Credentials {
   }
 
   /**
-  * Desc:
-  * @param: newName
-  * @param: newPassword
-  * @param: newWEmail
-  * @param: newBirthDate
-  * @param: userName
+  * Desc: updates an account's information
+  * @param: newName - updated full name
+  * @param: newPassword - updated password
+  * @param: newWEmail - updated email
+  * @param: newBirthDate - updated DOB
+  * @param: userName - updated username
   * @param: typeSQL
   * @param: updateStatus
   * @throws: ClassNotFoundException
@@ -142,5 +141,41 @@ abstract class Credentials {
     updateStatus.setTextFill(Paint.valueOf("green"));
     update.close();
     loginConnection.close();
+  }
+
+  public static String getUrl() {
+    return url;
+  }
+
+  public static String getClientUsername() {
+    return clientUsername;
+  }
+
+  public static void setClientUsername(String thisClientUsername) {
+    clientUsername = thisClientUsername;
+  }
+
+  public static String getClientPassword() {
+    return clientPassword;
+  }
+
+  public static void setClientPassword(String thisClientPassword) {
+    clientPassword = thisClientPassword;
+  }
+
+  public static boolean getIsSearcher() {
+    return isSearcher;
+  }
+
+  public static void setIsSearcher(boolean thisIsSearcher) {
+    isSearcher = thisIsSearcher;
+  }
+
+  public static String getDriver() {
+    return driver;
+  }
+
+  public static String getUpdateSQL() {
+    return updateSQL;
   }
 }

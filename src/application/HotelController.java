@@ -35,7 +35,7 @@ public class HotelController {
   private static Reservation reservation;
   private int id;
   private String GET_ID = "SELECT USER_ID FROM SOS.SEARCHER WHERE USERNAME ="
-      + LogInController.clientUsername;
+      + LogInController.getClientUsername();
 
   public void initialize(){
     images.add(new Image("application/hotelpics/holiday-inn-the-colony-4629618286-16x5.jpg"));
@@ -82,7 +82,7 @@ public class HotelController {
    * @throws Exception
    */
   public void bookItButton(ActionEvent event) throws Exception {
-    try (Connection conn = DriverManager.getConnection(Credentials.url);
+    try (Connection conn = DriverManager.getConnection(Credentials.getUrl());
         Statement stmt = conn.createStatement();
         ResultSet resultSet = stmt.executeQuery(GET_ID)) {
       resultSet.next();
@@ -108,7 +108,7 @@ public class HotelController {
 
         String insert_hotel = "INSERT INTO SOS.HOTEL (ID, NAME, PRICE, RATING, LOCATION, ROOMS) VALUES('"+id+"','"+bookedHotelName+"',"+bookedHotelPrice+","+rating+",'"+location+"',"+rooms+")";
     try {
-      Connection connection = DriverManager.getConnection(Credentials.url);
+      Connection connection = DriverManager.getConnection(Credentials.getUrl());
       PreparedStatement insertReservation = connection.prepareStatement(insert_reservation);
       PreparedStatement insertHotel = connection.prepareStatement(insert_hotel);
       insertReservation.executeUpdate();
