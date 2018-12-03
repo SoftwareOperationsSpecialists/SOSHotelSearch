@@ -9,8 +9,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import java.util.ArrayList;
 
-/**
- *
+  /**
+ * Desc: displays information for specific hotels, and allows user
+ *    to book the hotel, look at reviews, and view photos
  */
 
 public class HotelController {
@@ -37,6 +38,9 @@ public class HotelController {
   private String GET_ID = "SELECT USER_ID FROM SOS.SEARCHER WHERE USERNAME ="
       + LogInController.getClientUsername();
 
+  /**
+  * desc: loads the name, location, stars, price, and images for the hotel
+  */
   public void initialize(){
     images.add(new Image("application/hotelpics/holiday-inn-the-colony-4629618286-16x5.jpg"));
     images.add(new Image("application/hotelpics/room.jpg"));
@@ -50,7 +54,7 @@ public class HotelController {
   }
 
   /**
-   *
+   *  Desc: goes to the dashboard scene
    * @param event
    * @throws Exception
    */
@@ -59,7 +63,7 @@ public class HotelController {
   }
 
   /**
-   *
+   * Desc: goes to the login scene
    * @param event
    * @throws Exception
    */
@@ -67,8 +71,8 @@ public class HotelController {
     Navigator.logout(event);
   }
 
-  /**
-   *
+   /**
+   * Desc: goes to the my account scene
    * @param event
    * @throws Exception
    */
@@ -76,8 +80,8 @@ public class HotelController {
     Navigator.myAccount(event);
   }
 
-  /**
-   *
+    /**
+   * Desc: makes a reservation and goes to the payment scene
    * @param event
    * @throws Exception
    */
@@ -120,7 +124,7 @@ public class HotelController {
   }
 
   /**
-   *
+   * Desc: goes to the reviews scene
    * @param event
    * @throws Exception
    */
@@ -129,7 +133,7 @@ public class HotelController {
   }
 
   /**
-   *
+   * Desc: allows user to view the next hotel image
    */
   public void NextImage(){
     try {
@@ -142,7 +146,7 @@ public class HotelController {
   }
 
   /**
-   *
+   * Desc: allows user to view the previous hotel image
    */
   public void PreviousImage(){
     try {
@@ -155,7 +159,7 @@ public class HotelController {
   }
 
   /**
-   *
+   * Desc: sets the hotel to the current hotel
    * @param thisHotel
    */
   public static void setHotel(Hotel thisHotel) {
@@ -163,15 +167,15 @@ public class HotelController {
   }
 
   /**
-   *
-   * @return
+   * Desc: gets the current hotel
+   * @return: hotel - the hotel being viewed
    */
   public static Hotel getHotel() {
     return hotel;
   }
 
   /**
-   *
+   * Desc: sets the reservation to the current one
    * @param thisReservation
    */
   public static void setReservation(Reservation thisReservation) {
@@ -179,8 +183,8 @@ public class HotelController {
   }
 
   /**
-   *
-   * @return
+   * Desc: gets the reservation
+   * @return: reservation - the current reservation
    */
   public static Reservation getReservation() {
     return reservation;
