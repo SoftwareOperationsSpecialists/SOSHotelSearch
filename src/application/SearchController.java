@@ -77,6 +77,7 @@ public class SearchController {
   public void initialize() {
     MapManager mapManager = new MapManager();
 
+    //hotel thumbnails
     images.add(new Image("application/hotelthumbs/La-Quinta.jpg"));
     images.add(new Image("application/hotelthumbs/holiday-inn-the-colony-4629618286-4x3.jpeg"));
     images.add(new Image("application/hotelthumbs/hotel1.jpg"));
@@ -89,13 +90,15 @@ public class SearchController {
     hotels = mapManager.getHotelsToDisplay();
 
     if (isNewInstance) {
+      //if searching from the dashboard, gets location from dashboard location field
       mapManager.setAddress(DashController.getLocation());
     } else {
+      //if searching from the search screen, gets location from searchbar
       mapManager.setAddress(searchBar.getText());
     }
 
-    isNewInstance = false;
-    mapManager.createMap();
+    isNewInstance = false;    //done pulling information from the dashboard
+    mapManager.createMap();   //creates map
 
     if (!mapManager.getErrorStatus()) {
       mapPane.getChildren().clear();
@@ -144,8 +147,9 @@ public class SearchController {
       Text rating = new Text("User rating: 4/5");
       Text price = new Text("$" + hotel.getPrice());
 
-      price.setFill(Paint.valueOf("#1b9dc1"));
+      price.setFill(Paint.valueOf("#1b9dc1"));  //color of price
 
+      //set hotel info
       hotelName.setText(name.getText());
       hotelStars.setText(stars.getText());
       hotelRating.setText(rating.getText());
@@ -158,28 +162,34 @@ public class SearchController {
       int yPadding = 17;
       int hotelPriceOffset = 100;
 
+      //font sizes
       Font hotelNameFont = new Font(14);
       Font hotelStarsFont = new Font(12);
       Font hotelRatingFont = new Font(16);
       Font hotelPriceFont = new Font(30);
 
+      //hotel name
       hotelName.setLayoutX(baseXOffset);
       hotelName.setLayoutY(baseYOffset);
       hotelName.setFont(hotelNameFont);
       hotelName.setMaxWidth(450);
 
+      //stars
       hotelStars.setLayoutX(baseXOffset);
       hotelStars.setLayoutY(hotelName.getLayoutY() + yPadding);
       hotelStars.setFont(hotelStarsFont);
 
+      //rating
       hotelRating.setLayoutX(baseXOffset);
       hotelRating.setLayoutY(hotelStars.getLayoutY() + yPadding);
       hotelRating.setFont(hotelRatingFont);
 
+      //price
       hotelPrice.setLayoutX(baseXOffset + hotelPriceOffset);
       hotelPrice.setLayoutY(hotelRating.getLayoutY() + yPadding);
       hotelPrice.setFont(hotelPriceFont);
 
+      //info button
       infoButton.setOpacity(0); // make button invisible
       infoButton.setLayoutX(hotelImage.getLayoutX());
       infoButton.setLayoutY(hotelImage.getLayoutY());
