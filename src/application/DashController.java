@@ -17,26 +17,28 @@ import java.util.ResourceBundle;
 
 /**
 * Desc: allows user to start a search by entering location,
-*   check-in date, check-out date, and number of rooms
+*       check-in date, check-out date, and number of rooms
 */
 public class DashController implements Initializable {
   @FXML
-  private TextField searchBar;
-  private static String location;
+  private TextField searchBar;        //searchbar where location is to be entered
+  private static String location;     //location
 
   @FXML
-  private DatePicker checkInDate;
+  private DatePicker checkInDate;     //check-in date
   @FXML
-  private DatePicker checkOutDate;
+  private DatePicker checkOutDate;    //check-out date
 
   @FXML
-  private Label searchStatus;
+  private Label searchStatus;         //notifies the user if they try to search without
+                                      //    filling in all required fields
   @FXML
-  private Spinner roomCount;
+  private Spinner roomCount;          //spinner for number of rooms
 
   @FXML
   private ProgressIndicator indicator;
 
+  //allows user to increase/decrease the number of rooms
   private SpinnerValueFactory<Integer> roomCountFactory = new IntegerSpinnerValueFactory(0, 9, 1);
   private static LocalDate userCheckInDate;
   private static LocalDate userCheckOutDate;
@@ -44,13 +46,15 @@ public class DashController implements Initializable {
 
   //Side Panel buttons
   /**
-  * goes to my account scene
+  * Desc: goes to my account scene
+  * @param: event - the ActionEvent from the button
   */
   public void MyAccount(ActionEvent event) throws Exception {
     Navigator.myAccount(event);
   }
   /**
-  * goes to logout scene
+  * Desc: goes to login scene
+  * @param: event - the ActionEvent from the button
   */
   public void logout(ActionEvent event) throws Exception {
     Navigator.logout(event);
@@ -58,21 +62,27 @@ public class DashController implements Initializable {
 
   /**
   * Desc: performs a search by getting the location from the searchbar
-  *   when the user clicks the search button
+  *       if all required fields are filled in. If they are not filled
+  *       in, it will notify the user with a message.
+  * @param: event - the ActionEvent from the button
   */
   public void search(ActionEvent event) throws Exception {
     location = searchBar.getText();
 
+    //checks if a location was not entered
     if (location.isEmpty()) {
       searchStatus.setText("Please enter a location.");
 
+    //checks if check-in date or check-in date were not entered
     } else if (checkInDate.getValue() == null || checkOutDate.getValue() == null) {
       searchStatus.setText("Please select check-in and check-out dates.");
 
+    //checks if check-out date is later than check-in date
     } else if (checkInDate.getValue().compareTo(checkOutDate.getValue()) > 0 ||
                checkInDate.getValue().isBefore(LocalDate.now())) {
         searchStatus.setText("Please select valid check-in and check-out dates.");
-    } else {
+    //all information was entered, goes to map scene
+    } else {  
       // setup a new task for UI thread to run while loading the new scene
       Task<Parent> loadAnimation = new Task<Parent>() {
         @Override
@@ -90,20 +100,20 @@ public class DashController implements Initializable {
       loadAnimation.setOnSucceeded(successEvent -> {
         indicator.setVisible(false);
         searchStatus.setVisible(true);
-        MapManager mapManager = new MapManager();
-        mapManager.setAddress(location);                // sets map location
-        mapManager.createMap();                         // creates map
-        userCheckInDate = checkInDate.getValue();       // gets check-in date
-        userCheckOutDate = checkOutDate.getValue();     // gets check-out date
-        numOfRooms = (int) roomCount.getValue();        // gets number of rooms
+        MapManager mapManager = new MapManager();       //creates mapManager
+        mapManager.setAddress(location);                //sets map location
+        mapManager.createMap();                         //mapManager creates map
+        userCheckInDate = checkInDate.getValue();       //gets check-in date
+        userCheckOutDate = checkOutDate.getValue();     //gets check-out date
+        numOfRooms = (int) roomCount.getValue();        //gets number of rooms
 
         //checks for error
         if (mapManager.getErrorStatus()) {
-          searchStatus.setText(mapManager.getError());
+          searchStatus.setText(mapManager.getError());  //if error, write message
         } else {
-          searchStatus.setVisible(false);
+          searchStatus.setVisible(false);               //no error
           try {
-            Navigator.search(event);                      // go to search screen
+            Navigator.search(event);                    //go to search screen
           } catch (Exception e) {
             e.printStackTrace();
           }
@@ -119,7 +129,7 @@ public class DashController implements Initializable {
 
   /**
   * Desc: gets the location from the dashboard searchbar
-  * @return: location
+  * @return: location - location the user entered in the searchbar
   */
   public static String getLocation() {
     return location;
@@ -127,7 +137,7 @@ public class DashController implements Initializable {
 
   /**
   * Desc: gets the check-in date the user picked from the calendar
-  * @return: userCheckInDate
+  * @return: userCheckInDate - the date the user chose to check-in to the hotel
   */
   static LocalDate getUserCheckInDate() {
     return userCheckInDate;
@@ -135,7 +145,7 @@ public class DashController implements Initializable {
 
   /**
   * Desc: gets the check-out date the user picked from the calendar
-  * @return: userCheckOutDate
+  * @return: userCheckOutDate - the date the user chose to check-out from the hotel
   */
   static LocalDate getUserCheckOutDate() {
     return userCheckOutDate;
@@ -143,7 +153,7 @@ public class DashController implements Initializable {
 
   /**
   * Desc: gets the number of rooms the user chose from the dashboard
-  * @return: numOfRooms
+  * @return: numOfRooms - the number of rooms the user selected
   */
   static int getNumOfRooms() {
     return numOfRooms;
@@ -158,6 +168,8 @@ public class DashController implements Initializable {
 
   /**
   * Desc: loads the current room count set by the user
+  * @param: location
+  * @param: resources
   */
   @Override
   public void initialize(URL location, ResourceBundle resources) {
