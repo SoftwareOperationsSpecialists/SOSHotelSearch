@@ -29,7 +29,7 @@ public class ReviewsController {
   Integer rating;
 
   String URL = Credentials.getUrl();
-  String hotelID = Integer.toString(HotelController.getHotel().getHotelId());
+  String hotelID = Integer.toString(Integer.parseInt(HotelController.getHotel().getHotelId()));
 
 
   String check_For_Table_SQL = " SELECT USERNAME FROM REVIEW." + hotelID;
