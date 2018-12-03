@@ -13,7 +13,7 @@ import java.sql.*;
 import java.util.ResourceBundle;
 
 /**
-* Desc: allows the user to edit account information.
+* Desc: allows the user to edit account information
 */
 public class MyAccountController extends Credentials implements Initializable {
 
@@ -33,37 +33,38 @@ public class MyAccountController extends Credentials implements Initializable {
 
     /**
     * Desc: edits the full name, password, email, and date of birth
-    *   tied to the account.
+    *       tied to the account
     */
     public void editInformation() {
 
-        String newName = txtFullName.getText();
-        String newPassword = txtPassword.getText();
-        String newEmail = txtEmail.getText();
-        String newBirthDate = txtDOB.getText();
+        String newName = txtFullName.getText();     //updates new name
+        String newPassword = txtPassword.getText(); //updates new password
+        String newEmail = txtEmail.getText();       //updates new email
+        String newBirthDate = txtDOB.getText();     //updates new date of birth
 
-        //checks the validity of the full name.
+        //checks the validity of the full name
         if (validFullNamePattern(txtFullName.getText())) {
             updateStatus.setText("Invalid name input!");
             updateStatus.setTextFill(Paint.valueOf("red"));
 
-        //checks the validity of the password.
+        //checks the validity of the password
         } else if (validPSWDPattern(txtPassword.getText())) {
             updateStatus.setText("Password must not contain special characters!");
             updateStatus.setTextFill(Paint.valueOf("red"));
 
-        //checks the validity of the email address.
+        //checks the validity of the email address
         } else if (validEmailPattern(txtEmail.getText())) {
             updateStatus.setText("Must be a valid email address!");
             updateStatus.setTextFill(Paint.valueOf("red"));
 
-       //checks the validity of the date of birth.
+       //checks the validity of the date of birth
         } else if (validDOBPattern(txtDOB.getText())) {
             updateStatus.setText("DOB Pattern: MM/DD/YYYY");
             updateStatus.setTextFill(Paint.valueOf("red"));
 
         } else {
             try {
+                //update username and info
                 String username = txtUserName.getText();
                 update(newName, newPassword, newEmail, newBirthDate, username,
                         LogInController.getUpdateSQL(), updateStatus);
@@ -77,31 +78,34 @@ public class MyAccountController extends Credentials implements Initializable {
     //Side panel buttons
     
     /**
-    * Desc: goes to the dashboard scene.
-    * @param: event
+    * Desc: goes to the dashboard scene
+    * @param: event - the ActionEvent for the button
+    * @throws: Exception
     */
     public void dashboard(ActionEvent event) throws Exception {
         Navigator.dashboard(event);
     }
     
     /**
-    * Desc: goes to the reservations scene.
-    * @param: event
+    * Desc: goes to the reservations scene
+    * @param: event - the ActionEvent for the button
+    * @throws: Exception
     */
     public void reservation(ActionEvent event) throws Exception {
         Navigator.reservation(event);
     }
 
     /**
-    * Desc: goes to the login scene.
-    * @param: event
+    * Desc: goes to the login scene
+    * @param: event - the ActionEvent for the button
+    * @throws: Exception
     */
     public void logout(ActionEvent event) throws Exception {
         Navigator.logout(event);
     }
 
     /**
-    * Desc: loads the text for the username and password.
+    * Desc: loads the text for the username and password
     * @param: location
     * @param: resources
     */
