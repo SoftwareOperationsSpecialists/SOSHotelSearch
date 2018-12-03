@@ -11,6 +11,10 @@ import sun.rmi.runtime.Log;
 
 import java.sql.*;
 
+/**
+ * Desc: controller for the login screen
+ */
+
 public class LogInController extends Credentials {
 
   @FXML
@@ -29,7 +33,12 @@ public class LogInController extends Credentials {
   @FXML
   private ToggleGroup loginType;
 
-  //Action for login button
+  /**
+   * Desc: proceeds to the next screen. Checks user credentials for validity
+   *       and account type.
+   * @param: event - the event handler for the button
+   * @throws: Exception
+   */
   public void Login(ActionEvent event) throws Exception {
 
     RadioButton selectedRadioButton = (RadioButton) loginType.getSelectedToggle();
@@ -88,8 +97,12 @@ public class LogInController extends Credentials {
       }
     }
   }
-
-  //register button action
+  
+  /**
+   * Desc: takes user to register screen
+   * @param: event - the event handler for the button
+   * @throws: Exception
+   */
   public void signUp(ActionEvent event) throws Exception {
     Navigator.register(event);
   }
