@@ -53,7 +53,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="CENTER" layoutX="5.0" layoutY="140.0" mnemonicParsing="false" onAction="#savedHotels" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Saved" textFill="WHITE">
+            <Button alignment="CENTER" layoutX="5.0" layoutY="140.0" mnemonicParsing="false" onAction="#reservation" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Reservations" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -61,15 +61,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="CENTER" layoutX="5.0" layoutY="180.0" mnemonicParsing="false" onAction="#reservation" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Reservations" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" layoutX="3.0" layoutY="220.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Logout" textFill="WHITE">
+            <Button alignment="CENTER" layoutX="3.0" layoutY="180.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Logout" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
