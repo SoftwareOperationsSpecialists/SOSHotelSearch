@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="457.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ReservationsController">
+<AnchorPane prefHeight="457.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ReservationsController">
   <children>
     <AnchorPane layoutX="106.0" prefHeight="50.0" prefWidth="853.0" style="-fx-background-color: #1b9dc1;">
       <children>
@@ -53,7 +53,7 @@
             <Cursor fx:constant="HAND" />
           </cursor>
         </Button>
-        <Button alignment="CENTER" layoutX="5.0" layoutY="140.0" mnemonicParsing="false" onAction="#savedHotels" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Saved" textFill="WHITE">
+        <Button alignment="CENTER" layoutX="3.0" layoutY="180.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Logout" textFill="WHITE">
           <font>
             <Font size="14.0" />
           </font>
@@ -61,15 +61,7 @@
             <Cursor fx:constant="HAND" />
           </cursor>
         </Button>
-        <Button alignment="CENTER" layoutX="3.0" layoutY="220.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="100.0" stylesheets="@style.css" text="Logout" textFill="WHITE">
-          <font>
-            <Font size="14.0" />
-          </font>
-          <cursor>
-            <Cursor fx:constant="HAND" />
-          </cursor>
-        </Button>
-            <Button alignment="CENTER" layoutX="4.0" layoutY="181.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" style="-fx-background-color: #f0cc05;" stylesheets="@style.css" text="Reservations" textFill="#1b9dc1">
+            <Button alignment="CENTER" layoutX="4.0" layoutY="140.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" style="-fx-background-color: #f0cc05;" stylesheets="@style.css" text="Reservations" textFill="#1b9dc1">
                <font>
                   <Font size="14.0" />
                </font>
