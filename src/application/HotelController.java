@@ -10,7 +10,7 @@ import javafx.scene.text.Text;
 import java.util.ArrayList;
 
 /**
- * 
+ *
  */
 
 public class HotelController {
