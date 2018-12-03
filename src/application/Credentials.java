@@ -178,4 +178,12 @@ abstract class Credentials {
   public static String getUpdateSQL() {
     return updateSQL;
   }
+
+  public static String getSearcherSql() {
+    return searcherSql;
+  }
+
+  public static String getOwnerSql() {
+    return ownerSql;
+  }
 }

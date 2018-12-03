@@ -21,51 +21,81 @@ import javafx.stage.Stage;
 public class ReviewsController {
 
   @FXML
-  TextField review;
+  TextField Review;
   @FXML
   ChoiceBox<Integer> userRating;
 
+  String review;
+  Integer rating;
 
   String URL = Credentials.getUrl();
-  int hotelID = SearchController.hotelClicked.getHotelId();
+  String hotelID = Integer.toString(HotelController.getHotel().getHotelId());
 
 
-  String check_For_Table_SQL = " SELECT FROM REVIEW." + hotelID;
+  String check_For_Table_SQL = " SELECT USERNAME FROM REVIEW." + hotelID;
 
-  String create_Table_SQL = "CREATE TABLE " + hotelID
+  String create_Table_SQL = "CREATE TABLE REVIEW." + hotelID
       + "("
       + "USERNAME varchar(255),"
       + "REVIEW varchar(255),"
-      + "USER_RATING int,";
+      + "USER_RATING int"
+      + ")";
 
   String create_Review_SQL = "INSERT INTO REVIEW." + hotelID
       + " ( USERNAME, REVIEW, USER_RATING) "
       + "VALUES ("
       + "'" + Credentials.getClientUsername() + "', "
-      + "'" + review.getText() + "', "
-      + "'" + userRating.getSelectionModel().getSelectedItem() + "'"
+      + "'" + review + "', "
+      + rating
       + " )";
 
   public void submitButton(ActionEvent event) throws Exception {
-    Navigator.hotelInfo(event);
     try {
       Class.forName(Credentials.getDriver());
       Connection reviewConnection = DriverManager.getConnection(URL);
-      Statement statement = reviewConnection.createStatement();
-      ResultSet resultSet = statement.executeQuery(check_For_Table_SQL);
+      Statement stmt = reviewConnection.createStatement();
+    } catch (SQLException ex) {
+      System.out.println();
+    }
+    try {
+      review = Review.getText();
+      rating = userRating.getSelectionModel().getSelectedItem();
 
-      if (resultSet.next()) {
-        Statement stmt = reviewConnection.createStatement();
-        stmt.executeQuery(create_Review_SQL);
-      } else {
-        Statement stmt = reviewConnection.createStatement();
-        stmt.executeQuery(create_Table_SQL);
-      }
+      Class.forName(Credentials.getDriver());
+      Connection reviewConnection = DriverManager.getConnection(URL);
+      Statement stmt = reviewConnection.createStatement();
+      stmt.executeQuery(create_Review_SQL);
+      reviewConnection.close();
 
     } catch (SQLException ex) {
-      System.out.println(ex);
+      Class.forName(Credentials.getDriver());
+      Connection reviewConnection = DriverManager.getConnection(URL);
+      Statement stmt = reviewConnection.createStatement();
+      stmt.executeQuery(create_Table_SQL);
+      reviewConnection.close();
     }
 
+//    try {
+//       review = Review.getText();
+//       rating = userRating.getSelectionModel().getSelectedItem();
+//
+//      Class.forName(Credentials.getDriver());
+//      Connection reviewConnection = DriverManager.getConnection(URL);
+//      Statement statement = reviewConnection.createStatement();
+//      ResultSet resultSet = statement.executeQuery(check_For_Table_SQL);
+//
+//      if (resultSet.next()) {
+//        Statement stmt = reviewConnection.createStatement();
+//        stmt.executeQuery(create_Review_SQL);
+//
+//      } else {
+//        Statement stmt = reviewConnection.createStatement();
+//        stmt.executeQuery(create_Table_SQL);
+//      }
+//
+//    } catch (SQLException ex) {
+//      System.out.println(ex);
+//    }
   }
 
   public void backButton(ActionEvent event) throws Exception {

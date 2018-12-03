@@ -29,8 +29,6 @@ public class SearchController {
   private static Random rand = new Random();
   private ArrayList<Image> images = new ArrayList<>();
 
-  static Hotel hotelClicked;
-
   @FXML
   private BorderPane mapPane;
 
@@ -191,9 +189,6 @@ public class SearchController {
 
       infoButton.addEventHandler(ActionEvent.ACTION, event -> {
         try {
-          // hotelClicked = new Hotel(hotelID, hotelName.getText(),hotelStars.getText(),h);
-          // public Hotel(int hotelId, String name, double stars, String city, String countryCode, String countryName, double lat,
-          //double lng, int stdPrice, int dlxPrice, int suitePrice) {
           Navigator.hotelInfo(hotel, event);
         } catch (Exception e) {
           e.printStackTrace();

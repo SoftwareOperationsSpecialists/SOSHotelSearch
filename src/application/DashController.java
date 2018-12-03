@@ -49,14 +49,6 @@ public class DashController implements Initializable {
   public void MyAccount(ActionEvent event) throws Exception {
     Navigator.myAccount(event);
   }
-
-  /**
-  * goes to saved hotels scene
-  */
-  public void savedHotels(ActionEvent event) throws Exception {
-    Navigator.savedHotels(event);
-  }
-
   /**
   * goes to logout scene
   */
