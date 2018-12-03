@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,11 +16,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 
 public class ReviewsController {
-
+  @FXML
+  private StackPane reviewList;
   @FXML
   TextField Review;
   @FXML
@@ -29,50 +32,49 @@ public class ReviewsController {
   Integer rating;
 
   String URL = Credentials.getUrl();
-  String hotelID = Integer.toString(HotelController.getHotel().getHotelId());
+  String hotelID = HotelController.getHotel().getHotelId();
 
 
-  String check_For_Table_SQL = " SELECT USERNAME FROM REVIEW." + hotelID;
-
-  String create_Table_SQL = "CREATE TABLE REVIEW." + hotelID
-      + "("
-      + "USERNAME varchar(255),"
-      + "REVIEW varchar(255),"
-      + "USER_RATING int"
-      + ")";
-
-  String create_Review_SQL = "INSERT INTO REVIEW." + hotelID
-      + " ( USERNAME, REVIEW, USER_RATING) "
-      + "VALUES ("
-      + "'" + Credentials.getClientUsername() + "', "
-      + "'" + review + "', "
-      + rating
-      + " )";
+  public void initialize(){
+    ArrayList<>
+  }
 
   public void submitButton(ActionEvent event) throws Exception {
+    review = Review.getText();
+    rating = userRating.getSelectionModel().getSelectedItem();
+
+    String create_Review_SQL = "INSERT INTO REVIEW." + "\"" + hotelID + "\""
+        + " ( USERNAME, REVIEW, USER_RATING) "
+        + "VALUES ("
+        + "'" + Credentials.getClientUsername() + "', "
+        + "'" + review + "', "
+        + rating
+        + " )";
+
+    String create_Table_SQL = "CREATE TABLE REVIEW." + "\"" + hotelID + "\""
+        + "("
+        + "USERNAME varchar(255),"
+        + "REVIEW varchar(255),"
+        + "USER_RATING int"
+        + ")";
     try {
       Class.forName(Credentials.getDriver());
       Connection reviewConnection = DriverManager.getConnection(URL);
       Statement stmt = reviewConnection.createStatement();
-    } catch (SQLException ex) {
-      System.out.println();
-    }
-    try {
-      review = Review.getText();
-      rating = userRating.getSelectionModel().getSelectedItem();
-
-      Class.forName(Credentials.getDriver());
-      Connection reviewConnection = DriverManager.getConnection(URL);
-      Statement stmt = reviewConnection.createStatement();
-      stmt.executeQuery(create_Review_SQL);
+      stmt.executeUpdate(create_Table_SQL);
+      System.out.println("Created new Table");
       reviewConnection.close();
+      submitButton(new ActionEvent());
+
 
     } catch (SQLException ex) {
       Class.forName(Credentials.getDriver());
       Connection reviewConnection = DriverManager.getConnection(URL);
       Statement stmt = reviewConnection.createStatement();
-      stmt.executeQuery(create_Table_SQL);
+      stmt.executeUpdate(create_Review_SQL);
       reviewConnection.close();
+      System.out.println("Created Review");
+
     }
 
 //    try {
