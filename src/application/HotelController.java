@@ -7,10 +7,11 @@ import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+
+/**
+ * 
+ */
 
 public class HotelController {
 
@@ -44,19 +45,42 @@ public class HotelController {
     hotelName.setText(hotel.getName());
     hotelLocation.setText("Location: "+hotel.getCity()+", "+hotel.getCountryName());
     hotelStars.setText("This is a "+ hotel.getStars()+" star hotel.");
-    hotelPrice.setText("Price : $"+hotel.getPrice());
+    hotelPrice.setText("Price : $"+hotel.getPrice()+"/night");
 
   }
-  
-  // Dashboard Button will go back to the "Hotel Search" Scene
+
+  /**
+   *
+   * @param event
+   * @throws Exception
+   */
   public void dashboardButton(ActionEvent event) throws Exception {
     Navigator.dashboard(event);
   }
+
+  /**
+   *
+   * @param event
+   * @throws Exception
+   */
   public void logout(ActionEvent event) throws Exception {
     Navigator.logout(event);
   }
 
-  // Book it button will open Payment information Scene
+  /**
+   *
+   * @param event
+   * @throws Exception
+   */
+  public void myAccount(ActionEvent event) throws Exception {
+    Navigator.myAccount(event);
+  }
+
+  /**
+   *
+   * @param event
+   * @throws Exception
+   */
   public void bookItButton(ActionEvent event) throws Exception {
     try (Connection conn = DriverManager.getConnection(Credentials.url);
         Statement stmt = conn.createStatement();
@@ -95,11 +119,18 @@ public class HotelController {
     }
   }
 
-  //Go to Reviews button will go to the "Reviews" Scene
+  /**
+   *
+   * @param event
+   * @throws Exception
+   */
   public void GoToReviews(ActionEvent event) throws Exception {
     Navigator.reviews(event);
   }
-  
+
+  /**
+   *
+   */
   public void NextImage(){
     try {
       imageArrayIndex++;
@@ -109,7 +140,10 @@ public class HotelController {
       imageArrayIndex = 0;
     }
   }
-    
+
+  /**
+   *
+   */
   public void PreviousImage(){
     try {
       imageArrayIndex--;
@@ -120,18 +154,34 @@ public class HotelController {
     }
   }
 
+  /**
+   *
+   * @param thisHotel
+   */
   public static void setHotel(Hotel thisHotel) {
     hotel = thisHotel;
   }
 
+  /**
+   *
+   * @return
+   */
   public static Hotel getHotel() {
     return hotel;
   }
 
+  /**
+   *
+   * @param thisReservation
+   */
   public static void setReservation(Reservation thisReservation) {
     reservation = thisReservation;
   }
 
+  /**
+   *
+   * @return
+   */
   public static Reservation getReservation() {
     return reservation;
   }
