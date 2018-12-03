@@ -15,6 +15,10 @@ import java.time.LocalDate;
 import java.time.chrono.ChronoLocalDate;
 import java.util.ResourceBundle;
 
+/**
+* Desc: allows user to start a search by entering location,
+*   check-in date, check-out date, and number of rooms
+*/
 public class DashController implements Initializable {
   @FXML
   private TextField searchBar;
@@ -39,6 +43,10 @@ public class DashController implements Initializable {
   private static int numOfRooms;
 
   //Side Panel buttons
+  /**
+  * Desc: performs a search by getting the location from the searchbar
+  *   when the user clicks the search button
+  */
   public void MyAccount(ActionEvent event) throws Exception {
     Navigator.myAccount(event);
   }
@@ -51,6 +59,10 @@ public class DashController implements Initializable {
     Navigator.logout(event);
   }
 
+  /**
+  * Desc: performs a search by getting the location from the searchbar
+  *   when the user clicks the search button
+  */
   public void search(ActionEvent event) throws Exception {
     location = searchBar.getText();
 
@@ -108,26 +120,48 @@ public class DashController implements Initializable {
     }
   }
 
+  /**
+  * Desc: gets the location from the dashboard searchbar
+  * @return: location
+  */
   public static String getLocation() {
     return location;
   }
 
+  /**
+  * Desc: gets the check-in date the user picked from the calendar
+  * @return: userCheckInDate
+  */
   static LocalDate getUserCheckInDate() {
     return userCheckInDate;
   }
 
+  /**
+  * Desc: gets the check-out date the user picked from the calendar
+  * @return: userCheckOutDate
+  */
   static LocalDate getUserCheckOutDate() {
     return userCheckOutDate;
   }
 
+  /**
+  * Desc: gets the number of rooms the user chose from the dashboard
+  * @return: numOfRooms
+  */
   static int getNumOfRooms() {
     return numOfRooms;
   }
 
+  /**
+  * Desc: sets the number of rooms
+  */
   public void modifyRoom() {
     this.roomCount.setValueFactory(roomCountFactory);
   }
 
+  /**
+  * Desc: loads the current room count set by the user
+  */
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     roomCount.setValueFactory(roomCountFactory);
