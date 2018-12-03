@@ -117,13 +117,18 @@ public class Reservation {
     }
 
     /**
-    * Desc: gets the check-in date.
-    * @param: checkInDate - check-in date
+    * Desc: gets the final cost.
+    * @return: finalCost - the total cost based on the price, number of rooms
+    *   and number of nights
     */
     public int getFinalCost() {
         return finalCost;
     }
 
+    /**
+    * Desc: writes a string that lists the reservation information.
+    * @return: a string that writes the hotel information.
+    */
     @Override
     public String toString() {
         return "Reservation{" +
