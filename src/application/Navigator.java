@@ -42,6 +42,12 @@ public class Navigator {
     window.setScene(hotelInfoScene);
     window.show();
   }
+  
+    /**
+   * Desc: goes to the hotel info scene.
+   * @param: event - the ActionEvent from the button
+   * @throws: Exception
+   */
   static void hotelInfo(ActionEvent event) throws Exception {
     HotelController hotelController = new HotelController();
 
