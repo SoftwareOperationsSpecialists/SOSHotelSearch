@@ -63,45 +63,55 @@ public class RegController extends Credentials {
    * @throws: Exception
    */
   private void createHotelSearcher(ActionEvent event) throws Exception {
+    //creates account information
     String name = txtFullName.getText();
     String user = txtUserName.getText();
     String pass = txtPassword.getText();
     String email = txtEmail.getText();
     String birthDate = txtDOB.getText();
 
-
+    //recognizes which radio button is selected (hotel searcher or hotel owner)
     RadioButton selectedRadioButton = (RadioButton) registerType.getSelectedToggle();
 
+    //checks if full name is valid
     if (validFullNamePattern(txtFullName.getText())) {
       nameStatus.setText("Invalid name input!");
       nameStatus.setTextFill(Paint.valueOf("red"));
 
+    //checks if password is valid
     } else if (validPSWDPattern(txtPassword.getText())) {
       passwordStatus.setText("Password must not contain special characters!");
       passwordStatus.setTextFill(Paint.valueOf("red"));
 
+    //checks if username is valid
     } else if (!validUserNamePattern(txtUserName.getText())) {
       userStatus.setText("Username must not contain spaces!");
       userStatus.setTextFill(Paint.valueOf("red"));
 
+    //checks if email is valid
     } else if (validEmailPattern(txtEmail.getText())) {
       emailStatus.setText("Must be a valid email address!");
       emailStatus.setTextFill(Paint.valueOf("red"));
 
+    //checks if date of birth is valid
     } else if (validDOBPattern(txtDOB.getText())) {
       dobStatus.setText("DOB Pattern: MM/DD/YYYY");
       dobStatus.setTextFill(Paint.valueOf("red"));
 
+    //checks if hotel searcher is selected
     } else if (selectedRadioButton == regSearcherBtn) {
       try {
-          registerClient(user, birthDate, pass, name, email, Credentials.getSearcherSql());
+        //create hotel searcher account
+        registerClient(user, birthDate, pass, name, email, Credentials.getSearcherSql());
         login(event);
 
       } catch (SQLException | ClassNotFoundException e) {
         e.printStackTrace();
       }
+    //checks if hotel owner account is selected
     } else if (selectedRadioButton == regOwnerBtn) {
       try {
+        //creates hotel owner account
         registerClient(user, birthDate, pass, name, email, Credentials.getOwnerSql());
         login(event);
 
