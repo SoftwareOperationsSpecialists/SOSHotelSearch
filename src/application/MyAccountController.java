@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Paint;
+import sun.rmi.runtime.Log;
 
 import java.net.URL;
 import java.sql.*;
@@ -54,7 +55,8 @@ public class MyAccountController extends Credentials implements Initializable {
         } else {
             try {
                 String username = txtUserName.getText();
-                update(newName, newPassword, newEmail, newBirthDate, username, updateSQL, updateStatus);
+                update(newName, newPassword, newEmail, newBirthDate, username,
+                        LogInController.getUpdateSQL(), updateStatus);
 
             } catch (ClassNotFoundException | SQLException e) {
                 e.printStackTrace();
@@ -81,9 +83,9 @@ public class MyAccountController extends Credentials implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        txtUserName.setText(LogInController.clientUsername);
-        txtPassword.setText(LogInController.clientPassword);
-        if (isSearcher) {
+        txtUserName.setText(LogInController.getClientPassword());
+        txtPassword.setText(LogInController.getClientPassword());
+        if (LogInController.getIsSearcher()) {
             String searcher = "SOS.SEARCHER";
             getAccountData(searcher);
         } else {
@@ -95,10 +97,10 @@ public class MyAccountController extends Credentials implements Initializable {
     private void getAccountData(String accTypeSQL){
         Statement grabInfo = null;
         try {
-            Class.forName(driver);
+            Class.forName(LogInController.getDriver());
             String getInfoSQL = "SELECT NAME, DOB, PASSWORD, EMAIL FROM " + accTypeSQL + " WHERE USERNAME='"
                     + txtUserName.getText() + "'";
-            Connection loginConnection = DriverManager.getConnection(url);
+            Connection loginConnection = DriverManager.getConnection(LogInController.getUrl());
             grabInfo = loginConnection.createStatement();
             ResultSet result = grabInfo.executeQuery(getInfoSQL);
             if (result.next()) {

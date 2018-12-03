@@ -7,6 +7,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.paint.Paint;
+import sun.rmi.runtime.Log;
 
 import java.sql.*;
 
@@ -35,8 +36,8 @@ public class LogInController extends Credentials {
 
     if (selectedRadioButton == searcherBtn) {
       try {
-        Class.forName(driver);
-        Connection loginConnection = DriverManager.getConnection(url);
+        Class.forName(Credentials.getDriver());
+        Connection loginConnection = DriverManager.getConnection(Credentials.getUrl());
         Statement statement = loginConnection.createStatement();
         String searcherSQL = "SELECT USERNAME, PASSWORD FROM SOS.SEARCHER WHERE USERNAME='"
                 + txtUsername.getText() + "'" + " AND PASSWORD='" + txtPassword.getText() + "'";
@@ -45,8 +46,8 @@ public class LogInController extends Credentials {
         if (result.next()) {
           Navigator.dashboard(event);
           clientUsername = txtUsername.getText();
-          clientPassword = txtPassword.getText();
-          isSearcher = true;
+          LogInController.setClientPassword(txtPassword.getText());
+          LogInController.setIsSearcher(true);
           loginConnection.close();
           statement.close();
         } else {
@@ -61,8 +62,8 @@ public class LogInController extends Credentials {
       }
     } else if (selectedRadioButton == ownerBtn) {
       try {
-        Class.forName(driver);
-        Connection loginConnection = DriverManager.getConnection(url);
+        Class.forName(LogInController.getDriver());
+        Connection loginConnection = DriverManager.getConnection(LogInController.getUrl());
         String ownerSQL = "SELECT USERNAME, PASSWORD FROM SOS.OWNER WHERE USERNAME='"
                 + txtUsername.getText() + "'" + " AND PASSWORD='" + txtPassword.getText() + "'";
         Statement statement = loginConnection.createStatement();
@@ -70,8 +71,8 @@ public class LogInController extends Credentials {
 
         if (result.next()) {
           Navigator.hotelOwner(event);
-          clientUsername = txtUsername.getText();
-          clientPassword = txtPassword.getText();
+          LogInController.setClientUsername(txtUsername.getText());
+          LogInController.setClientPassword(txtPassword.getText());
           result.close();
           loginConnection.close();
           statement.close();
