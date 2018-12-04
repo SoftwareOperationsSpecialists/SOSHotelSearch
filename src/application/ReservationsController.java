@@ -52,14 +52,6 @@ public class ReservationsController implements Initializable {
   public void initialize(URL location, ResourceBundle resources) {
     initCol();
     addData();
-    try (Connection conn = DriverManager.getConnection(Credentials.getUrl());
-      Statement stmt = conn.createStatement();
-      ResultSet resultSet = stmt.executeQuery(GET_ID)) {
-      resultSet.next();
-      this.userId = resultSet.getInt(1);
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
   }
 
   /**
@@ -120,11 +112,20 @@ public class ReservationsController implements Initializable {
    * Desc: gets data from the database to add to the table
    */
   private void addData() {
+    try (Connection conn = DriverManager.getConnection(Credentials.getUrl());
+        Statement stmt = conn.createStatement();
+        ResultSet resultSet = stmt.executeQuery(GET_ID)) {
+      resultSet.next();
+      this.userId = resultSet.getInt(1);
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
     final String JOIN_Hotels = "SELECT SOS.HOTEL.NAME, SOS.RESERVATIONS.CHECKIN, "
         + "SOS.RESERVATIONS.CHECKOUT"
         + " FROM SOS.RESERVATIONS INNER JOIN "
         + "SOS.HOTEL ON SOS.RESERVATIONS.HOTEL_ID=SOS.HOTEL.ID " +
             "WHERE SOS.RESERVATIONS.USER_ID=" + userId;
+
     try (Connection connection = DriverManager.getConnection(url);
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(JOIN_Hotels)) {

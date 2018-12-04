@@ -89,7 +89,7 @@
 }
 
 .table-view .column-header-background .label {
-  -fx-text-fill: white;
+  -fx-text-fill: black;
 }
 
 .table-view .column-header {
