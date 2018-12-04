@@ -27,6 +27,9 @@ public class ReservationsController implements Initializable {
 
   private ObservableList<Data> list = FXCollections.observableArrayList();
   static String url = "jdbc:derby:lib/SOSHotelAccountDB";
+  private int userId;
+  private String GET_ID = "SELECT SOS.SEARCHER.USER_ID FROM SOS.SEARCHER WHERE SOS.SEARCHER.USERNAME='" +
+          LogInController.getClientUsername()+"'";
 
   @FXML
   private TableView<Data> tableView;
@@ -39,6 +42,7 @@ public class ReservationsController implements Initializable {
   @FXML
   private Label status;
 
+
   /**
    * Desc: intializes the scene by setting up columns and adding data
    * @param: location - location of the database
@@ -48,6 +52,14 @@ public class ReservationsController implements Initializable {
   public void initialize(URL location, ResourceBundle resources) {
     initCol();
     addData();
+    try (Connection conn = DriverManager.getConnection(Credentials.getUrl());
+      Statement stmt = conn.createStatement();
+      ResultSet resultSet = stmt.executeQuery(GET_ID)) {
+      resultSet.next();
+      this.userId = resultSet.getInt(1);
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
   }
 
   /**
@@ -111,7 +123,8 @@ public class ReservationsController implements Initializable {
     final String JOIN_Hotels = "SELECT SOS.HOTEL.NAME, SOS.RESERVATIONS.CHECKIN, "
         + "SOS.RESERVATIONS.CHECKOUT"
         + " FROM SOS.RESERVATIONS INNER JOIN "
-        + "SOS.HOTEL ON SOS.RESERVATIONS.HOTEL_ID=SOS.HOTEL.ID";
+        + "SOS.HOTEL ON SOS.RESERVATIONS.HOTEL_ID=SOS.HOTEL.ID " +
+            "WHERE SOS.RESERVATIONS.USER_ID=" + userId;
     try (Connection connection = DriverManager.getConnection(url);
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(JOIN_Hotels)) {

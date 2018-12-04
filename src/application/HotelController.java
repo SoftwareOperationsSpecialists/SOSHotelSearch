@@ -35,8 +35,9 @@ public class HotelController {
   private static Hotel hotel;
   private static Reservation reservation;
   private int id;
-  private String GET_ID = "SELECT USER_ID FROM SOS.SEARCHER WHERE USERNAME ="
-      + LogInController.getClientUsername();
+  private String GET_ID = "SELECT SOS.SEARCHER.USER_ID FROM SOS.SEARCHER WHERE SOS.SEARCHER.USERNAME ='"
+      + LogInController.getClientUsername()+"'";
+
 
   /**
   * desc: loads the name, location, stars, price, and images for the hotel
@@ -91,6 +92,8 @@ public class HotelController {
         ResultSet resultSet = stmt.executeQuery(GET_ID)) {
       resultSet.next();
       id = resultSet.getInt(1);
+      PreparedStatement insert =  conn.prepareStatement("INSERT INTO SOS.RESERVATIONS (USER_ID) VALUES (" +id +")");
+      insert.executeUpdate();
     } catch (SQLException e) {
       e.printStackTrace();
     }
@@ -107,16 +110,18 @@ public class HotelController {
     double rating = reservation.getHotel().getPrice();
     String location = DashController.getLocation();
     int rooms = DashController.getNumOfRooms();
+    String hotelID = hotel.getHotelId();
 
-    String insert_reservation ="INSERT INTO SOS.RESERVATIONS (CHECKIN, CHECKOUT, HOTEL_ID) VALUES('"+checkInDate+"','"+checkOutDate+"','"+id+"')";
+    String insert_reservation ="INSERT INTO SOS.RESERVATIONS (CHECKIN, CHECKOUT, HOTEL_ID, USER_ID) VALUES('"+checkInDate+"','"+checkOutDate+"',"+hotelID+","+id+")";
 
-        String insert_hotel = "INSERT INTO SOS.HOTEL (ID, NAME, PRICE, RATING, LOCATION, ROOMS) VALUES('"+id+"','"+bookedHotelName+"',"+bookedHotelPrice+","+rating+",'"+location+"',"+rooms+")";
+
+        String insert_hotel = "INSERT INTO SOS.HOTEL (ID, NAME, PRICE, RATING, LOCATION, ROOMS) VALUES("+hotelID+",'" +bookedHotelName+"',"+bookedHotelPrice+","+rating+",'"+location+"',"+rooms+")";
     try {
       Connection connection = DriverManager.getConnection(Credentials.getUrl());
       PreparedStatement insertReservation = connection.prepareStatement(insert_reservation);
       PreparedStatement insertHotel = connection.prepareStatement(insert_hotel);
-      insertReservation.executeUpdate();
       insertHotel.executeUpdate();
+      insertReservation.executeUpdate();
       connection.close();
     } catch (SQLException e){
       e.printStackTrace();
