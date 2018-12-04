@@ -33,14 +33,14 @@ public class MyAccountController extends Credentials implements Initializable {
 
     /**
     * Desc: edits the full name, password, email, and date of birth
-    *   tied to the account.
+    *       tied to the account.
     */
     public void editInformation() {
 
-        String newName = txtFullName.getText();
-        String newPassword = txtPassword.getText();
-        String newEmail = txtEmail.getText();
-        String newBirthDate = txtDOB.getText();
+        String newName = txtFullName.getText();     //updates new name
+        String newPassword = txtPassword.getText(); //updates new password
+        String newEmail = txtEmail.getText();       //updates new email
+        String newBirthDate = txtDOB.getText();     //updates new date of birth
 
         //checks the validity of the full name.
         if (validFullNamePattern(txtFullName.getText())) {
@@ -64,6 +64,7 @@ public class MyAccountController extends Credentials implements Initializable {
 
         } else {
             try {
+                //update username and info
                 String username = txtUserName.getText();
                 update(newName, newPassword, newEmail, newBirthDate, username,
                         LogInController.getUpdateSQL(), updateStatus);
@@ -77,24 +78,27 @@ public class MyAccountController extends Credentials implements Initializable {
     //Side panel buttons
     
     /**
-    * Desc: goes to the dashboard scene.
-    * @param: event
+    * Desc: goes to the dashboard scene
+    * @param: event - the ActionEvent for the button
+    * @throws: Exception
     */
     public void dashboard(ActionEvent event) throws Exception {
         Navigator.dashboard(event);
     }
     
     /**
-    * Desc: goes to the reservations scene.
-    * @param: event
+    * Desc: goes to the reservations scene
+    * @param: event - the ActionEvent for the button
+    * @throws: Exception
     */
     public void reservation(ActionEvent event) throws Exception {
         Navigator.reservation(event);
     }
 
     /**
-    * Desc: goes to the login scene.
-    * @param: event
+    * Desc: goes to the login scene
+    * @param: event - the ActionEvent for the button
+    * @throws: Exception
     */
     public void logout(ActionEvent event) throws Exception {
         Navigator.logout(event);
