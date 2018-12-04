@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="457.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HotelOwnerController">
+<AnchorPane prefHeight="457.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HotelOwnerController">
   <children>
     <AnchorPane layoutX="106.0" prefHeight="50.0" prefWidth="853.0" style="-fx-background-color: #1b9dc1;">
       <children>
@@ -71,7 +71,7 @@
       </Label>
       <TableView fx:id="tableView" layoutX="129.0" layoutY="124.0" prefHeight="345.0" prefWidth="679.0" stylesheets="@style.css">
         <columns>
-          <TableColumn fx:id="NameCol" prefWidth="114.0" text="Guest name" />
+          <TableColumn fx:id="NameCol" prefWidth="114.0" text="Hotel name" />
           <TableColumn fx:id="CheckInCol" prefWidth="90.0" text="Check in date" />
             <TableColumn fx:id="CheckOutCol" prefWidth="90.0" text="Check out date" />
             <TableColumn fx:id="NumRoomsCol" prefWidth="90.0" text="Number of rooms" />
