@@ -24,7 +24,8 @@ public class LogInController extends Credentials {
   private TextField txtUsername;
   @FXML
   private TextField txtPassword;
-
+  
+  //radio buttons to select hotel searcher or hotel owner
   @FXML
   private RadioButton searcherBtn;
   @FXML
@@ -41,9 +42,12 @@ public class LogInController extends Credentials {
    */
   public void Login(ActionEvent event) throws Exception {
 
+    //gets status of whether the user has chosen hotel searcher or hotel owner
     RadioButton selectedRadioButton = (RadioButton) loginType.getSelectedToggle();
 
+    //hotel searcher login
     if (selectedRadioButton == searcherBtn) {
+      //check if login info is correct
       try {
         Class.forName(Credentials.getDriver());
         Connection loginConnection = DriverManager.getConnection(Credentials.getUrl());
@@ -52,16 +56,18 @@ public class LogInController extends Credentials {
                 + txtUsername.getText() + "'" + " AND PASSWORD='" + txtPassword.getText() + "'";
         ResultSet result = statement.executeQuery(searcherSQL);
 
+        //login successful
         if (result.next()) {
-          Navigator.dashboard(event);
+          Navigator.dashboard(event);               //go to dashboard scene
           clientUsername = txtUsername.getText();
           LogInController.setClientPassword(txtPassword.getText());
-          LogInController.setIsSearcher(true);
+          LogInController.setIsSearcher(true);      //set as hotel searcher
           loginConnection.close();
           statement.close();
         } else {
-          lblStatus.setText("Login Failed");
-          lblStatus.setTextFill(Paint.valueOf("red"));
+          //login failed
+          lblStatus.setText("Login Failed");            //write login failed
+          lblStatus.setTextFill(Paint.valueOf("red"));  //    in red
           loginConnection.close();
           statement.close();
         }
@@ -69,7 +75,10 @@ public class LogInController extends Credentials {
         System.out.println(ex);
 
       }
+      
+    //hotel owner login
     } else if (selectedRadioButton == ownerBtn) {
+      //check if login info is correct
       try {
         Class.forName(LogInController.getDriver());
         Connection loginConnection = DriverManager.getConnection(LogInController.getUrl());
@@ -78,6 +87,7 @@ public class LogInController extends Credentials {
         Statement statement = loginConnection.createStatement();
         ResultSet result = statement.executeQuery(ownerSQL);
 
+        //login successful
         if (result.next()) {
           Navigator.hotelOwner(event);
           LogInController.setClientUsername(txtUsername.getText());
@@ -86,8 +96,9 @@ public class LogInController extends Credentials {
           loginConnection.close();
           statement.close();
         } else {
-          lblStatus.setText("Login Failed");
-          lblStatus.setTextFill(Paint.valueOf("red"));
+          //login failed
+          lblStatus.setText("Login Failed");            //write login failed
+          lblStatus.setTextFill(Paint.valueOf("red"));  //    in red
           result.close();
           loginConnection.close();
           statement.close();
