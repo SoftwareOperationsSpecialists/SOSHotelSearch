@@ -29,7 +29,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-
+/**
+* Desc: creates review list and allows user to submit reviews
+*/
 public class ReviewsController {
 
   @FXML
@@ -53,13 +55,21 @@ public class ReviewsController {
 
   static ObservableList<Review> reviewsList;
 
-
+   /**
+  * Desc: loads the list of reviews
+  * @throws: Exception
+  */
   public void initialize() throws Exception {
     updateList();
 
 
   }
 
+  /**
+  * Desc: submits the review
+  * @param: event - the ActionEvent for the button
+  * @throws: Exception
+  */
   public void submitButton(ActionEvent event) throws Exception {
     review = Review.getText();
     rating = userRating.getSelectionModel().getSelectedItem();
@@ -98,6 +108,10 @@ public class ReviewsController {
     initialize();
   }
 
+  /**
+  * Desc: updates the review list
+  * @throws: Exception
+  */
   public void updateList() throws Exception {
     reviewsList = FXCollections.observableArrayList();
     try {
@@ -127,7 +141,11 @@ public class ReviewsController {
     }
   }
 
-
+  /**
+  * Desc: goes back to the hotel info scene
+  * @param: event - the ActionEvent for the button
+  * @throws: Exception
+  */
   public void backButton(ActionEvent event) throws Exception {
     Navigator.hotelInfo(event);
   }
