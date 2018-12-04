@@ -16,11 +16,11 @@ public class Reservation {
 
     /**
     * Desc: sets the hotel, check-in date, check-out date, and number of rooms
-    *   for the current reservation, and calculates the final cost.
-    * @param: hotel
-    * @param: checkInDate
-    * @param: checkOutDate
-    * @param: numberOfRooms
+    *       for the current reservation, and calculates the final cost
+    * @param: hotel - the hotel selected by the user
+    * @param: checkInDate - the check-in date chosen by the user
+    * @param: checkOutDate - the check-out date chosen by the user
+    * @param: numberOfRooms - the number of rooms chosen by the user
     */
     public Reservation(Hotel hotel, LocalDate checkInDate,
                 LocalDate checkOutDate, int numberOfRooms) {
@@ -30,7 +30,8 @@ public class Reservation {
         this.checkOutDate = checkOutDate;
         this.numberOfRooms = numberOfRooms;
         this.numberOfNights = Math.abs(checkInDate.compareTo(checkOutDate));
-        this.finalCost = hotel.getPrice() * numberOfRooms * numberOfNights;
+        this.finalCost = hotel.getPrice() * numberOfRooms * numberOfNights; /*calculates final cost by multiplying
+                                                                            the hotel price, # of rooms, and # of nights*/
     }
 
     /**
