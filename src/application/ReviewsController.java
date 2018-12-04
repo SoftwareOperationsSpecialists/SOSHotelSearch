@@ -4,10 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.sql.*;
@@ -29,6 +26,8 @@ public class ReviewsController {
   private TableColumn userRatingColumn;
   @FXML
   private TableColumn reviewColumn;
+  @FXML
+  private Label status;
 
   String review;
   String rating;
@@ -72,23 +71,31 @@ public class ReviewsController {
         + "USER_RATING varchar(10) "
         + ")";
 
-    try {
-      Class.forName(Credentials.getDriver());
-      Connection reviewConnection = DriverManager.getConnection(URL);
-      Statement stmt = reviewConnection.createStatement();
-      stmt.executeUpdate(create_Table_SQL);
-      reviewConnection.close();
-      submitButton(new ActionEvent());
-
-
-    } catch (SQLException ex) {
-      Class.forName(Credentials.getDriver());
-      Connection reviewConnection = DriverManager.getConnection(URL);
-      Statement stmt = reviewConnection.createStatement();
-      stmt.executeUpdate(create_Review_SQL);
-      reviewConnection.close();
+    if (review.length() < 10 || rating == null) {
+      status.setText("Please enter more text and choose a rating.");
+    } else if (review.length() > 255) {
+      status.setText("Review is too long. 255 characters maximum.");
     }
-    initialize();
+    else {
+      try {
+        Class.forName(Credentials.getDriver());
+        Connection reviewConnection = DriverManager.getConnection(URL);
+        Statement stmt = reviewConnection.createStatement();
+        stmt.executeUpdate(create_Table_SQL);
+        reviewConnection.close();
+        submitButton(new ActionEvent());
+
+
+      } catch (SQLException ex) {
+        Class.forName(Credentials.getDriver());
+        Connection reviewConnection = DriverManager.getConnection(URL);
+        Statement stmt = reviewConnection.createStatement();
+        stmt.executeUpdate(create_Review_SQL);
+        reviewConnection.close();
+      }
+
+      initialize();
+    }
   }
 
   /**
