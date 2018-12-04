@@ -18,8 +18,7 @@ abstract class Credentials {
                                               + "[0-9_-]*[\\S]$|^[a-zA-Z]*[\\S]$";
   private static final String emailREGEX = "^([\\w\\-]+)@((\\[([0-9]{1,3}\\.){3}[0-9]{1,3})"
           + "|(([\\w\\-]+\\.)+)([a-zA-Z]{2,4}))$";
-  private static final String dobREGEX = "^(([1-9])|(0[1-9])|(1[0-2]))(([0-9])|([0-2][0-9])|"
-                                         + "(3[0-1]))(([0-9][0-9])|([1-2][0,9][0-9][0-9]))$";
+  private static final String dobREGEX = "((?:0[1-9])|(?:1[0-2]))/((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))/(\\d{4})";
 
   private static final String searcherSql = "INSERT INTO SOS.SEARCHER VALUES(?,?,?,?,?)";
   private static final String ownerSql = "INSERT INTO SOS.OWNER VALUES(?,?,?,?,?)";
