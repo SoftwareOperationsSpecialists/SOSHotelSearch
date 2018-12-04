@@ -7,7 +7,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -33,8 +32,6 @@ public class HotelOwnerController implements Initializable {
   private TableColumn<Info, String> CheckOutCol;
   @FXML
   private TableColumn<Info, String> NumRoomsCol;
-  @FXML
-  private Label status;
   
   /**
   * Desc: initializes column values

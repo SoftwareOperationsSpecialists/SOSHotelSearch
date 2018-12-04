@@ -46,7 +46,7 @@ public class SearchController {
   /**
    * Desc: goes to dashboard scene
    * @param: event - ActionEvent from the button
-   * @throws exception
+   * @throws Exception
    */
   public void dashboard(ActionEvent event) throws Exception {
     Navigator.dashboard(event);
@@ -55,7 +55,7 @@ public class SearchController {
   /**
    * Desc: goes to myAccount scene
    * @param: event - ActionEvent from the button
-   * @throws exception
+   * @throws Exception
    */
   public void myAccount(ActionEvent event) throws Exception {
     Navigator.myAccount(event);
@@ -64,7 +64,7 @@ public class SearchController {
   /**
    * Desc: goes to logout scene
    * @param: event - ActionEvent from the button
-   * @throws exception
+   * @throws Exception
    */
   public void logout(ActionEvent event) throws Exception {
     Navigator.logout(event);

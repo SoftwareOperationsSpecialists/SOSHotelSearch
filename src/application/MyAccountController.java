@@ -6,7 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Paint;
-import sun.rmi.runtime.Log;
 
 import java.net.URL;
 import java.sql.*;
@@ -15,6 +14,7 @@ import java.util.ResourceBundle;
 /**
 * Desc: allows the user to edit account information.
 */
+
 public class MyAccountController extends Credentials implements Initializable {
 
     @FXML

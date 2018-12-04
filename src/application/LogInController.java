@@ -7,7 +7,6 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.paint.Paint;
-import sun.rmi.runtime.Log;
 
 import java.sql.*;
 
@@ -117,5 +116,4 @@ public class LogInController extends Credentials {
   public void signUp(ActionEvent event) throws Exception {
     Navigator.register(event);
   }
-
 }

@@ -113,10 +113,12 @@ public class HotelController {
     int rooms = DashController.getNumOfRooms();
     String hotelID = hotel.getHotelId();
 
-    String insert_reservation ="INSERT INTO SOS.RESERVATIONS (CHECKIN, CHECKOUT, HOTEL_ID, USER_ID) VALUES('"+checkInDate+"','"+checkOutDate+"',"+hotelID+","+id+")";
+    String insert_reservation ="INSERT INTO SOS.RESERVATIONS (CHECKIN, CHECKOUT, HOTEL_ID, USER_ID) VALUES" +
+            "('"+checkInDate+"','"+checkOutDate+"',"+hotelID+","+id+")";
 
 
-        String insert_hotel = "INSERT INTO SOS.HOTEL (ID, NAME, PRICE, RATING, LOCATION, ROOMS) VALUES("+hotelID+",'" +bookedHotelName+"',"+bookedHotelPrice+","+rating+",'"+location+"',"+rooms+")";
+        String insert_hotel = "INSERT INTO SOS.HOTEL (ID, NAME, PRICE, RATING, LOCATION, ROOMS) VALUES" +
+                "("+hotelID+",'" +bookedHotelName+"',"+bookedHotelPrice+","+rating+",'"+location+"',"+rooms+")";
     try {
       Connection connection = DriverManager.getConnection(Credentials.getUrl());
       PreparedStatement insertReservation = connection.prepareStatement(insert_reservation);
