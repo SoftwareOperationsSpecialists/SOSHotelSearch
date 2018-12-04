@@ -98,10 +98,10 @@ public class ReviewsController {
     initialize();
   }
 
-  public void updateList() throws Exception{
+  public void updateList() throws Exception {
     reviewsList = FXCollections.observableArrayList();
     try {
-      String get_review_SQL = "SELECT * FROM REVIEW." +"\"" + hotelID +"\"" ;
+      String get_review_SQL = "SELECT * FROM REVIEW." + "\"" + hotelID + "\"";
 
       Connection getReviewConnection = DriverManager.getConnection(URL);
       Statement statement = getReviewConnection.createStatement();
@@ -125,45 +125,6 @@ public class ReviewsController {
       ex.printStackTrace();
       System.out.println("No reviews");
     }
-
-
-
-//    for (Review review: reviewsList) {
-//      Pane reviewPane = new Pane();
-//      int reviewPaneOffset = 100;
-//
-//      Label userName = new Label();
-//      Label reviewLabel = new Label();
-//      Label userRating = new Label();
-//
-//      reviewPane.setPrefHeight(100);
-//
-//      // set fields of preview window to those from each hotel object
-//      Text reviewText = new Text(review.getReview());
-//      Text userRatingText = new Text(Integer.toString(review.getUserRating()));
-//      Text userNameText = new Text(review.getUsername());
-//
-//      userName.setText(userNameText.getText());
-//      reviewLabel.setText(reviewText.getText());
-//      userRating.setText(userRatingText.getText());
-//
-//      // configure layout of elements on review list
-//      int xPadding = 100;
-//
-//      userName.setLayoutX(0);
-//      userName.setLayoutY(0);
-//      userRating.setLayoutX(userName.getLayoutX() + xPadding);
-//      userRating.setLayoutY(userName.getLayoutY());
-//      reviewLabel.setLayoutX(userRating.getLayoutX() + xPadding);
-//      reviewLabel.setLayoutY(userRating.getLayoutY());
-//
-//      reviewPane.getChildren().addAll(userName, reviewLabel, userRating);
-//      reviewPane.setLayoutY(reviewPane.getPrefHeight() * reviewPaneOffset);
-//      reviewPane.setPrefWidth(userName.getPrefWidth() + userRating.getPrefWidth() +
-//          reviewLabel.getPrefWidth());
-//
-//      reviewList.getChildren().add(reviewPane);
-//      reviewPaneOffset++;
   }
 
 
