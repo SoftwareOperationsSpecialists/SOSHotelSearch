@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact name="SOSHotelSearch:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SOSHotelSearch_jar</output-path>
+    <root id="root">
+      <element id="archive" name="SOSHotelSearch.jar">
+        <element id="module-output" name="SOSHotelSearch" />
+      </element>
+      <element id="file-copy" path="$PROJECT_DIR$/src/application/lib/license.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/application/lib/jxmaps-win-1.3.1.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/application/lib/jxmaps-1.3.1.jar" />
+      <element id="library" level="project" name="derby" />
+    </root>
+  </artifact>
+</component>
