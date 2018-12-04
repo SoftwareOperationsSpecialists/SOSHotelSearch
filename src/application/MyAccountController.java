@@ -111,9 +111,9 @@ public class MyAccountController extends Credentials implements Initializable {
     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        txtUserName.setText(LogInController.getClientPassword());
-        txtPassword.setText(LogInController.getClientPassword());
-        if (LogInController.getIsSearcher()) {
+        txtUserName.setText(getClientUsername());
+        txtPassword.setText(getClientPassword());
+        if (getIsSearcher()) {
             String searcher = "SOS.SEARCHER";
             getAccountData(searcher);
         } else {
@@ -128,10 +128,11 @@ public class MyAccountController extends Credentials implements Initializable {
     */
     private void getAccountData(String accTypeSQL){
         Statement grabInfo = null;
+        String client = getClientUsername();
         try {
             Class.forName(LogInController.getDriver());
             String getInfoSQL = "SELECT NAME, DOB, PASSWORD, EMAIL FROM " + accTypeSQL + " WHERE USERNAME='"
-                    + txtUserName.getText() + "'";
+                    + client + "'";
             Connection loginConnection = DriverManager.getConnection(LogInController.getUrl());
             grabInfo = loginConnection.createStatement();
             ResultSet result = grabInfo.executeQuery(getInfoSQL);

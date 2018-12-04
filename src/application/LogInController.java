@@ -58,9 +58,9 @@ public class LogInController extends Credentials {
         //login successful
         if (result.next()) {
           Navigator.dashboard(event);               //go to dashboard scene
-          clientUsername = txtUsername.getText();
-          LogInController.setClientPassword(txtPassword.getText());
-          LogInController.setIsSearcher(true);      //set as hotel searcher
+          setClientUsername(txtUsername.getText());
+          setClientPassword(txtPassword.getText());
+          setIsSearcher(true);      //set as hotel searcher
           loginConnection.close();
           statement.close();
         } else {
@@ -89,8 +89,8 @@ public class LogInController extends Credentials {
         //login successful
         if (result.next()) {
           Navigator.hotelOwner(event);
-          LogInController.setClientUsername(txtUsername.getText());
-          LogInController.setClientPassword(txtPassword.getText());
+          setClientUsername(txtUsername.getText());
+          setClientPassword(txtPassword.getText());
           result.close();
           loginConnection.close();
           statement.close();
