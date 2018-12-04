@@ -28,8 +28,8 @@ public class Hotel implements Comparable<Hotel>{
    * @param: lng - the longitute of the hotel location
    * @param: price - the price of a hotel room
    */
-  public Hotel(int hotelId, String name, double stars, String city, String countryCode, String countryName, double lat,
-               double lng, int price) {
+  public Hotel(int hotelId, String name, double stars, String city, String countryCode,
+               String countryName, double lat, double lng, int price) {
     this.hotelId = Integer.toString(hotelId);
     this.name = name;
     this.stars = stars;

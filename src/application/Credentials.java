@@ -17,13 +17,13 @@ abstract class Credentials {
   private static final String userNameREGEX = "^([a-zA-Z])[a-zA-Z_-]*[\\w_-]*[\\S]$|^([a-zA-Z])"
                                               + "[0-9_-]*[\\S]$|^[a-zA-Z]*[\\S]$";
   private static final String emailREGEX = "^\\w+[\\w-.]*@\\w+((-\\w+)|(\\w*))\\.[a-z]{2,3}$";
-  private static final String dobREGEX = "((?:0[1-9])|(?:1[0-2]))/((?:0[0-9])|(?:[1-2][0-9])|(?:3[0-1]))/(\\d{4})";
+  private static final String dobREGEX = "((?:0[1-9])|(?:1[0-2]))/((?:0[0-9])|(?:[1-2][0-9])|"
+                                          + "(?:3[0-1]))/(\\d{4})";
 
   private static final String searcherSql = "INSERT INTO SOS.SEARCHER VALUES(?,?,?,?,?)";
   private static final String ownerSql = "INSERT INTO SOS.OWNER VALUES(?,?,?,?,?)";
-  private static final String updateSQL = "UPDATE SOS.SEARCHER SET NAME = ?, PASSWORD = ?, EMAIL = ?, "
-                                  + "DOB = ? WHERE USERNAME = ?";
-
+  private static final String updateSQL = "UPDATE SOS.SEARCHER SET NAME = ?, PASSWORD = ?, "
+                                          + "EMAIL = ?, DOB = ? WHERE USERNAME = ?";
 
   private static final String url = "jdbc:derby:lib/SOSHotelAccountDB";
   private static final String driver = "org.apache.derby.jdbc.EmbeddedDriver";
