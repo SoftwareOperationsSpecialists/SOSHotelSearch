@@ -78,6 +78,7 @@ public class ReviewsController {
         + "REVIEW varchar(255),"
         + "USER_RATING varchar(10) "
         + ")";
+
     try {
       Class.forName(Credentials.getDriver());
       Connection reviewConnection = DriverManager.getConnection(URL);
@@ -88,7 +89,6 @@ public class ReviewsController {
 
 
     } catch (SQLException ex) {
-      ex.printStackTrace();
       Class.forName(Credentials.getDriver());
       Connection reviewConnection = DriverManager.getConnection(URL);
       Statement stmt = reviewConnection.createStatement();
