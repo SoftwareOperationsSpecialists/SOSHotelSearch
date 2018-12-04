@@ -23,8 +23,8 @@ public class MapManager {
   private double radiusInMiles; // defines radius (in miles) to display hotels from searched for
   private double radiusInDegrees;
 
-  private String iconFilePath = "src/application/mapicons/marker_icon.png";
-  private String hotelFilePath = "src/application/hotels.txt";
+  private String iconFilePath = "lib/resources/mapicons/marker_icon.png";
+  private String hotelFilePath = "lib/resources/hotels.txt";
 
   private MapView mapView;
   private MapViewOptions mapViewOptions;
