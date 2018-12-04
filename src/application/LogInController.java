@@ -23,7 +23,7 @@ public class LogInController extends Credentials {
   private TextField txtUsername;
   @FXML
   private TextField txtPassword;
-  
+
   //radio buttons to select hotel searcher or hotel owner
   @FXML
   private RadioButton searcherBtn;
@@ -35,7 +35,8 @@ public class LogInController extends Credentials {
 
   /**
    * Desc: proceeds to the next screen. Checks user credentials for validity
-   *       and account type.
+   * and account type.
+   *
    * @param: event - the event handler for the button
    * @throws: Exception
    */
@@ -74,8 +75,8 @@ public class LogInController extends Credentials {
         System.out.println(ex);
 
       }
-      
-    //hotel owner login
+
+      //hotel owner login
     } else if (selectedRadioButton == ownerBtn) {
       //check if login info is correct
       try {
@@ -107,9 +108,10 @@ public class LogInController extends Credentials {
       }
     }
   }
-  
+
   /**
    * Desc: takes user to register screen
+   *
    * @param: event - the event handler for the button
    * @throws: Exception
    */

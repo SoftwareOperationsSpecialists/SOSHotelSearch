@@ -7,18 +7,19 @@ import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+
 import java.util.ArrayList;
 
-  /**
+/**
  * Desc: displays information for specific hotels, and allows the user
- *       to view hotels, go to reviews, and go to payment
+ * to view hotels, go to reviews, and go to payment
  */
 
 public class HotelController {
 
   @FXML
   private ImageView hotelPhotos;    //photos
-  
+
   @FXML
   private Text hotelName;           //hotel name
   @FXML
@@ -36,27 +37,28 @@ public class HotelController {
   private static Reservation reservation;
   private int id;
   private String GET_ID = "SELECT SOS.SEARCHER.USER_ID FROM SOS.SEARCHER WHERE SOS.SEARCHER.USERNAME ='"
-      + LogInController.getClientUsername()+"'";
+          + LogInController.getClientUsername() + "'";
 
 
   /**
-  * desc: loads the name, location, stars, price, and images for the hotel
-  */
-  public void initialize(){
+   * desc: loads the name, location, stars, price, and images for the hotel
+   */
+  public void initialize() {
     //adds 3 images for the hotel
     images.add(new Image("application/hotelpics/holiday-inn-the-colony-4629618286-16x5.jpg"));
     images.add(new Image("application/hotelpics/room.jpg"));
     images.add(new Image("application/hotelpics/holiday-inn-the-colony-4549822872-4x3.jpg"));
 
     hotelName.setText(hotel.getName());                                 //sets name
-    hotelLocation.setText("Location: "+hotel.getCity()+", "+hotel.getCountryName());  //sets location
-    hotelStars.setText("This is a "+ hotel.getStars()+" star hotel.");  //sets stars
-    hotelPrice.setText("Price : $"+hotel.getPrice()+"/night");          //sets price
+    hotelLocation.setText("Location: " + hotel.getCity() + ", " + hotel.getCountryName());  //sets location
+    hotelStars.setText("This is a " + hotel.getStars() + " star hotel.");  //sets stars
+    hotelPrice.setText("Price : $" + hotel.getPrice() + "/night");          //sets price
 
   }
 
   /**
-   *  Desc: goes to the dashboard scene
+   * Desc: goes to the dashboard scene
+   *
    * @param event - the ActionEvent for the button
    * @throws Exception
    */
@@ -66,6 +68,7 @@ public class HotelController {
 
   /**
    * Desc: goes to the login scene
+   *
    * @param event - the ActionEvent for the button
    * @throws Exception
    */
@@ -73,8 +76,9 @@ public class HotelController {
     Navigator.logout(event);
   }
 
-   /**
+  /**
    * Desc: goes to the my account scene
+   *
    * @param event - the ActionEvent for the button
    * @throws Exception
    */
@@ -82,24 +86,25 @@ public class HotelController {
     Navigator.myAccount(event);
   }
 
-    /**
+  /**
    * Desc: makes a reservation and goes to the payment scene
+   *
    * @param event - the ActionEvent for the button
    * @throws Exception
    */
   public void bookItButton(ActionEvent event) throws Exception {
     try (Connection conn = DriverManager.getConnection(Credentials.getUrl());
-        Statement stmt = conn.createStatement();
-        ResultSet resultSet = stmt.executeQuery(GET_ID)) {
+         Statement stmt = conn.createStatement();
+         ResultSet resultSet = stmt.executeQuery(GET_ID)) {
       resultSet.next();
       id = resultSet.getInt(1);
-      PreparedStatement insert =  conn.prepareStatement("INSERT INTO SOS.RESERVATIONS (USER_ID) VALUES (" +id +")");
+      PreparedStatement insert = conn.prepareStatement("INSERT INTO SOS.RESERVATIONS (USER_ID) VALUES (" + id + ")");
       insert.executeUpdate();
     } catch (SQLException e) {
       e.printStackTrace();
     }
     reservation = new Reservation(hotel, DashController.getUserCheckInDate(),
-        DashController.getUserCheckOutDate(), DashController.getNumOfRooms());
+            DashController.getUserCheckOutDate(), DashController.getNumOfRooms());
 
     Navigator.payment(event);     //go to payment scene
 
@@ -113,12 +118,12 @@ public class HotelController {
     int rooms = DashController.getNumOfRooms();
     String hotelID = hotel.getHotelId();
 
-    String insert_reservation ="INSERT INTO SOS.RESERVATIONS (CHECKIN, CHECKOUT, HOTEL_ID, USER_ID) VALUES" +
-            "('"+checkInDate+"','"+checkOutDate+"',"+hotelID+","+id+")";
+    String insert_reservation = "INSERT INTO SOS.RESERVATIONS (CHECKIN, CHECKOUT, HOTEL_ID, USER_ID) VALUES" +
+            "('" + checkInDate + "','" + checkOutDate + "'," + hotelID + "," + id + ")";
 
 
-        String insert_hotel = "INSERT INTO SOS.HOTEL (ID, NAME, PRICE, RATING, LOCATION, ROOMS) VALUES" +
-                "("+hotelID+",'" +bookedHotelName+"',"+bookedHotelPrice+","+rating+",'"+location+"',"+rooms+")";
+    String insert_hotel = "INSERT INTO SOS.HOTEL (ID, NAME, PRICE, RATING, LOCATION, ROOMS) VALUES" +
+            "(" + hotelID + ",'" + bookedHotelName + "'," + bookedHotelPrice + "," + rating + ",'" + location + "'," + rooms + ")";
     try {
       Connection connection = DriverManager.getConnection(Credentials.getUrl());
       PreparedStatement insertReservation = connection.prepareStatement(insert_reservation);
@@ -126,13 +131,14 @@ public class HotelController {
       insertHotel.executeUpdate();
       insertReservation.executeUpdate();
       connection.close();
-    } catch (SQLException e){
+    } catch (SQLException e) {
       e.printStackTrace();
     }
   }
 
   /**
    * Desc: goes to the reviews scene
+   *
    * @param event - the ActionEvent for the button
    * @throws Exception
    */
@@ -143,7 +149,7 @@ public class HotelController {
   /**
    * Desc: allows user to view the next hotel image
    */
-  public void NextImage(){
+  public void NextImage() {
     try {
       imageArrayIndex++;                        //increase image index by 1
       hotelPhotos.setImage(images.get(imageArrayIndex));  //set image according to the index
@@ -156,18 +162,19 @@ public class HotelController {
   /**
    * Desc: allows user to view the previous hotel image
    */
-  public void PreviousImage(){
+  public void PreviousImage() {
     try {
       imageArrayIndex--;                                  //decrease image index by 1
       hotelPhotos.setImage(images.get(imageArrayIndex));  //set image according to the index
     } catch (IndexOutOfBoundsException e) {
-      hotelPhotos.setImage(images.get(images.size()-1));  //if user decreases past index 0, wraps to index 2
-      imageArrayIndex = images.size()-1;
+      hotelPhotos.setImage(images.get(images.size() - 1));  //if user decreases past index 0, wraps to index 2
+      imageArrayIndex = images.size() - 1;
     }
   }
 
   /**
    * Desc: sets the hotel to the current hotel being viewed
+   *
    * @param thisHotel - the current hotel being viewed
    */
   public static void setHotel(Hotel thisHotel) {
@@ -176,6 +183,7 @@ public class HotelController {
 
   /**
    * Desc: gets the current hotel
+   *
    * @return: hotel - the hotel being viewed
    */
   public static Hotel getHotel() {
@@ -184,6 +192,7 @@ public class HotelController {
 
   /**
    * Desc: sets the reservation to the current one
+   *
    * @param thisReservation - the reservation being made
    */
   public static void setReservation(Reservation thisReservation) {
@@ -192,6 +201,7 @@ public class HotelController {
 
   /**
    * Desc: gets the reservation
+   *
    * @return: reservation - the current reservation
    */
   public static Reservation getReservation() {

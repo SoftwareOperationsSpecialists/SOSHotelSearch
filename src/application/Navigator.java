@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 public class Navigator {
   /**
    * Desc: goes to the dashboard scene.
+   *
    * @param: event - the ActionEvent from the button
    * @throws: Exception
    */
@@ -25,9 +26,10 @@ public class Navigator {
     window.setScene(dashboardScene);
     window.show();
   }
-   
+
   /**
    * Desc: goes to the hotel info scene.
+   *
    * @param: event - the ActionEvent from the button
    * @throws: Exception
    */
@@ -42,6 +44,7 @@ public class Navigator {
     window.setScene(hotelInfoScene);
     window.show();
   }
+
   static void hotelInfo(ActionEvent event) throws Exception {
     HotelController hotelController = new HotelController();
 
@@ -52,8 +55,10 @@ public class Navigator {
     window.setScene(hotelInfoScene);
     window.show();
   }
+
   /**
    * Desc: goes to the logout scene.
+   *
    * @param: event - the ActionEvent from the button
    * @throws: Exception
    */
@@ -68,6 +73,7 @@ public class Navigator {
 
   /**
    * Desc: goes to the my account scene.
+   *
    * @param: event - the ActionEvent from the button
    * @throws: Exception
    */
@@ -82,6 +88,7 @@ public class Navigator {
 
   /**
    * Desc: goes to the payment scene.
+   *
    * @param: event - the ActionEvent from the button
    * @throws: Exception
    */
@@ -96,6 +103,7 @@ public class Navigator {
 
   /**
    * Desc: goes to the register scene.
+   *
    * @param: event - the ActionEvent from the button
    * @throws: Exception
    */
@@ -110,6 +118,7 @@ public class Navigator {
 
   /**
    * Desc: goes to the review scene.
+   *
    * @param: event - the ActionEvent from the button
    * @throws: Exception
    */
@@ -124,6 +133,7 @@ public class Navigator {
 
   /**
    * Desc: goes to the search scene.
+   *
    * @param: event - the ActionEvent from the button
    * @throws: Exception
    */
@@ -138,6 +148,7 @@ public class Navigator {
 
   /**
    * Desc: goes to the reservation scene.
+   *
    * @param: event - the ActionEvent from the button
    * @throws: Exception
    */
@@ -152,6 +163,7 @@ public class Navigator {
 
   /**
    * Desc: goes to the thank you scene.
+   *
    * @param: event - the ActionEvent from the button
    * @throws: Exception
    */
@@ -165,9 +177,10 @@ public class Navigator {
     window.show();
 
   }
-  
+
   /**
    * Desc: goes to the hotel owner scene.
+   *
    * @param: event - the ActionEvent from the button
    * @throws: Exception
    */

@@ -4,7 +4,7 @@ package application;
  * Desc: class describing a hotel object
  */
 
-public class Hotel implements Comparable<Hotel>{
+public class Hotel implements Comparable<Hotel> {
   private String hotelId;
   private String name;
   private double stars;
@@ -18,6 +18,7 @@ public class Hotel implements Comparable<Hotel>{
 
   /**
    * Desc: Hotel constructor
+   *
    * @param: hotelId - the hotel ID number
    * @param: name - the hotel name
    * @param: stars - the hotel star rating
@@ -43,6 +44,7 @@ public class Hotel implements Comparable<Hotel>{
 
   /**
    * Desc: sets the hotel ID
+   *
    * @param: id - the hotel id in the database
    */
   public void setHotelId(int id) {
@@ -51,14 +53,16 @@ public class Hotel implements Comparable<Hotel>{
 
   /**
    * Desc: gets the hotel ID
+   *
    * @return: hoteldId - the hotel ID number
    */
   public String getHotelId() {
-    return hotelId; 
+    return hotelId;
   }
 
   /**
    * Desc: sets the hotel name
+   *
    * @param: name - the hotel name
    */
   public void setName(String name) {
@@ -67,6 +71,7 @@ public class Hotel implements Comparable<Hotel>{
 
   /**
    * Desc: sets the hotel star rating
+   *
    * @param: stars - the hotel star rating
    */
   public void setStars(double stars) {
@@ -75,6 +80,7 @@ public class Hotel implements Comparable<Hotel>{
 
   /**
    * Desc: sets the hotel city
+   *
    * @param: city - the hotel city
    */
   public void setCity(String city) {
@@ -83,6 +89,7 @@ public class Hotel implements Comparable<Hotel>{
 
   /**
    * Desc: sets the hotel country code
+   *
    * @param: countryCode - the hotel country abbreviation
    */
   public void setCountryCode(String countryCode) {
@@ -91,6 +98,7 @@ public class Hotel implements Comparable<Hotel>{
 
   /**
    * Desc: set hotel country name
+   *
    * @param: countryName - the name of the hotel country
    */
   public void setCountryName(String countryName) {
@@ -99,6 +107,7 @@ public class Hotel implements Comparable<Hotel>{
 
   /**
    * Desc: sets hotel lattitude
+   *
    * @param: lat - the lattitude of the hotel location
    */
   public void setLat(double lat) {
@@ -106,7 +115,8 @@ public class Hotel implements Comparable<Hotel>{
   }
 
   /**
-   * Desc: sets hotel longitude 
+   * Desc: sets hotel longitude
+   *
    * @param: lng - the longitude of the hotel location
    */
   public void setLng(double lng) {
@@ -115,6 +125,7 @@ public class Hotel implements Comparable<Hotel>{
 
   /**
    * Desc: sets hotel room price
+   *
    * @param: price - the price of a hotel room
    */
   public void setPrice(int price) {
@@ -123,6 +134,7 @@ public class Hotel implements Comparable<Hotel>{
 
   /**
    * Desc: returns the hotel name
+   *
    * @return: name - the hotel name
    */
   public String getName() {
@@ -131,6 +143,7 @@ public class Hotel implements Comparable<Hotel>{
 
   /**
    * Desc: returns hotel star rating
+   *
    * @return: stars - the hotel star rating
    */
   public double getStars() {
@@ -138,7 +151,8 @@ public class Hotel implements Comparable<Hotel>{
   }
 
   /**
-   * Desc: returns the hotel city 
+   * Desc: returns the hotel city
+   *
    * @return: city - the hotel city name
    */
   public String getCity() {
@@ -146,7 +160,8 @@ public class Hotel implements Comparable<Hotel>{
   }
 
   /**
-   * Desc: returns the hotel country code 
+   * Desc: returns the hotel country code
+   *
    * @return: countryCode - the hotel country abbreviation
    */
   public String getCountryCode() {
@@ -155,6 +170,7 @@ public class Hotel implements Comparable<Hotel>{
 
   /**
    * Desc: returns the hotel country name
+   *
    * @return: countryName - the name of the hotel country
    */
   public String getCountryName() {
@@ -162,15 +178,17 @@ public class Hotel implements Comparable<Hotel>{
   }
 
   /**
-   * Desc: returns the hotel lattitude 
+   * Desc: returns the hotel lattitude
+   *
    * @return: lat - the lattitude of the hotel location
    */
   public double getLat() {
     return lat;
   }
-  
+
   /**
    * Desc: returns to the previous screen
+   *
    * @return: lng - the longitude of the  hotel location
    */
   public double getLng() {
@@ -179,7 +197,8 @@ public class Hotel implements Comparable<Hotel>{
 
   /**
    * Desc: returns the hotel room price
-   * @return: price - the hotel room price 
+   *
+   * @return: price - the hotel room price
    */
   public int getPrice() {
     return this.price;
@@ -187,12 +206,13 @@ public class Hotel implements Comparable<Hotel>{
 
   /**
    * Desc: adds a reservation to the hotel
+   *
    * @param: numUserRooms - the number of rooms the user is booking
    */
   public void addReservation(int numUserRooms) {
     numReservations += numUserRooms;
   }
-  
+
   @Override
   public String toString() {
     return "Hotel{" +
@@ -211,13 +231,14 @@ public class Hotel implements Comparable<Hotel>{
 
   /**
    * Desc: returns the difference in price between this and another
-   *    hotel object.
+   * hotel object.
+   *
    * @param: o - the hotel object to compare
    * @return: int - the difference between the price of the two objects
    * @throws: Exception
    */
   @Override
   public int compareTo(Hotel o) {
-    return (this.getPrice()-o.getPrice());
+    return (this.getPrice() - o.getPrice());
   }
 }

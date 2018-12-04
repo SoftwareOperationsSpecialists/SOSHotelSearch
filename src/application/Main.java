@@ -13,25 +13,27 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-   /**
-    * Desc: intializes the JavaFX GUI and sets scene to Login
-    * @param: primaryStage - the stage for the GUI
-    * @throws: Exception
-    */
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("LogIn.fxml"));
-        primaryStage.setResizable(false);
-        primaryStage.setTitle("SOS Hotel Search");
-        primaryStage.setScene(new Scene(root, 600, 432));
-        primaryStage.show();
-    }
+  /**
+   * Desc: intializes the JavaFX GUI and sets scene to Login
+   *
+   * @param: primaryStage - the stage for the GUI
+   * @throws: Exception
+   */
+  @Override
+  public void start(Stage primaryStage) throws Exception {
+    Parent root = FXMLLoader.load(getClass().getResource("LogIn.fxml"));
+    primaryStage.setResizable(false);
+    primaryStage.setTitle("SOS Hotel Search");
+    primaryStage.setScene(new Scene(root, 600, 432));
+    primaryStage.show();
+  }
 
-   /**
-    * Desc: launches the program
-    * @param: args - array of Strings
-    */
-    public static void main(String[] args) {
-        launch(args);
-    }
+  /**
+   * Desc: launches the program
+   *
+   * @param: args - array of Strings
+   */
+  public static void main(String[] args) {
+    launch(args);
+  }
 }

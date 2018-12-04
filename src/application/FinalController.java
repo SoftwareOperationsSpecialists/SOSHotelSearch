@@ -10,6 +10,7 @@ public class FinalController {
 
   /**
    * Desc: returns to the previous screen
+   *
    * @param: event - the event handler for the button
    * @throws: Exception
    */

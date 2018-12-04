@@ -1,6 +1,7 @@
 package application;
 
 import java.sql.SQLException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -49,6 +50,7 @@ public class RegController extends Credentials {
 
   /**
    * Desc: registers the user
+   *
    * @param: event - the ActionEvent from the button
    * @throws: Exception
    */
@@ -58,7 +60,8 @@ public class RegController extends Credentials {
 
   /**
    * Desc: creates a hotel searcher. Contains regex functionality to
-   *       ensure the user inputs proper naming conventions
+   * ensure the user inputs proper naming conventions
+   *
    * @param: event - the ActionEvent from the button
    * @throws: Exception
    */
@@ -78,27 +81,27 @@ public class RegController extends Credentials {
       nameStatus.setText("Invalid name input!");
       nameStatus.setTextFill(Paint.valueOf("red"));
 
-    //checks if password is valid
+      //checks if password is valid
     } else if (validPSWDPattern(txtPassword.getText())) {
       passwordStatus.setText("Password must not contain special characters!");
       passwordStatus.setTextFill(Paint.valueOf("red"));
 
-    //checks if username is valid
+      //checks if username is valid
     } else if (!validUserNamePattern(txtUserName.getText())) {
       userStatus.setText("Username must not contain spaces!");
       userStatus.setTextFill(Paint.valueOf("red"));
 
-    //checks if email is valid
+      //checks if email is valid
     } else if (validEmailPattern(txtEmail.getText())) {
       emailStatus.setText("Must be a valid email address!");
       emailStatus.setTextFill(Paint.valueOf("red"));
 
-    //checks if date of birth is valid
+      //checks if date of birth is valid
     } else if (validDOBPattern(txtDOB.getText())) {
       dobStatus.setText("DOB Pattern: MM/DD/YYYY");
       dobStatus.setTextFill(Paint.valueOf("red"));
 
-    //checks if hotel searcher is selected
+      //checks if hotel searcher is selected
     } else if (selectedRadioButton == regSearcherBtn) {
       try {
         //create hotel searcher account
@@ -108,7 +111,7 @@ public class RegController extends Credentials {
       } catch (SQLException | ClassNotFoundException e) {
         e.printStackTrace();
       }
-    //checks if hotel owner account is selected
+      //checks if hotel owner account is selected
     } else if (selectedRadioButton == regOwnerBtn) {
       try {
         //creates hotel owner account
@@ -123,11 +126,12 @@ public class RegController extends Credentials {
 
   /**
    * Desc: goes to the login scene.
+   *
    * @param: event - the ActionEvent from the button
    * @throws: Exception
    */
   @FXML
-   private void login(ActionEvent event) throws Exception {
+  private void login(ActionEvent event) throws Exception {
     Navigator.logout(event);
   }
 }

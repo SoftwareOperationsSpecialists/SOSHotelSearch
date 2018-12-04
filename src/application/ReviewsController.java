@@ -10,10 +10,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.sql.*;
 
 /**
-* Desc: creates review list and allows user to submit reviews
-*/
+ * Desc: creates review list and allows user to submit reviews
+ */
 public class ReviewsController {
-
   @FXML
   private TextField Review;
   @FXML
@@ -37,10 +36,11 @@ public class ReviewsController {
 
   static ObservableList<Review> reviewsList;
 
-   /**
-  * Desc: loads the list of reviews
-  * @throws: Exception
-  */
+  /**
+   * Desc: loads the list of reviews
+   *
+   * @throws: Exception
+   */
   public void initialize() throws Exception {
     updateList();
 
@@ -48,35 +48,35 @@ public class ReviewsController {
   }
 
   /**
-  * Desc: submits the review
-  * @param: event - the ActionEvent for the button
-  * @throws: Exception
-  */
+   * Desc: submits the review
+   *
+   * @param: event - the ActionEvent for the button
+   * @throws: Exception
+   */
   public void submitButton(ActionEvent event) throws Exception {
     review = Review.getText();
     rating = userRating.getSelectionModel().getSelectedItem();
 
     String create_Review_SQL = "INSERT INTO REVIEW." + "\"" + hotelID + "\""
-        + " ( USERNAME, REVIEW, USER_RATING) "
-        + "VALUES ("
-        + "'" + Credentials.getClientUsername() + "', "
-        + "'" + review + "', "
-        + "'" + rating + "'"
-        + " )";
+            + " ( USERNAME, REVIEW, USER_RATING) "
+            + "VALUES ("
+            + "'" + Credentials.getClientUsername() + "', "
+            + "'" + review + "', "
+            + "'" + rating + "'"
+            + " )";
 
     String create_Table_SQL = "CREATE TABLE REVIEW." + "\"" + hotelID + "\""
-        + "("
-        + "USERNAME varchar(255),"
-        + "REVIEW varchar(255),"
-        + "USER_RATING varchar(10) "
-        + ")";
+            + "("
+            + "USERNAME varchar(255),"
+            + "REVIEW varchar(255),"
+            + "USER_RATING varchar(10) "
+            + ")";
 
     if (review.length() < 10 || rating == null) {
       status.setText("Please enter more text and choose a rating.");
     } else if (review.length() > 255) {
       status.setText("Review is too long. 255 characters maximum.");
-    }
-    else {
+    } else {
       try {
         Class.forName(Credentials.getDriver());
         Connection reviewConnection = DriverManager.getConnection(URL);
@@ -99,9 +99,10 @@ public class ReviewsController {
   }
 
   /**
-  * Desc: updates the review list
-  * @throws: Exception
-  */
+   * Desc: updates the review list
+   *
+   * @throws: Exception
+   */
   public void updateList() throws Exception {
     reviewsList = FXCollections.observableArrayList();
     try {
@@ -114,9 +115,9 @@ public class ReviewsController {
       while (resultSet.next()) {
 
         Review review = new Review(
-            resultSet.getString("USERNAME"),
-            resultSet.getString("REVIEW"),
-            resultSet.getString("USER_RATING"));
+                resultSet.getString("USERNAME"),
+                resultSet.getString("REVIEW"),
+                resultSet.getString("USER_RATING"));
         reviewsList.add(review);
 
       }
@@ -132,10 +133,11 @@ public class ReviewsController {
   }
 
   /**
-  * Desc: goes back to the hotel info scene
-  * @param: event - the ActionEvent for the button
-  * @throws: Exception
-  */
+   * Desc: goes back to the hotel info scene
+   *
+   * @param: event - the ActionEvent for the button
+   * @throws: Exception
+   */
   public void backButton(ActionEvent event) throws Exception {
     Navigator.hotelInfo(event);
   }

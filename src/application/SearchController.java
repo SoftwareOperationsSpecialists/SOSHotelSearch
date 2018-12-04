@@ -42,11 +42,12 @@ public class SearchController {
   private AnchorPane hotelList;
 
   //Side panel buttons
-  
+
   /**
    * Desc: goes to dashboard scene
-   * @param: event - ActionEvent from the button
+   *
    * @throws Exception
+   * @param: event - ActionEvent from the button
    */
   public void dashboard(ActionEvent event) throws Exception {
     Navigator.dashboard(event);
@@ -54,8 +55,9 @@ public class SearchController {
 
   /**
    * Desc: goes to myAccount scene
-   * @param: event - ActionEvent from the button
+   *
    * @throws Exception
+   * @param: event - ActionEvent from the button
    */
   public void myAccount(ActionEvent event) throws Exception {
     Navigator.myAccount(event);
@@ -63,8 +65,9 @@ public class SearchController {
 
   /**
    * Desc: goes to logout scene
-   * @param: event - ActionEvent from the button
+   *
    * @throws Exception
+   * @param: event - ActionEvent from the button
    */
   public void logout(ActionEvent event) throws Exception {
     Navigator.logout(event);
@@ -72,7 +75,7 @@ public class SearchController {
 
   /**
    * Desc: intialize the scene by creating a map manager and creating images. Checks for new
-   *       instance and sets map location accordingly.
+   * instance and sets map location accordingly.
    */
   public void initialize() {
     MapManager mapManager = new MapManager();
@@ -107,7 +110,7 @@ public class SearchController {
 
   /**
    * Desc: sorts the hotel list by price. Every pass the list must be redrawn, so creates all objects
-   *       comprising each entry in the list using data pulled from hotelsToDisplay in mapManager
+   * comprising each entry in the list using data pulled from hotelsToDisplay in mapManager
    */
   private void sortList() {
     //clear any children on the list
@@ -224,6 +227,7 @@ public class SearchController {
 
   /**
    * Desc: sets lowToHigh to true and calls sortList
+   *
    * @param: lowToHigh - boolean controlling sorting scheme for list
    */
   public void setLowToHigh() {
@@ -233,6 +237,7 @@ public class SearchController {
 
   /**
    * Desc: sets lowToHigh to false and calls sortList
+   *
    * @param: lowToHigh - boolean controlling sorting scheme for list
    */
   public void setHighToLow() {

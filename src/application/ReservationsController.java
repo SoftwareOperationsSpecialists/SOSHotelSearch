@@ -29,7 +29,7 @@ public class ReservationsController implements Initializable {
   static String url = "jdbc:derby:lib/SOSHotelAccountDB";
   private int userId;
   private String GET_ID = "SELECT SOS.SEARCHER.USER_ID FROM SOS.SEARCHER WHERE SOS.SEARCHER.USERNAME='" +
-          LogInController.getClientUsername()+"'";
+          LogInController.getClientUsername() + "'";
 
   @FXML
   private TableView<Data> tableView;
@@ -45,8 +45,9 @@ public class ReservationsController implements Initializable {
 
   /**
    * Desc: intializes the scene by setting up columns and adding data
-   * @param: location - location of the database
+   *
    * @param resources - a ResourceBundle object
+   * @param: location - location of the database
    */
   @Override
   public void initialize(URL location, ResourceBundle resources) {
@@ -61,9 +62,10 @@ public class ReservationsController implements Initializable {
     private final SimpleStringProperty HotelName;
     private final SimpleStringProperty CheckIn;
     private final SimpleStringProperty CheckOut;
-    
+
     /**
      * Desc: Data constructor
+     *
      * @param: name - the name of the hotel
      * @param: checkIn - the check in date
      * @param: checkout - the check out date
@@ -73,32 +75,35 @@ public class ReservationsController implements Initializable {
       this.CheckIn = new SimpleStringProperty(checkIn);
       this.CheckOut = new SimpleStringProperty(checkOut);
     }
-    
+
     /**
      * Desc: returns the hotel name
+     *
      * @return HotelName - the hotel name
      */
     public String getHotelName() {
       return HotelName.get();
     }
-   
+
     /**
      * Desc: returns the check in date
+     *
      * @return CheckIn - the check in date
      */
     public String getCheckIn() {
       return CheckIn.get();
     }
-    
+
     /**
      * Desc: returns the check out date
+     *
      * @return CheckOut - the check out date
      */
-    public String getCheckOut() { 
+    public String getCheckOut() {
       return CheckOut.get();
     }
   }
-  
+
   /**
    * Desc: initializes column data in the table
    */
@@ -107,39 +112,38 @@ public class ReservationsController implements Initializable {
     CheckInCol.setCellValueFactory(new PropertyValueFactory<>("CheckIn"));
     CheckOutCol.setCellValueFactory(new PropertyValueFactory<>("CheckOut"));
   }
-  
+
   /**
    * Desc: gets data from the database to add to the table
    */
   private void addData() {
     try (Connection conn = DriverManager.getConnection(Credentials.getUrl());
-        Statement stmt = conn.createStatement();
-        ResultSet resultSet = stmt.executeQuery(GET_ID)) {
+         Statement stmt = conn.createStatement();
+         ResultSet resultSet = stmt.executeQuery(GET_ID)) {
       resultSet.next();
       this.userId = resultSet.getInt(1);
     } catch (SQLException e) {
       e.printStackTrace();
     }
     final String JOIN_Hotels = "SELECT SOS.HOTEL.NAME, SOS.RESERVATIONS.CHECKIN, "
-        + "SOS.RESERVATIONS.CHECKOUT"
-        + " FROM SOS.RESERVATIONS INNER JOIN "
-        + "SOS.HOTEL ON SOS.RESERVATIONS.HOTEL_ID=SOS.HOTEL.ID " +
+            + "SOS.RESERVATIONS.CHECKOUT"
+            + " FROM SOS.RESERVATIONS INNER JOIN "
+            + "SOS.HOTEL ON SOS.RESERVATIONS.HOTEL_ID=SOS.HOTEL.ID " +
             "WHERE SOS.RESERVATIONS.USER_ID=" + userId;
 
     try (Connection connection = DriverManager.getConnection(url);
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(JOIN_Hotels)) {
+         Statement statement = connection.createStatement();
+         ResultSet resultSet = statement.executeQuery(JOIN_Hotels)) {
 
       // Values from Resultset object are added into list
-      while(resultSet.next()) {
+      while (resultSet.next()) {
         String HotelName = resultSet.getString("name");
         String CheckIn = resultSet.getString("checkin");
         String CheckOut = resultSet.getString("checkout");
 
-        list.add(new Data(HotelName, CheckIn,CheckOut));
+        list.add(new Data(HotelName, CheckIn, CheckOut));
       }
-    }
-    catch (SQLException e) {
+    } catch (SQLException e) {
       status.setText("Error");
       e.printStackTrace();
     }
@@ -147,7 +151,7 @@ public class ReservationsController implements Initializable {
     tableView.getItems().setAll(list);
 
   }
-  
+
   /*
    * Desc: goes to myAccount scene
    * @param: event - ActionEvent from the button
@@ -156,7 +160,7 @@ public class ReservationsController implements Initializable {
   public void myAccount(ActionEvent event) throws Exception {
     Navigator.myAccount(event);
   }
-  
+
   /*
    * Desc: goes to dashbard scene
    * @param: event - ActionEvent from the button
@@ -165,7 +169,7 @@ public class ReservationsController implements Initializable {
   public void dashboard(ActionEvent event) throws Exception {
     Navigator.dashboard(event);
   }
-  
+
   /*
    * Desc: goes to logout scene
    * @param: event - ActionEvent from the button

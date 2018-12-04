@@ -5,8 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 /**
-* Desc: allows the user to pay and finalize their reservation
-*/
+ * Desc: allows the user to pay and finalize their reservation
+ */
 public class PayController {
   @FXML
   private Label numberOfRooms;
@@ -16,8 +16,8 @@ public class PayController {
   private Label numberOfNights;
 
   /**
-  * Desc: loads the number of rooms, price, and number of nights.
-  */
+   * Desc: loads the number of rooms, price, and number of nights.
+   */
   public void initialize() {
     numberOfRooms.setText("" + DashController.getNumOfRooms());
     price.setText("$" + HotelController.getReservation().getFinalCost());
@@ -25,19 +25,21 @@ public class PayController {
   }
 
   /**
-  * Desc: goes to the payment scene
-  * @param: event - the ActionEvent for the button
-  * @throws: Exception
-  */
+   * Desc: goes to the payment scene
+   *
+   * @param: event - the ActionEvent for the button
+   * @throws: Exception
+   */
   public void pay(ActionEvent event) throws Exception {
     Navigator.thankYouScene(event);
   }
 
   /**
-  * Desc: goes to the hotel info scene
-  * @param: event - the ActionEvent for the button
-  * @throws: Exception
-  */
+   * Desc: goes to the hotel info scene
+   *
+   * @param: event - the ActionEvent for the button
+   * @throws: Exception
+   */
   public void hotelInfo(ActionEvent event) throws Exception {
     Navigator.hotelInfo(event);
   }

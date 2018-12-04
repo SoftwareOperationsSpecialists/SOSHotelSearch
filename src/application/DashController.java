@@ -15,9 +15,9 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 /**
-* Desc: allows user to start a search by entering location,
-*       check-in date, check-out date, and number of rooms
-*/
+ * Desc: allows user to start a search by entering location,
+ * check-in date, check-out date, and number of rooms
+ */
 public class DashController implements Initializable {
   @FXML
   private TextField searchBar;        //searchbar where location is to be entered
