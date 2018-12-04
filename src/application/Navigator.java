@@ -63,7 +63,7 @@ public class Navigator {
    * @throws: Exception
    */
   static void logout(ActionEvent event) throws Exception {
-    Parent Logout = FXMLLoader.load(Navigator.class.getResource("login.fxml"));
+    Parent Logout = FXMLLoader.load(Navigator.class.getResource("Login.fxml"));
     Scene logoutScene = new Scene(Logout);
 
     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
