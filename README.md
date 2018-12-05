@@ -7,10 +7,10 @@ SOS Hotel Search is a java-based application that allows users to find the right
 
 Dependencies
 ---
-Java 8
-Derby Embedded Library
-JxMaps API
-Users must have internet access for the map to function properly
+* Java 8
+* Derby Embedded Library
+* JxMaps API
+* Users must have internet access for the map to function properly
 
 Installation
 ---
@@ -27,6 +27,7 @@ Once logged in as a hotel searcher, you will be brought to the navigation dashbo
 When viewing a hotel, you can see three pictures of the hotel. Click "Book It", and you will be able to enter your payment information to complete the reservation. Once your reservation is made, you will receive a confrmation message. Back on the hotel's information screen (the one with images of the hotel), you may look at user reviews by clicking on "View Reviews". Here you can also write your own review and give a rating to the hotel.
 
 **Hotel Owner Usage:**
+
 Hotel owner accounts will have access to a list of reservations made to their hotels. On this screen, hotel owners can see which hotels have reservations, the check-in date, the check-out date, and the number of rooms reserved.
 
 Built with
