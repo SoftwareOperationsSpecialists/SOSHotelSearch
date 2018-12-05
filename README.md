@@ -1,7 +1,7 @@
 SOS Hotel Search                                                                      
 ===
-Video Link: https://youtu.be/2T9bxa3zaHY
-
+Link to video of final product: https://youtu.be/2T9bxa3zaHY
+Link to video of prototype: https://youtu.be/GW5Kq2l_ilg
 
 Description
 ---
