@@ -20,7 +20,7 @@ abstract class Credentials {
   private static final String dobREGEX = "((?:0[1-9])|(?:1[0-2]))/((?:0[0-9])|(?:[1-2][0-9])|"
           + "(?:3[0-1]))/(\\d{4})";
 
-  private static final String searcherSql = "INSERT INTO SOS.SEARCHER VALUES(?,?,?,?,?)";
+  private static final String searcherSql = "INSERT INTO SOS.SEARCHER(USERNAME, DOB, PASSWORD, NAME, EMAIL) VALUES(?,?,?,?,?)";
   private static final String ownerSql = "INSERT INTO SOS.OWNER VALUES(?,?,?,?,?)";
   private static final String updateSQL = "UPDATE SOS.SEARCHER SET NAME = ?, PASSWORD = ?, "
           + "EMAIL = ?, DOB = ? WHERE USERNAME = ?";
