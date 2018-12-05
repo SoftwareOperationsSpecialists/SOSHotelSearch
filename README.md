@@ -16,6 +16,8 @@ Installation
 ---
 Double click the SOS Hotel Search .jar file located in the SOSHotelSearch_jar folder to run the application. If it does not run, make sure you have Java installed on your computer.
 
+NOTE: If the program does not run, or you seem to be stuck on the login/register screen, please run the application through the command line. You can do this by pointing to the directory of the SOSHotelSearch.jar file (for example, in command line type "cd C:/users/yourName/SOSHotelSearch-master/SOSHotelSearch_jar") and then running the command "java -jar SOSHotelSearch.jar".
+
 Usage
 ---
 When the program begins, you will be prompted to login with a username and password. If you do not have an account, click on the "Sign Up" tab. This will allow you to enter information to create an account. You must select either hotel searcher or hotel owner to determine what type of account this will be, as this will determine what features you can use. Once you have created your account, you will be able to login.
