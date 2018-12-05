@@ -36,7 +36,6 @@
           <items>
             <MenuItem mnemonicParsing="false" onAction="#setHighToLow" text="Price (high to low)" />
             <MenuItem mnemonicParsing="false" onAction="#setLowToHigh" text="Price (low to high)" />
-            <MenuItem mnemonicParsing="false" text="User Rating" />
           </items>
           <font>
             <Font size="14.0" />
