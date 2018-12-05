@@ -14,7 +14,7 @@ Dependencies
 
 Installation
 ---
-Double click the SOS Hotel Search .jar file to run the application. If it does not run, make sure you have Java installed on your computer.
+Double click the SOS Hotel Search .jar file located in the SOSHotelSearch_jar folder to run the application. If it does not run, make sure you have Java installed on your computer.
 
 Usage
 ---
